@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "749892903588",
+    "firebase_url": "https://iblood-7253a.firebaseio.com",
+    "project_id": "iblood-7253a",
+    "storage_bucket": "iblood-7253a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749892903588:android:8e975bf24f8c864c",
+        "android_client_info": {
+          "package_name": "com.r4sh33d.iblood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749892903588-i3hnede0ecmka0tg43j1ofdp3mukphes.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.r4sh33d.iblood",
+            "certificate_hash": "a8e80dcdad327568e54a837f09fcbb8bc1450ce9"
+          }
+        },
+        {
+          "client_id": "749892903588-2k4bs5109cop9htt058v7k2f6odktehn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZa_QIQD7LFwkkLzi3uAra0nDGVCbaTHw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749892903588-2k4bs5109cop9htt058v7k2f6odktehn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

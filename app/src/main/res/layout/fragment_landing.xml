@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    tools:context=".LandingFragment">
+
+
+  <!--  <TextView
+        android:textSize="30sp"
+        android:textColor="@color/blood_red"
+        android:text="Welcome"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    -->
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/blood_logo"/>
+
+    <TextView
+        android:textColor="@color/blood_red"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:text="Please select user type to begin the registration process"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/blood_donor_button"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@android:color/white"
+        android:text="Blood Donors"
+        android:background="@drawable/roundedbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/blood_banks_button"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:text="Blood Banks"
+        android:background="@drawable/roundedbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/blood_seeker_button"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:text="Blood Seekers"
+        android:background="@drawable/roundedbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
