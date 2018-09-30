@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_active_med_list"
+            android:icon="@drawable/ic_radio_button_checked_black_24dp"
+            android:title="Active Medications" />
+        <item
+            android:id="@+id/nav_medications_by_month"
+            android:icon="@drawable/ic_radio_button_checked_black_24dp"
+            android:title="Select Medications by Month" />
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_update_profile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="Update Profile"/>
+    </group>
+
+</menu>

@@ -22,7 +22,6 @@ public class LoginFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,10 +31,7 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
-
     @OnClick(R.id.click_here_to_register_textview)
-    public void registerTextViewClicked () {
-        getFragmentManager().beginTransaction().replace(R.id)
-    }
+    public void registerTextViewClicked () {}
 
 }
