@@ -21,7 +21,6 @@ public class LandingFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,14 +30,11 @@ public class LandingFragment extends Fragment {
         return view;
     }
 
-
     @OnClick(R.id.blood_banks_button)
     public void onBloodBankButtonClicked(){}
 
-
     @OnClick(R.id.blood_seeker_button)
     public void onBloodSeekerButtonClicked(){}
-
 
     @OnClick(R.id.blood_donor_button)
     public void onBloodDonorButtonClicked(){}

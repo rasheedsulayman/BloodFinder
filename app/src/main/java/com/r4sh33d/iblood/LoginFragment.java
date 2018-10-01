@@ -32,6 +32,6 @@ public class LoginFragment extends Fragment {
     }
 
     @OnClick(R.id.click_here_to_register_textview)
-    public void registerTextViewClicked () {}
-
+    public void registerTextViewClicked() {
+    }
 }
