@@ -133,7 +133,6 @@ public class DrawerActivity extends AppCompatActivity
         unlockDrawer();
     }
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

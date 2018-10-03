@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdditionalDetailsFragment">
+
+
+    <EditText
+        android:hint="Name"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="45dp" />
+
+    <EditText
+        android:hint="Phone number"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="45dp" />
+
+</LinearLayout>

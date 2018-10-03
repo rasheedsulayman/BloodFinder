@@ -7,23 +7,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DonorsRegistrationFragment extends Fragment {
+public class UserTypeSelectionFragment extends Fragment {
 
 
-    public DonorsRegistrationFragment() {
+    public UserTypeSelectionFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_donors_registration, container, false);
+        View view =  inflater.inflate(R.layout.fragment_user_type_selection, container, false);
+        ButterKnife.bind(this , view);
+        return view;
     }
+
+    @OnClick(R.id.blood_banks_button)
+    public void onBloodBankButtonClicked(){}
+
+    @OnClick(R.id.individual_users_button)
+    public void onBloodDonorButtonClicked(){}
+
 
 }

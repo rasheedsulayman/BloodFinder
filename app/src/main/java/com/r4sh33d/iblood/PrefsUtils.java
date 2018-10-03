@@ -16,7 +16,7 @@ public class PrefsUtils {
 
     private Context context;
 
-    PrefsUtils(Context context) {
+    public  PrefsUtils(Context context) {
         this.context = context;
     }
 

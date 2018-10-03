@@ -26,7 +26,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:hint="Username"
+        android:hint="Email"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -35,9 +35,8 @@
         android:padding="10dp"
         android:layout_height="45dp" />
 
-
     <EditText
-        android:hint="Username"
+        android:hint="Password"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -58,6 +57,7 @@
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/click_here_to_register_textview"
         android:textColor="@color/blood_red"
         android:gravity="center"
@@ -68,6 +68,5 @@
         android:layout_width="match_parent"
         android:text="New user?, Click here to register"
         android:layout_height="wrap_content" />
-
 
 </LinearLayout>

@@ -7,20 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.r4sh33d.iblood.base.BaseFragment;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends BaseFragment {
+public class ConfirmEmailFragment extends Fragment {
 
 
-    public LoginFragment() {
+    public ConfirmEmailFragment() {
         // Required empty public constructor
     }
 
@@ -28,12 +22,7 @@ public class LoginFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        return inflater.inflate(R.layout.fragment_confirm_email, container, false);
     }
 
-    @OnClick(R.id.click_here_to_register_textview)
-    public void registerTextViewClicked() {
-    }
 }
