@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AdditionalDetailsFragment">
-
+    tools:context=".additionaldetails.AdditionalDetailsFragment">
 
     <EditText
         android:hint="Name"
@@ -18,6 +17,7 @@
         android:layout_height="45dp" />
 
     <EditText
+        android:inputType="phone"
         android:hint="Phone number"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
@@ -26,5 +26,40 @@
         android:layout_width="match_parent"
         android:padding="10dp"
         android:layout_height="45dp" />
+
+    <EditText
+        android:id="@+id/phone_number_edit_text"
+        android:hint="Address"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="45dp"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/religion_edit_text"
+        android:hint=" Religion (Optional)"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="45dp"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:text= "Save"
+        android:background="@drawable/roundedbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

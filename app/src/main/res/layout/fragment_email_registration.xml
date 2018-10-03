@@ -3,17 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EmailRegistrationFragment">
+    android:layout_margin="16dp"
+    tools:context=".emailregistration.EmailRegistrationFragment">
     <LinearLayout
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="16dp"
         tools:context=".LoginFragment">
 
-
-
         <TextView
+
             android:textColor="@color/blood_red"
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Menu"
@@ -21,10 +21,12 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:text="Please enter the email address and password you would like to use "
+            android:text="Please enter your email and password to to get started "
             android:layout_height="wrap_content" />
 
+
         <EditText
+            android:id="@+id/email_edit_text"
             android:hint="Email"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
@@ -35,7 +37,10 @@
             android:layout_height="45dp"
             android:inputType="textEmailAddress" />
 
+
+
         <EditText
+            android:id="@+id/password_edittext"
             android:inputType="textPassword"
             android:hint="Password"
             android:layout_marginRight="20dp"
@@ -44,9 +49,10 @@
             android:background="@drawable/rounded_edittext"
             android:layout_width="match_parent"
             android:padding="10dp"
-            android:layout_height="45dp" />
+            android:layout_height="45dp"/>
 
         <EditText
+            android:id="@+id/confirm_password_edittext"
             android:hint="Confirm Password"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
@@ -55,10 +61,10 @@
             android:layout_width="match_parent"
             android:padding="10dp"
             android:layout_height="45dp"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"/>
 
         <Button
-            android:id="@+id/blood_seeker_button"
+            android:id="@+id/register_button"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"

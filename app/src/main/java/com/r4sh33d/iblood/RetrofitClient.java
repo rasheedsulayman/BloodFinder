@@ -14,7 +14,7 @@ public class RetrofitClient {
 
     public static final String API_KEY = "AIzaSyAvC5cvSGIvrxmqN0qIKvj-M6IqV6VkXcQ";
     private static final String AUTH_BASE_URL = "https://www.googleapis.com/identitytoolkit/v3/relyingparty";
-    private static final String DATABASE_BASE_URL = "";
+    private static final String DATABASE_BASE_URL = "https://iblood-7253a.firebaseio.com";
 
 
     public static Retrofit buildAuthRetrofit() {
