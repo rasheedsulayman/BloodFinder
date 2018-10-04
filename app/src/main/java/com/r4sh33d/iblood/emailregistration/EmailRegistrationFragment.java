@@ -15,7 +15,7 @@ import android.widget.EditText;
 import com.r4sh33d.iblood.additionaldetails.AdditionalDetailsFragment;
 import com.r4sh33d.iblood.Provider;
 import com.r4sh33d.iblood.R;
-import com.r4sh33d.iblood.Utils;
+import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserAuthRequest;

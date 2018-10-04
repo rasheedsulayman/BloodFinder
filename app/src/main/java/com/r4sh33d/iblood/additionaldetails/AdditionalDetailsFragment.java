@@ -1,6 +1,5 @@
 package com.r4sh33d.iblood.additionaldetails;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,7 +13,7 @@ import android.widget.EditText;
 import com.r4sh33d.iblood.DrawerActivity;
 import com.r4sh33d.iblood.Provider;
 import com.r4sh33d.iblood.R;
-import com.r4sh33d.iblood.ViewUtils;
+import com.r4sh33d.iblood.utils.ViewUtils;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
 import com.r4sh33d.iblood.models.User;

@@ -1,7 +1,6 @@
 package com.r4sh33d.iblood;
 
 import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
@@ -11,6 +10,7 @@ import android.widget.TextView;
 
 import com.r4sh33d.iblood.base.BaseActivity;
 import com.r4sh33d.iblood.login.LoginFragment;
+import com.r4sh33d.iblood.utils.ViewUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

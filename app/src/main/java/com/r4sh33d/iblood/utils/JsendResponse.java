@@ -1,4 +1,4 @@
-package com.r4sh33d.iblood;
+package com.r4sh33d.iblood.utils;
 
 import com.google.gson.JsonElement;
 

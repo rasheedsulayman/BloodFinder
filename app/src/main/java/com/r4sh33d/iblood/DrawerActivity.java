@@ -3,12 +3,9 @@ package com.r4sh33d.iblood;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -17,13 +14,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.r4sh33d.iblood.base.BaseActivity;
+import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
+import com.r4sh33d.iblood.utils.Constants;
+import com.r4sh33d.iblood.utils.PrefsUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DrawerActivity extends AppCompatActivity
+public class DrawerActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     public static final String USER_KEY = "UserIntentKey";
     @BindView(R.id.toolbar)
@@ -34,6 +33,7 @@ public class DrawerActivity extends AppCompatActivity
     @BindView(R.id.nav_view)
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
+    PrefsUtils prefsUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,24 +46,27 @@ public class DrawerActivity extends AppCompatActivity
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
+        prefsUtils = Provider.providePrefManager(this);
+        AdditionalUserDetailsRequest additionalUserDetailsRequest = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS,
+                AdditionalUserDetailsRequest.class);
+        if (additionalUserDetailsRequest != null) {
             // Name, email address, and profile photo Url
-            setNavigationViewHeaderDetails(user);
+            setNavigationViewHeaderDetails(additionalUserDetailsRequest);
         }
         //coming from the launcher
-        //navigateToFragment(new ActiveMedicationsFragment());
+        replaceFragment(new DashBoardFragment(), false);
         drawerToggle.setToolbarNavigationClickListener(v -> onBackPressed());
     }
 
-    void setNavigationViewHeaderDetails(FirebaseUser user) {
+
+    void setNavigationViewHeaderDetails(AdditionalUserDetailsRequest user) {
         NavigationView navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         ImageView userProfilePic = headerView.findViewById(R.id.user_profile_pic);
         TextView userDisplayName = headerView.findViewById(R.id.user_display_name);
         TextView userEmail = headerView.findViewById(R.id.user_email);
-        userDisplayName.setText(user.getDisplayName());
-        userEmail.setText(user.getEmail());
+        userDisplayName.setText(user.name);
+        userEmail.setText(user.email);
 //        Picasso.get()
 //                .load(user.getPhotoUrl())
 //                .noFade()
@@ -154,9 +157,37 @@ public class DrawerActivity extends AppCompatActivity
         return true;
     }
 
-    void navigateToFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content_frame, fragment);
-        transaction.commit();
+
+
+
+    @Override
+    public void showLoading(String message) {
+
     }
+
+    @Override
+    public void dismissLoading() {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void showLoading(int resId) {
+
+    }
+
+    @Override
+    public void showToolbar() {
+
+    }
+
+    @Override
+    public void hideToolbar() {
+
+    }
+
 }

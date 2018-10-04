@@ -8,6 +8,7 @@ import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -23,14 +24,16 @@ public interface AccountService {
     Call<JsonElement> activateDevice(@Path("identifier") String phoneNumber,
                                      @Body Map<String, String> body);
 
-    @POST("/accounts/{identifier}/pin")
+    @POST("/signupNewUser")
     Call<JsonElement> registerUserEmail(@Body UserAuthRequest payload);
 
 
-    @POST("/users/{userId}")
+    @PUT("/users/{userId}.json")
     Call<JsonElement> saveAdditionalUserDetail(@Body AdditionalUserDetailsRequest additionalUserDetailsRequest,
                                                @Path("userId") String userID);
 
+    @GET("/users/{userId}.json")
+    Call<JsonElement> getAdditionalUserDetails (@Path("userId") String userID);
 
     @POST("/accounts/customers/sessions")
     Call<JsonElement> authenticateUser(@Body Map<String, String> body);

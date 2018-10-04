@@ -2,10 +2,9 @@ package com.r4sh33d.iblood.additionaldetails;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.r4sh33d.iblood.JsendResponse;
+import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
 import com.r4sh33d.iblood.models.User;
-import com.r4sh33d.iblood.models.UserAuthRequest;
 import com.r4sh33d.iblood.network.AccountService;
 
 import retrofit2.Call;

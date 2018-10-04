@@ -1,6 +1,7 @@
 package com.r4sh33d.iblood.login;
 
 import com.r4sh33d.iblood.base.BaseContract;
+import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserAuthRequest;
 
@@ -12,6 +13,6 @@ public interface LoginContract {
     }
 
     interface View  extends BaseContract.view{
-        void onUserSuccessfullyLoggedIn (User user);
+        void onUserSuccessfullyLoggedIn (AdditionalUserDetailsRequest user);
     }
 }

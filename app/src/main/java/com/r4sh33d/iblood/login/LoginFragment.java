@@ -15,11 +15,9 @@ import android.widget.EditText;
 import com.r4sh33d.iblood.DrawerActivity;
 import com.r4sh33d.iblood.Provider;
 import com.r4sh33d.iblood.R;
-import com.r4sh33d.iblood.Utils;
+import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.base.BaseFragment;
-import com.r4sh33d.iblood.emailregistration.EmailRegistrationContract;
-import com.r4sh33d.iblood.emailregistration.EmailRegistrationPresenter;
-import com.r4sh33d.iblood.models.User;
+import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
 import com.r4sh33d.iblood.models.UserAuthRequest;
 import com.r4sh33d.iblood.network.AccountService;
 
@@ -59,7 +57,8 @@ public class LoginFragment extends BaseFragment implements  LoginContract.View {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         presenter = new LoginPresenter(this,
-                Provider.provideRetrofitService(Provider.provideAuthRetrofitInstance(), AccountService.class));
+                Provider.provideRetrofitService(Provider.provideAuthRetrofitInstance(), AccountService.class),
+                Provider.providePrefManager(getContext()));
     }
 
     @OnClick(R.id.login_button)
@@ -86,9 +85,8 @@ public class LoginFragment extends BaseFragment implements  LoginContract.View {
 
 
     @Override
-    public void onUserSuccessfullyLoggedIn(User user) {
+    public void onUserSuccessfullyLoggedIn(AdditionalUserDetailsRequest user) {
         Intent intent = new Intent(getContext() , DrawerActivity.class);
-        intent.putExtra(DrawerActivity.USER_KEY, user);
         startActivity(intent);
         getActivity().finish();
     }

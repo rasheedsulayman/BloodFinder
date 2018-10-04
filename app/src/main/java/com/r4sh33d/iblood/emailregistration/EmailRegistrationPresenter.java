@@ -2,7 +2,7 @@ package com.r4sh33d.iblood.emailregistration;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.r4sh33d.iblood.JsendResponse;
+import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserAuthRequest;
 import com.r4sh33d.iblood.network.AccountService;
