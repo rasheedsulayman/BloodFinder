@@ -23,4 +23,25 @@ public class AdditionalUserDetailsRequest {
     @SerializedName("religion")
     @Expose
     public String religion;
+
+    @SerializedName("firebaseId")
+    @Expose
+    public String firebaseID;
+
+    public AdditionalUserDetailsRequest(boolean isBloodBank, String name, String email,
+                                        String phoneNumber, String address, String religion,
+                                        String firebaseID) {
+        this.isBloodBank = isBloodBank;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.religion = religion;
+        this.firebaseID = firebaseID;
+    }
+
+    public AdditionalUserDetailsRequest() {
+
+    }
 }
+

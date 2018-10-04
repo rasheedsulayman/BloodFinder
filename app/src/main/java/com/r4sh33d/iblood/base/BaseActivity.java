@@ -2,7 +2,11 @@ package com.r4sh33d.iblood.base;
 
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+
+import com.r4sh33d.iblood.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -27,5 +31,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     public abstract void showToolbar();
 
     public abstract void hideToolbar();
+
+
+    public void replaceFragment(Fragment fragment, boolean addToBackStack) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        if (addToBackStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.replace(R.id.view_container, fragment).commit();
+    }
 
 }

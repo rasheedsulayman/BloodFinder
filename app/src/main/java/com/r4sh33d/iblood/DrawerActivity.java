@@ -25,6 +25,7 @@ import butterknife.ButterKnife;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public static final String USER_KEY = "UserIntentKey";
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     private static final String TAG = DrawerActivity.class.getSimpleName();

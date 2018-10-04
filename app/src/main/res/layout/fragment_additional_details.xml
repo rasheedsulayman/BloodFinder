@@ -7,6 +7,7 @@
     tools:context=".additionaldetails.AdditionalDetailsFragment">
 
     <EditText
+        android:id="@+id/name_edit_text"
         android:hint="Name"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
@@ -17,6 +18,7 @@
         android:layout_height="45dp" />
 
     <EditText
+        android:id="@+id/phone_number_edit_text"
         android:inputType="phone"
         android:hint="Phone number"
         android:layout_marginRight="20dp"
@@ -28,7 +30,7 @@
         android:layout_height="45dp" />
 
     <EditText
-        android:id="@+id/phone_number_edit_text"
+        android:id="@+id/address_edit_text"
         android:hint="Address"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"

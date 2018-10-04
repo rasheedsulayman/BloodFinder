@@ -14,6 +14,14 @@ public class Provider {
     }
 
 
+    public static Retrofit provideDataRetrofitInstance() {
+        if (dataRetrofitInstance == null) {
+            dataRetrofitInstance = RetrofitClient.builDataRetrofit();
+        }
+        return dataRetrofitInstance;
+    }
+
+
 
     public static <T> T provideRetrofitService(final Retrofit retrofit, Class<T> clazz) {
         return retrofit.create(clazz);

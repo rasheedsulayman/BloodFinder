@@ -51,6 +51,12 @@ public class JsendResponse {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        //TODO comeback and rewrite this in a clean manner
+        try {
+            return errorBody.getString("error");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return ERROR_MESSAGE;
     }
 

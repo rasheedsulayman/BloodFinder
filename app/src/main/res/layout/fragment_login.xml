@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="16dp"
-    tools:context=".LoginFragment">
+    tools:context=".login.LoginFragment">
 
     <ImageView
         android:layout_gravity="center"
@@ -26,6 +26,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
+        android:id="@+id/email_edit_text"
         android:hint="Email"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
@@ -36,6 +37,7 @@
         android:layout_height="45dp" />
 
     <EditText
+        android:id="@+id/password_edit_text"
         android:hint="Password"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
@@ -46,7 +48,7 @@
         android:layout_height="45dp" />
 
     <Button
-        android:id="@+id/blood_seeker_button"
+        android:id="@+id/login_button"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"

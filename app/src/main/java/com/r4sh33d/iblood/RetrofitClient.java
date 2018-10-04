@@ -23,6 +23,13 @@ public class RetrofitClient {
         return build(AUTH_BASE_URL, queryParams);
     }
 
+    public static Retrofit builDataRetrofit() {
+        HashMap<String, String> queryParams = new HashMap<>();
+        //queryParams.put("key", API_KEY); TODO come back and add authentication to secure the API
+        return build(DATABASE_BASE_URL, queryParams);
+    }
+
+
     public static Retrofit build(String baseURL, HashMap<String, String> queryParams) {
         return new Retrofit.Builder()
                 .baseUrl(baseURL)

@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.r4sh33d.iblood.base.BaseActivity;
+import com.r4sh33d.iblood.login.LoginFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +34,10 @@ public class LoginActivity extends BaseActivity {
         ButterKnife.bind(this);
         setContentView(R.layout.activity_login);
         setSupportActionBar(toolbar);
+        replaceFragment(new LoginFragment() , false);
     }
+
+
 
     @Override
     public void showLoading() {
@@ -51,7 +55,9 @@ public class LoginActivity extends BaseActivity {
         progressMessage.setText(message);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+
     }
+
 
     @Override
     public void dismissLoading() {
