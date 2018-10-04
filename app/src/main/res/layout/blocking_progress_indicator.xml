@@ -14,6 +14,8 @@
     tools:visibility="visible">
 
     <ProgressBar
+        android:progressTint="@color/blood_red"
+        android:progressDrawable="@drawable/seekbar_drawable"
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
@@ -27,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.39999998"
-        tools:visibility="visible" />
+        tools:visibility="visible"/>
 
     <TextView
         android:id="@+id/progress_message"
@@ -43,7 +45,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progress_bar"
-        tools:text="Loading Please wait ..."
-        />
+        tools:text="Loading Please wait ..."/>
 
 </android.support.constraint.ConstraintLayout>

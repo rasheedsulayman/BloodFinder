@@ -14,19 +14,10 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 
-public interface AccountService {
+public interface DataService {
 
     @POST("/accounts/verifications")
     Call<JsonElement> requestOTP(@Body Map<String, String> phoneNumberPayload);
-
-
-    @PUT("/accounts/{identifier}/verifications")
-    Call<JsonElement> activateDevice(@Path("identifier") String phoneNumber,
-                                     @Body Map<String, String> body);
-
-    @POST("/signupNewUser")
-    Call<JsonElement> registerUserEmail(@Body UserAuthRequest payload);
-
 
     @PUT("/users/{userId}.json")
     Call<JsonElement> saveAdditionalUserDetail(@Body AdditionalUserDetailsRequest additionalUserDetailsRequest,

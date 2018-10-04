@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.r4sh33d.iblood.base.BaseFragment;
+import com.r4sh33d.iblood.emailregistration.EmailRegistrationFragment;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -14,7 +17,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UserTypeSelectionFragment extends Fragment {
+public class UserTypeSelectionFragment extends BaseFragment {
 
 
     public UserTypeSelectionFragment() {
@@ -31,10 +34,14 @@ public class UserTypeSelectionFragment extends Fragment {
     }
 
     @OnClick(R.id.blood_banks_button)
-    public void onBloodBankButtonClicked(){}
+    public void onBloodBankButtonClicked(){
+        replaceFragment(EmailRegistrationFragment.newInstance(true));
+    }
 
     @OnClick(R.id.individual_users_button)
-    public void onBloodDonorButtonClicked(){}
+    public void onBloodDonorButtonClicked(){
+        replaceFragment(EmailRegistrationFragment.newInstance(false));
+    }
 
 
 }

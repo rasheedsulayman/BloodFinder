@@ -15,11 +15,12 @@ import android.widget.EditText;
 import com.r4sh33d.iblood.additionaldetails.AdditionalDetailsFragment;
 import com.r4sh33d.iblood.Provider;
 import com.r4sh33d.iblood.R;
+import com.r4sh33d.iblood.network.AuthService;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserAuthRequest;
-import com.r4sh33d.iblood.network.AccountService;
+import com.r4sh33d.iblood.network.DataService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +32,7 @@ import butterknife.OnClick;
  */
 public class EmailRegistrationFragment extends BaseFragment implements EmailRegistrationContract.View {
 
-    private static final String KEY_IS_BLOOD_BANK = "isbloodbank" ;
+    private static final String KEY_IS_BLOOD_BANK = "isbloodbank";
     @BindView(R.id.email_edit_text)
     EditText emailEditText;
 
@@ -49,7 +50,7 @@ public class EmailRegistrationFragment extends BaseFragment implements EmailRegi
 
     public static EmailRegistrationFragment newInstance(Boolean isBloodBank) {
         Bundle args = new Bundle();
-        args.putBoolean(KEY_IS_BLOOD_BANK , isBloodBank);
+        args.putBoolean(KEY_IS_BLOOD_BANK, isBloodBank);
         EmailRegistrationFragment fragment = new EmailRegistrationFragment();
         fragment.setArguments(args);
         return fragment;
@@ -71,13 +72,14 @@ public class EmailRegistrationFragment extends BaseFragment implements EmailRegi
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        presenter = new EmailRegistrationPresenter(this,
-                Provider.provideRetrofitService(Provider.provideAuthRetrofitInstance(), AccountService.class));
+        showToolbar();
+        setToolbarTitle("Register");
+        presenter = new EmailRegistrationPresenter(this, Provider.provideAuthRetrofitService(AuthService.class));
     }
 
     @Override
     public void onUserEmailRegistered(User user) {
-         replaceFragment(AdditionalDetailsFragment.newInstance(getArguments().getBoolean(KEY_IS_BLOOD_BANK),user));
+        replaceFragment(AdditionalDetailsFragment.newInstance(getArguments().getBoolean(KEY_IS_BLOOD_BANK), user));
     }
 
     @OnClick(R.id.register_button)
@@ -85,18 +87,26 @@ public class EmailRegistrationFragment extends BaseFragment implements EmailRegi
         String emailAddress = emailEditText.getText().toString();
         String firstPassword = passwordEditText.getText().toString();
         String secondPassword = confirmPasswordEditText.getText().toString();
-        if (Utils.isValidEmail(emailAddress)) {
+        if (!Utils.isValidEmail(emailAddress)) {
             emailEditText.setError("Please use a valid email address");
             return;
         }
+
         if ((TextUtils.isEmpty(firstPassword) || TextUtils.isEmpty(secondPassword))) {
             showToast("Please select a valid password");
             return;
         }
+
+        if (firstPassword.length() < 6) {
+            passwordEditText.setError("Password must be at least six characters long");
+            return;
+        }
+
         if (!firstPassword.equals(secondPassword)) {
             showToast("Passwords do not match");
             return;
         }
+
         UserAuthRequest userAuthRequest = new UserAuthRequest(emailAddress, firstPassword);
         presenter.registerUserEmail(userAuthRequest);
     }

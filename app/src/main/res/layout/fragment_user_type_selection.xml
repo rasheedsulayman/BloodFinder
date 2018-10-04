@@ -22,8 +22,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
+        android:textSize="16sp"
         android:text="Please select user type to begin the registration process"
-        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
         android:textColor="@color/blood_red" />
 
     <Button

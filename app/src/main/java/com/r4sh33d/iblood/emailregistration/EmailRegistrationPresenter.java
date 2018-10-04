@@ -2,10 +2,11 @@ package com.r4sh33d.iblood.emailregistration;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.r4sh33d.iblood.network.AuthService;
 import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserAuthRequest;
-import com.r4sh33d.iblood.network.AccountService;
+import com.r4sh33d.iblood.network.DataService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,12 +16,12 @@ import retrofit2.Response;
 public class EmailRegistrationPresenter implements EmailRegistrationContract.Presenter {
 
     private EmailRegistrationContract.View view;
-    private final AccountService accountService;
+    private AuthService authService;
     private static final String TAG = EmailRegistrationPresenter.class.getSimpleName();
 
-    EmailRegistrationPresenter(EmailRegistrationContract.View view, AccountService accountService) {
+    EmailRegistrationPresenter(EmailRegistrationContract.View view, AuthService authService) {
         this.view = view;
-        this.accountService = accountService;
+        this.authService = authService;
     }
 
     @Override
@@ -29,7 +30,7 @@ public class EmailRegistrationPresenter implements EmailRegistrationContract.Pre
     @Override
     public void registerUserEmail(UserAuthRequest userAuthRequest) {
         view.showLoading();
-        accountService.registerUserEmail(userAuthRequest).enqueue(new Callback<JsonElement>() {
+        authService.registerUserEmail(userAuthRequest).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 view.dismissLoading();

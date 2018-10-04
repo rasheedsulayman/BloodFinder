@@ -2,6 +2,8 @@ package com.r4sh33d.iblood;
 
 import android.content.Context;
 
+import com.r4sh33d.iblood.network.AuthService;
+import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 
 import retrofit2.Retrofit;
@@ -33,9 +35,15 @@ public class Provider {
         return dataRetrofitInstance;
     }
 
-
-
     public static <T> T provideRetrofitService(final Retrofit retrofit, Class<T> clazz) {
         return retrofit.create(clazz);
+    }
+
+    public static  <T> T provideAuthRetrofitService(Class<AuthService> clazz){
+        return provideAuthRetrofitInstance().create(clazz);
+    }
+
+    public static  <T> T provideDataRetrofitService(Class<DataService> clazz){
+        return provideDataRetrofitInstance().create(clazz);
     }
 }

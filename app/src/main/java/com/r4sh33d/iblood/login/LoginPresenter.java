@@ -2,13 +2,14 @@ package com.r4sh33d.iblood.login;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.r4sh33d.iblood.network.AuthService;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserAuthRequest;
-import com.r4sh33d.iblood.network.AccountService;
+import com.r4sh33d.iblood.network.DataService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,13 +19,15 @@ import retrofit2.Response;
 public class LoginPresenter implements LoginContract.Presenter {
 
     private LoginContract.View view;
-    private final AccountService accountService;
+    private final DataService dataService;
+    private AuthService authService;
     private PrefsUtils prefsUtils;
     private static final String TAG = LoginPresenter.class.getSimpleName();
 
-    LoginPresenter(LoginContract.View view, AccountService accountService , PrefsUtils prefsUtils) {
+    LoginPresenter(LoginContract.View view, DataService dataService, AuthService authService, PrefsUtils prefsUtils) {
         this.view = view;
-        this.accountService = accountService;
+        this.dataService = dataService;
+        this.authService = authService;
         this.prefsUtils = prefsUtils;
     }
 
@@ -34,7 +37,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void login (UserAuthRequest userAuthRequest) {
         view.showLoading();
-        accountService.registerUserEmail(userAuthRequest).enqueue(new Callback<JsonElement>() {
+        authService.loginUser(userAuthRequest).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 view.dismissLoading();
@@ -56,7 +59,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     public void getAdditionalUserDetails(String userID){
-        accountService.getAdditionalUserDetails(userID).enqueue(new Callback<JsonElement>() {
+        dataService.getAdditionalUserDetails(userID).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 view.dismissLoading();

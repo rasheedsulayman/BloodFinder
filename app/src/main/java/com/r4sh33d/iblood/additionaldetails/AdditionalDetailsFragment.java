@@ -17,7 +17,7 @@ import com.r4sh33d.iblood.utils.ViewUtils;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
 import com.r4sh33d.iblood.models.User;
-import com.r4sh33d.iblood.network.AccountService;
+import com.r4sh33d.iblood.network.DataService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,8 +68,9 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setToolbarTitle("Additional Information");
         presenter = new AdditionalDetailsPresenter(this,
-                Provider.provideRetrofitService(Provider.provideDataRetrofitInstance(), AccountService.class));
+                Provider.provideRetrofitService(Provider.provideDataRetrofitInstance(), DataService.class));
         isBloodBank = getArguments().getBoolean(KEY_IS_BLOOD_BANK);
         user = getArguments().getParcelable(KEY_USER);
 
@@ -90,7 +91,6 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
                 user.localId
         );
         presenter.saveAdditionalDetails(additionalUserDetailsRequest);
-
     }
 
     @Override

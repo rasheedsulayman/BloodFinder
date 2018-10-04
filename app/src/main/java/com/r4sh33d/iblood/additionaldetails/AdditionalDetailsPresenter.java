@@ -5,7 +5,7 @@ import com.google.gson.JsonElement;
 import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
 import com.r4sh33d.iblood.models.User;
-import com.r4sh33d.iblood.network.AccountService;
+import com.r4sh33d.iblood.network.DataService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,12 +15,12 @@ import retrofit2.Response;
 public class AdditionalDetailsPresenter implements AdditionalDetailsContract.Presenter {
 
     private AdditionalDetailsContract.View view;
-    private final AccountService accountService;
+    private final DataService dataService;
     private static final String TAG = AdditionalDetailsPresenter.class.getSimpleName();
 
-    AdditionalDetailsPresenter(AdditionalDetailsContract.View view, AccountService accountService) {
+    AdditionalDetailsPresenter(AdditionalDetailsContract.View view, DataService dataService) {
         this.view = view;
-        this.accountService = accountService;
+        this.dataService = dataService;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class AdditionalDetailsPresenter implements AdditionalDetailsContract.Pre
     @Override
     public void saveAdditionalDetails(AdditionalUserDetailsRequest additionalUserDetailsRequest) {
         view.showLoading();
-        accountService.saveAdditionalUserDetail(additionalUserDetailsRequest,
+        dataService.saveAdditionalUserDetail(additionalUserDetailsRequest,
                 additionalUserDetailsRequest.firebaseID).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,13 @@ import android.widget.EditText;
 import com.r4sh33d.iblood.DrawerActivity;
 import com.r4sh33d.iblood.Provider;
 import com.r4sh33d.iblood.R;
+import com.r4sh33d.iblood.UserTypeSelectionFragment;
+import com.r4sh33d.iblood.network.AuthService;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
 import com.r4sh33d.iblood.models.UserAuthRequest;
-import com.r4sh33d.iblood.network.AccountService;
+import com.r4sh33d.iblood.network.DataService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,16 +30,15 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends BaseFragment implements  LoginContract.View {
+public class LoginFragment extends BaseFragment implements LoginContract.View {
 
     @BindView(R.id.email_edit_text)
     EditText emailEditText;
 
-    @BindView(R.id.password_edittext)
+    @BindView(R.id.password_edit_text)
     EditText passwordEditText;
 
     LoginContract.Presenter presenter;
-
 
     public LoginFragment() {
         // Required empty public constructor
@@ -56,21 +56,23 @@ public class LoginFragment extends BaseFragment implements  LoginContract.View {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        presenter = new LoginPresenter(this,
-                Provider.provideRetrofitService(Provider.provideAuthRetrofitInstance(), AccountService.class),
+        hideToolbar();
+        presenter = new LoginPresenter(this, Provider.provideAuthRetrofitService(AuthService.class),
+                Provider.provideDataRetrofitService(DataService.class),
                 Provider.providePrefManager(getContext()));
     }
 
     @OnClick(R.id.login_button)
-    public void onLoginButtonClicked(){
+    public void onLoginButtonClicked() {
         String emailAddress = emailEditText.getText().toString();
         String firstPassword = passwordEditText.getText().toString();
-        if (Utils.isValidEmail(emailAddress)) {
+        if (!Utils.isValidEmail(emailAddress)) {
             emailEditText.setError("Please use a valid email address");
             return;
         }
-        if ((TextUtils.isEmpty(firstPassword))) {
-            passwordEditText.setError("Password is empty");
+
+        if (firstPassword.length() < 6) {
+            passwordEditText.setError("Password must be at least six characters long");
             return;
         }
 
@@ -80,13 +82,13 @@ public class LoginFragment extends BaseFragment implements  LoginContract.View {
 
     @OnClick(R.id.click_here_to_register_textview)
     public void registerTextViewClicked() {
-
+        replaceFragment(new UserTypeSelectionFragment());
     }
 
 
     @Override
     public void onUserSuccessfullyLoggedIn(AdditionalUserDetailsRequest user) {
-        Intent intent = new Intent(getContext() , DrawerActivity.class);
+        Intent intent = new Intent(getContext(), DrawerActivity.class);
         startActivity(intent);
         getActivity().finish();
     }

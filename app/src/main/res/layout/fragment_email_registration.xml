@@ -6,20 +6,19 @@
     android:layout_margin="16dp"
     tools:context=".emailregistration.EmailRegistrationFragment">
     <LinearLayout
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".login.LoginFragment">
 
         <TextView
-
             android:textColor="@color/blood_red"
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Menu"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="16dp"
+            android:textSize="18sp"
             android:layout_width="match_parent"
             android:text="Please enter your email and password to to get started "
             android:layout_height="wrap_content" />

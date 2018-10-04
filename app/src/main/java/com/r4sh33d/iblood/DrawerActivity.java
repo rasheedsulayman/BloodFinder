@@ -101,10 +101,11 @@ public class DrawerActivity extends BaseActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_search) {
-            //startActivity(new Intent(this, SearchableActivity.class));
-            return true;
-        } else if (id == android.R.id.home) {
+//        if (id == R.id.action_search) {
+//            startActivity(new Intent(this, SearchableActivity.class));
+//            return true;
+//        }
+        if (id == android.R.id.home) {
             Log.d(TAG, "Android home clicked");
             getSupportFragmentManager().popBackStack();
             return true;
@@ -158,8 +159,6 @@ public class DrawerActivity extends BaseActivity
     }
 
 
-
-
     @Override
     public void showLoading(String message) {
 
@@ -182,7 +181,6 @@ public class DrawerActivity extends BaseActivity
 
     @Override
     public void showToolbar() {
-
     }
 
     @Override

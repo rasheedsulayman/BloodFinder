@@ -6,6 +6,7 @@ import java.util.HashMap;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -13,8 +14,8 @@ public class RetrofitClient {
     boolean isDebug = BuildConfig.DEBUG;
 
     public static final String API_KEY = "AIzaSyAvC5cvSGIvrxmqN0qIKvj-M6IqV6VkXcQ";
-    private static final String AUTH_BASE_URL = "https://www.googleapis.com/identitytoolkit/v3/relyingparty";
-    private static final String DATABASE_BASE_URL = "https://iblood-7253a.firebaseio.com";
+    private static final String AUTH_BASE_URL = "https://www.googleapis.com/";
+    private static final String DATABASE_BASE_URL = "https://iblood-7253a.firebaseio.com/";
 
 
     public static Retrofit buildAuthRetrofit() {
@@ -39,7 +40,10 @@ public class RetrofitClient {
     }
 
     private static OkHttpClient getHttpClient(final HashMap<String, String> params) {
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         return new OkHttpClient.Builder()
+                .addInterceptor(interceptor)
                 .addInterceptor(chain -> {
                     Request original = chain.request();
                     HttpUrl originalHttpUrl = original.url();

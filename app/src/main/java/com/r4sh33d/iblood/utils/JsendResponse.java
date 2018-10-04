@@ -27,7 +27,7 @@ public class JsendResponse {
     }
 
     public boolean isSuccess(){
-        return successBody != null && successBody.getAsJsonObject().has("kind");
+        return successBody != null && !successBody.getAsJsonObject().isJsonNull();
     }
 
     public JsonElement getData() {

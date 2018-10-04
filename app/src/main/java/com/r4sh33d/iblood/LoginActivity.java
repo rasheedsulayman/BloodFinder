@@ -19,8 +19,6 @@ public class LoginActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.root)
-    FrameLayout rootLayout;
     @BindView(R.id.progress_bar_root)
     ConstraintLayout progressBarRoot;
     @BindView(R.id.progress_bar)
@@ -31,13 +29,11 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         replaceFragment(new LoginFragment() , false);
     }
-
-
 
     @Override
     public void showLoading() {
