@@ -39,11 +39,11 @@ public class Provider {
         return retrofit.create(clazz);
     }
 
-    public static  <T> T provideAuthRetrofitService(Class<AuthService> clazz){
-        return provideAuthRetrofitInstance().create(clazz);
+    public static AuthService provideAuthRetrofitService(){
+        return provideAuthRetrofitInstance().create(AuthService.class);
     }
 
-    public static  <T> T provideDataRetrofitService(Class<DataService> clazz){
-        return provideDataRetrofitInstance().create(clazz);
+    public static DataService provideDataRetrofitService(){
+        return provideDataRetrofitInstance().create(DataService.class);
     }
 }

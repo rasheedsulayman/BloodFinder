@@ -9,10 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Spinner;
 
+import com.r4sh33d.iblood.CustomSpinnerAdapter;
 import com.r4sh33d.iblood.DrawerActivity;
 import com.r4sh33d.iblood.Provider;
 import com.r4sh33d.iblood.R;
+import com.r4sh33d.iblood.models.UserType;
+import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
@@ -42,6 +46,10 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
     EditText phoneNumberEditText;
     @BindView(R.id.address_edit_text)
     EditText addressEditText;
+
+
+    @BindView(R.id.spinner)
+    Spinner spinner;
 
     public AdditionalDetailsFragment() {
         // Required empty public constructor
@@ -73,7 +81,15 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
                 Provider.provideRetrofitService(Provider.provideDataRetrofitInstance(), DataService.class));
         isBloodBank = getArguments().getBoolean(KEY_IS_BLOOD_BANK);
         user = getArguments().getParcelable(KEY_USER);
+        prepareSpinner();
 
+    }
+
+
+    void prepareSpinner() {
+        CustomSpinnerAdapter<UserType> listOfTitleAdapter = new CustomSpinnerAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_dropdown_item, Utils.getUserTypesList());
+        spinner.setAdapter(listOfTitleAdapter);
     }
 
     @OnClick(R.id.save_button)
@@ -81,6 +97,7 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
         if (!ViewUtils.validateEditTexts(nameEditText, phoneNumberEditText, addressEditText)) {
             return;
         }
+
         AdditionalUserDetailsRequest additionalUserDetailsRequest = new AdditionalUserDetailsRequest(
                 isBloodBank,
                 nameEditText.getText().toString(),

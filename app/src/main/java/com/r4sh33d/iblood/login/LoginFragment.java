@@ -10,17 +10,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Spinner;
 
+import com.r4sh33d.iblood.CustomSpinnerAdapter;
 import com.r4sh33d.iblood.DrawerActivity;
 import com.r4sh33d.iblood.Provider;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.UserTypeSelectionFragment;
+import com.r4sh33d.iblood.models.UserType;
 import com.r4sh33d.iblood.network.AuthService;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
 import com.r4sh33d.iblood.models.UserAuthRequest;
 import com.r4sh33d.iblood.network.DataService;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +42,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
 
     @BindView(R.id.password_edit_text)
     EditText passwordEditText;
+
 
     LoginContract.Presenter presenter;
 
@@ -57,10 +63,12 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         hideToolbar();
-        presenter = new LoginPresenter(this, Provider.provideAuthRetrofitService(AuthService.class),
-                Provider.provideDataRetrofitService(DataService.class),
+        presenter = new LoginPresenter(this,
+                Provider.provideDataRetrofitService(), Provider.provideAuthRetrofitService(),
                 Provider.providePrefManager(getContext()));
     }
+
+
 
     @OnClick(R.id.login_button)
     public void onLoginButtonClicked() {

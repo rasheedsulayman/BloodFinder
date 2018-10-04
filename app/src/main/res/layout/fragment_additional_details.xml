@@ -6,12 +6,23 @@
     android:orientation="vertical"
     tools:context=".additionaldetails.AdditionalDetailsFragment">
 
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/spinner_resource"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"/>
+
     <EditText
         android:id="@+id/name_edit_text"
         android:hint="Name"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext"
         android:layout_width="match_parent"
         android:padding="10dp"

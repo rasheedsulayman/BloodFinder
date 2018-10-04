@@ -74,7 +74,7 @@ public class EmailRegistrationFragment extends BaseFragment implements EmailRegi
         super.onViewCreated(view, savedInstanceState);
         showToolbar();
         setToolbarTitle("Register");
-        presenter = new EmailRegistrationPresenter(this, Provider.provideAuthRetrofitService(AuthService.class));
+        presenter = new EmailRegistrationPresenter(this, Provider.provideAuthRetrofitService());
     }
 
     @Override
