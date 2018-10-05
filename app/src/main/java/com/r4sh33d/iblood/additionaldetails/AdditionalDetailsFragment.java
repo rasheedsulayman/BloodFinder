@@ -11,15 +11,15 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.r4sh33d.iblood.CustomSpinnerAdapter;
+import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
 import com.r4sh33d.iblood.DrawerActivity;
-import com.r4sh33d.iblood.Provider;
+import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.R;
-import com.r4sh33d.iblood.models.UserType;
+import com.r4sh33d.iblood.models.KeyNameLOVPair;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
 import com.r4sh33d.iblood.base.BaseFragment;
-import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
+import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.network.DataService;
 
@@ -42,11 +42,10 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
     EditText nameEditText;
     @BindView(R.id.religion_edit_text)
     EditText religionEditText;
-    @BindView(R.id.phone_number_edit_text)
-    EditText phoneNumberEditText;
+    @BindView(R.id.email_edit_text)
+    EditText emailEditText;
     @BindView(R.id.address_edit_text)
     EditText addressEditText;
-
 
     @BindView(R.id.spinner)
     Spinner spinner;
@@ -55,9 +54,9 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
         // Required empty public constructor
     }
 
-    public static AdditionalDetailsFragment newInstance(Boolean isBloodBank, User user) {
+    public static AdditionalDetailsFragment newInstance(User user) {
         Bundle args = new Bundle();
-        args.putBoolean(KEY_IS_BLOOD_BANK, isBloodBank);
+       // args.putBoolean(KEY_IS_BLOOD_BANK, isBloodBank);
         args.putParcelable(KEY_USER, user);
         AdditionalDetailsFragment fragment = new AdditionalDetailsFragment();
         fragment.setArguments(args);
@@ -78,8 +77,9 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
         super.onViewCreated(view, savedInstanceState);
         setToolbarTitle("Additional Information");
         presenter = new AdditionalDetailsPresenter(this,
-                Provider.provideRetrofitService(Provider.provideDataRetrofitInstance(), DataService.class));
-        isBloodBank = getArguments().getBoolean(KEY_IS_BLOOD_BANK);
+                Provider.provideRetrofitService(Provider.provideDataRetrofitInstance(),DataService.class),
+                Provider.providePrefManager(getContext()));
+      //  isBloodBank = getArguments().getBoolean(KEY_IS_BLOOD_BANK);
         user = getArguments().getParcelable(KEY_USER);
         prepareSpinner();
 
@@ -87,31 +87,42 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
 
 
     void prepareSpinner() {
-        CustomSpinnerAdapter<UserType> listOfTitleAdapter = new CustomSpinnerAdapter<>(getActivity(),
+        CustomSpinnerAdapter<KeyNameLOVPair> listOfTitleAdapter = new CustomSpinnerAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, Utils.getUserTypesList());
         spinner.setAdapter(listOfTitleAdapter);
     }
 
     @OnClick(R.id.save_button)
     public void onSaveButtonClicked() {
-        if (!ViewUtils.validateEditTexts(nameEditText, phoneNumberEditText, addressEditText)) {
+        if (spinner.getSelectedItemId() < 1){
+            showToast("Please select user type");
+            return;
+        }
+        String emailText = emailEditText.getText().toString();
+        if(!Utils.isValidEmail(emailText)){
+            emailEditText.setError("Please use a valid email address");
             return;
         }
 
-        AdditionalUserDetailsRequest additionalUserDetailsRequest = new AdditionalUserDetailsRequest(
+        if (!ViewUtils.validateEditTexts(nameEditText, addressEditText)) {
+            return;
+        }
+
+        boolean isBloodBank = ((KeyNameLOVPair)spinner.getSelectedItem()).key.equals("blood_bank");
+        UserData userData = new UserData(
                 isBloodBank,
                 nameEditText.getText().toString(),
-                user.email,
-                phoneNumberEditText.getText().toString(),
+                emailText,
+                user.email.substring(0,11), // Users email is in the format of [phonenumber]@iblood-7253a.firebaseio.com
                 addressEditText.getText().toString(),
                 religionEditText.getText().toString(),
                 user.localId
         );
-        presenter.saveAdditionalDetails(additionalUserDetailsRequest);
+        presenter.saveAdditionalDetails(userData);
     }
 
     @Override
-    public void onAdditionalDetailsSavedSuccessfuly(User user) {
+    public void onAdditionalDetailsSavedSuccessfuly(UserData user) {
         //We are done we can now go back and login
         showSuccessDialog("Account successfully created", (dialog, which) -> {
             //We can either launch the Dashboard or go back to login.

@@ -6,26 +6,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Spinner;
 
-import com.r4sh33d.iblood.CustomSpinnerAdapter;
 import com.r4sh33d.iblood.DrawerActivity;
-import com.r4sh33d.iblood.Provider;
+import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.R;
-import com.r4sh33d.iblood.UserTypeSelectionFragment;
-import com.r4sh33d.iblood.models.UserType;
-import com.r4sh33d.iblood.network.AuthService;
-import com.r4sh33d.iblood.utils.Utils;
+import com.r4sh33d.iblood.emailregistration.EmailRegistrationFragment;
+import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.base.BaseFragment;
-import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
+import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.UserAuthRequest;
-import com.r4sh33d.iblood.network.DataService;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,8 +31,8 @@ import butterknife.OnClick;
  */
 public class LoginFragment extends BaseFragment implements LoginContract.View {
 
-    @BindView(R.id.email_edit_text)
-    EditText emailEditText;
+    @BindView(R.id.phone_number_edit_text)
+    EditText phoneNumberEditText;
 
     @BindView(R.id.password_edit_text)
     EditText passwordEditText;
@@ -68,14 +62,12 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
                 Provider.providePrefManager(getContext()));
     }
 
-
-
     @OnClick(R.id.login_button)
     public void onLoginButtonClicked() {
-        String emailAddress = emailEditText.getText().toString();
+        String phoneNumber = phoneNumberEditText.getText().toString();
         String firstPassword = passwordEditText.getText().toString();
-        if (!Utils.isValidEmail(emailAddress)) {
-            emailEditText.setError("Please use a valid email address");
+        if (TextUtils.isEmpty(phoneNumber)) {
+            phoneNumberEditText.setError("Please enter valid number");
             return;
         }
 
@@ -84,18 +76,19 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
             return;
         }
 
-        UserAuthRequest userAuthRequest = new UserAuthRequest(emailAddress, firstPassword);
+        UserAuthRequest userAuthRequest = new UserAuthRequest(phoneNumber.concat(Constants.phoneNumberSuffix),
+                firstPassword);
         presenter.login(userAuthRequest);
     }
 
     @OnClick(R.id.click_here_to_register_textview)
     public void registerTextViewClicked() {
-        replaceFragment(new UserTypeSelectionFragment());
+        replaceFragment(new EmailRegistrationFragment());
     }
 
 
     @Override
-    public void onUserSuccessfullyLoggedIn(AdditionalUserDetailsRequest user) {
+    public void onUserSuccessfullyLoggedIn(UserData user) {
         Intent intent = new Intent(getContext(), DrawerActivity.class);
         startActivity(intent);
         getActivity().finish();

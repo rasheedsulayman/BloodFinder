@@ -6,7 +6,7 @@ import com.r4sh33d.iblood.network.AuthService;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.utils.PrefsUtils;
-import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
+import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserAuthRequest;
 import com.r4sh33d.iblood.network.DataService;
@@ -65,8 +65,8 @@ public class LoginPresenter implements LoginContract.Presenter {
                 view.dismissLoading();
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
-                    AdditionalUserDetailsRequest user = new Gson().fromJson(jsendResponse.getData(),
-                            AdditionalUserDetailsRequest.class);
+                    UserData user = new Gson().fromJson(jsendResponse.getData(),
+                            UserData.class);
                     prefsUtils.putObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, user);
                     view.onUserSuccessfullyLoggedIn(user);
                 } else {

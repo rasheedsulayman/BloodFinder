@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import com.r4sh33d.iblood.DrawerActivity;
 import com.r4sh33d.iblood.R;
 
 public abstract class BaseFragment extends Fragment implements BaseContract.view {
@@ -88,6 +89,18 @@ public abstract class BaseFragment extends Fragment implements BaseContract.view
                 .replace(R.id.view_container, fragment, TAG)
                 .addToBackStack(TAG)
                 .commitAllowingStateLoss();
+    }
+
+    public void setDrawerIconToBack(){
+        if (baseActivity instanceof DrawerActivity) {
+            ((DrawerActivity)baseActivity).setDrawerIconToBack();
+        }
+    }
+
+    public void setDrawerIconToHome(){
+        if (baseActivity instanceof DrawerActivity) {
+            ((DrawerActivity)baseActivity).setDrawerIconToHome();
+        }
     }
 
     @Override

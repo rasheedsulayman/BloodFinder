@@ -13,14 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.r4sh33d.iblood.additionaldetails.AdditionalDetailsFragment;
-import com.r4sh33d.iblood.Provider;
+import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.R;
-import com.r4sh33d.iblood.network.AuthService;
-import com.r4sh33d.iblood.utils.Utils;
+import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserAuthRequest;
-import com.r4sh33d.iblood.network.DataService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,8 +31,8 @@ import butterknife.OnClick;
 public class EmailRegistrationFragment extends BaseFragment implements EmailRegistrationContract.View {
 
     private static final String KEY_IS_BLOOD_BANK = "isbloodbank";
-    @BindView(R.id.email_edit_text)
-    EditText emailEditText;
+    @BindView(R.id.phone_number_edit_text)
+    EditText phoneNumberEditText;
 
     @BindView(R.id.password_edittext)
     EditText passwordEditText;
@@ -79,16 +77,16 @@ public class EmailRegistrationFragment extends BaseFragment implements EmailRegi
 
     @Override
     public void onUserEmailRegistered(User user) {
-        replaceFragment(AdditionalDetailsFragment.newInstance(getArguments().getBoolean(KEY_IS_BLOOD_BANK), user));
+        replaceFragment(AdditionalDetailsFragment.newInstance(user));
     }
 
     @OnClick(R.id.register_button)
     public void onRegisterButtonClicked() {
-        String emailAddress = emailEditText.getText().toString();
+        String phoneNumber = phoneNumberEditText.getText().toString();
         String firstPassword = passwordEditText.getText().toString();
         String secondPassword = confirmPasswordEditText.getText().toString();
-        if (!Utils.isValidEmail(emailAddress)) {
-            emailEditText.setError("Please use a valid email address");
+        if (TextUtils.isEmpty(phoneNumber)) {
+            phoneNumberEditText.setError("Please use a valid phone number");
             return;
         }
 
@@ -107,7 +105,7 @@ public class EmailRegistrationFragment extends BaseFragment implements EmailRegi
             return;
         }
 
-        UserAuthRequest userAuthRequest = new UserAuthRequest(emailAddress, firstPassword);
+        UserAuthRequest userAuthRequest = new UserAuthRequest(phoneNumber.concat(Constants.phoneNumberSuffix), firstPassword);
         presenter.registerUserEmail(userAuthRequest);
     }
 }

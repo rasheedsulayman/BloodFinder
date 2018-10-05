@@ -1,5 +1,7 @@
-package com.r4sh33d.iblood;
+package com.r4sh33d.iblood.network;
 
+
+import com.r4sh33d.iblood.BuildConfig;
 
 import java.util.HashMap;
 

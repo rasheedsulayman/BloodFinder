@@ -2,10 +2,12 @@ package com.r4sh33d.iblood.additionaldetails;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.JsendResponse;
-import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
+import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.network.DataService;
+import com.r4sh33d.iblood.utils.PrefsUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,28 +18,33 @@ public class AdditionalDetailsPresenter implements AdditionalDetailsContract.Pre
 
     private AdditionalDetailsContract.View view;
     private final DataService dataService;
+    private final PrefsUtils prefsUtils;
     private static final String TAG = AdditionalDetailsPresenter.class.getSimpleName();
 
-    AdditionalDetailsPresenter(AdditionalDetailsContract.View view, DataService dataService) {
+    AdditionalDetailsPresenter(AdditionalDetailsContract.View view, DataService dataService,
+                               PrefsUtils prefsUtils) {
         this.view = view;
         this.dataService = dataService;
+        this.prefsUtils = prefsUtils;
     }
 
     @Override
-    public void start() {}
+    public void start() {
+    }
 
     @Override
-    public void saveAdditionalDetails(AdditionalUserDetailsRequest additionalUserDetailsRequest) {
+    public void saveAdditionalDetails(UserData userData) {
         view.showLoading();
-        dataService.saveAdditionalUserDetail(additionalUserDetailsRequest,
-                additionalUserDetailsRequest.firebaseID).enqueue(new Callback<JsonElement>() {
+        dataService.saveAdditionalUserDetail(userData,
+                userData.firebaseID).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 view.dismissLoading();
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
-                    User user = new Gson().fromJson(jsendResponse.getData(), User.class);
-                    view.onAdditionalDetailsSavedSuccessfuly(user);
+                    UserData userDetails = new Gson().fromJson(jsendResponse.getData(), UserData.class);
+                    prefsUtils.putObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, userDetails);
+                    view.onAdditionalDetailsSavedSuccessfully(userDetails);
                 } else {
                     view.showError(jsendResponse.getErrorMessage());
                 }

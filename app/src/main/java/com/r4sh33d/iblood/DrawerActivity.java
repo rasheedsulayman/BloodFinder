@@ -15,7 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.r4sh33d.iblood.base.BaseActivity;
-import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
+import com.r4sh33d.iblood.models.UserData;
+import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 
@@ -47,11 +48,11 @@ public class DrawerActivity extends BaseActivity
         drawerToggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         prefsUtils = Provider.providePrefManager(this);
-        AdditionalUserDetailsRequest additionalUserDetailsRequest = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS,
-                AdditionalUserDetailsRequest.class);
-        if (additionalUserDetailsRequest != null) {
+        UserData userData = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS,
+                UserData.class);
+        if (userData != null) {
             // Name, email address, and profile photo Url
-            setNavigationViewHeaderDetails(additionalUserDetailsRequest);
+            setNavigationViewHeaderDetails(userData);
         }
         //coming from the launcher
         replaceFragment(new DashBoardFragment(), false);
@@ -59,14 +60,14 @@ public class DrawerActivity extends BaseActivity
     }
 
 
-    void setNavigationViewHeaderDetails(AdditionalUserDetailsRequest user) {
+    void setNavigationViewHeaderDetails(UserData user) {
         NavigationView navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         ImageView userProfilePic = headerView.findViewById(R.id.user_profile_pic);
         TextView userDisplayName = headerView.findViewById(R.id.user_display_name);
         TextView userEmail = headerView.findViewById(R.id.user_email);
         userDisplayName.setText(user.name);
-        userEmail.setText(user.email);
+        userEmail.setText(user.phoneNumber);
 //        Picasso.get()
 //                .load(user.getPhotoUrl())
 //                .noFade()
@@ -157,6 +158,7 @@ public class DrawerActivity extends BaseActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 
     @Override

@@ -1,9 +1,10 @@
-package com.r4sh33d.iblood;
+package com.r4sh33d.iblood.network;
 
 import android.content.Context;
 
 import com.r4sh33d.iblood.network.AuthService;
 import com.r4sh33d.iblood.network.DataService;
+import com.r4sh33d.iblood.network.RetrofitClient;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 
 import retrofit2.Retrofit;

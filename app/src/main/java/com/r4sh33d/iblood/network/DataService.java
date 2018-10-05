@@ -1,8 +1,7 @@
 package com.r4sh33d.iblood.network;
 
 import com.google.gson.JsonElement;
-import com.r4sh33d.iblood.models.AdditionalUserDetailsRequest;
-import com.r4sh33d.iblood.models.UserAuthRequest;
+import com.r4sh33d.iblood.models.UserData;
 
 import java.util.Map;
 
@@ -20,7 +19,7 @@ public interface DataService {
     Call<JsonElement> requestOTP(@Body Map<String, String> phoneNumberPayload);
 
     @PUT("/users/{userId}.json")
-    Call<JsonElement> saveAdditionalUserDetail(@Body AdditionalUserDetailsRequest additionalUserDetailsRequest,
+    Call<JsonElement> saveAdditionalUserDetail(@Body UserData userData,
                                                @Path("userId") String userID);
 
     @GET("/users/{userId}.json")

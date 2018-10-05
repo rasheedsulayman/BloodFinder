@@ -3,10 +3,12 @@ package com.r4sh33d.iblood.emailregistration;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.r4sh33d.iblood.network.AuthService;
+import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserAuthRequest;
 import com.r4sh33d.iblood.network.DataService;
+import com.r4sh33d.iblood.utils.PrefsUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,9 +21,10 @@ public class EmailRegistrationPresenter implements EmailRegistrationContract.Pre
     private AuthService authService;
     private static final String TAG = EmailRegistrationPresenter.class.getSimpleName();
 
-    EmailRegistrationPresenter(EmailRegistrationContract.View view, AuthService authService) {
+    EmailRegistrationPresenter(EmailRegistrationContract.View view, AuthService authService ) {
         this.view = view;
         this.authService = authService;
+
     }
 
     @Override
@@ -37,7 +40,7 @@ public class EmailRegistrationPresenter implements EmailRegistrationContract.Pre
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
                     User user = new Gson().fromJson(jsendResponse.getData(), User.class);
-                     view.onUserEmailRegistered(user);
+                    view.onUserEmailRegistered(user);
                 } else {
                     view.showError(jsendResponse.getErrorMessage());
                 }

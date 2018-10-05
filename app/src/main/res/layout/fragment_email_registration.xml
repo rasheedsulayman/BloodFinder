@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
     tools:context=".emailregistration.EmailRegistrationFragment">
     <LinearLayout
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -20,21 +20,22 @@
             android:layout_marginTop="16dp"
             android:textSize="18sp"
             android:layout_width="match_parent"
-            android:text="Please enter your email and password to to get started "
+            android:text="Please enter your phone number and password to get started "
             android:layout_height="wrap_content" />
 
 
         <EditText
-            android:id="@+id/email_edit_text"
-            android:hint="Email"
+            android:id="@+id/phone_number_edit_text"
+            android:hint="Phone number"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_edittext"
             android:layout_width="match_parent"
             android:padding="10dp"
+            android:maxLength="11"
             android:layout_height="45dp"
-            android:inputType="textEmailAddress" />
+            android:inputType="number" />
 
 
 

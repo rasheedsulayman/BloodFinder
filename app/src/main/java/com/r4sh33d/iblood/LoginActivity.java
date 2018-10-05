@@ -3,6 +3,8 @@ package com.r4sh33d.iblood;
 import android.support.constraint.ConstraintLayout;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
@@ -32,7 +34,8 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        replaceFragment(new LoginFragment() , false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        replaceFragment(new LoginFragment(), false);
     }
 
     @Override
@@ -47,13 +50,23 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void showLoading(String message) {
-        ViewUtils.show(progressBarRoot,progressBar, progressMessage);
+        ViewUtils.show(progressBarRoot, progressBar, progressMessage);
         progressMessage.setText(message);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            getSupportFragmentManager().popBackStack();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void dismissLoading() {

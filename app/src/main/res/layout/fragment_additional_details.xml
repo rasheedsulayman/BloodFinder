@@ -1,78 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".additionaldetails.AdditionalDetailsFragment">
-
-
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/spinner_resource"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".additionaldetails.AdditionalDetailsFragment">
 
-    <EditText
-        android:id="@+id/name_edit_text"
-        android:hint="Name"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_edittext"
-        android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="45dp" />
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/spinner_resource"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"/>
 
-    <EditText
-        android:id="@+id/phone_number_edit_text"
-        android:inputType="phone"
-        android:hint="Phone number"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_edittext"
-        android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="45dp" />
+        <EditText
+            android:id="@+id/name_edit_text"
+            android:hint="Name"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="45dp" />
 
-    <EditText
-        android:id="@+id/address_edit_text"
-        android:hint="Address"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_edittext"
-        android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="45dp"
-        android:inputType="text" />
+        <EditText
+            android:id="@+id/email_edit_text"
+            android:inputType="textEmailAddress"
+            android:hint="Email Address"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="45dp" />
 
-    <EditText
-        android:id="@+id/religion_edit_text"
-        android:hint=" Religion (Optional)"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_edittext"
-        android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="45dp"
-        android:inputType="text" />
+        <EditText
+            android:id="@+id/address_edit_text"
+            android:hint="Address"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="45dp"
+            android:inputType="text" />
 
-    <Button
-        android:id="@+id/save_button"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@android:color/white"
-        android:text= "Save"
-        android:background="@drawable/roundedbutton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/religion_edit_text"
+            android:hint=" Religion (Optional)"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="45dp"
+            android:inputType="text" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/save_button"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/white"
+            android:text= "Save"
+            android:background="@drawable/roundedbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>
