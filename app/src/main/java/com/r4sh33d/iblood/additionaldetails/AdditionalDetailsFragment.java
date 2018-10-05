@@ -37,7 +37,6 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
     boolean isBloodBank;
     User user;
     AdditionalDetailsContract.Presenter presenter;
-
     @BindView(R.id.name_edit_text)
     EditText nameEditText;
     @BindView(R.id.religion_edit_text)
@@ -82,9 +81,7 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
       //  isBloodBank = getArguments().getBoolean(KEY_IS_BLOOD_BANK);
         user = getArguments().getParcelable(KEY_USER);
         prepareSpinner();
-
     }
-
 
     void prepareSpinner() {
         CustomSpinnerAdapter<KeyNameLOVPair> listOfTitleAdapter = new CustomSpinnerAdapter<>(getActivity(),
@@ -122,7 +119,7 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
     }
 
     @Override
-    public void onAdditionalDetailsSavedSuccessfuly(UserData user) {
+    public void onAdditionalDetailsSavedSuccessfully(UserData user) {
         //We are done we can now go back and login
         showSuccessDialog("Account successfully created", (dialog, which) -> {
             //We can either launch the Dashboard or go back to login.

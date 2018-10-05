@@ -85,7 +85,7 @@ public class UploadBloodAvailabilityFragment extends BaseFragment {
         phoneNumberEditText.setText(userData.phoneNumber);
         emailEditText.setText(userData.email);
         nameEditText.setText(userData.name);
-        religionEditText.setText(userData.name);
+        religionEditText.setText(userData.religion);
     }
 
     void prepareBloodGroupSpinner() {
