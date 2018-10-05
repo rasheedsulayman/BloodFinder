@@ -14,7 +14,8 @@
     tools:visibility="visible">
 
     <ProgressBar
-        android:progressTint="@color/blood_red"
+        android:indeterminateTint="@color/blood_red"
+        android:indeterminateTintMode="src_in"
         android:progressDrawable="@drawable/seekbar_drawable"
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyleLarge"

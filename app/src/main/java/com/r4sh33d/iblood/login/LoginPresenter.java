@@ -62,14 +62,14 @@ public class LoginPresenter implements LoginContract.Presenter {
         dataService.getAdditionalUserDetails(userID).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                view.dismissLoading();
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
-                    UserData user = new Gson().fromJson(jsendResponse.getData(),
-                            UserData.class);
+                    UserData user = new Gson().fromJson(jsendResponse.getData(), UserData.class);
                     prefsUtils.putObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, user);
+                    view.dismissLoading();
                     view.onUserSuccessfullyLoggedIn(user);
                 } else {
+                    view.dismissLoading();
                     view.showError(jsendResponse.getErrorMessage());
                 }
             }
