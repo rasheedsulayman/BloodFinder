@@ -48,7 +48,7 @@ public class DashBoardFragment extends BaseFragment {
     }
 
     @OnClick(R.id.upload_blood_availability_button)
-    public void onClickUploadBloodAvailaibilityButton(){
+    public void onClickUploadBloodAvailaibilityButton() {
         replaceFragment(new UploadBloodAvailabilityFragment());
     }
 

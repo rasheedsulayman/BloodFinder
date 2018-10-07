@@ -160,7 +160,6 @@ public class DrawerActivity extends BaseActivity
     }
 
 
-
     @Override
     public void showLoading(String message) {
 

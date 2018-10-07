@@ -24,12 +24,19 @@
             android:layout_height="wrap_content" />
 
 
+        <TextView
+            android:text="Phone Number"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
+
         <EditText
             android:id="@+id/phone_number_edit_text"
             android:hint="Phone number"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext"
             android:layout_width="match_parent"
             android:padding="10dp"
@@ -38,6 +45,12 @@
             android:inputType="number" />
 
 
+        <TextView
+            android:text="Password"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
 
         <EditText
             android:id="@+id/password_edittext"
@@ -45,18 +58,25 @@
             android:hint="Password"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext"
             android:layout_width="match_parent"
             android:padding="10dp"
             android:layout_height="45dp"/>
+
+        <TextView
+            android:text="Confirm Password"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
 
         <EditText
             android:id="@+id/confirm_password_edittext"
             android:hint="Confirm Password"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext"
             android:layout_width="match_parent"
             android:padding="10dp"

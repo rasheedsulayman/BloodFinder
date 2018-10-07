@@ -81,6 +81,4 @@ public class LoginPresenter implements LoginContract.Presenter {
             }
         });
     }
-
-
 }

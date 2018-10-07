@@ -1,7 +1,13 @@
 package com.r4sh33d.iblood;
 
+import android.Manifest;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -9,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.r4sh33d.iblood.base.BaseActivity;
 import com.r4sh33d.iblood.login.LoginFragment;
@@ -35,7 +42,15 @@ public class LoginActivity extends BaseActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        replaceFragment(new LoginFragment(), false);
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            replaceFragment(new LoginFragment(), false);
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION}, 0);
+        }
     }
 
     @Override
@@ -54,7 +69,20 @@ public class LoginActivity extends BaseActivity {
         progressMessage.setText(message);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            //We've been granted the required permission
+            replaceFragment(new LoginFragment(), false);
+        } else {
+            showDialog("We need the Location permission to get your location information on " +
+                            "which the matching process is based"
+                    , (dialog, which) -> finish());
+        }
     }
 
 
@@ -81,4 +109,6 @@ public class LoginActivity extends BaseActivity {
     public void showToolbar() {
         getSupportActionBar().show();
     }
+
+
 }

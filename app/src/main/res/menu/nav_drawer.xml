@@ -6,6 +6,11 @@
     <group android:checkableBehavior="single">
 
         <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_radio_button_checked_black_24dp"
+            android:title="DashBoard" />
+
+        <item
             android:id="@+id/nav_my_profile"
             android:icon="@drawable/ic_person_black_24dp"
             android:title="My Profile" />
@@ -14,10 +19,7 @@
 
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/nav_dashboard"
-            android:icon="@drawable/ic_radio_button_checked_black_24dp"
-            android:title="DashBoard" />
+
 
         <item
             android:id="@+id/nav_request_history"

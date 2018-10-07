@@ -1,0 +1,21 @@
+ - After search initialization, if donors are not found at the current time, You can still keep it as an active request.
+   In case donors want to donate.Also, if found, keep at as part of donors requests with verified status. If a new donor post a new blood
+   check through the list of active requests that matches criteria and notify the blood seeker in case of a match.
+
+ - Individual donors can only upload blood type availability one at a time.
+ - Blood banks can upload multiple blood type availability. (With quantity variable)
+       -(Users data will have the "isBloodAvailabilityPosted" attribute. The attribute will be checked for), when creating
+        blood availability. Blood availability can also be edited/deleted
+ - After successful individual users match, both of them can get direction to the nearest blood bank (Still reviewing).
+ - A blood seeker can get direction to a blood bank.
+ - A blood donor can get direction to a blood bank.
+
+ blood type availability list {
+    donorID,
+    blood type,
+    donor nature,
+    quantity (Remove this, Let blood bank set this variable to zero, when they don't have that blood type anymore),
+    collected (boolean),
+    collecting seeker UID (can be null),
+ }
+

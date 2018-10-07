@@ -46,8 +46,8 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
     @BindView(R.id.address_edit_text)
     EditText addressEditText;
 
-    @BindView(R.id.spinner)
-    Spinner spinner;
+    @BindView(R.id.user_type_spinner)
+    Spinner userTypeSpinner;
 
     public AdditionalDetailsFragment() {
         // Required empty public constructor
@@ -86,12 +86,12 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
     void prepareSpinner() {
         CustomSpinnerAdapter<KeyNameLOVPair> listOfTitleAdapter = new CustomSpinnerAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, Utils.getUserTypesList());
-        spinner.setAdapter(listOfTitleAdapter);
+        userTypeSpinner.setAdapter(listOfTitleAdapter);
     }
 
     @OnClick(R.id.save_button)
     public void onSaveButtonClicked() {
-        if (spinner.getSelectedItemId() < 1){
+        if (userTypeSpinner.getSelectedItemId() < 1){
             showToast("Please select user type");
             return;
         }
@@ -105,7 +105,7 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
             return;
         }
 
-        boolean isBloodBank = ((KeyNameLOVPair)spinner.getSelectedItem()).key.equals("blood_bank");
+        boolean isBloodBank = ((KeyNameLOVPair)userTypeSpinner.getSelectedItem()).key.equals("blood_bank");
         UserData userData = new UserData(
                 isBloodBank,
                 nameEditText.getText().toString(),
