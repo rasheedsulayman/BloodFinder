@@ -2,6 +2,7 @@ package com.r4sh33d.iblood;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,14 +12,19 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.r4sh33d.iblood.DonationHistory.DonationHistoryFragment;
 import com.r4sh33d.iblood.base.BaseActivity;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
+import com.r4sh33d.iblood.requesthisotry.RequestHistoryFragment;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.PrefsUtils;
+import com.r4sh33d.iblood.utils.ViewUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,9 +32,16 @@ import butterknife.ButterKnife;
 public class DrawerActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     public static final String USER_KEY = "UserIntentKey";
+    private static final String TAG = DrawerActivity.class.getSimpleName();
+
+    @BindView(R.id.progress_bar_root)
+    ConstraintLayout progressBarRoot;
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
+    @BindView(R.id.progress_message)
+    TextView progressMessage;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    private static final String TAG = DrawerActivity.class.getSimpleName();
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
     @BindView(R.id.nav_view)
@@ -143,30 +156,46 @@ public class DrawerActivity extends BaseActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
-      /*  switch (item.getItemId()) {
-            case R.id.nav_active_med_list:
-                navigateToFragment(new ActiveMedicationsFragment());
+        switch (item.getItemId()) {
+            case R.id.nav_dashboard:
+                replaceFragment(new DashBoardFragment(), false);
                 break;
-            case R.id.nav_medications_by_month:
-                navigateToFragment(new MonthlyMedicationsFragment());
+            case R.id.nav_donation_history:
+                replaceFragment(new DonationHistoryFragment(), false);
                 break;
-            case R.id.nav_update_profile:
-                navigateToFragment(new UpdateProfileFragment());
+            case R.id.nav_request_history:
+                replaceFragment(new RequestHistoryFragment(), false);
                 break;
-        }*/
+        }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     @Override
-    public void showLoading(String message) {}
+    public void showLoading(String message) {
+        Log.d(TAG, "ShowLoading Called");
+        drawerLayout.setFitsSystemWindows(false);
+        navigationView.setFitsSystemWindows(false);
+        ViewUtils.show(progressBarRoot, progressBar, progressMessage);
+        progressMessage.setText(message);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
 
     @Override
-    public void dismissLoading() {}
+    public void dismissLoading() {
+        Log.d(TAG, "DismisLoading called" );
+        drawerLayout.setFitsSystemWindows(true);
+        navigationView.setFitsSystemWindows(true);
+        ViewUtils.hide(progressBarRoot);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
 
     @Override
-    public void showLoading() {}
+    public void showLoading() {
+        showLoading("Please wait");
+    }
 
     @Override
     public void showLoading(int resId) {}

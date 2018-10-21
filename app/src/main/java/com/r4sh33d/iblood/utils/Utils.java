@@ -22,7 +22,7 @@ public class Utils {
 
     public static ArrayList<KeyNameLOVPair> getBloodGroups(){
         ArrayList<KeyNameLOVPair> keyNameLOVPairs = new ArrayList<>();
-        keyNameLOVPairs.add(new KeyNameLOVPair(" Select blood group", "select_blood_group"));
+        keyNameLOVPairs.add(new KeyNameLOVPair(" Select blood type", "select_blood_group"));
         keyNameLOVPairs.add(new KeyNameLOVPair(" A+", "A+"));
         keyNameLOVPairs.add(new KeyNameLOVPair(" A-", "A-"));
         keyNameLOVPairs.add(new KeyNameLOVPair(" B+", "B+"));

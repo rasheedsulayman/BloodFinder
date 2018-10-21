@@ -112,7 +112,7 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
     @OnClick(R.id.save_button)
     public void onSaveButtonClicked() {
         if (bloodTypeSpinner.getSelectedItemId() < 1) {
-            showToast("Please select blood group");
+            showToast("Please select blood type");
             return;
         }
 

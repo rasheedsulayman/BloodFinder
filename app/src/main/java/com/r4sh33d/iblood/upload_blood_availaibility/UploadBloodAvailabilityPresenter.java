@@ -39,7 +39,7 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
                     BloodSearchData data = new Gson().fromJson(jsendResponse.getData(), BloodSearchData.class);
-                    view.onBloodTypeAvailabilityUploaded(bloodSearchData);
+                    view.onBloodTypeAvailabilityUploaded(data);
                 } else {
                     view.showError(jsendResponse.getErrorMessage());
                 }
