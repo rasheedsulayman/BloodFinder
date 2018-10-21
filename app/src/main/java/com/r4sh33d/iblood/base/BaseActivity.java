@@ -52,7 +52,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (addToBackStack) {
             fragmentTransaction.addToBackStack(null);
         }
-        fragmentTransaction.replace(R.id.view_container, fragment).commit();
+        fragmentTransaction.replace(R.id.view_container, fragment).commitAllowingStateLoss();
     }
 
 }

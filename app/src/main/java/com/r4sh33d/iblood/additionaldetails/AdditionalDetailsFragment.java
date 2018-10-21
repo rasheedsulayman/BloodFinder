@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -87,6 +88,25 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
         CustomSpinnerAdapter<KeyNameLOVPair> listOfTitleAdapter = new CustomSpinnerAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, Utils.getUserTypesList());
         userTypeSpinner.setAdapter(listOfTitleAdapter);
+        userTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 1: //Individual user
+                        ViewUtils.show(religionEditText);
+                        break;
+                    case 2: //Blood bank
+                        ViewUtils.hide(religionEditText);
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     @OnClick(R.id.save_button)

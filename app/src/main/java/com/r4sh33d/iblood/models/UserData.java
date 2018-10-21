@@ -26,7 +26,6 @@ public class UserData implements Parcelable {
     @SerializedName("religion")
     @Expose
     public String religion;
-
     @SerializedName("firebaseId")
     @Expose
     public String firebaseID;

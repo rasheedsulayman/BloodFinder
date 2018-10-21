@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:orientation="vertical"
-        tools:context=".UploadBloodAvailabilityFragment">
+        tools:context=".upload_blood_availaibility.UploadBloodAvailabilityFragment">
 
         <TextView
             android:layout_width="wrap_content"

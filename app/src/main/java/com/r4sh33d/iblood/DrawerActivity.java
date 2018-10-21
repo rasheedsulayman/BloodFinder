@@ -159,34 +159,22 @@ public class DrawerActivity extends BaseActivity
         return true;
     }
 
+    @Override
+    public void showLoading(String message) {}
 
     @Override
-    public void showLoading(String message) {
-
-    }
+    public void dismissLoading() {}
 
     @Override
-    public void dismissLoading() {
-
-    }
+    public void showLoading() {}
 
     @Override
-    public void showLoading() {
-
-    }
+    public void showLoading(int resId) {}
 
     @Override
-    public void showLoading(int resId) {
-
-    }
+    public void showToolbar() {}
 
     @Override
-    public void showToolbar() {
-    }
-
-    @Override
-    public void hideToolbar() {
-
-    }
+    public void hideToolbar() {}
 
 }

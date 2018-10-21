@@ -1,6 +1,7 @@
 package com.r4sh33d.iblood.network;
 
 import com.google.gson.JsonElement;
+import com.r4sh33d.iblood.models.BloodSearchData;
 import com.r4sh33d.iblood.models.UserData;
 
 import java.util.Map;
@@ -24,6 +25,9 @@ public interface DataService {
 
     @GET("/users/{userId}.json")
     Call<JsonElement> getAdditionalUserDetails (@Path("userId") String userID);
+
+    @POST("/blood_availability.json")
+    Call<JsonElement> saveBloodAvailability (@Body BloodSearchData bloodSearchData);
 
     @POST("/accounts/customers/sessions")
     Call<JsonElement> authenticateUser(@Body Map<String, String> body);
