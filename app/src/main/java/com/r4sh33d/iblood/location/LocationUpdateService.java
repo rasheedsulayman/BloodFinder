@@ -1,0 +1,169 @@
+package com.r4sh33d.iblood.location;
+
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.util.Log;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationAvailability;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.r4sh33d.iblood.base.BaseContract;
+import com.r4sh33d.iblood.models.BloodSearchData;
+import com.r4sh33d.iblood.models.UserData;
+import com.r4sh33d.iblood.models.UserLocation;
+import com.r4sh33d.iblood.network.DataService;
+import com.r4sh33d.iblood.network.Provider;
+import com.r4sh33d.iblood.utils.Constants;
+import com.r4sh33d.iblood.utils.JsendResponse;
+import com.r4sh33d.iblood.utils.PrefsUtils;
+import com.r4sh33d.iblood.utils.Utils;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import timber.log.Timber;
+
+public class LocationUpdateService extends Service {
+    LocationRequest mLocationRequest;
+    private FusedLocationProviderClient mFusedLocationClient;
+    private static final int UPDATE_INTERVAL = 5 * 60 * 60 * 1000; // 5 hours
+    private static final int FASTEST_UPDATE_INTERVAL = 4 * 60 * 60 * 1000; // 4hours
+    PrefsUtils prefsUtils;
+    public static final String GET_LAST_KNOWN_LOCATION = Constants.PACKAGE_NAME + "get_last_known_location";
+
+
+    @SuppressLint("MissingPermission")
+    // We are checking it with Utils.isLocationPermissionEnabled(this)
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        if (Utils.isLocationPermissionEnabled(this)) {
+            return;
+        }
+
+        prefsUtils = new PrefsUtils(this);
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        createLocationRequest();
+        getLastKnownLocation();
+        mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, null);
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        handleCommandIntent(intent);
+        return START_STICKY; // Wanna restart when the system kills the service
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+
+    @SuppressLint("MissingPermission")
+    void getLastKnownLocation() {
+        if (Utils.isLocationPermissionEnabled(this)) {
+            return;
+        }
+        mFusedLocationClient.getLastLocation()
+                .addOnSuccessListener(location -> {
+                    //As a start, get the user's last Known location
+                    if (location != null){
+                        prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT,
+                                new UserLocation(location.getLatitude(), location.getLongitude()));
+                        Timber.d("Got last know location: %s", location);
+                    }
+                });
+    }
+
+
+    private void handleCommandIntent(Intent intent) {
+        if (intent.getAction() != null) {
+            switch (intent.getAction()) {
+                case GET_LAST_KNOWN_LOCATION:
+                    getLastKnownLocation();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+
+    protected void createLocationRequest() {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(UPDATE_INTERVAL);
+        mLocationRequest.setFastestInterval(FASTEST_UPDATE_INTERVAL);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+    }
+
+    private LocationCallback mLocationCallback = new LocationCallback() {
+
+        @Override
+        public void onLocationResult(LocationResult locationResult) {
+            super.onLocationResult(locationResult);
+            Location lastLocation = locationResult.getLastLocation();
+            prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT,
+                    new UserLocation(lastLocation.getLatitude(), lastLocation.getLongitude()));
+            Timber.d("Got a location result: %s", locationResult.getLastLocation());
+        }
+
+        @Override
+        public void onLocationAvailability(LocationAvailability locationAvailability) {
+            super.onLocationAvailability(locationAvailability);
+        }
+    };
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        stopLocationUpdates();
+    }
+
+    private void stopLocationUpdates() {
+        mFusedLocationClient.removeLocationUpdates(mLocationCallback);
+    }
+
+
+    public void saveUserLocation(UserLocation userLocation) {
+        if (prefsUtils.doesContain(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS)) {
+            UserData userData = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, UserData.class);
+            DataService dataService = Provider.provideDataRetrofitService();
+            dataService.updateUserLocation(userData.firebaseID, userLocation).enqueue(new Callback<JsonElement>() {
+                @Override
+                public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                    JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
+                    if (jsendResponse.isSuccess()) {
+                        // We have successfully logged location to the server
+                    } else {
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonElement> call, Throwable t) {
+
+                }
+            });
+        }
+    }
+
+}

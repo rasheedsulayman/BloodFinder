@@ -1,5 +1,9 @@
 package com.r4sh33d.iblood.utils;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 
 import com.r4sh33d.iblood.models.KeyNameLOVPair;
@@ -40,6 +44,12 @@ public class Utils {
         keyNameLOVPairs.add(new KeyNameLOVPair(" Free", "free"));
         keyNameLOVPairs.add(new KeyNameLOVPair(" Paid", "paid"));
         return keyNameLOVPairs;
+    }
+
+
+    public static boolean isLocationPermissionEnabled(Context context){
+       return ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 
 }

@@ -30,6 +30,10 @@ public class UserData implements Parcelable {
     @Expose
     public String firebaseID;
 
+    @SerializedName("user_location")
+    @Expose
+    public UserLocation userLocation;
+
     public UserData(boolean isBloodBank, String name, String email,
                     String phoneNumber, String address, String religion,
                     String firebaseID) {
@@ -54,6 +58,7 @@ public class UserData implements Parcelable {
         address = in.readString();
         religion = in.readString();
         firebaseID = in.readString();
+        userLocation = in.readParcelable(UserLocation.class.getClassLoader());
     }
 
     @Override
@@ -65,6 +70,7 @@ public class UserData implements Parcelable {
         dest.writeString(address);
         dest.writeString(religion);
         dest.writeString(firebaseID);
+        dest.writeParcelable(userLocation, flags);
     }
 
     @Override
