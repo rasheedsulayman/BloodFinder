@@ -48,18 +48,22 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
                 android:id="@+id/yes_consider_religion"
-                android:text="Yes"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:buttonTint="@color/blood_red"
+                android:text="Yes" />
             <RadioButton
+                android:buttonTint="@color/blood_red"
                 android:checked="true"
                 android:id="@+id/no_dont_consider_religion"
                 android:layout_marginLeft="30dp"
                 android:text="No"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
         </RadioGroup>
 
         <TextView

@@ -23,7 +23,7 @@ public class UserLocation  implements Parcelable{
     }
 
     //TODO get real directions with road with this https://stackoverflow.com/a/18312349/6484427
-    float distanceTo (UserLocation toLocation) {
+    public  float distanceTo (UserLocation toLocation) {
         Location locationA = new Location("point A");
         locationA.setLatitude(latitude);
         locationA.setLongitude(longitude);

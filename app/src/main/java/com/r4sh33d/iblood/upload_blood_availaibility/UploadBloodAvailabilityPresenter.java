@@ -5,13 +5,9 @@ import android.location.Location;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.r4sh33d.iblood.emailregistration.EmailRegistrationContract;
 import com.r4sh33d.iblood.location.LocationUtil;
-import com.r4sh33d.iblood.models.BloodSearchData;
-import com.r4sh33d.iblood.models.User;
-import com.r4sh33d.iblood.models.UserAuthRequest;
+import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.UserLocation;
-import com.r4sh33d.iblood.network.AuthService;
 import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.JsendResponse;
@@ -28,7 +24,6 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
     private DataService dataService;
     private PrefsUtils prefsUtils;
     private Context context;
-    private static final String TAG = UploadBloodAvailabilityPresenter.class.getSimpleName();
 
     UploadBloodAvailabilityPresenter(UploadBloodAvailabilityContract.View view,
                                      DataService dataService, PrefsUtils prefsUtils, Context context) {
@@ -42,44 +37,43 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
     public void start() {}
 
     @Override
-    public void uploadBloodTypeAvailability(BloodSearchData bloodSearchData) {
+    public void uploadBloodTypeAvailability(BloodPostingData bloodPostingData) {
         view.showLoading();
         if (!prefsUtils.doesContain(Constants.PREF_KEY_LOCATION_OBJECT)){
             //Okay, Let's try for the last time to retrieve the user's location before we give up
             LocationUtil.getLastKnownLocation(context, new LocationUtil.LocationRetrievedListener() {
                 @Override
                 public void onLocationRetrievedListener(Location location) {
-                    // so location can still be null here, in case of a new phone of factory reset
+                    // so location can still be null here, in case of a new phone or factory reset
                     // and other rare cases
                     if (location != null){
-                        bloodSearchData.donorsLocation =
+                        bloodPostingData.donorsLocation =
                                 new UserLocation(location.getLatitude(), location.getLongitude());
-                        uploadBloodAvailability(bloodSearchData);
+                        uploadBloodAvailability(bloodPostingData);
                     }
                 }
 
                 @Override
                 public void onFailed() {
                     //We give up, Still upload it like that
-                    uploadBloodAvailability(bloodSearchData);
+                    uploadBloodAvailability(bloodPostingData);
                 }
             });
         } else {
-            //We have the blood type
-            UserLocation userLocation = prefsUtils.getPrefAsObject(Constants.PREF_KEY_LOCATION_OBJECT, UserLocation.class);
-            bloodSearchData.donorsLocation = userLocation;
-            uploadBloodAvailability(bloodSearchData);
+            //We have the location info
+            bloodPostingData.donorsLocation = prefsUtils.getPrefAsObject(Constants.PREF_KEY_LOCATION_OBJECT, UserLocation.class);
+            uploadBloodAvailability(bloodPostingData);
         }
     }
 
-    public void uploadBloodAvailability(BloodSearchData bloodSearchData) {
-        dataService.saveBloodAvailability(bloodSearchData).enqueue(new Callback<JsonElement>() {
+    public void uploadBloodAvailability(BloodPostingData bloodPostingData) {
+        dataService.saveBloodAvailability(bloodPostingData).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 view.dismissLoading();
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
-                    BloodSearchData data = new Gson().fromJson(jsendResponse.getData(), BloodSearchData.class);
+                    BloodPostingData data = new Gson().fromJson(jsendResponse.getData(), BloodPostingData.class);
                     view.onBloodTypeAvailabilityUploaded(data);
                 } else {
                     view.showError(jsendResponse.getErrorMessage());

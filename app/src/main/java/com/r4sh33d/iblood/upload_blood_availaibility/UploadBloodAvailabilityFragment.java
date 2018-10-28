@@ -1,7 +1,6 @@
 package com.r4sh33d.iblood.upload_blood_availaibility;
 
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,10 +13,9 @@ import android.widget.Spinner;
 
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.base.BaseFragment;
-import com.r4sh33d.iblood.models.BloodSearchData;
+import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.KeyNameLOVPair;
-import com.r4sh33d.iblood.models.UserLocation;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
@@ -139,7 +137,7 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
 
         KeyNameLOVPair bloodType = (KeyNameLOVPair) bloodTypeSpinner.getSelectedItem();
         KeyNameLOVPair donationType = (KeyNameLOVPair) donationTypeSpinner.getSelectedItem();
-        BloodSearchData bloodSearchData = new BloodSearchData(
+        BloodPostingData bloodPostingData = new BloodPostingData(
                 bloodType.key,
                 donationType.key,
                 emailText,
@@ -149,11 +147,11 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
                 religionEditText.getText().toString(),
                 null
         );
-        presenter.uploadBloodTypeAvailability(bloodSearchData);
+        presenter.uploadBloodTypeAvailability(bloodPostingData);
     }
 
     @Override
-    public void onBloodTypeAvailabilityUploaded(BloodSearchData bloodSearchData) {
+    public void onBloodTypeAvailabilityUploaded(BloodPostingData bloodPostingData) {
         showSuccessDialog("Blood type availability successfully Added", (dialog, which) -> {
             getFragmentManager().popBackStack();
         });

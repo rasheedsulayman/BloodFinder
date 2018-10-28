@@ -1,19 +1,11 @@
 package com.r4sh33d.iblood.location;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationManager;
-import android.os.Bundle;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationAvailability;
@@ -21,12 +13,7 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.r4sh33d.iblood.base.BaseContract;
-import com.r4sh33d.iblood.models.BloodSearchData;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.UserLocation;
 import com.r4sh33d.iblood.network.DataService;
@@ -69,7 +56,9 @@ public class LocationUpdateService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        handleCommandIntent(intent);
+        if (intent != null) { //This intent can be null if we are restarting from START_STICKY
+            handleCommandIntent(intent);
+        }
         return START_STICKY; //Wanna restart when the system kills the service
     }
 
