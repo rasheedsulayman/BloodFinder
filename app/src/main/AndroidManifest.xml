@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DrawerActivity"
+            android:name=".DashboardActivity"
             android:screenOrientation="portrait" />
 
         <service

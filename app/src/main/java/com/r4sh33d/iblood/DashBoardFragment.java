@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.r4sh33d.iblood.base.BaseFragment;
+import com.r4sh33d.iblood.bloodrequest.BloodRequestFragment;
 import com.r4sh33d.iblood.upload_blood_availaibility.UploadBloodAvailabilityFragment;
 
 import butterknife.ButterKnife;

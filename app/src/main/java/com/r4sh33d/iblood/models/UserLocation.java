@@ -22,6 +22,7 @@ public class UserLocation  implements Parcelable{
         this.longitude = longitude;
     }
 
+    //TODO get real directions with road with this https://stackoverflow.com/a/18312349/6484427
     float distanceTo (UserLocation toLocation) {
         Location locationA = new Location("point A");
         locationA.setLatitude(latitude);
@@ -31,7 +32,6 @@ public class UserLocation  implements Parcelable{
         locationB.setLongitude(toLocation.longitude);
         return locationA.distanceTo(locationB);
     }
-
 
     protected UserLocation(Parcel in) {
         longitude = in.readDouble();

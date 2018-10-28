@@ -10,6 +10,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -20,6 +21,7 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -42,8 +44,8 @@ import timber.log.Timber;
 public class LocationUpdateService extends Service {
     LocationRequest mLocationRequest;
     private FusedLocationProviderClient mFusedLocationClient;
-    private static final int UPDATE_INTERVAL = 5 * 60 * 60 * 1000; // 5 hours
-    private static final int FASTEST_UPDATE_INTERVAL = 4 * 60 * 60 * 1000; // 4hours
+    public static final int UPDATE_INTERVAL = 5 * 60 * 60 * 1000; // 5 hours
+    public static final int FASTEST_UPDATE_INTERVAL = 4 * 60 * 60 * 1000; // 4hours
     PrefsUtils prefsUtils;
     public static final String GET_LAST_KNOWN_LOCATION = Constants.PACKAGE_NAME + "get_last_known_location";
 
@@ -54,11 +56,11 @@ public class LocationUpdateService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        if (Utils.isLocationPermissionEnabled(this)) {
+        if (!Utils.isLocationPermissionEnabled(this)) {
             return;
         }
 
-        prefsUtils = new PrefsUtils(this);
+        prefsUtils = Provider.providePrefManager(this);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         createLocationRequest();
         getLastKnownLocation();
@@ -68,7 +70,7 @@ public class LocationUpdateService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         handleCommandIntent(intent);
-        return START_STICKY; // Wanna restart when the system kills the service
+        return START_STICKY; //Wanna restart when the system kills the service
     }
 
     @Nullable
@@ -80,18 +82,22 @@ public class LocationUpdateService extends Service {
 
     @SuppressLint("MissingPermission")
     void getLastKnownLocation() {
-        if (Utils.isLocationPermissionEnabled(this)) {
+        if (!Utils.isLocationPermissionEnabled(this)) {
             return;
         }
         mFusedLocationClient.getLastLocation()
                 .addOnSuccessListener(location -> {
                     //As a start, get the user's last Known location
-                    if (location != null){
+                    if (location != null) {
                         prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT,
                                 new UserLocation(location.getLatitude(), location.getLongitude()));
-                        Timber.d("Got last know location: %s", location);
+                        Timber.d("Got last know location, long: %s, Lat: %s",
+                                location.getLongitude(), location.getLatitude());
                     }
-                });
+                }).addOnFailureListener(e -> {
+            //We failed
+            Timber.e(e, "Failed to get location:");
+        });
     }
 
 

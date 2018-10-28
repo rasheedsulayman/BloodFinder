@@ -1,4 +1,4 @@
-package com.r4sh33d.iblood;
+package com.r4sh33d.iblood.bloodrequest;
 
 
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.KeyNameLOVPair;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
@@ -26,7 +27,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BloodRequestFragment extends BaseFragment {
+public class BloodRequestFragment extends BaseFragment implements  BloodRequestContract.View {
 
     @BindView(R.id.donation_type_spinner)
     Spinner donationTypeSpinner;

@@ -1,5 +1,6 @@
 package com.r4sh33d.iblood;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.r4sh33d.iblood.DonationHistory.DonationHistoryFragment;
 import com.r4sh33d.iblood.base.BaseActivity;
+import com.r4sh33d.iblood.location.LocationUpdateService;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.requesthisotry.RequestHistoryFragment;
@@ -29,10 +31,10 @@ import com.r4sh33d.iblood.utils.ViewUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DrawerActivity extends BaseActivity
+public class DashboardActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     public static final String USER_KEY = "UserIntentKey";
-    private static final String TAG = DrawerActivity.class.getSimpleName();
+    private static final String TAG = DashboardActivity.class.getSimpleName();
 
     @BindView(R.id.progress_bar_root)
     ConstraintLayout progressBarRoot;
@@ -55,6 +57,7 @@ public class DrawerActivity extends BaseActivity
         setContentView(R.layout.activity_drawer);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        startLocationService();
         drawerToggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(drawerToggle);
@@ -72,6 +75,11 @@ public class DrawerActivity extends BaseActivity
         drawerToggle.setToolbarNavigationClickListener(v -> onBackPressed());
     }
 
+    void startLocationService(){
+        Intent intent = new Intent(this, LocationUpdateService.class);
+        intent.setAction(LocationUpdateService.GET_LAST_KNOWN_LOCATION);
+        startService(intent);
+    }
 
     void setNavigationViewHeaderDetails(UserData user) {
         NavigationView navigationView = findViewById(R.id.nav_view);

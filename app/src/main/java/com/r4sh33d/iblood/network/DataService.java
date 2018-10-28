@@ -30,6 +30,7 @@ public interface DataService {
     @POST("/blood_availability.json")
     Call<JsonElement> saveBloodAvailability (@Body BloodSearchData bloodSearchData);
 
+
     @PUT("/users/{userId}/location.json")
     Call<JsonElement> updateUserLocation (@Path("userId") String userID , @Body UserLocation userLocation);
 

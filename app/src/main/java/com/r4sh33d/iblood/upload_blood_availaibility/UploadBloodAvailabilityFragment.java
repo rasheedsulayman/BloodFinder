@@ -17,9 +17,11 @@ import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.BloodSearchData;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.KeyNameLOVPair;
+import com.r4sh33d.iblood.models.UserLocation;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
+import com.r4sh33d.iblood.utils.PrefsUtils;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
 
@@ -52,6 +54,8 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
     @BindView(R.id.religion_edit_text)
     EditText religionEditText;
 
+    PrefsUtils prefsUtils;
+
     UserData userData;
 
     UploadBloodAvailabilityContract.Presenter presenter;
@@ -81,10 +85,11 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setToolbarTitle("Upload Blood Availability");
+        prefsUtils = Provider.providePrefManager(getContext());
         setDrawerIconToBack();
         prepareBloodGroupSpinner();
         prepareDonationTypeSpinner();
-        presenter = new UploadBloodAvailabilityPresenter(this, Provider.provideDataRetrofitService());
+        presenter = new UploadBloodAvailabilityPresenter(this, Provider.provideDataRetrofitService(), prefsUtils, getContext());
         userData = Provider.providePrefManager(getContext()).getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS,
                 UserData.class);
         prepopulateFields();
@@ -134,7 +139,6 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
 
         KeyNameLOVPair bloodType = (KeyNameLOVPair) bloodTypeSpinner.getSelectedItem();
         KeyNameLOVPair donationType = (KeyNameLOVPair) donationTypeSpinner.getSelectedItem();
-
         BloodSearchData bloodSearchData = new BloodSearchData(
                 bloodType.key,
                 donationType.key,
@@ -143,7 +147,6 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
                 phoneNumberEditText.getText().toString(),
                 userData.firebaseID,
                 religionEditText.getText().toString(),
-                null,
                 null
         );
         presenter.uploadBloodTypeAvailability(bloodSearchData);
@@ -151,9 +154,9 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
 
     @Override
     public void onBloodTypeAvailabilityUploaded(BloodSearchData bloodSearchData) {
-         showSuccessDialog("Blood type availability successfully Added", (dialog, which) -> {
-             getFragmentManager().popBackStack();
-         });
+        showSuccessDialog("Blood type availability successfully Added", (dialog, which) -> {
+            getFragmentManager().popBackStack();
+        });
     }
 }
 

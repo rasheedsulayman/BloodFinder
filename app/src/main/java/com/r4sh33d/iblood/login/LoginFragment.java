@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.r4sh33d.iblood.DrawerActivity;
+import com.r4sh33d.iblood.DashboardActivity;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.emailregistration.EmailRegistrationFragment;
@@ -89,7 +89,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
 
     @Override
     public void onUserSuccessfullyLoggedIn(UserData user) {
-        Intent intent = new Intent(getContext(), DrawerActivity.class);
+        Intent intent = new Intent(getContext(), DashboardActivity.class);
         startActivity(intent);
         getActivity().finish();
     }

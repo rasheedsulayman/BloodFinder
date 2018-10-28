@@ -9,12 +9,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import com.r4sh33d.iblood.DrawerActivity;
+import com.r4sh33d.iblood.DashboardActivity;
 import com.r4sh33d.iblood.R;
 
 public abstract class BaseFragment extends Fragment implements BaseContract.view {
@@ -92,14 +91,14 @@ public abstract class BaseFragment extends Fragment implements BaseContract.view
     }
 
     public void setDrawerIconToBack(){
-        if (baseActivity instanceof DrawerActivity) {
-            ((DrawerActivity)baseActivity).setDrawerIconToBack();
+        if (baseActivity instanceof DashboardActivity) {
+            ((DashboardActivity)baseActivity).setDrawerIconToBack();
         }
     }
 
     public void setDrawerIconToHome(){
-        if (baseActivity instanceof DrawerActivity) {
-            ((DrawerActivity)baseActivity).setDrawerIconToHome();
+        if (baseActivity instanceof DashboardActivity) {
+            ((DashboardActivity)baseActivity).setDrawerIconToHome();
         }
     }
 

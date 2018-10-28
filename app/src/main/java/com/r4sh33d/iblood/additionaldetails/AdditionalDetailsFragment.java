@@ -12,8 +12,8 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.r4sh33d.iblood.DashboardActivity;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
-import com.r4sh33d.iblood.DrawerActivity;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.models.KeyNameLOVPair;
@@ -143,7 +143,7 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
         //We are done we can now go back and login
         showSuccessDialog("Account successfully created", (dialog, which) -> {
             //We can either launch the Dashboard or go back to login.
-            startActivity(new Intent(getContext() , DrawerActivity.class));
+            startActivity(new Intent(getContext() , DashboardActivity.class));
             getActivity().finish();
         });
 
