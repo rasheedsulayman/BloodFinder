@@ -23,21 +23,22 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class bloodPostingSearchResultListFragment extends BaseFragment implements
+
+public class BloodPostingSearchResultListFragment extends BaseFragment implements
         PostingsListAdapter.OnBloodPostingItemClickListener {
     @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
     private static final String KEY_BLOOD_POSTING_DATA = "bloodposting";
 
-    public static bloodPostingSearchResultListFragment newInstance(ArrayList<BloodPostingData> resultslist) {
+    public static BloodPostingSearchResultListFragment newInstance(ArrayList<BloodPostingData> resultslist) {
         Bundle args = new Bundle();
         args.putParcelableArrayList(KEY_BLOOD_POSTING_DATA, resultslist);
-        bloodPostingSearchResultListFragment fragment = new bloodPostingSearchResultListFragment();
+        BloodPostingSearchResultListFragment fragment = new BloodPostingSearchResultListFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
-    public bloodPostingSearchResultListFragment() {
+    public BloodPostingSearchResultListFragment() {
         // Required empty public constructor
     }
 
@@ -63,5 +64,10 @@ public class bloodPostingSearchResultListFragment extends BaseFragment implement
     @Override
     public void onBloodPostingItemClicked(BloodPostingData bloodPostingData) {
         //TODO come back and open a more detailed screen... or show a diaglog for sending donation request.
+        showSuccessDialog("Want to send request to" + bloodPostingData.donorsName + "?",
+                (dialog, which) -> {
+            //TODO comeback and make actual API call
+            dialog.dismiss();
+        });
     }
 }

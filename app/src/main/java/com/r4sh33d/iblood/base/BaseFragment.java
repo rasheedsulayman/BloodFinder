@@ -124,7 +124,11 @@ public abstract class BaseFragment extends Fragment implements BaseContract.view
         }
     }
 
-    @Override
+    public void replaceFragment(Fragment fragment, boolean addToBackStack) {
+        baseActivity.replaceFragment(fragment , addToBackStack);
+    }
+
+        @Override
     public void onDetach() {
         baseActivity = null;
         super.onDetach();

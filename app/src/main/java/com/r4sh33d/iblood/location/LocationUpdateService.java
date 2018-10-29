@@ -36,7 +36,6 @@ public class LocationUpdateService extends Service {
     PrefsUtils prefsUtils;
     public static final String GET_LAST_KNOWN_LOCATION = Constants.PACKAGE_NAME + "get_last_known_location";
 
-
     @SuppressLint("MissingPermission")
     // We are checking it with Utils.isLocationPermissionEnabled(this)
     @Override

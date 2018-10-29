@@ -19,6 +19,7 @@ import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodSearchData;
 import com.r4sh33d.iblood.models.KeyNameLOVPair;
 import com.r4sh33d.iblood.network.Provider;
+import com.r4sh33d.iblood.postingsresultslist.BloodPostingSearchResultListFragment;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
@@ -113,10 +114,12 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
             showToast("Please select donation type");
             return;
         }
+
         boolean considerRelogion = considerReligionRadioGroup.getCheckedRadioButtonId() == R.id.yes_consider_religion;
         if (considerRelogion && !ViewUtils.validateEditTexts(religionEditText)) {
             return;
         }
+
         KeyNameLOVPair bloodType = (KeyNameLOVPair) bloodGroupSpinner.getSelectedItem();
         KeyNameLOVPair donationType = (KeyNameLOVPair) donationTypeSpinner.getSelectedItem();
         BloodSearchData bloodSearchData = new BloodSearchData(bloodType.key, donationType.key,considerRelogion,
@@ -127,6 +130,6 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
 
     @Override
     public void onDonorsPostingsFetched(ArrayList<BloodPostingData> resultsList) {
-
+          replaceFragment(BloodPostingSearchResultListFragment.newInstance(resultsList));
     }
 }

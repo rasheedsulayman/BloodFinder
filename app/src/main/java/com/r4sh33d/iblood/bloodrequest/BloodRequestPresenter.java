@@ -21,10 +21,12 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import timber.log.Timber;
 
 
 public class BloodRequestPresenter implements BloodRequestContract.Presenter {
@@ -49,7 +51,7 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
 
     @Override
     public void requestForBlood(BloodSearchData bloodSearchData) {
-        view.showError("Fetching donors, Please wait . . .");
+        view.showLoading("Fetching donors, Please wait . . .");
         if (!prefsUtils.doesContain(Constants.PREF_KEY_LOCATION_OBJECT)) {
             LocationUtil.getLastKnownLocation(context, new LocationUtil.LocationRetrievedListener() {
                 @Override
@@ -78,10 +80,9 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
-                    Type type = new TypeToken<ArrayList<BloodSearchData>>() {
-                    }.getType();
-                    ArrayList<BloodPostingData> bloodPostings = new Gson().fromJson(jsendResponse.getData(), type);
-                    view.onDonorsPostingsFetched(processResultList(bloodPostings , bloodSearchData));
+                    Type type = new TypeToken<HashMap<String, BloodPostingData>>(){}.getType();
+                    HashMap<String, BloodPostingData> bloodPostings = new Gson().fromJson(jsendResponse.getData(), type);
+                    view.onDonorsPostingsFetched(processResultList(new ArrayList<>(bloodPostings.values()), bloodSearchData));
                     view.dismissLoading();
                 } else {
                     view.dismissLoading();
@@ -97,18 +98,22 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
         });
     }
 
-
     public ArrayList<BloodPostingData> processResultList(ArrayList<BloodPostingData> bloodPostingsList,
                                                          BloodSearchData bloodSearchData) {
         ArrayList<BloodPostingData> resultsList = new ArrayList<>();
         for (BloodPostingData bloodPostingData : bloodPostingsList) {
+           // Timber.d("The blood posting data: " + bloodPostingData);
             for (String compatibilityType : Data.bloodTypeCompatibilityMapping.get(bloodSearchData.bloodType)) {
-                if (bloodPostingData.donationType.equals(compatibilityType)) {
+                Timber.d("The coparison: " + compatibilityType + " .equals : " + bloodPostingData.donorsBloodType);
+                Timber.d("Answer of the comparison: %s", (compatibilityType.equals(bloodPostingData.donorsBloodType)));
+                if (bloodPostingData.donorsBloodType.equals(compatibilityType)) {
                     resultsList.add(bloodPostingData);
                     break;
                 }
             }
         }
+        Timber.d("The result list size is " + resultsList.size());
+
         //At this stage we've added all compatible blood types to the result list, now we need to sort based on location
         sortBasedLocation(resultsList, bloodSearchData);
         return resultsList;
@@ -123,5 +128,4 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
             return Float.compare(distanceToO1, distanceToO2);
         });
     }
-
 }
