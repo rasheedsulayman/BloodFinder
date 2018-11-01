@@ -88,7 +88,6 @@ public class LocationUpdateService extends Service {
         });
     }
 
-
     private void handleCommandIntent(Intent intent) {
         if (intent.getAction() != null) {
             switch (intent.getAction()) {
@@ -101,7 +100,6 @@ public class LocationUpdateService extends Service {
         }
     }
 
-
     protected void createLocationRequest() {
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(UPDATE_INTERVAL);
@@ -110,7 +108,6 @@ public class LocationUpdateService extends Service {
     }
 
     private LocationCallback mLocationCallback = new LocationCallback() {
-
         @Override
         public void onLocationResult(LocationResult locationResult) {
             super.onLocationResult(locationResult);
@@ -126,6 +123,7 @@ public class LocationUpdateService extends Service {
         }
     };
 
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -135,7 +133,6 @@ public class LocationUpdateService extends Service {
     private void stopLocationUpdates() {
         mFusedLocationClient.removeLocationUpdates(mLocationCallback);
     }
-
 
     public void saveUserLocation(UserLocation userLocation) {
         if (prefsUtils.doesContain(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS)) {

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".postingsresultslist.BloodPostingSearchResultListFragment">
+    tools:context=".postingsresultslist.BloodPostingResultListFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"

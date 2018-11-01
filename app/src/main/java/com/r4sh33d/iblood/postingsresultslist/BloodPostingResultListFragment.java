@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.BloodPostingData;
@@ -24,21 +25,22 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 
-public class BloodPostingSearchResultListFragment extends BaseFragment implements
-        PostingsListAdapter.OnBloodPostingItemClickListener {
+public class BloodPostingResultListFragment extends BaseFragment implements
+        PostingsListAdapter.OnBloodPostingItemClickListener, BloodPostingResultListContract.View {
     @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
     private static final String KEY_BLOOD_POSTING_DATA = "bloodposting";
+    BloodPostingResultListContract.Presenter presenter;
 
-    public static BloodPostingSearchResultListFragment newInstance(ArrayList<BloodPostingData> resultslist) {
+    public static BloodPostingResultListFragment newInstance(ArrayList<BloodPostingData> resultslist) {
         Bundle args = new Bundle();
         args.putParcelableArrayList(KEY_BLOOD_POSTING_DATA, resultslist);
-        BloodPostingSearchResultListFragment fragment = new BloodPostingSearchResultListFragment();
+        BloodPostingResultListFragment fragment = new BloodPostingResultListFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
-    public BloodPostingSearchResultListFragment() {
+    public BloodPostingResultListFragment() {
         // Required empty public constructor
     }
 
@@ -64,10 +66,22 @@ public class BloodPostingSearchResultListFragment extends BaseFragment implement
     @Override
     public void onBloodPostingItemClicked(BloodPostingData bloodPostingData) {
         //TODO come back and open a more detailed screen... or show a diaglog for sending donation request.
-        showSuccessDialog("Want to send request to" + bloodPostingData.donorsName + "?",
-                (dialog, which) -> {
-            //TODO comeback and make actual API call
-            dialog.dismiss();
-        });
+        new MaterialDialog.Builder(getContext())
+                .title("Send Request?")
+                .content("A blood donation request will be sent to " + bloodPostingData.donorsName)
+                .positiveText("Okay")
+                .negativeText("Cancel")
+                .onPositive((dialog, which) -> {
+                      //TODO come and send the request
+                })
+                .onNegative((dialog, which) -> {
+                    //noOp
+                })
+                .show();
+    }
+
+    @Override
+    public void onNotificationSent(BloodPostingData bloodPostingData) {
+
     }
 }

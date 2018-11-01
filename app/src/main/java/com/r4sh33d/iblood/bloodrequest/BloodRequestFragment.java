@@ -19,7 +19,7 @@ import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodSearchData;
 import com.r4sh33d.iblood.models.KeyNameLOVPair;
 import com.r4sh33d.iblood.network.Provider;
-import com.r4sh33d.iblood.postingsresultslist.BloodPostingSearchResultListFragment;
+import com.r4sh33d.iblood.postingsresultslist.BloodPostingResultListFragment;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
@@ -130,6 +130,6 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
 
     @Override
     public void onDonorsPostingsFetched(ArrayList<BloodPostingData> resultsList) {
-          replaceFragment(BloodPostingSearchResultListFragment.newInstance(resultsList));
+          replaceFragment(BloodPostingResultListFragment.newInstance(resultsList));
     }
 }
