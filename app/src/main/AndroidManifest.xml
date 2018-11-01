@@ -30,6 +30,20 @@
             android:name=".location.LocationUpdateService"
             android:enabled="true"
             android:exported="false" />
+
+        <service android:name=".notification.services.NotificationIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".notification.services.NotificationHandlerService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
