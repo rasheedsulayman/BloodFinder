@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_margin="16dp"
-    tools:context=".DashBoardFragment">
+    tools:context=".dashboard.DashBoardFragment">
 
     <android.support.v7.widget.CardView
         app:cardCornerRadius="4dp"

@@ -16,35 +16,40 @@ import android.support.v4.app.NotificationCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.r4sh33d.iblood.R;
+import com.r4sh33d.iblood.models.BaseNotificationData;
 import com.r4sh33d.iblood.models.FCMNotification;
-import com.r4sh33d.iblood.notification.NotificationDetailsActivity;
+import com.r4sh33d.iblood.notification.NotificationRequestDetailsActivity;
 
 import java.util.Map;
+
+import timber.log.Timber;
 
 /**
  * Created by rasheed on 12/19/17.
  */
 
 public class NotificationHandlerService extends FirebaseMessagingService {
+
     public static final String NOTIFICATION_OBJECT_ARGS = "notification_object_extra_args";
     public static final String NOTIFICATION_TITLE_KEY = "title";
     public static final String NOTIFICATION_BODY_KEY = "body";
     private static final int NOTIFICATION_ID = 100;
     private static final String NOTIFICATION_CHANEL_ID = "my_channel_01";
-    private String TAG = NotificationHandlerService.class.getSimpleName();
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // Check if message contains a data payload.
         if (remoteMessage != null && remoteMessage.getData() != null) {
             Map<String, String> data = remoteMessage.getData();
-            if (data != null) {
+            Timber.d("Notification received: " + data);
+           /* if (data != null) {
                 String title = data.get(NOTIFICATION_TITLE_KEY);
                 String body = data.get(NOTIFICATION_BODY_KEY);
                 long sentTime = remoteMessage.getSentTime();
                 long timeArrived = System.currentTimeMillis();
                 sendNotification(new FCMNotification(title, body, timeArrived, sentTime));
-            }
+            }*/
         }
     }
 
@@ -58,7 +63,8 @@ public class NotificationHandlerService extends FirebaseMessagingService {
     }
 
     public Notification getNotification(FCMNotification fcmNotification) {
-        Intent intent = new Intent(this, NotificationDetailsActivity.class);
+        Intent intent = new Intent(this, NotificationRequestDetailsActivity.class);
+
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra(NOTIFICATION_OBJECT_ARGS, fcmNotification);
@@ -66,7 +72,7 @@ public class NotificationHandlerService extends FirebaseMessagingService {
                 PendingIntent.FLAG_ONE_SHOT);
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         return new NotificationCompat.Builder(this, NOTIFICATION_CHANEL_ID)
-                .setSmallIcon(R.mipmap.fbni_ic_launcher)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(fcmNotification.title)
                 .setContentText(fcmNotification.body)
                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -79,10 +85,19 @@ public class NotificationHandlerService extends FirebaseMessagingService {
                 .setContentIntent(pendingIntent).build();
     }
 
+    public Class getDestinationClass (BaseNotificationData baseNotificationData){
+        switch (baseNotificationData.type){
+            case BaseNotificationData.BLOOD_REQUEST_NOTIFICATION_TYPE:
+                return NotificationRequestDetailsActivity.class;
+            case BaseNotificationData.ACCEPTANCE_NOTIFICATION_TYPE:
+
+        }
+    }
+
     @TargetApi(Build.VERSION_CODES.O)
     private void setUPNotificationChannel(NotificationManager notificationManager) {
-        CharSequence name = getString(R.string.notification_channel_name);
-        String description = getString(R.string.notification_channel_description);
+        CharSequence name = getString(R.string.iblood_channel_name);
+        String description = getString(R.string.iblood_channel_description);
         NotificationChannel channel = new NotificationChannel(NOTIFICATION_CHANEL_ID, name,
                 NotificationManager.IMPORTANCE_HIGH);
         channel.setDescription(description);

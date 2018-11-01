@@ -22,7 +22,6 @@ public class LoginPresenter implements LoginContract.Presenter {
     private final DataService dataService;
     private AuthService authService;
     private PrefsUtils prefsUtils;
-    private static final String TAG = LoginPresenter.class.getSimpleName();
 
     LoginPresenter(LoginContract.View view, DataService dataService, AuthService authService, PrefsUtils prefsUtils) {
         this.view = view;
@@ -40,7 +39,6 @@ public class LoginPresenter implements LoginContract.Presenter {
         authService.loginUser(userAuthRequest).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                view.dismissLoading();
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
                     User user = new Gson().fromJson(jsendResponse.getData(), User.class);

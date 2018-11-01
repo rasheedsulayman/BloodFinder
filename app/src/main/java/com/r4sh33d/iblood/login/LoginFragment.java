@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.r4sh33d.iblood.DashboardActivity;
+import com.r4sh33d.iblood.dashboard.DashboardActivity;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.emailregistration.EmailRegistrationFragment;

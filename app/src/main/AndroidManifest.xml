@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".login.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,14 +23,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DashboardActivity"
+            android:name=".dashboard.DashboardActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".notification.NotificationRequestDetailsActivity" />
 
         <service
             android:name=".location.LocationUpdateService"
             android:enabled="true"
             android:exported="false" />
-
         <service android:name=".notification.services.NotificationIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -44,6 +44,8 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".notification.NotificationAcceptanceDetailsActivity"></activity>
     </application>
 
 </manifest>

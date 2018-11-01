@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import com.r4sh33d.iblood.DashboardActivity;
+import com.r4sh33d.iblood.dashboard.DashboardActivity;
 import com.r4sh33d.iblood.R;
 
 public abstract class BaseFragment extends Fragment implements BaseContract.view {

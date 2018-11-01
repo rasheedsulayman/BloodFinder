@@ -1,20 +1,17 @@
 package com.r4sh33d.iblood.notification;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
-
 
 import com.r4sh33d.iblood.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
-public class NotificationDetailsActivity extends AppCompatActivity {
+public class NotificationAcceptanceDetailsActivity extends AppCompatActivity {
 
     @BindView(R.id.notification_title)
     TextView notificationTitle;
@@ -29,11 +26,11 @@ public class NotificationDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notification_details);
         ButterKnife.bind(this);
         ActionBar actionBar = getSupportActionBar();
-       // actionBar.setTitle(R.string.view_notification);
+        // actionBar.setTitle(R.string.view_notification);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         if (getIntent()!=null){
-           // HandleNotificationIntent(getIntent());
+            // HandleNotificationIntent(getIntent());
         }else {
             finish();
         }

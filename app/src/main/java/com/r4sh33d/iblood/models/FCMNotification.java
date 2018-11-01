@@ -3,7 +3,8 @@ package com.r4sh33d.iblood.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.cottacush.fbn.android.utils.DateUtils;
+import com.r4sh33d.iblood.utils.DateUtils;
+
 
 /**
  * Created by rasheed on 12/19/17.

@@ -37,7 +37,7 @@ public interface DataService {
     Call<JsonElement> updateUserLocation (@Path("userId") String userID , @Body UserLocation userLocation);
 
     @PUT("/users/{userId}/notification_token.json")
-    Call<JsonElement> updateUserNotificationToken (@Path("userId") String userID , @Body String refreshedToken);
+    Call<String> updateUserNotificationToken (@Path("userId") String userID , @Body String refreshedToken);
 
     @POST("/accounts/customers/sessions")
     Call<JsonElement> authenticateUser(@Body Map<String, String> body);

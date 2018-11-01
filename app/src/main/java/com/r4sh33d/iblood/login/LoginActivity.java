@@ -1,4 +1,4 @@
-package com.r4sh33d.iblood;
+package com.r4sh33d.iblood.login;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.base.BaseActivity;
 import com.r4sh33d.iblood.login.LoginFragment;
 import com.r4sh33d.iblood.utils.ViewUtils;

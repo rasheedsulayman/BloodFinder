@@ -1,4 +1,4 @@
-package com.r4sh33d.iblood;
+package com.r4sh33d.iblood.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.r4sh33d.iblood.DonationHistory.DonationHistoryFragment;
+import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.base.BaseActivity;
 import com.r4sh33d.iblood.location.LocationUpdateService;
 import com.r4sh33d.iblood.models.UserData;

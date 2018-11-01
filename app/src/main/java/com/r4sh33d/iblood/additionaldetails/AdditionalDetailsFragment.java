@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.r4sh33d.iblood.DashboardActivity;
+import com.r4sh33d.iblood.dashboard.DashboardActivity;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.R;
