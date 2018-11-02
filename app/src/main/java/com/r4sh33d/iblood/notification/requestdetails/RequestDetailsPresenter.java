@@ -2,6 +2,7 @@ package com.r4sh33d.iblood.notification.requestdetails;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.utils.Constants;
@@ -27,16 +28,16 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
     }
 
     @Override
-    public void fetchSeekersDetails(String seekerFbId) {
+    public void fetchDetails(BloodRequestNotificationData notificationData) {
         view.showLoading("Fetching the requester details");
-        dataService.getAdditionalUserDetails(seekerFbId).enqueue(new Callback<JsonElement>() {
+        dataService.getAdditionalUserDetails(notificationData.bloodSeekerFbId).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
-                view.dismissLoading();
+
                 if (jsendResponse.isSuccess()) {
                     UserData user = new Gson().fromJson(jsendResponse.getData(), UserData.class);
-                    view.onDetailsSuccessfullyFetched(user);
+                    //view.onDetailsSuccessfullyFetched(user);
                 } else {
                     view.showError(jsendResponse.getErrorMessage());
                 }
@@ -50,8 +51,8 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
         });
     }
 
-    @Override
-    public void fetchBloodPosting(String bloodPostingId) {
+
+    void fetchBloodPostingData(String blodPostingID){
 
     }
 

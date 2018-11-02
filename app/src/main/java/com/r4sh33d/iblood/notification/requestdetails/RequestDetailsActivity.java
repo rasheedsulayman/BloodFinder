@@ -69,7 +69,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
     private void handleNotificationIntent(Intent intent) {
         if (intent.hasExtra(NOTIFICATION_OBJECT_ARGS)) {
             BloodRequestNotificationData bloodRequestNotificationData = intent.getParcelableExtra(NOTIFICATION_OBJECT_ARGS);
-            presenter.fetchSeekersDetails(bloodRequestNotificationData.bloodSeekerFbId);
+            presenter.fetchDetails(bloodRequestNotificationData);
         }
     }
 
