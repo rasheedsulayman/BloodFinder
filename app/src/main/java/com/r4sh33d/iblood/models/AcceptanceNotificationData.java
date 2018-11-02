@@ -46,6 +46,14 @@ public class AcceptanceNotificationData  implements Parcelable{
         this.sentTime = sentTime;
     }
 
+    public AcceptanceNotificationData(String type, String bloodDonorFbId,
+                                      String bloodDonorName, String bloodPostingId) {
+        this.type = type;
+        this.bloodDonorFbId = bloodDonorFbId;
+        this.bloodDonorName = bloodDonorName;
+        this.bloodPostingId = bloodPostingId;
+    }
+
     protected AcceptanceNotificationData(Parcel in) {
         type = in.readString();
         bloodDonorFbId = in.readString();

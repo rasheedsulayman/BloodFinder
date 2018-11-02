@@ -1,15 +1,14 @@
-package com.r4sh33d.iblood.notification.requestdetails;
+package com.r4sh33d.iblood.notification.acceptancedetails;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.r4sh33d.iblood.models.AcceptanceNotificationData;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodRequestNotificationData;
-import com.r4sh33d.iblood.models.BloodSearchData;
 import com.r4sh33d.iblood.models.NotificationPayload;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.network.NotificationService;
-import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 
@@ -18,15 +17,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class RequestDetailsPresenter implements RequestDetailsContract.Presenter {
+public class AcceptanceDetailsPresenter implements AcceptanceDetailsContract.Presenter {
 
-    private RequestDetailsContract.View view;
+    private AcceptanceDetailsContract.View view;
     private final DataService dataService;
     private final PrefsUtils prefsUtils;
     private NotificationService notificationService;
 
-    RequestDetailsPresenter(RequestDetailsContract.View view, DataService dataService,
-                            PrefsUtils prefsUtils, NotificationService notificationService) {
+    AcceptanceDetailsPresenter(AcceptanceDetailsContract.View view, DataService dataService,
+                               PrefsUtils prefsUtils) {
         this.view = view;
         this.dataService = dataService;
         this.prefsUtils = prefsUtils;
@@ -34,16 +33,14 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
     }
 
     @Override
-    public void fetchDetails(BloodRequestNotificationData notificationData) {
+    public void fetchDetails(AcceptanceNotificationData notificationData) {
         view.showLoading("Fetching the requester details");
-        dataService.getAdditionalUserDetails(notificationData.bloodSeekerFbId).enqueue(new Callback<JsonElement>() {
+        dataService.getAdditionalUserDetails(notificationData.bloodDonorFbId).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
-
                 if (jsendResponse.isSuccess()) {
-                    UserData bloodSeekerData = new Gson().fromJson(jsendResponse.getData(), UserData.class);
-                    fetchBloodPostingData(notificationData.bloodPostingId, bloodSeekerData);
+                    UserData bloodDonorData = new Gson().fromJson(jsendResponse.getData(), UserData.class);
                 } else {
                     view.showError(jsendResponse.getErrorMessage());
                 }
@@ -57,31 +54,8 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
         });
     }
 
-    @Override
-    public void sendNotification(NotificationPayload notificationPayload) {
-        view.showLoading("Sending Notification");
-        notificationService.sendNotification(notificationPayload).enqueue(new Callback<JsonElement>() {
-            @Override
-            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                view.dismissLoading();
-                if (response.body().getAsJsonObject().get("success").getAsInt() > 0) {
-                    //We sent something successfully
-                    view.onNotificationSuccessfullySent();
-                } else {
-                    //something went wrong, NoOp for now
-                    //TODO comeback and handle this
-                }
-            }
 
-            @Override
-            public void onFailure(Call<JsonElement> call, Throwable t) {
-                view.dismissLoading();
-                view.showError(JsendResponse.ERROR_MESSAGE);
-            }
-        });
-    }
-
-    void fetchBloodPostingData(String blodPostingID, UserData bloodSeeker) {
+    /*void fetchBloodPostingData(String blodPostingID, UserData bloodSeeker) {
         dataService.getBloodPosting(blodPostingID).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
@@ -101,5 +75,5 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
                 view.showError(JsendResponse.ERROR_MESSAGE);
             }
         });
-    }
+    }*/
 }

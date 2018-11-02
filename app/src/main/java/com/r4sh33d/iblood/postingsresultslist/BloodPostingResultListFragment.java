@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -79,7 +80,12 @@ public class BloodPostingResultListFragment extends BaseFragment implements
 
     @Override
     public void onBloodPostingItemClicked(BloodPostingData bloodPostingData) {
-        //TODO come back and open a more detailed screen... or show a diaglog for sending donation request.
+        presenter.fetchMoreDetails(bloodPostingData);
+    }
+
+    @Override
+    public void onDetailsSuccessfullyFetched(UserData bloodDonorData, BloodPostingData bloodPostingData) {
+        //TODO come back and open a more detailed screen... or show a dialog for sending donation request.
         new MaterialDialog.Builder(getContext())
                 .title("Send Request?")
                 .content("A blood donation request will be sent to " + bloodPostingData.donorsName)
@@ -94,7 +100,7 @@ public class BloodPostingResultListFragment extends BaseFragment implements
                                     bloodPostingData.id
                             );
                     NotificationPayload<BloodRequestNotificationData> notificationPayload
-                            = new NotificationPayload<>(notificationData, bloodPostingData.donorsFirebaseId);
+                            = new NotificationPayload<>(notificationData, bloodDonorData.notificationToken);
                     presenter.sendNotification(notificationPayload);
                 })
                 .onNegative((dialog, which) -> {
@@ -105,6 +111,14 @@ public class BloodPostingResultListFragment extends BaseFragment implements
 
     @Override
     public void onNotificationSent(NotificationPayload notificationPayload) {
-
+        new MaterialDialog.Builder(getContext())
+                .title("Notification sent")
+                .content("Notification sent successfully")
+                .positiveText("Okay")
+                .cancelable(false)
+                .onPositive((dialog, which) -> {
+                    //We are done here
+                    getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                });
     }
 }

@@ -22,7 +22,7 @@ import com.r4sh33d.iblood.models.AcceptanceNotificationData;
 import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
-import com.r4sh33d.iblood.notification.NotificationAcceptanceDetailsActivity;
+import com.r4sh33d.iblood.notification.acceptancedetails.NotificationAcceptanceDetailsActivity;
 import com.r4sh33d.iblood.notification.requestdetails.RequestDetailsActivity;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.PrefsUtils;
@@ -40,8 +40,6 @@ public class NotificationHandlerService extends FirebaseMessagingService {
     public static final String BLOOD_REQUEST_NOTIFICATION_TYPE = "blood_request_type";
     public static final String ACCEPTANCE_NOTIFICATION_TYPE = "acceptance_type";
     public static final String NOTIFICATION_OBJECT_ARGS = "notification_object_extra_args";
-    public static final String NOTIFICATION_TITLE_KEY = "title";
-    public static final String NOTIFICATION_BODY_KEY = "body";
     private static final int NOTIFICATION_ID = 100;
     private static final String NOTIFICATION_CHANEL_ID = "my_channel_01";
 
@@ -52,8 +50,6 @@ public class NotificationHandlerService extends FirebaseMessagingService {
             Map<String, String> data = remoteMessage.getData();
             if (data != null) {
                 Timber.d("Notification received: " + data);
-                String title = data.get(NOTIFICATION_TITLE_KEY);
-                String body = data.get(NOTIFICATION_BODY_KEY);
                 long sentTime = remoteMessage.getSentTime();
                 long timeArrived = System.currentTimeMillis();
                 switch (data.get("type")){
@@ -93,7 +89,7 @@ public class NotificationHandlerService extends FirebaseMessagingService {
     }
 
 
-    public Notification getBloodRequestNotification(BloodRequestNotificationData bloodRequestNotificationData) {
+    public Notification getBloodRequestNotification (BloodRequestNotificationData bloodRequestNotificationData) {
         String donorsName = getUserName();
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         String notificationBody = String.format(" Hello %s, %s would like to receive blood donation from you",

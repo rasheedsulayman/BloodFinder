@@ -24,6 +24,9 @@ public interface DataService {
     @GET("/users/{userId}.json")
     Call<JsonElement> getAdditionalUserDetails (@Path("userId") String userID);
 
+    @GET("/blood_availability/{bloodPostingId}.json")
+    Call<JsonElement> getBloodPosting (@Path("bloodPostingId") String userID);
+
     @POST("/blood_availability.json")
     Call<JsonElement> saveBloodAvailability (@Body BloodPostingData bloodPostingData);
 

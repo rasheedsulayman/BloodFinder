@@ -2,28 +2,49 @@ package com.r4sh33d.iblood.notification.requestdetails;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.r4sh33d.iblood.R;
-import com.r4sh33d.iblood.base.BaseActivity;
+import com.r4sh33d.iblood.models.AcceptanceNotificationData;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodRequestNotificationData;
+import com.r4sh33d.iblood.models.NotificationPayload;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
+import com.r4sh33d.iblood.utils.ViewUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.ACCEPTANCE_NOTIFICATION_TYPE;
+import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.BLOOD_REQUEST_NOTIFICATION_TYPE;
 import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.NOTIFICATION_OBJECT_ARGS;
 
 
 public class RequestDetailsActivity extends AppCompatActivity implements RequestDetailsContract.View {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.progress_bar_root)
+    ConstraintLayout progressBarRoot;
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
+    @BindView(R.id.progress_message)
+    TextView progressMessage;
 
     @BindView(R.id.header_info_textview)
     TextView headerInfoTextView;
@@ -46,19 +67,25 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
     Button declineButton;
 
     RequestDetailsContract.Presenter presenter;
+    private UserData bloodSeekerData;
+    private BloodPostingData bloodPostingData;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notification_details);
+        setContentView(R.layout.activity_request_notification_details);
         ButterKnife.bind(this);
+        acceptButton.setEnabled(false);
+        setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         // actionBar.setTitle(R.string.view_notification);
+
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         presenter = new RequestDetailsPresenter(this,
-                Provider.provideDataRetrofitService(), Provider.providePrefManager(this));
+                Provider.provideDataRetrofitService(), Provider.providePrefManager(this),
+                Provider.provideNotificationRetrofitService());
         if (getIntent() != null) {
             handleNotificationIntent(getIntent());
         } else {
@@ -75,19 +102,30 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
 
 
     @Override
-    public void onDetailsSuccessfullyFetched(UserData user, BloodPostingData bloodPostingData) {
-        fullNameTextView.setText(user.name);
-        locationTextView.setText(user.address);//TODO come back and check this
+    public void onDetailsSuccessfullyFetched(UserData bloodSeekerData, BloodPostingData bloodPostingData) {
+        this.bloodSeekerData = bloodSeekerData;
+        this.bloodPostingData = bloodPostingData;
+        acceptButton.setEnabled(true);
+        headerInfoTextView.setText(String.format("Dear %s, %s would like to receive blood donation from you. If you are okay with the request, Please acknowledge it by clicking the acceptance button below. After you accept the request, Your contact information will be shared with them. Their detailed information is presented below", bloodPostingData.donorsName, bloodSeekerData.name));
+        fullNameTextView.setText(bloodSeekerData.name);
+        locationTextView.setText(bloodSeekerData.address);//TODO come back and check this
         donationTypeTextView.setText(bloodPostingData.donationType);
-        religionTextView.setText(user.religion); //TODO come back and hide this based on religion option
-
-
+        religionTextView.setText(bloodSeekerData.religion); //TODO come back and hide this based on religion option
     }
 
     @Override
-    public void onBloodPostingSuccessfullyFetched() {
-
+    public void onNotificationSuccessfullySent() {
+        new MaterialDialog.Builder(this)
+                .title("Notification sent")
+                .content("Notification sent successfully")
+                .positiveText("Okay")
+                .cancelable(false)
+                .onPositive((dialog, which) -> {
+                    //We are done here
+                    finish();
+                });
     }
+
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
@@ -101,7 +139,26 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
 
     @OnClick(R.id.accept_button)
     public void onAcceptButtonClicked() {
-
+        new MaterialDialog.Builder(this)
+                .title("Send Confirmation ?")
+                .content("A Confirmation message will be sent to " + bloodSeekerData.name)
+                .positiveText("Send")
+                .negativeText("Cancel")
+                .onPositive((dialog, which) -> {
+                    AcceptanceNotificationData notificationData =
+                            new AcceptanceNotificationData(
+                                    ACCEPTANCE_NOTIFICATION_TYPE,
+                                    bloodPostingData.donorsFirebaseId,
+                                    bloodPostingData.donorsName,
+                                    bloodPostingData.id );
+                    NotificationPayload<AcceptanceNotificationData> notificationPayload
+                            = new NotificationPayload<>(notificationData, bloodSeekerData.notificationToken);
+                    presenter.sendNotification(notificationPayload);
+                })
+                .onNegative((dialog, which) -> {
+                    //noOp
+                })
+                .show();
     }
 
     @OnClick(R.id.decline_button)
@@ -111,22 +168,26 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
 
     @Override
     public void showLoading(String message) {
-
+        ViewUtils.show(progressBarRoot, progressBar, progressMessage);
+        progressMessage.setText(message);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
 
     @Override
     public void dismissLoading() {
-
+        ViewUtils.hide(progressBarRoot);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
 
     @Override
     public void showError(String message) {
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setMessage(message)
+                .setPositiveButton("Ok", (dialogInterface, i) -> dialogInterface.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
     }
-
-    @Override
-    public void showAlertDialog(String message) {
-
-    }
-
 }

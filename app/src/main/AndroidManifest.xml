@@ -45,7 +45,12 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".notification.NotificationAcceptanceDetailsActivity"></activity>
+        <activity
+            android:name=".notification.acceptancedetails.NotificationAcceptanceDetailsActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="" />
+
     </application>
 
 </manifest>

@@ -8,6 +8,8 @@ import com.r4sh33d.iblood.base.BasePresenter;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.NotificationPayload;
 import com.r4sh33d.iblood.models.User;
+import com.r4sh33d.iblood.models.UserData;
+import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.network.NotificationService;
 import com.r4sh33d.iblood.utils.JsendResponse;
 
@@ -18,11 +20,13 @@ import retrofit2.Response;
 public class BloodPostingResultListPresenter implements BloodPostingResultListContract.Presenter {
     BloodPostingResultListContract.View view;
     NotificationService notificationService;
+    private DataService dataService;
 
     public BloodPostingResultListPresenter(BloodPostingResultListContract.View view,
-                                           NotificationService notificationService) {
+                                           NotificationService notificationService , DataService dataService) {
         this.view = view;
         this.notificationService = notificationService;
+        this.dataService = dataService;
     }
 
 
@@ -30,6 +34,30 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
     public void start() {
 
     }
+
+    @Override
+    public void fetchMoreDetails(BloodPostingData bloodPostingData) {
+        view.showLoading("Fetching the donor details");
+        dataService.getAdditionalUserDetails(bloodPostingData.donorsFirebaseId).enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
+                if (jsendResponse.isSuccess()) {
+                    UserData bloodDonorData = new Gson().fromJson(jsendResponse.getData(), UserData.class);
+                    view.onDetailsSuccessfullyFetched(bloodDonorData , bloodPostingData);
+                } else {
+                    view.showError(jsendResponse.getErrorMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable t) {
+                view.dismissLoading();
+                view.showError(JsendResponse.ERROR_MESSAGE);
+            }
+        });
+    }
+
 
     @Override
     public void sendNotification(NotificationPayload notificationPayload) {

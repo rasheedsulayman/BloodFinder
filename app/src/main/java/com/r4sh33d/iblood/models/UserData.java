@@ -34,6 +34,10 @@ public class UserData implements Parcelable {
     @Expose
     public UserLocation userLocation;
 
+    @SerializedName("notification_token")
+    @Expose
+    public String notificationToken;
+
     public UserData(boolean isBloodBank, String name, String email,
                     String phoneNumber, String address, String religion,
                     String firebaseID) {
