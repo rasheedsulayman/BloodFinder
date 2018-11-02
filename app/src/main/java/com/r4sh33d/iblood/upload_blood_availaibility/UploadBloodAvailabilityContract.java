@@ -11,6 +11,6 @@ public interface UploadBloodAvailabilityContract {
     }
 
     interface View  extends BaseContract.view{
-        void onBloodTypeAvailabilityUploaded(BloodPostingData bloodPostingData);
+        void onBloodTypeAvailabilityUploaded();
     }
 }

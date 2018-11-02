@@ -15,11 +15,21 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.BloodPostingData;
+import com.r4sh33d.iblood.models.BloodRequestNotificationData;
+import com.r4sh33d.iblood.models.NotificationPayload;
+import com.r4sh33d.iblood.models.User;
+import com.r4sh33d.iblood.models.UserData;
+import com.r4sh33d.iblood.network.Provider;
+import com.r4sh33d.iblood.notification.services.NotificationHandlerService;
+import com.r4sh33d.iblood.utils.Constants;
+import com.r4sh33d.iblood.utils.PrefsUtils;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.BLOOD_REQUEST_NOTIFICATION_TYPE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +41,8 @@ public class BloodPostingResultListFragment extends BaseFragment implements
     RecyclerView recyclerView;
     private static final String KEY_BLOOD_POSTING_DATA = "bloodposting";
     BloodPostingResultListContract.Presenter presenter;
+    PrefsUtils prefsUtils;
+    UserData userData;
 
     public static BloodPostingResultListFragment newInstance(ArrayList<BloodPostingData> resultslist) {
         Bundle args = new Bundle();
@@ -58,6 +70,8 @@ public class BloodPostingResultListFragment extends BaseFragment implements
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setToolbarTitle("Donor's List");
+        prefsUtils = Provider.providePrefManager(getContext());
+        userData = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, UserData.class);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ArrayList<BloodPostingData> resultsList = getArguments().getParcelableArrayList(KEY_BLOOD_POSTING_DATA);
         recyclerView.setAdapter(new PostingsListAdapter(this, resultsList));
@@ -72,8 +86,16 @@ public class BloodPostingResultListFragment extends BaseFragment implements
                 .positiveText("Send")
                 .negativeText("Cancel")
                 .onPositive((dialog, which) -> {
-                      //TODO come and send the request
-
+                    BloodRequestNotificationData notificationData =
+                            new BloodRequestNotificationData(
+                                    BLOOD_REQUEST_NOTIFICATION_TYPE,
+                                    userData.firebaseID,
+                                    userData.name,
+                                    bloodPostingData.id
+                            );
+                    NotificationPayload<BloodRequestNotificationData> notificationPayload
+                            = new NotificationPayload<>(notificationData, bloodPostingData.donorsFirebaseId);
+                    presenter.sendNotification(notificationPayload);
                 })
                 .onNegative((dialog, which) -> {
                     //noOp
@@ -82,7 +104,7 @@ public class BloodPostingResultListFragment extends BaseFragment implements
     }
 
     @Override
-    public void onNotificationSent(BloodPostingData bloodPostingData) {
+    public void onNotificationSent(NotificationPayload notificationPayload) {
 
     }
 }

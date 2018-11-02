@@ -12,4 +12,8 @@ public class NotificationPayload < T > {
     @Expose
     public String destinationUID;
 
+    public NotificationPayload(T data, String destinationUID) {
+        this.data = data;
+        this.destinationUID = destinationUID;
+    }
 }

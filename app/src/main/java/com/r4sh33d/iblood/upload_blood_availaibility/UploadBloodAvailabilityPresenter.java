@@ -2,6 +2,7 @@ package com.r4sh33d.iblood.upload_blood_availaibility;
 
 import android.content.Context;
 import android.location.Location;
+import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -70,11 +71,10 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
         dataService.saveBloodAvailability(bloodPostingData).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                view.dismissLoading();
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
-                    BloodPostingData data = new Gson().fromJson(jsendResponse.getData(), BloodPostingData.class);
-                    view.onBloodTypeAvailabilityUploaded(data);
+                    String bloodPostingId = response.body().getAsJsonObject().get("name").getAsString();
+                    uploadBloodPostingDataID(bloodPostingId);
                 } else {
                     view.showError(jsendResponse.getErrorMessage());
                 }
@@ -82,6 +82,26 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
+                view.dismissLoading();
+                view.showError(JsendResponse.ERROR_MESSAGE);
+            }
+        });
+    }
+
+    public void uploadBloodPostingDataID(String bloodPostingId) {
+        dataService.uploadBloodPostingId(bloodPostingId , bloodPostingId).enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String > call, Response<String> response) {
+                view.dismissLoading();
+                if (!TextUtils.isEmpty(response.body())) {
+                    view.onBloodTypeAvailabilityUploaded();
+                } else {
+                    view.showError("Something went wrong");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
                 view.dismissLoading();
                 view.showError(JsendResponse.ERROR_MESSAGE);
             }

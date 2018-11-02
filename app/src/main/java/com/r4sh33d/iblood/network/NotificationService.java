@@ -12,4 +12,5 @@ public interface NotificationService {
 
     @POST("/fcm/send")
     Call<JsonElement> sendNotification (@Body NotificationPayload notificationPayload);
+
 }

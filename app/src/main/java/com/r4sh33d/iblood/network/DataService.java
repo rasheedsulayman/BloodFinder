@@ -36,4 +36,6 @@ public interface DataService {
     @PUT("/users/{userId}/notification_token.json")
     Call<String> updateUserNotificationToken (@Path("userId") String userID , @Body String refreshedToken);
 
+    @PUT("/blood_availability/{bloodPostingId}/bloodPosting_id.json")
+    Call<String> uploadBloodPostingId (@Path("bloodPostingId") String bloodPostingId , @Body String bloodPostingIdBody);
 }
