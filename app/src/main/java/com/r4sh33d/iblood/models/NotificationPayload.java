@@ -3,7 +3,7 @@ package com.r4sh33d.iblood.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class NotificationPayload < T extends BaseNotificationData > {
+public class NotificationPayload < T > {
 
     @SerializedName("data")
     @Expose
