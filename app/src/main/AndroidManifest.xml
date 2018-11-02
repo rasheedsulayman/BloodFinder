@@ -25,7 +25,7 @@
         <activity
             android:name=".dashboard.DashboardActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".notification.NotificationRequestDetailsActivity" />
+        <activity android:name=".notification.requestdetails.RequestDetailsActivity" />
 
         <service
             android:name=".location.LocationUpdateService"

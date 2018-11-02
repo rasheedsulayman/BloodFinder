@@ -5,7 +5,6 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,13 +19,11 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.models.AcceptanceNotificationData;
-import com.r4sh33d.iblood.models.BaseNotificationData;
 import com.r4sh33d.iblood.models.BloodRequestNotificationData;
-import com.r4sh33d.iblood.models.FCMNotification;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.notification.NotificationAcceptanceDetailsActivity;
-import com.r4sh33d.iblood.notification.NotificationRequestDetailsActivity;
+import com.r4sh33d.iblood.notification.requestdetails.RequestDetailsActivity;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 
@@ -101,7 +98,7 @@ public class NotificationHandlerService extends FirebaseMessagingService {
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         String notificationBody = String.format(" Hello %s, %s would like to receive blood donation from you",
                 donorsName, bloodRequestNotificationData.bloodSeekerName);
-        PendingIntent pendingIntent = getPendingIntent(NotificationRequestDetailsActivity.class, bloodRequestNotificationData);
+        PendingIntent pendingIntent = getPendingIntent(RequestDetailsActivity.class, bloodRequestNotificationData);
         return new NotificationCompat.Builder(this, NOTIFICATION_CHANEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Blood donation request")

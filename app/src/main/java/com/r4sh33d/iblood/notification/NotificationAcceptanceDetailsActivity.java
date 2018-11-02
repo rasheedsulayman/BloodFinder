@@ -4,21 +4,36 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.r4sh33d.iblood.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class NotificationAcceptanceDetailsActivity extends AppCompatActivity {
 
-    @BindView(R.id.notification_title)
-    TextView notificationTitle;
-    @BindView(R.id.time_sent)
-    TextView notificationTime;
-    @BindView(R.id.notification_details)
-    TextView notificationDetails;
+    @BindView(R.id.header_info_textview)
+    TextView headerInfoTextView;
+    @BindView(R.id.full_name_textview)
+    TextView fullNameTextView;
+    @BindView(R.id.location_textview)
+    TextView locationTextView;
+
+    @BindView(R.id.donation_type_textview)
+    TextView donationTypeTextView;
+    @BindView(R.id.religion_label)
+    TextView religionLabel;
+    @BindView(R.id.religion_textview)
+    TextView religionTextView;
+
+    @BindView(R.id.accept_button)
+    Button acceptButton;
+
+    @BindView(R.id.decline_button)
+    Button declineButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +47,7 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity {
         if (getIntent()!=null){
             // HandleNotificationIntent(getIntent());
         }else {
+            //We probably miss road
             finish();
         }
     }
@@ -44,6 +60,17 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @OnClick(R.id.accept_button)
+    public void onAcceptButtonClicked () {
+
+    }
+
+    @OnClick(R.id.decline_button)
+    public void onDeclineButtonClicked() {
+
     }
 
    /* private void populateViews(FCMNotification fcmNotification) {
