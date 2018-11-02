@@ -47,4 +47,8 @@ public class Provider {
     public static DataService provideDataRetrofitService(){
         return provideDataRetrofitInstance().create(DataService.class);
     }
+
+    public static NotificationService provideNotificationRetrofitService(){
+        return provideDataRetrofitInstance().create(NotificationService.class);
+    }
 }

@@ -69,10 +69,11 @@ public class BloodPostingResultListFragment extends BaseFragment implements
         new MaterialDialog.Builder(getContext())
                 .title("Send Request?")
                 .content("A blood donation request will be sent to " + bloodPostingData.donorsName)
-                .positiveText("Okay")
+                .positiveText("Send")
                 .negativeText("Cancel")
                 .onPositive((dialog, which) -> {
                       //TODO come and send the request
+
                 })
                 .onNegative((dialog, which) -> {
                     //noOp

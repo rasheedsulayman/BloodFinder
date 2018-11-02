@@ -17,9 +17,6 @@ import retrofit2.http.Path;
 
 public interface DataService {
 
-    @POST("/accounts/verifications")
-    Call<JsonElement> requestOTP(@Body Map<String, String> phoneNumberPayload);
-
     @PUT("/users/{userId}.json")
     Call<JsonElement> saveAdditionalUserDetail(@Body UserData userData,
                                                @Path("userId") String userID);
@@ -38,8 +35,5 @@ public interface DataService {
 
     @PUT("/users/{userId}/notification_token.json")
     Call<String> updateUserNotificationToken (@Path("userId") String userID , @Body String refreshedToken);
-
-    @POST("/accounts/customers/sessions")
-    Call<JsonElement> authenticateUser(@Body Map<String, String> body);
 
 }

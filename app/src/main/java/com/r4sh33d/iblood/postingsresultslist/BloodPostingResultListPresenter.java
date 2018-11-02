@@ -4,7 +4,7 @@ import com.r4sh33d.iblood.base.BasePresenter;
 import com.r4sh33d.iblood.models.BloodPostingData;
 
 public class BloodPostingResultListPresenter implements  BloodPostingResultListContract.Presenter {
-
+    BloodPostingResultListContract.View view;
 
 
 
