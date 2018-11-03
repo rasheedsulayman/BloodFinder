@@ -79,8 +79,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
         acceptButton.setEnabled(false);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        // actionBar.setTitle(R.string.view_notification);
-
+        actionBar.setTitle("Blood Request");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         presenter = new RequestDetailsPresenter(this,
@@ -108,7 +107,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
         acceptButton.setEnabled(true);
         headerInfoTextView.setText(String.format("Dear %s, %s would like to receive blood donation from you. If you are okay with the request, Please acknowledge it by clicking the acceptance button below. After you accept the request, Your contact information will be shared with them. Their detailed information is presented below", bloodPostingData.donorsName, bloodSeekerData.name));
         fullNameTextView.setText(bloodSeekerData.name);
-        locationTextView.setText(bloodSeekerData.address);//TODO come back and check this
+        locationTextView.setText(bloodSeekerData.userLocation.descriptiveAddress); //TODO come back and check this
         donationTypeTextView.setText(bloodPostingData.donationType);
         religionTextView.setText(bloodSeekerData.religion); //TODO come back and hide this based on religion option
     }
@@ -150,10 +149,10 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
                                     ACCEPTANCE_NOTIFICATION_TYPE,
                                     bloodPostingData.donorsFirebaseId,
                                     bloodPostingData.donorsName,
-                                    bloodPostingData.id );
+                                    bloodPostingData.id);
                     NotificationPayload<AcceptanceNotificationData> notificationPayload
                             = new NotificationPayload<>(notificationData, bloodSeekerData.notificationToken);
-                    presenter.sendNotification(notificationPayload);
+                    presenter.sendNotification(bloodSeekerData, notificationPayload);
                 })
                 .onNegative((dialog, which) -> {
                     //noOp
@@ -163,7 +162,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
 
     @OnClick(R.id.decline_button)
     public void onDeclineButtonClicked() {
-
+          finish();
     }
 
     @Override

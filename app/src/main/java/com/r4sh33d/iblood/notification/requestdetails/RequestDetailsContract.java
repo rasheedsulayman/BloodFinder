@@ -17,7 +17,7 @@ public interface RequestDetailsContract {
 
         void fetchDetails(BloodRequestNotificationData bloodRequestNotificationData);
 
-        void sendNotification(NotificationPayload notificationPayload);
+        void sendNotification( UserData bloodSeekerData ,NotificationPayload<AcceptanceNotificationData> notificationPayload);
     }
 
     interface View {

@@ -38,7 +38,7 @@ public class UserData implements Parcelable {
     @Expose
     public String notificationToken;
 
-    public UserData(boolean isBloodBank, String name, String email,
+    public UserData (boolean isBloodBank, String name, String email,
                     String phoneNumber, String address, String religion,
                     String firebaseID) {
         this.isBloodBank = isBloodBank;

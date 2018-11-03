@@ -12,6 +12,7 @@
     <string name="action_settings">Settings</string>
     <string name="iblood_channel_name">IBlood Channel</string>
     <string name="iblood_channel_description">This channel is used to send notifications to blood donors and blood seekers</string>
+    <string name="invalid_lat_long_used">Invalid Longitude and Latitude use</string>
 
 
 </resources>

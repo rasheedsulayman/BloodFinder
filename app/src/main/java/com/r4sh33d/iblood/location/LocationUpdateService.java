@@ -14,6 +14,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.gson.JsonElement;
+import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.UserLocation;
 import com.r4sh33d.iblood.network.DataService;
@@ -112,8 +113,12 @@ public class LocationUpdateService extends Service {
         public void onLocationResult(LocationResult locationResult) {
             super.onLocationResult(locationResult);
             Location lastLocation = locationResult.getLastLocation();
-            prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT,
-                    new UserLocation(lastLocation.getLatitude(), lastLocation.getLongitude()));
+            UserLocation userLocation = new UserLocation(lastLocation.getLatitude(), lastLocation.getLongitude());
+            prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT, userLocation);
+            LocationUtil.getAddressFromLatLongAsync(lastLocation, LocationUpdateService.this, locationAdress -> {
+                userLocation.descriptiveAddress = locationAdress;
+                saveUserLocation(userLocation);
+            });
             Timber.d("Got a location result: %s", locationResult.getLastLocation());
         }
 

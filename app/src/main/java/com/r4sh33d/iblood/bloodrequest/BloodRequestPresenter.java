@@ -55,7 +55,7 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
         if (!prefsUtils.doesContain(Constants.PREF_KEY_LOCATION_OBJECT)) {
             LocationUtil.getLastKnownLocation(context, new LocationUtil.LocationRetrievedListener() {
                 @Override
-                public void onLocationRetrievedListener(Location location) {
+                public void onLocationRetrieved(Location location) {
                     bloodSearchData.seekersLocation = new UserLocation(location.getLatitude(), location.getLongitude());
                 }
 
@@ -102,9 +102,8 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
                                                          BloodSearchData bloodSearchData) {
         ArrayList<BloodPostingData> resultsList = new ArrayList<>();
         for (BloodPostingData bloodPostingData : bloodPostingsList) {
-           // Timber.d("The blood posting data: " + bloodPostingData);
             for (String compatibilityType : Data.bloodTypeCompatibilityMapping.get(bloodSearchData.bloodType)) {
-                Timber.d("The coparison: " + compatibilityType + " .equals : " + bloodPostingData.donorsBloodType);
+                Timber.d("The comparison: " + compatibilityType + " .equals : " + bloodPostingData.donorsBloodType);
                 Timber.d("Answer of the comparison: %s", (compatibilityType.equals(bloodPostingData.donorsBloodType)));
                 if (bloodPostingData.donorsBloodType.equals(compatibilityType)) {
                     resultsList.add(bloodPostingData);

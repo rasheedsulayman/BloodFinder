@@ -38,7 +38,8 @@ public class PostingsListAdapter extends RecyclerView.Adapter<PostingsListAdapte
          BloodPostingData bloodPostingData = bloodPostingDataArrayList.get(i);
          postingsHolder.donorsBloodTypeTextView.setText(bloodPostingData.donorsBloodType);
          postingsHolder.donorLocationNameTextView.setText(bloodPostingData.donorsName);
-         //TODO comeback and set address
+         postingsHolder.donorLocationNameTextView.setText(bloodPostingData.donorsLocation.descriptiveAddress);
+         //TODO comeback and set a real time address
     }
 
     @Override

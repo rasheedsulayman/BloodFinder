@@ -145,16 +145,18 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
                 phoneNumberEditText.getText().toString(),
                 userData.firebaseID,
                 religionEditText.getText().toString(),
+                null,
                 null
         );
         presenter.uploadBloodTypeAvailability(bloodPostingData);
     }
 
     @Override
-    public void onBloodTypeAvailabilityUploaded(BloodPostingData bloodPostingData) {
+    public void onBloodTypeAvailabilityUploaded() {
         showSuccessDialog("Blood type availability successfully Added", (dialog, which) -> {
             getFragmentManager().popBackStack();
         });
     }
+
 }
 

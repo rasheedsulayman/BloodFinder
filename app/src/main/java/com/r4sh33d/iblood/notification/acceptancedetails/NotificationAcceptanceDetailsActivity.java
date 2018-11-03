@@ -74,7 +74,7 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        // actionBar.setTitle(R.string.view_notification);
+         actionBar.setTitle("Blood request Accepted");
 
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
@@ -145,8 +145,7 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
                 "After you accept the request, Your contact information will be shared with them. " +
                 "Their detailed information is presented below", bloodSeekerData.name, bloodDonorData.name));
         fullNameTextView.setText(bloodDonorData.name);
-        locationTextView.setText(bloodDonorData.address);//TODO come back and check this
-        //donationTypeTextView.setText(bloodDonorData);
+        locationTextView.setText(bloodDonorData.userLocation.descriptiveAddress); //TODO come back and check this
         religionTextView.setText(bloodDonorData.religion); //TODO come back and hide this based on religion option
         phoneNumberTextView.setText(bloodDonorData.phoneNumber);
         emailTextView.setText(bloodDonorData.email);

@@ -35,22 +35,24 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
     }
 
     @Override
-    public void start() {}
+    public void start() {
+
+    }
 
     @Override
     public void uploadBloodTypeAvailability(BloodPostingData bloodPostingData) {
         view.showLoading();
-        if (!prefsUtils.doesContain(Constants.PREF_KEY_LOCATION_OBJECT)){
+        if (!prefsUtils.doesContain(Constants.PREF_KEY_LOCATION_OBJECT)) {
             //Okay, Let's try for the last time to retrieve the user's location before we give up
             LocationUtil.getLastKnownLocation(context, new LocationUtil.LocationRetrievedListener() {
                 @Override
-                public void onLocationRetrievedListener(Location location) {
+                public void onLocationRetrieved(Location location) {
                     // so location can still be null here, in case of a new phone or factory reset
                     // and other rare cases
-                    if (location != null){
-                        bloodPostingData.donorsLocation =
-                                new UserLocation(location.getLatitude(), location.getLongitude());
-                        uploadBloodAvailability(bloodPostingData);
+                    if (location != null) {
+                        bloodPostingData.donorsLocation = new UserLocation(location.getLatitude(),
+                                location.getLongitude());
+                        getLocationAddress(location, bloodPostingData);
                     }
                 }
 
@@ -66,6 +68,14 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
             uploadBloodAvailability(bloodPostingData);
         }
     }
+
+    public void getLocationAddress (Location location , BloodPostingData bloodPostingData){
+        LocationUtil.getAddressFromLatLongAsync(location,  context , locationAdress -> {
+            bloodPostingData.donorsLocation.descriptiveAddress = locationAdress;
+            uploadBloodAvailability(bloodPostingData);
+        });
+    }
+
 
     public void uploadBloodAvailability(BloodPostingData bloodPostingData) {
         dataService.saveBloodAvailability(bloodPostingData).enqueue(new Callback<JsonElement>() {
@@ -89,9 +99,9 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
     }
 
     public void uploadBloodPostingDataID(String bloodPostingId) {
-        dataService.uploadBloodPostingId(bloodPostingId , bloodPostingId).enqueue(new Callback<String>() {
+        dataService.uploadBloodPostingId(bloodPostingId, bloodPostingId).enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<String > call, Response<String> response) {
+            public void onResponse(Call<String> call, Response<String> response) {
                 view.dismissLoading();
                 if (!TextUtils.isEmpty(response.body())) {
                     view.onBloodTypeAvailabilityUploaded();

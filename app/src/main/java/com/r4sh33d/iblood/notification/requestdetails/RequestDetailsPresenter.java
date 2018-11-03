@@ -2,6 +2,7 @@ package com.r4sh33d.iblood.notification.requestdetails;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.r4sh33d.iblood.models.AcceptanceNotificationData;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.BloodSearchData;
@@ -12,6 +13,8 @@ import com.r4sh33d.iblood.network.NotificationService;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.utils.PrefsUtils;
+
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,7 +43,6 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
-
                 if (jsendResponse.isSuccess()) {
                     UserData bloodSeekerData = new Gson().fromJson(jsendResponse.getData(), UserData.class);
                     fetchBloodPostingData(notificationData.bloodPostingId, bloodSeekerData);
@@ -58,15 +60,14 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
     }
 
     @Override
-    public void sendNotification(NotificationPayload notificationPayload) {
+    public void sendNotification( UserData bloodSeekerData, NotificationPayload<AcceptanceNotificationData> notificationPayload) {
         view.showLoading("Sending Notification");
         notificationService.sendNotification(notificationPayload).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                view.dismissLoading();
                 if (response.body().getAsJsonObject().get("success").getAsInt() > 0) {
                     //We sent something successfully
-                    view.onNotificationSuccessfullySent();
+                    updateBloodPosting(bloodSeekerData , notificationPayload.data.bloodPostingId);
                 } else {
                     //something went wrong, NoOp for now
                     //TODO comeback and handle this
@@ -80,6 +81,32 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
             }
         });
     }
+
+    void updateBloodPosting(UserData bloodSeekerData, String bloodPostingId ){
+        HashMap<String, String> payload = new HashMap<>();
+        payload.put("acceptance_status" , "accepted");
+        payload.put("accepted_seeker_id", bloodSeekerData.firebaseID);
+        dataService.updateBloodPosting(bloodPostingId , payload).enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                view.dismissLoading();
+                JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
+                if (jsendResponse.isSuccess()) {
+                    view.onNotificationSuccessfullySent();
+                } else {
+                    view.showError(jsendResponse.getErrorMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable t) {
+                view.dismissLoading();
+                view.showError(JsendResponse.ERROR_MESSAGE);
+            }
+        });
+
+    }
+
 
     void fetchBloodPostingData(String blodPostingID, UserData bloodSeeker) {
         dataService.getBloodPosting(blodPostingID).enqueue(new Callback<JsonElement>() {

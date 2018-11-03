@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.r4sh33d.iblood.base.BasePresenter;
 import com.r4sh33d.iblood.models.BloodPostingData;
+import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.NotificationPayload;
 import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserData;
@@ -60,18 +61,39 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
 
 
     @Override
-    public void sendNotification(NotificationPayload notificationPayload) {
-        view.showLoading();
+    public void sendNotification( UserData bloodSeekerData , BloodPostingData bloodPostingData,
+                                  NotificationPayload<BloodRequestNotificationData> notificationPayload) {
+        view.showLoading("Sending request, Please wait. . .");
         notificationService.sendNotification(notificationPayload).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                view.dismissLoading();
                 if (response.body().getAsJsonObject().get("success").getAsInt() > 0){
                     //We sent something successfully
-                    view.onNotificationSent(notificationPayload);
+                    updateUsersRequestHistory(bloodSeekerData , bloodPostingData.id , bloodPostingData);
+
                 }else {
                     //something went wrong, NoOp for now
                     //TODO comeback and handle this
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable t) {
+                view.dismissLoading();
+                view.showError(JsendResponse.ERROR_MESSAGE);
+            }
+        });
+    }
+
+    void updateUsersRequestHistory(UserData bloodSeekerData , String bloodPostingId , BloodPostingData bloodPostingData){
+        dataService.updateUserRequestHistory( bloodSeekerData.firebaseID, bloodPostingId,bloodPostingData ).enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
+                if (jsendResponse.isSuccess()) {
+                    view.onNotificationSent();
+                } else {
+                    view.showError(jsendResponse.getErrorMessage());
                 }
             }
 

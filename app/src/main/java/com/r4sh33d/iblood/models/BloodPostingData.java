@@ -37,6 +37,14 @@ public class BloodPostingData implements Parcelable {
     @Expose
     public String id;
 
+    @SerializedName("acceptance_status")
+    @Expose
+    public String status = "pending";
+
+    @SerializedName("accepted_seeker_id")
+    @Expose
+    public boolean acceptedSeekerId;
+
     public BloodPostingData(String donorsBloodType, String donationType, String donorsEmail,
                             String donorsName, String donorsPhoneNumber, String donorsFirebaseId,
                             String donorsReligion, UserLocation donorsLocation , String id) {

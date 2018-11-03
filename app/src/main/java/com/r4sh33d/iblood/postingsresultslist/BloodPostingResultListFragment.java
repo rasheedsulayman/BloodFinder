@@ -73,6 +73,8 @@ public class BloodPostingResultListFragment extends BaseFragment implements
         setToolbarTitle("Donor's List");
         prefsUtils = Provider.providePrefManager(getContext());
         userData = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, UserData.class);
+        presenter = new BloodPostingResultListPresenter(this, Provider.provideNotificationRetrofitService(),
+                Provider.provideDataRetrofitService());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ArrayList<BloodPostingData> resultsList = getArguments().getParcelableArrayList(KEY_BLOOD_POSTING_DATA);
         recyclerView.setAdapter(new PostingsListAdapter(this, resultsList));
@@ -85,7 +87,6 @@ public class BloodPostingResultListFragment extends BaseFragment implements
 
     @Override
     public void onDetailsSuccessfullyFetched(UserData bloodDonorData, BloodPostingData bloodPostingData) {
-        //TODO come back and open a more detailed screen... or show a dialog for sending donation request.
         new MaterialDialog.Builder(getContext())
                 .title("Send Request?")
                 .content("A blood donation request will be sent to " + bloodPostingData.donorsName)
@@ -110,7 +111,7 @@ public class BloodPostingResultListFragment extends BaseFragment implements
     }
 
     @Override
-    public void onNotificationSent(NotificationPayload notificationPayload) {
+    public void onNotificationSent() {
         new MaterialDialog.Builder(getContext())
                 .title("Notification sent")
                 .content("Notification sent successfully")

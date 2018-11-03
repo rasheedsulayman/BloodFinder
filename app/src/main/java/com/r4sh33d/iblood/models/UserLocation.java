@@ -16,6 +16,10 @@ public class UserLocation  implements Parcelable{
     @Expose
     public double latitude;
 
+    @SerializedName("address")
+    @Expose
+    public String descriptiveAddress;
+
 
     public UserLocation(double latitude, double longitude) {
         this.latitude = latitude;
