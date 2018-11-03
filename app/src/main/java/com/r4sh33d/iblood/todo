@@ -1,0 +1,5 @@
+Handle case where someone is requesting for blood on Behalf of the person who needs it.
+- collect the requester contact.
+- Then do the matching based on the actual victims details.
+    - Make it reflect on the user type selection. 
+- Separate stuff in to first name and last name

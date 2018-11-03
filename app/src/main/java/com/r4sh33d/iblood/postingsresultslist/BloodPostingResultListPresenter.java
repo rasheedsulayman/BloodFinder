@@ -1,14 +1,10 @@
 package com.r4sh33d.iblood.postingsresultslist;
 
-import android.app.Notification;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.r4sh33d.iblood.base.BasePresenter;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.NotificationPayload;
-import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.network.NotificationService;
