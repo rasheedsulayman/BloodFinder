@@ -37,6 +37,7 @@
             android:background="@drawable/spinner_resource" />
 
         <TextView
+            android:id="@+id/consider_donor_religion_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

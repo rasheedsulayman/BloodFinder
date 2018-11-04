@@ -20,6 +20,7 @@ import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.UserAuthRequest;
+import com.r4sh33d.iblood.utils.PrefsUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +37,6 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
 
     @BindView(R.id.password_edit_text)
     EditText passwordEditText;
-
 
     LoginContract.Presenter presenter;
 
@@ -60,6 +60,15 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         presenter = new LoginPresenter(this,
                 Provider.provideDataRetrofitService(), Provider.provideAuthRetrofitService(),
                 Provider.providePrefManager(getContext()));
+        prepopulateData();
+    }
+
+    void prepopulateData(){
+        PrefsUtils prefsUtils = Provider.providePrefManager(getContext());
+        if (prefsUtils.doesContain(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS)){
+            UserData userData = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, UserData.class);
+            phoneNumberEditText.setText(userData.phoneNumber);
+        }
     }
 
     @OnClick(R.id.login_button)

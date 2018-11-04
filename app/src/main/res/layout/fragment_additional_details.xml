@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,105 +11,123 @@
         tools:context=".additionaldetails.AdditionalDetailsFragment">
 
         <TextView
-            android:text="User Type"
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="60dp"
+            android:text="User Type" />
 
         <Spinner
             android:id="@+id/user_type_spinner"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/spinner_resource"
             android:layout_width="match_parent"
-            android:layout_height="45dp"/>
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/spinner_resource" />
 
         <TextView
-            android:text="Name"
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="First Name" />
 
         <EditText
-            android:id="@+id/name_edit_text"
-            android:hint="Name"
-            android:layout_marginRight="20dp"
+            android:id="@+id/first_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext"
-            android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_height="45dp" />
+            android:hint="Name"
+            android:padding="10dp" />
 
         <TextView
-            android:text="Email Address"
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Last Name" />
+
+        <EditText
+            android:id="@+id/last_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext"
+            android:hint="Name"
+            android:padding="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Email Address" />
+
         <EditText
             android:id="@+id/email_edit_text"
-            android:inputType="textEmailAddress"
-            android:hint="Email Address"
-            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext"
-            android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_height="45dp" />
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
 
         <TextView
-            android:text="Address"
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Address" />
 
         <EditText
             android:id="@+id/address_edit_text"
-            android:hint="Address"
-            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext"
-            android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_height="45dp"
-            android:inputType="text" />
+            android:hint="Address"
+            android:inputType="text"
+            android:padding="10dp" />
 
         <TextView
-            android:text="Religion"
-            android:layout_marginLeft="20dp"
+            android:id="@+id/religion_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
-
-        <EditText
-            android:id="@+id/religion_edit_text"
-            android:hint=" Religion (Optional)"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="20dp"
+            android:text="Religion (Optional)" />
+
+        <Spinner
+            android:id="@+id/religion_spinner"
             android:layout_width="match_parent"
-            android:padding="10dp"
             android:layout_height="45dp"
-            android:inputType="text" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/spinner_resource" />
 
         <Button
             android:id="@+id/save_button"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@android:color/white"
-            android:text= "Save"
-            android:background="@drawable/roundedbutton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundedbutton"
+            android:text="Save"
+            android:textColor="@android:color/white" />
+
     </LinearLayout>
 
 </ScrollView>

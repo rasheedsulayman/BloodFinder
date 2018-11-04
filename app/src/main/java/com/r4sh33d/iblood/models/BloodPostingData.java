@@ -39,7 +39,7 @@ public class BloodPostingData implements Parcelable {
 
     @SerializedName("acceptance_status")
     @Expose
-    public String status = "pending";
+    public String status;
 
     @SerializedName("accepted_seeker_id")
     @Expose
@@ -59,6 +59,14 @@ public class BloodPostingData implements Parcelable {
         this.id = id;
     }
 
+    public BloodPostingData(String donorsBloodType, String donationType, String donorsEmail,
+                            String donorsName, String donorsPhoneNumber, String donorsFirebaseId,
+                            String donorsReligion, UserLocation donorsLocation, String id, String status) {
+        this(donorsBloodType, donationType, donorsEmail, donorsName, donorsPhoneNumber, donorsFirebaseId,
+                donorsReligion, donorsLocation, id);
+        this.status = status;
+    }
+
     protected BloodPostingData(Parcel in) {
         donorsBloodType = in.readString();
         donationType = in.readString();
@@ -69,6 +77,8 @@ public class BloodPostingData implements Parcelable {
         donorsReligion = in.readString();
         donorsLocation = in.readParcelable(UserLocation.class.getClassLoader());
         id = in.readString();
+        status = in.readString();
+        acceptedSeekerId = in.readString();
     }
 
     @Override
@@ -82,6 +92,8 @@ public class BloodPostingData implements Parcelable {
         dest.writeString(donorsReligion);
         dest.writeParcelable(donorsLocation, flags);
         dest.writeString(id);
+        dest.writeString(status);
+        dest.writeString(acceptedSeekerId);
     }
 
     @Override

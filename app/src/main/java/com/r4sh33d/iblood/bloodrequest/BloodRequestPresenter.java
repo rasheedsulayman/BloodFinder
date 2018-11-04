@@ -37,6 +37,12 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
     PrefsUtils prefsUtils;
     private static final String TAG = BloodRequestPresenter.class.getSimpleName();
 
+    interface BloodPostingStatus {
+        String ACCEPTED = "accepted";
+        String PENDING = "pending";
+    }
+
+
     BloodRequestPresenter(BloodRequestContract.View view, DataService dataService,
                           Context context /*TODO: don't pass context like this*/) {
         this.view = view;
@@ -80,7 +86,8 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
-                    Type type = new TypeToken<HashMap<String, BloodPostingData>>(){}.getType();
+                    Type type = new TypeToken<HashMap<String, BloodPostingData>>() {
+                    }.getType();
                     HashMap<String, BloodPostingData> bloodPostings = new Gson().fromJson(jsendResponse.getData(), type);
                     view.onDonorsPostingsFetched(processResultList(new ArrayList<>(bloodPostings.values()), bloodSearchData));
                     view.dismissLoading();
@@ -103,16 +110,16 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
         ArrayList<BloodPostingData> resultsList = new ArrayList<>();
         for (BloodPostingData bloodPostingData : bloodPostingsList) {
             for (String compatibilityType : Data.bloodTypeCompatibilityMapping.get(bloodSearchData.bloodType)) {
-                Timber.d("The comparison: " + compatibilityType + " .equals : " + bloodPostingData.donorsBloodType);
-                Timber.d("Answer of the comparison: %s", (compatibilityType.equals(bloodPostingData.donorsBloodType)));
-                if (bloodPostingData.donorsBloodType.equals(compatibilityType)) {
+                if (bloodPostingData.donorsBloodType.equals(compatibilityType) &&
+                        bloodPostingData.donationType.equals(bloodSearchData.donationType) &&
+                        !bloodPostingData.status.equals(BloodPostingStatus.ACCEPTED)) {
                     resultsList.add(bloodPostingData);
                     break;
                 }
             }
         }
-        Timber.d("The result list size is " + resultsList.size());
 
+        Timber.d("The result list size is " + resultsList.size());
         //At this stage we've added all compatible blood types to the result list, now we need to sort based on location
         sortBasedLocation(resultsList, bloodSearchData);
         return resultsList;

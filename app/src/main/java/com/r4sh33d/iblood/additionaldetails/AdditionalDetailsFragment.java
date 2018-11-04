@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.r4sh33d.iblood.dashboard.DashboardActivity;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
@@ -39,10 +40,14 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
     boolean isBloodBank;
     User user;
     AdditionalDetailsContract.Presenter presenter;
-    @BindView(R.id.name_edit_text)
-    EditText nameEditText;
-    @BindView(R.id.religion_edit_text)
-    EditText religionEditText;
+    @BindView(R.id.first_name_edit_text)
+    EditText firstNameEditText;
+    @BindView(R.id.last_name_edit_text)
+    EditText lastNameEditText;
+    @BindView(R.id.religion_spinner)
+    Spinner religionSpinner;
+    @BindView(R.id.religion_label)
+    TextView religionLabel;
     @BindView(R.id.email_edit_text)
     EditText emailEditText;
     @BindView(R.id.address_edit_text)
@@ -57,7 +62,6 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
 
     public static AdditionalDetailsFragment newInstance(User user) {
         Bundle args = new Bundle();
-       // args.putBoolean(KEY_IS_BLOOD_BANK, isBloodBank);
         args.putParcelable(KEY_USER, user);
         AdditionalDetailsFragment fragment = new AdditionalDetailsFragment();
         fragment.setArguments(args);
@@ -78,9 +82,8 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
         super.onViewCreated(view, savedInstanceState);
         setToolbarTitle("Additional Information");
         presenter = new AdditionalDetailsPresenter(this,
-                Provider.provideRetrofitService(Provider.provideDataRetrofitInstance(),DataService.class),
+                Provider.provideRetrofitService(Provider.provideDataRetrofitInstance(), DataService.class),
                 Provider.providePrefManager(getContext()));
-      //  isBloodBank = getArguments().getBoolean(KEY_IS_BLOOD_BANK);
         user = getArguments().getParcelable(KEY_USER);
         prepareSpinner();
     }
@@ -92,12 +95,12 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
         userTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+                switch (position) {
                     case 1: //Individual user
-                        ViewUtils.show(religionEditText);
+                        ViewUtils.show(religionSpinner, religionLabel);
                         break;
                     case 2: //Blood bank
-                        ViewUtils.hide(religionEditText);
+                        ViewUtils.hide(religionSpinner, religionLabel);
                         break;
 
                 }
@@ -108,46 +111,53 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
 
             }
         });
+
+        CustomSpinnerAdapter<KeyNameLOVPair> listOfReligionAdapter = new CustomSpinnerAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_dropdown_item, Utils.getReligionList());
+        religionSpinner.setAdapter(listOfReligionAdapter);
     }
 
     @OnClick(R.id.save_button)
     public void onSaveButtonClicked() {
-        if (userTypeSpinner.getSelectedItemId() < 1){
+        if (userTypeSpinner.getSelectedItemPosition() < 1) {
             showToast("Please select user type");
             return;
         }
         String emailText = emailEditText.getText().toString();
-        if(!Utils.isValidEmail(emailText)){
+        if (!Utils.isValidEmail(emailText)) {
             emailEditText.setError("Please use a valid email address");
             return;
         }
 
-        if (!ViewUtils.validateEditTexts(nameEditText, addressEditText)) {
+        if (!ViewUtils.validateEditTexts(firstNameEditText, lastNameEditText, addressEditText)) {
             return;
         }
 
-        boolean isBloodBank = ((KeyNameLOVPair)userTypeSpinner.getSelectedItem()).key.equals("blood_bank");
+        boolean isBloodBank = ((KeyNameLOVPair) userTypeSpinner.getSelectedItem()).key.equals("blood_bank");
+        String religion = "";
+
+        if ((ViewUtils.isShowing(religionSpinner) && religionSpinner.getSelectedItemPosition() > 0)){
+            religion = ((KeyNameLOVPair) religionSpinner.getSelectedItem()).key;
+        }
+
         UserData userData = new UserData(
                 isBloodBank,
-                nameEditText.getText().toString(),
+                firstNameEditText.getText().toString(),
+                lastNameEditText.getText().toString(),
                 emailText,
-                user.email.substring(0,11), // Users email is in the format of [phonenumber]@iblood-7253a.firebaseio.com
+                user.email.substring(0, 11), //Users email is in the format of [phonenumber]@iblood-7253a.firebaseio.com
                 addressEditText.getText().toString(),
-                religionEditText.getText().toString(),
+                religion,
                 user.localId
         );
+
         presenter.saveAdditionalDetails(userData);
     }
 
     @Override
     public void onAdditionalDetailsSavedSuccessfully(UserData user) {
         //We are done we can now go back and login
-        showSuccessDialog("Account successfully created", (dialog, which) -> {
-            //We can either launch the Dashboard or go back to login.
-            getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-           /* startActivity(new Intent(getContext() , DashboardActivity.class));
-            getActivity().finish();*/
-        });
-
+        showSuccessDialog("Account successfully created",
+                (dialog, which) -> getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE));
     }
 }

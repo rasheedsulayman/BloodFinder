@@ -105,8 +105,10 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
         this.bloodSeekerData = bloodSeekerData;
         this.bloodPostingData = bloodPostingData;
         acceptButton.setEnabled(true);
-        headerInfoTextView.setText(String.format("Dear %s, %s would like to receive blood donation from you. If you are okay with the request, Please acknowledge it by clicking the acceptance button below. After you accept the request, Your contact information will be shared with them. Their detailed information is presented below", bloodPostingData.donorsName, bloodSeekerData.name));
-        fullNameTextView.setText(bloodSeekerData.name);
+        headerInfoTextView.setText(String.format("Dear %s, %s %s would like to receive blood donation from you. If you are okay with the request, " +
+                "Please acknowledge it by clicking the acceptance button below. After you accept the request," +
+                " Your contact information will be shared with them. Their detailed information is presented below", bloodPostingData.donorsName, bloodSeekerData.firstName, bloodSeekerData.lastName));
+        fullNameTextView.setText(String.format("%s %s", bloodSeekerData.firstName, bloodSeekerData.lastName));
         locationTextView.setText(bloodSeekerData.userLocation.descriptiveAddress); //TODO come back and check this
         donationTypeTextView.setText(bloodPostingData.donationType);
         religionTextView.setText(bloodSeekerData.religion); //TODO come back and hide this based on religion option
@@ -116,6 +118,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
     public void onNotificationSuccessfullySent() {
         new MaterialDialog.Builder(this)
                 .title("Notification sent")
+                .positiveColor(getResources().getColor(R.color.blood_red))
                 .content("Notification sent successfully")
                 .positiveText("Okay")
                 .cancelable(false)
@@ -140,7 +143,9 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
     public void onAcceptButtonClicked() {
         new MaterialDialog.Builder(this)
                 .title("Send Confirmation ?")
-                .content("A Confirmation message will be sent to " + bloodSeekerData.name)
+                .positiveColor(getResources().getColor(R.color.blood_red))
+                .negativeColor(getResources().getColor(R.color.blood_red))
+                .content(String.format("A Confirmation message will be sent to %s %s", bloodSeekerData.firstName, bloodSeekerData.lastName))
                 .positiveText("Send")
                 .negativeText("Cancel")
                 .onPositive((dialog, which) -> {

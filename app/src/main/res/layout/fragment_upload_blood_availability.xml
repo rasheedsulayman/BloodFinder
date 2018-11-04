@@ -57,15 +57,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Name" />
+            android:text="First Name" />
 
         <EditText
-            android:id="@+id/name_edit_text"
+            android:id="@+id/first_name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext"
-            android:hint="Enter your name"
+            android:hint="Enter your first name"
+            android:padding="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Last Name" />
+
+        <EditText
+            android:id="@+id/last_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext"
+            android:hint="Enter your last name"
             android:padding="10dp" />
 
         <TextView
@@ -84,19 +99,19 @@
             android:padding="10dp" />
 
         <TextView
+            android:id="@+id/religion_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Religion" />
+            android:text="Religion (Optional)" />
 
-        <EditText
-            android:id="@+id/religion_edit_text"
+        <Spinner
+            android:id="@+id/religion_spinner"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="Religion (Optional)"
-            android:padding="10dp" />
+            android:background="@drawable/spinner_resource" />
 
         <Button
             android:layout_marginBottom="40dp"

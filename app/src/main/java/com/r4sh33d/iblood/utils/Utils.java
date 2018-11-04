@@ -24,6 +24,17 @@ public class Utils {
         return keyNameLOVPairs;
     }
 
+    public static ArrayList<KeyNameLOVPair> getReligionList() {
+        ArrayList<KeyNameLOVPair> keyNameLOVPairs = new ArrayList<>();
+        keyNameLOVPairs.add(new KeyNameLOVPair(" Select Religion", "select_religion"));
+        keyNameLOVPairs.add(new KeyNameLOVPair(" Don't care", "do_not_care"));
+        keyNameLOVPairs.add(new KeyNameLOVPair(" Christianity", "christianity"));
+        keyNameLOVPairs.add(new KeyNameLOVPair(" Islam", "islam"));
+        keyNameLOVPairs.add(new KeyNameLOVPair(" Others", "others"));
+        return keyNameLOVPairs;
+    }
+
+
     public static ArrayList<KeyNameLOVPair> getBloodGroups(){
         ArrayList<KeyNameLOVPair> keyNameLOVPairs = new ArrayList<>();
         keyNameLOVPairs.add(new KeyNameLOVPair(" Select blood type", "select_blood_group"));

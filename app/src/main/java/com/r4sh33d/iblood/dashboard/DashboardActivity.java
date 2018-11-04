@@ -88,7 +88,7 @@ public class DashboardActivity extends BaseActivity
         ImageView userProfilePic = headerView.findViewById(R.id.user_profile_pic);
         TextView userDisplayName = headerView.findViewById(R.id.user_display_name);
         TextView userEmail = headerView.findViewById(R.id.user_email);
-        userDisplayName.setText(user.name);
+        userDisplayName.setText(String.format("%s %s", user.firstName, user.lastName));
         userEmail.setText(user.phoneNumber);
 //        Picasso.get()
 //                .load(user.getPhotoUrl())

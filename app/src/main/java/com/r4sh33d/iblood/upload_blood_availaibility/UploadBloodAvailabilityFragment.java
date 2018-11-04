@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.base.BaseFragment;
@@ -46,25 +47,23 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
     @BindView(R.id.email_edit_text)
     EditText emailEditText;
 
-    @BindView(R.id.name_edit_text)
-    EditText nameEditText;
+    @BindView(R.id.first_name_edit_text)
+    EditText firstNameEditText;
+
+    @BindView(R.id.last_name_edit_text)
+    EditText lastNameEditText;
 
     @BindView(R.id.religion_edit_text)
-    EditText religionEditText;
+    Spinner religionSpinner;
+
+    @BindView(R.id.religion_label)
+    TextView religionLabel;
 
     PrefsUtils prefsUtils;
 
     UserData userData;
 
     UploadBloodAvailabilityContract.Presenter presenter;
-
-    public static UploadBloodAvailabilityFragment newInstance() {
-        Bundle args = new Bundle();
-        // args.putParcelable(KEY_USER_DATA , userData);
-        UploadBloodAvailabilityFragment fragment = new UploadBloodAvailabilityFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     public UploadBloodAvailabilityFragment() {
         // Required empty public constructor
@@ -87,17 +86,25 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
         setDrawerIconToBack();
         prepareBloodGroupSpinner();
         prepareDonationTypeSpinner();
+
         presenter = new UploadBloodAvailabilityPresenter(this, Provider.provideDataRetrofitService(), prefsUtils, getContext());
         userData = Provider.providePrefManager(getContext()).getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS,
                 UserData.class);
         prepopulateFields();
+        if (userData.isBloodBank) {
+            ViewUtils.hide(religionSpinner, religionLabel);
+        } else {
+            prepareReligionSpinner();
+        }
     }
+
 
     void prepopulateFields() {
         phoneNumberEditText.setText(userData.phoneNumber);
         emailEditText.setText(userData.email);
-        nameEditText.setText(userData.name);
-        religionEditText.setText(userData.religion);
+        firstNameEditText.setText(userData.firstName);
+        lastNameEditText.setText(userData.lastName);
+        //religionSpinner.setText(userData.religion);
     }
 
     void prepareBloodGroupSpinner() {
@@ -112,14 +119,20 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
         donationTypeSpinner.setAdapter(listOfTitleAdapter);
     }
 
+    void prepareReligionSpinner() {
+        CustomSpinnerAdapter<KeyNameLOVPair> listOfTitleAdapter = new CustomSpinnerAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_dropdown_item, Utils.getReligionList());
+        religionSpinner.setAdapter(listOfTitleAdapter);
+    }
+
     @OnClick(R.id.save_button)
     public void onSaveButtonClicked() {
-        if (bloodTypeSpinner.getSelectedItemId() < 1) {
+        if (bloodTypeSpinner.getSelectedItemPosition() < 1) {
             showToast("Please select blood type");
             return;
         }
 
-        if (donationTypeSpinner.getSelectedItemId() < 1) {
+        if (donationTypeSpinner.getSelectedItemPosition() < 1) {
             showToast("Please select donation type");
             return;
         }
@@ -131,20 +144,25 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
             return;
         }
 
-        if (!ViewUtils.validateEditTexts(nameEditText, phoneNumberEditText)) {
+        if (!ViewUtils.validateEditTexts(firstNameEditText, lastNameEditText, phoneNumberEditText)) {
             return;
         }
 
         KeyNameLOVPair bloodType = (KeyNameLOVPair) bloodTypeSpinner.getSelectedItem();
         KeyNameLOVPair donationType = (KeyNameLOVPair) donationTypeSpinner.getSelectedItem();
+        String religion = "";
+        if (religionSpinner.getSelectedItemPosition() > 0) {
+            religion = ((KeyNameLOVPair) religionSpinner.getSelectedItem()).key;
+        }
+
         BloodPostingData bloodPostingData = new BloodPostingData(
                 bloodType.key,
                 donationType.key,
                 emailText,
-                nameEditText.getText().toString(),
+                String.format("%s %s", firstNameEditText.getText().toString(), lastNameEditText),
                 phoneNumberEditText.getText().toString(),
                 userData.firebaseID,
-                religionEditText.getText().toString(),
+                religion,
                 null,
                 null
         );
@@ -157,6 +175,5 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
             getFragmentManager().popBackStack();
         });
     }
-
 }
 

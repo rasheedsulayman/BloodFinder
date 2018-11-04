@@ -43,7 +43,7 @@ public class BloodPostingResultListFragment extends BaseFragment implements
     private static final String KEY_BLOOD_POSTING_DATA = "bloodposting";
     BloodPostingResultListContract.Presenter presenter;
     PrefsUtils prefsUtils;
-    UserData userData;
+    UserData bloodSeekerData;
 
     public static BloodPostingResultListFragment newInstance(ArrayList<BloodPostingData> resultslist) {
         Bundle args = new Bundle();
@@ -72,7 +72,7 @@ public class BloodPostingResultListFragment extends BaseFragment implements
         super.onViewCreated(view, savedInstanceState);
         setToolbarTitle("Donor's List");
         prefsUtils = Provider.providePrefManager(getContext());
-        userData = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, UserData.class);
+        bloodSeekerData = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, UserData.class);
         presenter = new BloodPostingResultListPresenter(this, Provider.provideNotificationRetrofitService(),
                 Provider.provideDataRetrofitService());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -90,19 +90,21 @@ public class BloodPostingResultListFragment extends BaseFragment implements
         new MaterialDialog.Builder(getContext())
                 .title("Send Request?")
                 .content("A blood donation request will be sent to " + bloodPostingData.donorsName)
+                .positiveColor(getResources().getColor(R.color.blood_red))
+                .negativeColor(getResources().getColor(R.color.blood_red))
                 .positiveText("Send")
                 .negativeText("Cancel")
                 .onPositive((dialog, which) -> {
                     BloodRequestNotificationData notificationData =
                             new BloodRequestNotificationData(
                                     BLOOD_REQUEST_NOTIFICATION_TYPE,
-                                    userData.firebaseID,
-                                    userData.name,
+                                    bloodSeekerData.firebaseID,
+                                    String.format("%s %s", bloodSeekerData.firstName, bloodSeekerData.lastName),
                                     bloodPostingData.id
                             );
                     NotificationPayload<BloodRequestNotificationData> notificationPayload
                             = new NotificationPayload<>(notificationData, bloodDonorData.notificationToken);
-                    presenter.sendNotification(userData, bloodPostingData ,notificationPayload);
+                    presenter.sendNotification(bloodSeekerData, bloodPostingData ,notificationPayload);
                 })
                 .onNegative((dialog, which) -> {
                     //noOp
@@ -114,6 +116,7 @@ public class BloodPostingResultListFragment extends BaseFragment implements
     public void onNotificationSent() {
         new MaterialDialog.Builder(getContext())
                 .title("Notification sent")
+                .positiveColor(getResources().getColor(R.color.blood_red))
                 .content("Notification sent successfully")
                 .positiveText("Okay")
                 .cancelable(false)
