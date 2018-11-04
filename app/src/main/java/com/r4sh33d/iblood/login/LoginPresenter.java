@@ -44,6 +44,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                     User user = new Gson().fromJson(jsendResponse.getData(), User.class);
                     getAdditionalUserDetails(user.localId);
                 } else {
+                    view.dismissLoading();
                     view.showError(jsendResponse.getErrorMessage());
                 }
             }

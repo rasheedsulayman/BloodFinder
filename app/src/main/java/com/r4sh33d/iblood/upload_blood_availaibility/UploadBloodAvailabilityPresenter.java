@@ -17,6 +17,7 @@ import com.r4sh33d.iblood.utils.PrefsUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import timber.log.Timber;
 
 
 public class UploadBloodAvailabilityPresenter implements UploadBloodAvailabilityContract.Presenter {
@@ -50,9 +51,10 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
                     // so location can still be null here, in case of a new phone or factory reset
                     // and other rare cases
                     if (location != null) {
-                        bloodPostingData.donorsLocation = new UserLocation(location.getLatitude(),
+                        UserLocation userLocation = new UserLocation(location.getLatitude(),
                                 location.getLongitude());
-                        getLocationAddress(location, bloodPostingData);
+                        bloodPostingData.donorsLocation = userLocation;
+                        getLocationAddress(userLocation, bloodPostingData);
                     }
                 }
 
@@ -64,13 +66,16 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
             });
         } else {
             //We have the location info
-            bloodPostingData.donorsLocation = prefsUtils.getPrefAsObject(Constants.PREF_KEY_LOCATION_OBJECT, UserLocation.class);
-            uploadBloodAvailability(bloodPostingData);
+            UserLocation location =  prefsUtils.getPrefAsObject(Constants.PREF_KEY_LOCATION_OBJECT, UserLocation.class);
+            bloodPostingData.donorsLocation = location;
+            getLocationAddress(location , bloodPostingData);
         }
     }
 
-    public void getLocationAddress (Location location , BloodPostingData bloodPostingData){
+    public void getLocationAddress (UserLocation location , BloodPostingData bloodPostingData){
+        Timber.d("Trying to get descriptive Location address: ");
         LocationUtil.getAddressFromLatLongAsync(location,  context , locationAdress -> {
+            Timber.d("Location address gotten: " + locationAdress);
             bloodPostingData.donorsLocation.descriptiveAddress = locationAdress;
             uploadBloodAvailability(bloodPostingData);
         });

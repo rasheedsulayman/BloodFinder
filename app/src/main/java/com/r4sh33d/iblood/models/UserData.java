@@ -30,7 +30,7 @@ public class UserData implements Parcelable {
     @Expose
     public String firebaseID;
 
-    @SerializedName("user_location")
+    @SerializedName("location")
     @Expose
     public UserLocation userLocation;
 

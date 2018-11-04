@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -143,8 +144,9 @@ public class AdditionalDetailsFragment extends BaseFragment implements Additiona
         //We are done we can now go back and login
         showSuccessDialog("Account successfully created", (dialog, which) -> {
             //We can either launch the Dashboard or go back to login.
-            startActivity(new Intent(getContext() , DashboardActivity.class));
-            getActivity().finish();
+            getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+           /* startActivity(new Intent(getContext() , DashboardActivity.class));
+            getActivity().finish();*/
         });
 
     }

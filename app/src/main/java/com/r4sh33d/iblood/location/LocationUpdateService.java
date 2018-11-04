@@ -78,8 +78,13 @@ public class LocationUpdateService extends Service {
                 .addOnSuccessListener(location -> {
                     //As a start, get the user's last Known location
                     if (location != null) {
+                        UserLocation userLocation = new UserLocation(location.getLatitude(), location.getLongitude());
                         prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT,
-                                new UserLocation(location.getLatitude(), location.getLongitude()));
+                                userLocation);
+                        LocationUtil.getAddressFromLatLongAsync(userLocation, LocationUpdateService.this, locationAdress -> {
+                            userLocation.descriptiveAddress = locationAdress;
+                            saveUserLocation(userLocation);
+                        });
                         Timber.d("Got last know location, long: %s, Lat: %s",
                                 location.getLongitude(), location.getLatitude());
                     }
@@ -115,7 +120,7 @@ public class LocationUpdateService extends Service {
             Location lastLocation = locationResult.getLastLocation();
             UserLocation userLocation = new UserLocation(lastLocation.getLatitude(), lastLocation.getLongitude());
             prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT, userLocation);
-            LocationUtil.getAddressFromLatLongAsync(lastLocation, LocationUpdateService.this, locationAdress -> {
+            LocationUtil.getAddressFromLatLongAsync(userLocation, LocationUpdateService.this, locationAdress -> {
                 userLocation.descriptiveAddress = locationAdress;
                 saveUserLocation(userLocation);
             });

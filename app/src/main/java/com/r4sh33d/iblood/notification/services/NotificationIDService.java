@@ -43,6 +43,7 @@ public class NotificationIDService extends FirebaseInstanceIdService {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (!TextUtils.isEmpty(response.toString())) {
+                    Timber.d("Notifcation successfully subscribed");
                     prefsUtils.putBoolean(Constants.PREF_KEY_IS_NOTIFICATION_SUBSCRIBED, true);
                 }else {
                     // we failed to register or refresh

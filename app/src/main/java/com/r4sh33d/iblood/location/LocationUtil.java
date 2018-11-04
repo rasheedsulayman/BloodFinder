@@ -49,7 +49,7 @@ public class LocationUtil {
     }
 
 
-    public static void  getAddressFromLatLongAsync (Location location, Context context ,
+    public static void  getAddressFromLatLongAsync (UserLocation location, Context context ,
                                                     LocationAddressRetrievedListener listener){
         new AsyncTask<Void, Void , String>(){
 
@@ -60,14 +60,15 @@ public class LocationUtil {
 
             @Override
             protected void onPostExecute(String result) {
+                Timber.d("Got location address: " + result);
                 listener.onLocationAddressRetried(result);
             }
-        };
+        }.execute();
 
     }
 
 
-    public static  String getAddressFromLatLong (Location location, Context context) {
+    public static  String getAddressFromLatLong (UserLocation location, Context context) {
         if (context == null){
             return "";
         }
@@ -79,8 +80,8 @@ public class LocationUtil {
 
         try {
             addresses = geocoder.getFromLocation(
-                    location.getLatitude(),
-                    location.getLongitude(),
+                    location.latitude,
+                    location.longitude,
                     // In this sample, get just a single address.
                     1);
         } catch (IOException ioException) {
@@ -92,9 +93,9 @@ public class LocationUtil {
             // Catch invalid latitude or longitude values.
             errorMessage = context.getString(R.string.invalid_lat_long_used);
             Timber.e(errorMessage + ". " +
-                    "Latitude = " + location.getLatitude() +
+                    "Latitude = " + location.latitude +
                     ", Longitude = " +
-                    location.getLongitude());
+                    location.longitude);
             Timber.e(illegalArgumentException);
         }
 

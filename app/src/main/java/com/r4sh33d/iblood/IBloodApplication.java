@@ -13,5 +13,4 @@ public class IBloodApplication extends Application {
             Timber.plant(new Timber.DebugTree());
         }
     }
-
 }

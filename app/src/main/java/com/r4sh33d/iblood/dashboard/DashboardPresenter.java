@@ -16,6 +16,7 @@ import com.r4sh33d.iblood.utils.PrefsUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import timber.log.Timber;
 
 
 public class DashboardPresenter implements DashboardContract.Presenter {
@@ -42,6 +43,7 @@ public class DashboardPresenter implements DashboardContract.Presenter {
             public void onResponse(Call<String> call, Response<String> response) {
                 //This validation is painful, Different firebase nodes return different structures
                 if (!TextUtils.isEmpty(response.toString())) {
+                    Timber.d("Notifcation successfully subscribed");
                     prefsUtils.putBoolean(Constants.PREF_KEY_IS_NOTIFICATION_SUBSCRIBED, true);
                 }else {
                     // we failed to register or refresh

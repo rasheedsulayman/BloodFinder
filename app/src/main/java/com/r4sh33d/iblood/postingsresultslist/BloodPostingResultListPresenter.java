@@ -13,6 +13,7 @@ import com.r4sh33d.iblood.utils.JsendResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import timber.log.Timber;
 
 public class BloodPostingResultListPresenter implements BloodPostingResultListContract.Presenter {
     BloodPostingResultListContract.View view;
@@ -43,6 +44,7 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
                     UserData bloodDonorData = new Gson().fromJson(jsendResponse.getData(), UserData.class);
                     view.onDetailsSuccessfullyFetched(bloodDonorData , bloodPostingData);
                 } else {
+                    view.dismissLoading();
                     view.showError(jsendResponse.getErrorMessage());
                 }
             }
@@ -63,11 +65,13 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
         notificationService.sendNotification(notificationPayload).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                if (response.body().getAsJsonObject().get("success").getAsInt() > 0){
+                Timber.d("The response is : %s", response);
+                if (response.body()!= null && response.body().getAsJsonObject().get("success").getAsInt() > 0){
                     //We sent something successfully
                     updateUsersRequestHistory(bloodSeekerData , bloodPostingData.id , bloodPostingData);
 
                 }else {
+                    view.dismissLoading();
                     //something went wrong, NoOp for now
                     //TODO comeback and handle this
                 }
@@ -85,6 +89,7 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
         dataService.updateUserRequestHistory( bloodSeekerData.firebaseID, bloodPostingId,bloodPostingData ).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                view.dismissLoading();
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
                     view.onNotificationSent();

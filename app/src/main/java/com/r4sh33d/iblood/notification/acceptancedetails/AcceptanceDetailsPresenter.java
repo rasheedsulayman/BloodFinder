@@ -34,13 +34,15 @@ public class AcceptanceDetailsPresenter implements AcceptanceDetailsContract.Pre
 
     @Override
     public void fetchDetails(AcceptanceNotificationData notificationData) {
-        view.showLoading("Fetching the requester details");
+        view.showLoading("Fetching the donors details");
         dataService.getAdditionalUserDetails(notificationData.bloodDonorFbId).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                view.dismissLoading();
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
                     UserData bloodDonorData = new Gson().fromJson(jsendResponse.getData(), UserData.class);
+                    view.onDetailsSuccessfullyFetched(bloodDonorData);
                 } else {
                     view.showError(jsendResponse.getErrorMessage());
                 }

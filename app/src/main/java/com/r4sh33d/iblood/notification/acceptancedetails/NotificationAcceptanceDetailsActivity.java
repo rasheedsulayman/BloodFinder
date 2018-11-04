@@ -138,12 +138,11 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
         dialog.show();
     }
 
+
     @Override
     public void onDetailsSuccessfullyFetched(UserData bloodDonorData) {
-        headerInfoTextView.setText(String.format("Dear %s, %s would like to receive blood donation from you. " +
-                "If you are okay with the request, Please acknowledge it by clicking the acceptance button below. " +
-                "After you accept the request, Your contact information will be shared with them. " +
-                "Their detailed information is presented below", bloodSeekerData.name, bloodDonorData.name));
+        headerInfoTextView.setText(String.format("Dear %s, %s  has accepted your blood donation request, " +
+                "Their contact information is presented below alongside other relevant information", bloodSeekerData.name, bloodDonorData.name));
         fullNameTextView.setText(bloodDonorData.name);
         locationTextView.setText(bloodDonorData.userLocation.descriptiveAddress); //TODO come back and check this
         religionTextView.setText(bloodDonorData.religion); //TODO come back and hide this based on religion option

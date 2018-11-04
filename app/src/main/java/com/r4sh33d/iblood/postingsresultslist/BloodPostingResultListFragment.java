@@ -102,7 +102,7 @@ public class BloodPostingResultListFragment extends BaseFragment implements
                             );
                     NotificationPayload<BloodRequestNotificationData> notificationPayload
                             = new NotificationPayload<>(notificationData, bloodDonorData.notificationToken);
-                    presenter.sendNotification(notificationPayload);
+                    presenter.sendNotification(userData, bloodPostingData ,notificationPayload);
                 })
                 .onNegative((dialog, which) -> {
                     //noOp
@@ -120,6 +120,6 @@ public class BloodPostingResultListFragment extends BaseFragment implements
                 .onPositive((dialog, which) -> {
                     //We are done here
                     getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                });
+                }).show();
     }
 }

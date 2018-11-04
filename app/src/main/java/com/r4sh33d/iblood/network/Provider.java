@@ -12,6 +12,7 @@ import retrofit2.Retrofit;
 public class Provider {
     private static Retrofit authRetrofitInstance;
     private static Retrofit dataRetrofitInstance;
+    private static Retrofit notificationRetrofitInstance;
     private  static PrefsUtils prefsUtils;
 
     public static PrefsUtils providePrefManager(Context context) {
@@ -28,6 +29,13 @@ public class Provider {
         return authRetrofitInstance;
     }
 
+
+    public static Retrofit provideNotificationInstance() {
+        if (notificationRetrofitInstance == null) {
+            notificationRetrofitInstance = RetrofitClient.buildNotificationRetrofit();
+        }
+        return notificationRetrofitInstance;
+    }
 
     public static Retrofit provideDataRetrofitInstance() {
         if (dataRetrofitInstance == null) {
@@ -49,6 +57,6 @@ public class Provider {
     }
 
     public static NotificationService provideNotificationRetrofitService(){
-        return provideDataRetrofitInstance().create(NotificationService.class);
+        return provideNotificationInstance().create(NotificationService.class);
     }
 }

@@ -122,7 +122,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
                 .onPositive((dialog, which) -> {
                     //We are done here
                     finish();
-                });
+                }).show();
     }
 
 
