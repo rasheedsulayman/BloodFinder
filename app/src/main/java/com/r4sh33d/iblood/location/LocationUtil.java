@@ -118,7 +118,6 @@ public class LocationUtil {
             Timber.i("Address  found");
             resultAddress = TextUtils.join(System.getProperty("line.separator"), addressFragments);
             //deliverResultToReceiver(Constants.SUCCESS_RESULT,
-
         }
         return resultAddress;
     }

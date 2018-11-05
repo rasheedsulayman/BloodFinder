@@ -117,9 +117,10 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
     @Override
     public void onNotificationSuccessfullySent() {
         new MaterialDialog.Builder(this)
-                .title("Notification sent")
+                .title("Acceptance message sent")
                 .positiveColor(getResources().getColor(R.color.blood_red))
-                .content("Notification sent successfully")
+                .content("Your contact details has been shared with " + bloodSeekerData.firstName + " "
+                        + bloodSeekerData.lastName + ". They will contact you soon.")
                 .positiveText("Okay")
                 .cancelable(false)
                 .onPositive((dialog, which) -> {

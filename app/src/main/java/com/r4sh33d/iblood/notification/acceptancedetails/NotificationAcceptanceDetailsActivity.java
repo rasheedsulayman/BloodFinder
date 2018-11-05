@@ -97,7 +97,6 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
         }
     }
 
-
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
@@ -138,7 +137,6 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
         dialog.show();
     }
 
-
     @Override
     public void onDetailsSuccessfullyFetched(UserData bloodDonorData) {
         headerInfoTextView.setText(String.format("Dear %s, %s %s  has accepted your blood donation request, " +
@@ -150,5 +148,4 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
         phoneNumberTextView.setText(bloodDonorData.phoneNumber);
         emailTextView.setText(bloodDonorData.email);
     }
-
 }
