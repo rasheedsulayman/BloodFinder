@@ -40,7 +40,7 @@
                 <TextView
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:id="@+id/from_label"
-                    tools:text="From: "
+                    android:text="From: "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -63,7 +63,7 @@
                 <TextView
                     android:maxLines="1"
                     android:id="@+id/date_label"
-                    tools:text="Date: "
+                    android:text="Requested: "
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -87,7 +87,7 @@
                 <TextView
                     android:maxLines="1"
                     android:id="@+id/status_label"
-                    tools:text="Status: "
+                    android:text="Status: "
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -96,7 +96,7 @@
                     android:textColor="@color/yellow"
                     android:maxLines="1"
                     android:id="@+id/status_textview"
-                    tools:text="Pending"
+                    android:text="Pending"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />

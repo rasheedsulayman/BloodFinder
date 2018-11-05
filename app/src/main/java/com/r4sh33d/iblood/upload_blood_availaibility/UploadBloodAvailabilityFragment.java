@@ -19,6 +19,7 @@ import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.KeyNameLOVPair;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.utils.Constants;
+import com.r4sh33d.iblood.utils.Constants.BloodPostingStatus;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 import com.r4sh33d.iblood.utils.Utils;
@@ -53,7 +54,7 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
     @BindView(R.id.last_name_edit_text)
     EditText lastNameEditText;
 
-    @BindView(R.id.religion_edit_text)
+    @BindView(R.id.religion_spinner)
     Spinner religionSpinner;
 
     @BindView(R.id.religion_label)
@@ -159,12 +160,13 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
                 bloodType.key,
                 donationType.key,
                 emailText,
-                String.format("%s %s", firstNameEditText.getText().toString(), lastNameEditText),
+                String.format("%s %s", firstNameEditText.getText().toString(), lastNameEditText.getText().toString()),
                 phoneNumberEditText.getText().toString(),
                 userData.firebaseID,
                 religion,
                 null,
-                null
+                null,
+                BloodPostingStatus.PENDING
         );
         presenter.uploadBloodTypeAvailability(bloodPostingData);
     }

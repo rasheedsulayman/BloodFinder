@@ -124,7 +124,7 @@ public class DateUtils {
 
         String relativeTime = getRelativeTime(timeInMillis,false);
         Date date = new Date(timeInMillis);
-        String msg = "Sent %s at %s";
+        String msg = "%s at %s";
 
         String clockTime = formatDate(date, "HH:mm");
 

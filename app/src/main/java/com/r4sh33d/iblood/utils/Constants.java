@@ -13,4 +13,8 @@ public interface Constants {
     String PACKAGE_NAME = "com.r4sh33d.iblood.location";
 
 
+    interface BloodPostingStatus {
+        String ACCEPTED = "accepted";
+        String PENDING = "pending";
+    }
 }

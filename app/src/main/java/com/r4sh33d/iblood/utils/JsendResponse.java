@@ -26,8 +26,8 @@ public class JsendResponse {
         }
     }
 
-    public boolean isSuccess(){
-        return successBody != null && !successBody.getAsJsonObject().isJsonNull();
+    public boolean isSuccess() {
+        return successBody != null && !successBody.isJsonNull() && !successBody.getAsJsonObject().isJsonNull();
     }
 
     public JsonElement getData() {

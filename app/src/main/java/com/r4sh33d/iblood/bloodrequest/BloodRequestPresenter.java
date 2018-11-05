@@ -13,6 +13,7 @@ import com.r4sh33d.iblood.models.UserLocation;
 import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.utils.Constants;
+import com.r4sh33d.iblood.utils.Constants.BloodPostingStatus;
 import com.r4sh33d.iblood.utils.Data;
 import com.r4sh33d.iblood.utils.JsendResponse;
 import com.r4sh33d.iblood.utils.PrefsUtils;
@@ -20,13 +21,14 @@ import com.r4sh33d.iblood.utils.PrefsUtils;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import timber.log.Timber;
+
+import static com.r4sh33d.iblood.utils.Constants.BloodPostingStatus.*;
 
 
 public class BloodRequestPresenter implements BloodRequestContract.Presenter {
@@ -36,11 +38,6 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
     private Context context;
     PrefsUtils prefsUtils;
     private static final String TAG = BloodRequestPresenter.class.getSimpleName();
-
-    interface BloodPostingStatus {
-        String ACCEPTED = "accepted";
-        String PENDING = "pending";
-    }
 
 
     BloodRequestPresenter(BloodRequestContract.View view, DataService dataService,

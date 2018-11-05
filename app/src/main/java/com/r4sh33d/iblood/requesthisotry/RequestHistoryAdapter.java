@@ -29,7 +29,7 @@ public class RequestHistoryAdapter extends RecyclerView.Adapter<RequestHistoryAd
     @NonNull
     @Override
     public PostingsHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_blood_posting,
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_request_history,
                 viewGroup, false);
         return new PostingsHolder(view);
     }
@@ -39,14 +39,13 @@ public class RequestHistoryAdapter extends RecyclerView.Adapter<RequestHistoryAd
         BloodPostingData bloodPostingData = bloodPostingDataArrayList.get(i);
         postingsHolder.donorsBloodTypeTextView.setText(bloodPostingData.donorsBloodType);
         postingsHolder.donorNameTextView.setText(bloodPostingData.donorsName);
-        postingsHolder.dateTextView.setText(DateUtils.getRelativeTime( Long.parseLong(bloodPostingData.creationTime),
-                true));
+        postingsHolder.dateTextView.setText(DateUtils.getRelativeSentFromMessageWithTime(Long.parseLong(bloodPostingData.creationTime)));
     }
 
-   void updateData (ArrayList<BloodPostingData> bloodPostingDataList){
+    void updateData(ArrayList<BloodPostingData> bloodPostingDataList) {
         this.bloodPostingDataArrayList = bloodPostingDataList;
         notifyDataSetChanged();
-   }
+    }
 
     @Override
     public int getItemCount() {

@@ -87,7 +87,7 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
 
     void updateUsersRequestHistory(UserData bloodSeekerData, String bloodPostingId, BloodPostingData bloodPostingData) {
         bloodPostingData.creationTime = String.valueOf(System.currentTimeMillis());
-        dataService.updateUserRequestHistory(bloodSeekerData.firebaseID, bloodPostingId, bloodPostingData).enqueue(new Callback<JsonElement>() {
+        dataService.updateUserRequestHistory(bloodPostingId, bloodSeekerData.firebaseID, bloodPostingData).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 view.dismissLoading();

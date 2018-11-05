@@ -123,7 +123,7 @@ public class NotificationHandlerService extends FirebaseMessagingService {
         if (prefsUtils.doesContain(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS)) {
             UserData userData = Provider.providePrefManager(this).
                     getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, UserData.class);
-            return userData.name;
+            return String.format("%s %s", userData.firstName, userData.lastName);
         }
         return "";
     }

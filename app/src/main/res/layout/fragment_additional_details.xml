@@ -118,6 +118,7 @@
             android:background="@drawable/spinner_resource" />
 
         <Button
+            android:layout_marginBottom="30dp"
             android:id="@+id/save_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

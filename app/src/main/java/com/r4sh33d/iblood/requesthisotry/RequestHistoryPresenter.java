@@ -37,18 +37,19 @@ public class RequestHistoryPresenter implements RequestHistoryContract.Presenter
 
     @Override
     public void fetUserRequestHistory(UserData userData) {
+        view.showLoading("Loading your request history, Please wait. . .");
         dataService.getBloodRequestHistory(userData.firebaseID).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                view.dismissLoading();
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
                     Type type = new TypeToken<HashMap<String, BloodPostingData>>() {
                     }.getType();
                     HashMap<String, BloodPostingData> bloodPostings = new Gson().fromJson(jsendResponse.getData(), type);
                     view.onRequestPostingHistorySuccessfullyFetched(new ArrayList<>(bloodPostings.values()));
-                    view.dismissLoading();
+
                 } else {
-                    view.dismissLoading();
                     //TODO handle failure
                 }
             }

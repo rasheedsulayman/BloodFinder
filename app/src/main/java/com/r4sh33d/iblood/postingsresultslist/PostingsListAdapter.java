@@ -42,8 +42,7 @@ public class PostingsListAdapter extends RecyclerView.Adapter<PostingsListAdapte
         postingsHolder.donorsBloodTypeTextView.setText(bloodPostingData.donorsBloodType);
         postingsHolder.donorNameTextView.setText(bloodPostingData.donorsName);
         postingsHolder.donorLocationNameTextView.setText(bloodPostingData.donorsLocation.descriptiveAddress);
-        postingsHolder.dateTextView.setText(DateUtils.getRelativeTime(Long.parseLong(bloodPostingData.creationTime),
-                true));
+        postingsHolder.dateTextView.setText(String.format("Posted %s", DateUtils.getRelativeSentFromMessageWithTime(Long.parseLong(bloodPostingData.creationTime))));
         //TODO comeback and set a real time address
     }
 

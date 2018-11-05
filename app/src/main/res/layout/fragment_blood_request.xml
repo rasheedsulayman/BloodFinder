@@ -45,10 +45,10 @@
 
         <RadioGroup
             android:id="@+id/consider_religion_radio_group"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/yes_consider_religion"
@@ -56,46 +56,45 @@
                 android:layout_height="match_parent"
                 android:buttonTint="@color/blood_red"
                 android:text="Yes" />
+
             <RadioButton
+                android:id="@+id/no_dont_consider_religion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:buttonTint="@color/blood_red"
                 android:checked="true"
-                android:id="@+id/no_dont_consider_religion"
-                android:layout_marginLeft="30dp"
-                android:text="No"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:text="No" />
 
         </RadioGroup>
 
         <TextView
             android:id="@+id/religion_label"
-            tools:visibility="visible"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Religion" />
+            android:text="Religion"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
-        <EditText
+        <Spinner
             tools:visibility="visible"
             android:visibility="gone"
-            android:id="@+id/religion_edit_text"
+            android:id="@+id/religion_spinner"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint=" Preferred religion"
-            android:padding="10dp" />
+            android:background="@drawable/spinner_resource" />
 
         <Button
-            android:layout_marginBottom="40dp"
             android:id="@+id/save_button"
-            android:layout_marginTop="20dp"
-            android:textColor="@android:color/white"
-            android:text= "Search"
-            android:background="@drawable/roundedbutton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundedbutton"
+            android:text="Search"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </ScrollView>
