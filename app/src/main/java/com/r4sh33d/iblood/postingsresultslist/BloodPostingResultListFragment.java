@@ -115,9 +115,9 @@ public class BloodPostingResultListFragment extends BaseFragment implements
     @Override
     public void onNotificationSent() {
         new MaterialDialog.Builder(getContext())
-                .title("Notification sent")
+                .title("Request successfully  sent")
                 .positiveColor(getResources().getColor(R.color.blood_red))
-                .content("Notification sent successfully")
+                .content("Request sent successfully, A message containing the donor's information will be sent to you once they accept this request")
                 .positiveText("Okay")
                 .cancelable(false)
                 .onPositive((dialog, which) -> {

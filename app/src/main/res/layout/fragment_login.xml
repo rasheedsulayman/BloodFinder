@@ -36,6 +36,7 @@
             android:layout_marginTop="20dp"
             android:text="Phone Number" />
         <EditText
+            android:maxLines="11"
             android:inputType="phone"
             android:id="@+id/phone_number_edit_text"
             android:hint="Phone number"
