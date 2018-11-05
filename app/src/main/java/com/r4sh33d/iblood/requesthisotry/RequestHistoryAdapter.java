@@ -1,4 +1,4 @@
-package com.r4sh33d.iblood.postingsresultslist;
+package com.r4sh33d.iblood.requesthisotry;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,19 +11,17 @@ import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.utils.DateUtils;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PostingsListAdapter extends RecyclerView.Adapter<PostingsListAdapter.PostingsHolder> {
+public class RequestHistoryAdapter extends RecyclerView.Adapter<RequestHistoryAdapter.PostingsHolder> {
     private OnBloodPostingItemClickListener onBloodPostingItemClickListener;
     ArrayList<BloodPostingData> bloodPostingDataArrayList;
 
-    public PostingsListAdapter(OnBloodPostingItemClickListener onBloodPostingItemClickListener,
-                               ArrayList<BloodPostingData> bloodPostingData) {
+    public RequestHistoryAdapter(OnBloodPostingItemClickListener onBloodPostingItemClickListener,
+                                 ArrayList<BloodPostingData> bloodPostingData) {
         this.onBloodPostingItemClickListener = onBloodPostingItemClickListener;
         this.bloodPostingDataArrayList = bloodPostingData;
     }
@@ -41,11 +39,14 @@ public class PostingsListAdapter extends RecyclerView.Adapter<PostingsListAdapte
         BloodPostingData bloodPostingData = bloodPostingDataArrayList.get(i);
         postingsHolder.donorsBloodTypeTextView.setText(bloodPostingData.donorsBloodType);
         postingsHolder.donorNameTextView.setText(bloodPostingData.donorsName);
-        postingsHolder.donorLocationNameTextView.setText(bloodPostingData.donorsLocation.descriptiveAddress);
-        postingsHolder.dateTextView.setText(DateUtils.getRelativeTime(Long.parseLong(bloodPostingData.creationTime),
+        postingsHolder.dateTextView.setText(DateUtils.getRelativeTime( Long.parseLong(bloodPostingData.creationTime),
                 true));
-        //TODO comeback and set a real time address
     }
+
+   void updateData (ArrayList<BloodPostingData> bloodPostingDataList){
+        this.bloodPostingDataArrayList = bloodPostingDataList;
+        notifyDataSetChanged();
+   }
 
     @Override
     public int getItemCount() {
@@ -53,14 +54,15 @@ public class PostingsListAdapter extends RecyclerView.Adapter<PostingsListAdapte
     }
 
     class PostingsHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.donor_name_textview)
-        TextView donorNameTextView;
-        @BindView(R.id.location_name_textview)
-        TextView donorLocationNameTextView;
         @BindView(R.id.blood_type_textview)
         TextView donorsBloodTypeTextView;
+
+        @BindView(R.id.donor_name_textview)
+        TextView donorNameTextView;
         @BindView(R.id.date_textview)
         TextView dateTextView;
+        @BindView(R.id.status_textview)
+        TextView statusTextView;
 
         public PostingsHolder(@NonNull View itemView) {
             super(itemView);

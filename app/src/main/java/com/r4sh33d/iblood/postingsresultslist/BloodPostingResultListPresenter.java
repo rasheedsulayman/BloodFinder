@@ -21,7 +21,7 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
     private DataService dataService;
 
     public BloodPostingResultListPresenter(BloodPostingResultListContract.View view,
-                                           NotificationService notificationService , DataService dataService) {
+                                           NotificationService notificationService, DataService dataService) {
         this.view = view;
         this.notificationService = notificationService;
         this.dataService = dataService;
@@ -42,7 +42,7 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
                 JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());
                 if (jsendResponse.isSuccess()) {
                     UserData bloodDonorData = new Gson().fromJson(jsendResponse.getData(), UserData.class);
-                    view.onDetailsSuccessfullyFetched(bloodDonorData , bloodPostingData);
+                    view.onDetailsSuccessfullyFetched(bloodDonorData, bloodPostingData);
                 } else {
                     view.dismissLoading();
                     view.showError(jsendResponse.getErrorMessage());
@@ -59,18 +59,18 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
 
 
     @Override
-    public void sendNotification( UserData bloodSeekerData , BloodPostingData bloodPostingData,
-                                  NotificationPayload<BloodRequestNotificationData> notificationPayload) {
+    public void sendNotification(UserData bloodSeekerData, BloodPostingData bloodPostingData,
+                                 NotificationPayload<BloodRequestNotificationData> notificationPayload) {
         view.showLoading("Sending request, Please wait. . .");
         notificationService.sendNotification(notificationPayload).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 Timber.d("The response is : %s", response);
-                if (response.body()!= null && response.body().getAsJsonObject().get("success").getAsInt() > 0){
+                if (response.body() != null && response.body().getAsJsonObject().get("success").getAsInt() > 0) {
                     //We sent something successfully
-                    updateUsersRequestHistory(bloodSeekerData , bloodPostingData.id , bloodPostingData);
+                    updateUsersRequestHistory(bloodSeekerData, bloodPostingData.id, bloodPostingData);
 
-                }else {
+                } else {
                     view.dismissLoading();
                     //something went wrong, NoOp for now
                     //TODO comeback and handle this
@@ -85,8 +85,9 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
         });
     }
 
-    void updateUsersRequestHistory(UserData bloodSeekerData , String bloodPostingId , BloodPostingData bloodPostingData){
-        dataService.updateUserRequestHistory( bloodSeekerData.firebaseID, bloodPostingId,bloodPostingData ).enqueue(new Callback<JsonElement>() {
+    void updateUsersRequestHistory(UserData bloodSeekerData, String bloodPostingId, BloodPostingData bloodPostingData) {
+        bloodPostingData.creationTime = String.valueOf(System.currentTimeMillis());
+        dataService.updateUserRequestHistory(bloodSeekerData.firebaseID, bloodPostingId, bloodPostingData).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 view.dismissLoading();

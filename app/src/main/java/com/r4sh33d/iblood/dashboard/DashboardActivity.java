@@ -90,13 +90,6 @@ public class DashboardActivity extends BaseActivity
         TextView userEmail = headerView.findViewById(R.id.user_email);
         userDisplayName.setText(String.format("%s %s", user.firstName, user.lastName));
         userEmail.setText(user.phoneNumber);
-//        Picasso.get()
-//                .load(user.getPhotoUrl())
-//                .noFade()
-//                //we want to see changes immediately when the profile pic is changed
-//                .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-//                .networkPolicy(NetworkPolicy.NO_CACHE)
-//                .into(userProfilePic);
     }
 
     @Override

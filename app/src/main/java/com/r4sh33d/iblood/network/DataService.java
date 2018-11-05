@@ -50,4 +50,7 @@ public interface DataService {
     @PUT("/blood_request_history/{userId}/{bloodPostingId}.json")
     Call<JsonElement> updateUserRequestHistory(@Path("bloodPostingId") String bloodPostingId, @Path("userId") String userID ,
                                       @Body BloodPostingData bloodPostingData);
+
+    @GET("/blood_request_history/{userId}.json")
+    Call<JsonElement> getBloodRequestHistory (@Path("userId") String userID);
 }

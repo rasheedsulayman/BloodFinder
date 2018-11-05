@@ -45,9 +45,14 @@ public class BloodPostingData implements Parcelable {
     @Expose
     public String acceptedSeekerId;
 
+    @SerializedName("creation_time")
+    @Expose
+    public String creationTime;
+
     public BloodPostingData(String donorsBloodType, String donationType, String donorsEmail,
                             String donorsName, String donorsPhoneNumber, String donorsFirebaseId,
                             String donorsReligion, UserLocation donorsLocation , String id) {
+        creationTime = String.valueOf(System.currentTimeMillis());
         this.donorsBloodType = donorsBloodType;
         this.donationType = donationType;
         this.donorsEmail = donorsEmail;
