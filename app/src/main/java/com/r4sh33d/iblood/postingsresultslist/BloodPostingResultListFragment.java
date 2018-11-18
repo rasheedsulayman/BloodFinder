@@ -18,10 +18,8 @@ import com.r4sh33d.iblood.base.BaseFragment;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.NotificationPayload;
-import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
-import com.r4sh33d.iblood.notification.services.NotificationHandlerService;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 
@@ -56,7 +54,6 @@ public class BloodPostingResultListFragment extends BaseFragment implements
     public BloodPostingResultListFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -104,7 +101,7 @@ public class BloodPostingResultListFragment extends BaseFragment implements
                             );
                     NotificationPayload<BloodRequestNotificationData> notificationPayload
                             = new NotificationPayload<>(notificationData, bloodDonorData.notificationToken);
-                    presenter.sendNotification(bloodSeekerData, bloodPostingData ,notificationPayload);
+                    presenter.sendNotification(bloodSeekerData, bloodPostingData, notificationPayload);
                 })
                 .onNegative((dialog, which) -> {
                     //noOp
@@ -117,7 +114,8 @@ public class BloodPostingResultListFragment extends BaseFragment implements
         new MaterialDialog.Builder(getContext())
                 .title("Request successfully  sent")
                 .positiveColor(getResources().getColor(R.color.blood_red))
-                .content("Request sent successfully, A message containing the donor's information will be sent to you once they accept this request")
+                .content("Request sent successfully, A message containing the donor's" +
+                        " information will be sent to you once they accept this request")
                 .positiveText("Okay")
                 .cancelable(false)
                 .onPositive((dialog, which) -> {

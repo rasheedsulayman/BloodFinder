@@ -36,6 +36,79 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/spinner_resource" />
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Preferred Donor's location (Optional)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Please enter the range (distance) at with you want donors to be matched. The distance will be measured from your current location."
+            />
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:enabled="false"
+                android:gravity="center"
+                android:text="0"
+                android:layout_width="60dp"
+                android:inputType="number"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_marginTop="3dp"
+                android:textSize="30sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center"
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/range_editText"
+                android:hint="km"
+                android:enabled="false"
+                android:gravity="center"
+                android:layout_width="100dp"
+                android:inputType="number"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="10dp" />
+
+
+        </LinearLayout>
+
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/states_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/spinner_resource"/>
+
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/lgas_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/spinner_resource" />
+
+
         <TextView
             android:id="@+id/consider_donor_religion_label"
             android:layout_width="wrap_content"

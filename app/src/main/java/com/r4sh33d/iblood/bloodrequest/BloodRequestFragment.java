@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -19,10 +21,13 @@ import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodSearchData;
 import com.r4sh33d.iblood.models.KeyNameLOVPair;
 import com.r4sh33d.iblood.models.UserData;
+import com.r4sh33d.iblood.models.states_cities.LGA;
+import com.r4sh33d.iblood.models.states_cities.StateWrapper;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.postingsresultslist.BloodPostingResultListFragment;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
+import com.r4sh33d.iblood.utils.Data;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
@@ -48,6 +53,12 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
     @BindView(R.id.religion_spinner)
     Spinner religionSpinner;
 
+    @BindView(R.id.states_spinner)
+    Spinner statesSpinner;
+
+    @BindView(R.id.lgas_spinner)
+    Spinner lgasSpinner;
+
     @BindView(R.id.consider_religion_radio_group)
     RadioGroup considerReligionRadioGroup;
 
@@ -56,8 +67,11 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
 
     @BindView(R.id.consider_donor_religion_label)
     TextView considerDonorReligionLabel;
-    UserData userData;
 
+    @BindView(R.id.range_editText)
+    EditText rangeEditText;
+
+    UserData userData;
     BloodRequestContract.Presenter presenter;
 
 
@@ -66,7 +80,7 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_blood_request, container, false);
@@ -77,6 +91,7 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        lgasSpinner.setEnabled(false);
         prepareDonationTypeSpinner();
         prepareBloodGroupSpinner();
         prepareReligionSpinner();
@@ -101,6 +116,32 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
                 case R.id.no_dont_consider_religion:
                     ViewUtils.hide(religionLabel, religionSpinner);
                     break;
+            }
+        });
+    }
+
+    void prepareStatesAndLGAsSpinner() {
+        CustomSpinnerAdapter<StateWrapper> statesAdapter = new CustomSpinnerAdapter<>(getContext(),
+                android.R.layout.simple_spinner_dropdown_item, Data.getStatesWithCitiesList(getContext()));
+        statesSpinner.setAdapter(statesAdapter);
+        statesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    lgasSpinner.setEnabled(true);
+                    ArrayList<LGA> lgas = ((StateWrapper) parent.getSelectedItem()).state.LGAs;
+                    LGA hintLGA = new LGA();
+                    hintLGA.name = "Select a city";
+                    lgas.add(0, hintLGA);
+                    CustomSpinnerAdapter<LGA> lgasCustomSpinnerAdapter =
+                            new CustomSpinnerAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, lgas);
+                    lgasSpinner.setAdapter(lgasCustomSpinnerAdapter);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }
@@ -136,7 +177,6 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
             return;
         }
 
-
         boolean considerReligion = considerReligionRadioGroup.getCheckedRadioButtonId() == R.id.yes_consider_religion;
         String religion = "";
         if (!userData.isBloodBank && considerReligion && !(religionSpinner.getSelectedItemPosition() > 0)) {
@@ -150,8 +190,24 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
 
         KeyNameLOVPair bloodType = (KeyNameLOVPair) bloodGroupSpinner.getSelectedItem();
         KeyNameLOVPair donationType = (KeyNameLOVPair) donationTypeSpinner.getSelectedItem();
+
+
+        /*if (statesSpinner.getSelectedItemPosition() > 0) {
+            donorsPreferredState = ((StateWrapper) statesSpinner.getSelectedItem()).state.name;
+        }
+        if (lgasSpinner.getSelectedItemPosition() > 0) {
+            donorsPreferredCity = ((LGA) lgasSpinner.getSelectedItem()).name;
+        }*/
+
+        String range = rangeEditText.getText().toString();
+        if (TextUtils.isEmpty(range)) {
+            range = "";
+        }
+
         BloodSearchData bloodSearchData = new BloodSearchData(bloodType.key, donationType.key, considerReligion,
-                religion);
+                religion, range);
+
+        //TODO come and reverse-Geocode the states and cities name, save the latlong to the server, Then send the request;
         presenter.requestForBlood(bloodSearchData);
     }
 

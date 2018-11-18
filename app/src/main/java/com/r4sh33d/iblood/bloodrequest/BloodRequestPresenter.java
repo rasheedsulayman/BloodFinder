@@ -2,6 +2,7 @@ package com.r4sh33d.iblood.bloodrequest;
 
 import android.content.Context;
 import android.location.Location;
+import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -37,11 +38,9 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
     private DataService dataService;
     private Context context;
     PrefsUtils prefsUtils;
-    private static final String TAG = BloodRequestPresenter.class.getSimpleName();
-
 
     BloodRequestPresenter(BloodRequestContract.View view, DataService dataService,
-                          Context context /*TODO: don't pass context like this*/) {
+                          Context context) {
         this.view = view;
         this.dataService = dataService;
         this.context = context;
@@ -76,7 +75,7 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
     }
 
     //currently, we are pulling all entries on the DB. Then we are performing all filtering locally on the device.
-    //This is for the purpose of the presentation/pitch. If we are ever going live, we should move all filtering to a server.
+    //This is for the purpose of the presentation/pitch. If we are ever going live, we should move all filtering to the server.
     public void searchForBloodDonors(BloodSearchData bloodSearchData) {
         dataService.getBloodAvailability().enqueue(new Callback<JsonElement>() {
             @Override
@@ -109,8 +108,15 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
             for (String compatibilityType : Data.bloodTypeCompatibilityMapping.get(bloodSearchData.bloodType)) {
                 if (bloodPostingData.donorsBloodType.equals(compatibilityType) &&
                         bloodPostingData.donationType.equals(bloodSearchData.donationType) &&
-                        !bloodPostingData.status.equals(BloodPostingStatus.ACCEPTED)) {
-                    resultsList.add(bloodPostingData);
+                        !bloodPostingData.status.equals(BloodPostingStatus.ACCEPTED)
+                        ) {
+                    if (!TextUtils.isEmpty(bloodSearchData.preferedRangeKm) &&
+                            (Double.parseDouble(bloodSearchData.preferedRangeKm) >
+                                    bloodPostingData.donorsLocation.distanceTo(bloodSearchData.seekersLocation))) {
+                        resultsList.add(bloodPostingData);
+                    } else if (TextUtils.isEmpty(bloodSearchData.preferedRangeKm)) {
+                        resultsList.add(bloodPostingData);
+                    }
                     break;
                 }
             }

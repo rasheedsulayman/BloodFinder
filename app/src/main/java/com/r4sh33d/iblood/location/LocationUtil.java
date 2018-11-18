@@ -45,9 +45,7 @@ public class LocationUtil {
             locationRetrievedListener.onFailed();
             Timber.e(e, "Failed to get location:");
         });
-
     }
-
 
     public static void  getAddressFromLatLongAsync (UserLocation location, Context context ,
                                                     LocationAddressRetrievedListener listener){

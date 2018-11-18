@@ -163,6 +163,7 @@
         </LinearLayout>
 
           <include
+              android:visibility="gone"
               layout="@layout/blocking_progress_indicator"
               android:layout_width="match_parent"
               android:layout_height="match_parent"

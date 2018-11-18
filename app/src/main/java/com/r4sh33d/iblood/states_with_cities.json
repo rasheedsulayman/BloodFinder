@@ -1,0 +1,6900 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "name": "Abia",
+      "key": "abia",
+      "cities": [
+        {
+          "name": "Aba",
+          "key": "aba"
+        },
+        {
+          "name": "Abala",
+          "key": "abala"
+        },
+        {
+          "name": "Abiriba",
+          "key": "abiriba"
+        },
+        {
+          "name": "Acha",
+          "key": "acha"
+        },
+        {
+          "name": "Afara",
+          "key": "afara"
+        },
+        {
+          "name": "Afugiri",
+          "key": "afugiri"
+        },
+        {
+          "name": "Ahieke",
+          "key": "ahieke"
+        },
+        {
+          "name": "Akirika",
+          "key": "akirika"
+        },
+        {
+          "name": "Akwete",
+          "key": "akwete"
+        },
+        {
+          "name": "Alayi",
+          "key": "alayi"
+        },
+        {
+          "name": "Amachi Nsulu",
+          "key": "amachi-nsulu"
+        },
+        {
+          "name": "Ariam",
+          "key": "ariam"
+        },
+        {
+          "name": "Arochukwu",
+          "key": "arochukwu"
+        },
+        {
+          "name": "Asa Obehi",
+          "key": "asa-obehi"
+        },
+        {
+          "name": "Azuiyi Oloko",
+          "key": "azuiyi-oloko"
+        },
+        {
+          "name": "Azumini",
+          "key": "azumini"
+        },
+        {
+          "name": "Azumini Adoko",
+          "key": "azumini-adoko"
+        },
+        {
+          "name": "Bende",
+          "key": "bende"
+        },
+        {
+          "name": "Eke Akpara",
+          "key": "eke-akpara"
+        },
+        {
+          "name": "Eke Aro",
+          "key": "eke-aro"
+        },
+        {
+          "name": "Ekeoba",
+          "key": "ekeoba"
+        },
+        {
+          "name": "Ibeku",
+          "key": "ibeku"
+        },
+        {
+          "name": "Igbere",
+          "key": "igbere"
+        },
+        {
+          "name": "Ihechiowa",
+          "key": "ihechiowa"
+        },
+        {
+          "name": "Ikwuano",
+          "key": "ikwuano"
+        },
+        {
+          "name": "Isiala Ngwa",
+          "key": "isiala-ngwa"
+        },
+        {
+          "name": "Isuikwato",
+          "key": "isuikwato"
+        },
+        {
+          "name": "Isuochi",
+          "key": "isuochi"
+        },
+        {
+          "name": "Item",
+          "key": "item"
+        },
+        {
+          "name": "Itu Ngwa",
+          "key": "itu-ngwa"
+        },
+        {
+          "name": "Itumbauzo",
+          "key": "itumbauzo"
+        },
+        {
+          "name": "Mbalano",
+          "key": "mbalano"
+        },
+        {
+          "name": "Mbawsi",
+          "key": "mbawsi"
+        },
+        {
+          "name": "Mbubo",
+          "key": "mbubo"
+        },
+        {
+          "name": "Mgboko",
+          "key": "mgboko"
+        },
+        {
+          "name": "Ndi Olumbe",
+          "key": "ndi-olumbe"
+        },
+        {
+          "name": "Ndi-akata",
+          "key": "ndi-akata"
+        },
+        {
+          "name": "Ndieegoro",
+          "key": "ndieegoro"
+        },
+        {
+          "name": "Nenu",
+          "key": "nenu"
+        },
+        {
+          "name": "Ntigha",
+          "key": "ntigha"
+        },
+        {
+          "name": "Obehie",
+          "key": "obehie"
+        },
+        {
+          "name": "Obioma Ngwa",
+          "key": "obioma-ngwa"
+        },
+        {
+          "name": "Oboro",
+          "key": "oboro"
+        },
+        {
+          "name": "Obuba",
+          "key": "obuba"
+        },
+        {
+          "name": "Ofeme",
+          "key": "ofeme"
+        },
+        {
+          "name": "Ohafia",
+          "key": "ohafia"
+        },
+        {
+          "name": "Ohaozara",
+          "key": "ohaozara"
+        },
+        {
+          "name": "Ohuhu",
+          "key": "ohuhu"
+        },
+        {
+          "name": "Ohuhu Nsulu",
+          "key": "ohuhu-nsulu"
+        },
+        {
+          "name": "Okpala",
+          "key": "okpala"
+        },
+        {
+          "name": "Okpuala Ngwa",
+          "key": "okpuala-ngwa"
+        },
+        {
+          "name": "Olokoro",
+          "key": "olokoro"
+        },
+        {
+          "name": "Omoba",
+          "key": "omoba"
+        },
+        {
+          "name": "Onicha Lga",
+          "key": "onicha-lga"
+        },
+        {
+          "name": "Onicha Ngwa",
+          "key": "onicha-ngwa"
+        },
+        {
+          "name": "Osisioma",
+          "key": "osisioma"
+        },
+        {
+          "name": "Osusu",
+          "key": "osusu"
+        },
+        {
+          "name": "Osusu Amaukwa",
+          "key": "osusu-amaukwa"
+        },
+        {
+          "name": "Ovom Amasaa",
+          "key": "ovom-amasaa"
+        },
+        {
+          "name": "Owerinta",
+          "key": "owerinta"
+        },
+        {
+          "name": "Owoahiafor",
+          "key": "owoahiafor"
+        },
+        {
+          "name": "Ozuitem",
+          "key": "ozuitem"
+        },
+        {
+          "name": "Ubaha Nsulu",
+          "key": "ubaha-nsulu"
+        },
+        {
+          "name": "Uburu",
+          "key": "uburu"
+        },
+        {
+          "name": "Ukpakiri",
+          "key": "ukpakiri"
+        },
+        {
+          "name": "Ukwa Ndoki",
+          "key": "ukwa-ndoki"
+        },
+        {
+          "name": "Ukwa Village",
+          "key": "ukwa-village"
+        },
+        {
+          "name": "Umuahia",
+          "key": "umuahia"
+        },
+        {
+          "name": "Umuakwu Nsulu",
+          "key": "umuakwu-nsulu"
+        },
+        {
+          "name": "Umuala",
+          "key": "umuala"
+        },
+        {
+          "name": "Umuanunu",
+          "key": "umuanunu"
+        },
+        {
+          "name": "Umudike",
+          "key": "umudike"
+        },
+        {
+          "name": "Umunko",
+          "key": "umunko"
+        },
+        {
+          "name": "Umunkpei",
+          "key": "umunkpei"
+        },
+        {
+          "name": "Umuoba I Ngwa",
+          "key": "umuoba-i-ngwa"
+        },
+        {
+          "name": "Umuobasi Nsulu",
+          "key": "umuobasi-nsulu"
+        },
+        {
+          "name": "Umuodu",
+          "key": "umuodu"
+        },
+        {
+          "name": "Umuopara",
+          "key": "umuopara"
+        },
+        {
+          "name": "Umuosu Nsulu",
+          "key": "umuosu-nsulu"
+        },
+        {
+          "name": "Uturu",
+          "key": "uturu"
+        },
+        {
+          "name": "Uzuakoli",
+          "key": "uzuakoli"
+        }
+      ]
+    },
+    {
+      "name": "Anambra",
+      "key": "anambra",
+      "cities": [
+        {
+          "name": "Abacha",
+          "key": "abacha"
+        },
+        {
+          "name": "Abagana",
+          "key": "abagana"
+        },
+        {
+          "name": "Abatate",
+          "key": "abatate"
+        },
+        {
+          "name": "Abba",
+          "key": "abba"
+        },
+        {
+          "name": "Achalla",
+          "key": "achalla"
+        },
+        {
+          "name": "Achina",
+          "key": "achina"
+        },
+        {
+          "name": "Adazi-ani",
+          "key": "adazi-ani"
+        },
+        {
+          "name": "Adazi-enu",
+          "key": "adazi-enu"
+        },
+        {
+          "name": "Adazi-nukwu",
+          "key": "adazi-nukwu"
+        },
+        {
+          "name": "Aguata",
+          "key": "aguata"
+        },
+        {
+          "name": "Aguleri",
+          "key": "aguleri"
+        },
+        {
+          "name": "Agulu",
+          "key": "agulu"
+        },
+        {
+          "name": "Agulu Uzigbo",
+          "key": "agulu-uzigbo"
+        },
+        {
+          "name": "Ajali",
+          "key": "ajali"
+        },
+        {
+          "name": "Akili Oziza",
+          "key": "akili-oziza"
+        },
+        {
+          "name": "Akor",
+          "key": "akor"
+        },
+        {
+          "name": "Akpo",
+          "key": "akpo"
+        },
+        {
+          "name": "Akuku Oba",
+          "key": "akuku-oba"
+        },
+        {
+          "name": "Akwa-ukwu",
+          "key": "akwa-ukwu"
+        },
+        {
+          "name": "Alor",
+          "key": "alor"
+        },
+        {
+          "name": "Amaese",
+          "key": "amaese"
+        },
+        {
+          "name": "Amansea",
+          "key": "amansea"
+        },
+        {
+          "name": "Amaokpala",
+          "key": "amaokpala"
+        },
+        {
+          "name": "Amawbia",
+          "key": "amawbia"
+        },
+        {
+          "name": "Amorka",
+          "key": "amorka"
+        },
+        {
+          "name": "Anawbio",
+          "key": "anawbio"
+        },
+        {
+          "name": "Atani",
+          "key": "atani"
+        },
+        {
+          "name": "Awada Obosi",
+          "key": "awada-obosi"
+        },
+        {
+          "name": "Awka",
+          "key": "awka"
+        },
+        {
+          "name": "Awka-etiti",
+          "key": "awka-etiti"
+        },
+        {
+          "name": "Awkuzu",
+          "key": "awkuzu"
+        },
+        {
+          "name": "Ekwulobia",
+          "key": "ekwulobia"
+        },
+        {
+          "name": "Ekwulummiri",
+          "key": "ekwulummiri"
+        },
+        {
+          "name": "Enugu-agidi",
+          "key": "enugu-agidi"
+        },
+        {
+          "name": "Enugu-ukwu",
+          "key": "enugu-ukwu"
+        },
+        {
+          "name": "Ezinifite",
+          "key": "ezinifite"
+        },
+        {
+          "name": "Eziowelle",
+          "key": "eziowelle"
+        },
+        {
+          "name": "Ichi",
+          "key": "ichi"
+        },
+        {
+          "name": "Ichida",
+          "key": "ichida"
+        },
+        {
+          "name": "Ideani",
+          "key": "ideani"
+        },
+        {
+          "name": "Ifite-dunu",
+          "key": "ifite-dunu"
+        },
+        {
+          "name": "Ifite-ukpo",
+          "key": "ifite-ukpo"
+        },
+        {
+          "name": "Igbariam",
+          "key": "igbariam"
+        },
+        {
+          "name": "Igbo-ukwu",
+          "key": "igbo-ukwu"
+        },
+        {
+          "name": "Ihembosi",
+          "key": "ihembosi"
+        },
+        {
+          "name": "Ihiala",
+          "key": "ihiala"
+        },
+        {
+          "name": "Ikenja Okija",
+          "key": "ikenja-okija"
+        },
+        {
+          "name": "Isulo",
+          "key": "isulo"
+        },
+        {
+          "name": "Isuofia",
+          "key": "isuofia"
+        },
+        {
+          "name": "Iyiowa Odekpe",
+          "key": "iyiowa-odekpe"
+        },
+        {
+          "name": "Mbaukwu (awka)",
+          "key": "mbaukwu-awka"
+        },
+        {
+          "name": "Mgbakwu",
+          "key": "mgbakwu"
+        },
+        {
+          "name": "Mmiata",
+          "key": "mmiata"
+        },
+        {
+          "name": "Mputu",
+          "key": "mputu"
+        },
+        {
+          "name": "Nado",
+          "key": "nado"
+        },
+        {
+          "name": "Nanka",
+          "key": "nanka"
+        },
+        {
+          "name": "Nawfia",
+          "key": "nawfia"
+        },
+        {
+          "name": "Nawgu",
+          "key": "nawgu"
+        },
+        {
+          "name": "Ndikelionwu",
+          "key": "ndikelionwu"
+        },
+        {
+          "name": "Ndiokpala-eze",
+          "key": "ndiokpala-eze"
+        },
+        {
+          "name": "Ndionwu",
+          "key": "ndionwu"
+        },
+        {
+          "name": "Neni",
+          "key": "neni"
+        },
+        {
+          "name": "Ngbolokwu",
+          "key": "ngbolokwu"
+        },
+        {
+          "name": "Nibo",
+          "key": "nibo"
+        },
+        {
+          "name": "Nimo",
+          "key": "nimo"
+        },
+        {
+          "name": "Nise",
+          "key": "nise"
+        },
+        {
+          "name": "Nkpologu",
+          "key": "nkpologu"
+        },
+        {
+          "name": "Nkpor",
+          "key": "nkpor"
+        },
+        {
+          "name": "Nkpor-agu",
+          "key": "nkpor-agu"
+        },
+        {
+          "name": "Nkwele-ezunaka",
+          "key": "nkwele-ezunaka"
+        },
+        {
+          "name": "Nkwele-ogidika",
+          "key": "nkwele-ogidika"
+        },
+        {
+          "name": "Nneokwa",
+          "key": "nneokwa"
+        },
+        {
+          "name": "Nnewi",
+          "key": "nnewi"
+        },
+        {
+          "name": "Nnobi",
+          "key": "nnobi"
+        },
+        {
+          "name": "Nri",
+          "key": "nri"
+        },
+        {
+          "name": "Nsugbe",
+          "key": "nsugbe"
+        },
+        {
+          "name": "Nteje",
+          "key": "nteje"
+        },
+        {
+          "name": "Oba",
+          "key": "oba"
+        },
+        {
+          "name": "Obeledu",
+          "key": "obeledu"
+        },
+        {
+          "name": "Obosi",
+          "key": "obosi"
+        },
+        {
+          "name": "Ocheche Umuodu",
+          "key": "ocheche-umuodu"
+        },
+        {
+          "name": "Odekpe",
+          "key": "odekpe"
+        },
+        {
+          "name": "Ofuma",
+          "key": "ofuma"
+        },
+        {
+          "name": "Ogbakuba",
+          "key": "ogbakuba"
+        },
+        {
+          "name": "Ogboji",
+          "key": "ogboji"
+        },
+        {
+          "name": "Ogbunike",
+          "key": "ogbunike"
+        },
+        {
+          "name": "Ogidi",
+          "key": "ogidi"
+        },
+        {
+          "name": "Ohita",
+          "key": "ohita"
+        },
+        {
+          "name": "Ojoto Ofia",
+          "key": "ojoto-ofia"
+        },
+        {
+          "name": "Okija",
+          "key": "okija"
+        },
+        {
+          "name": "Oko",
+          "key": "oko"
+        },
+        {
+          "name": "Okofia-otolo",
+          "key": "okofia-otolo"
+        },
+        {
+          "name": "Omogho",
+          "key": "omogho"
+        },
+        {
+          "name": "Omor",
+          "key": "omor"
+        },
+        {
+          "name": "Onitsha",
+          "key": "onitsha"
+        },
+        {
+          "name": "Oraeri",
+          "key": "oraeri"
+        },
+        {
+          "name": "Oraifite",
+          "key": "oraifite"
+        },
+        {
+          "name": "Oraukwu",
+          "key": "oraukwu"
+        },
+        {
+          "name": "Oroma Etiti",
+          "key": "oroma-etiti"
+        },
+        {
+          "name": "Osamale",
+          "key": "osamale"
+        },
+        {
+          "name": "Oshita",
+          "key": "oshita"
+        },
+        {
+          "name": "Osomalla",
+          "key": "osomalla"
+        },
+        {
+          "name": "Osumenyi",
+          "key": "osumenyi"
+        },
+        {
+          "name": "Otolo",
+          "key": "otolo"
+        },
+        {
+          "name": "Otuocha",
+          "key": "otuocha"
+        },
+        {
+          "name": "Owerezukala",
+          "key": "owerezukala"
+        },
+        {
+          "name": "Ozubulu",
+          "key": "ozubulu"
+        },
+        {
+          "name": "Ufuma",
+          "key": "ufuma"
+        },
+        {
+          "name": "Uga",
+          "key": "uga"
+        },
+        {
+          "name": "Ugwu Oba",
+          "key": "ugwu-oba"
+        },
+        {
+          "name": "Ukpor",
+          "key": "ukpor"
+        },
+        {
+          "name": "Ukpor Akpu",
+          "key": "ukpor-akpu"
+        },
+        {
+          "name": "Ukwulu",
+          "key": "ukwulu"
+        },
+        {
+          "name": "Ula",
+          "key": "ula"
+        },
+        {
+          "name": "Uli",
+          "key": "uli"
+        },
+        {
+          "name": "Umuawulu",
+          "key": "umuawulu"
+        },
+        {
+          "name": "Umuchu",
+          "key": "umuchu"
+        },
+        {
+          "name": "Umudim",
+          "key": "umudim"
+        },
+        {
+          "name": "Umueze Anam",
+          "key": "umueze-anam"
+        },
+        {
+          "name": "Umuikwu Anam",
+          "key": "umuikwu-anam"
+        },
+        {
+          "name": "Umuleri",
+          "key": "umuleri"
+        },
+        {
+          "name": "Umunachi",
+          "key": "umunachi"
+        },
+        {
+          "name": "Umunankwo",
+          "key": "umunankwo"
+        },
+        {
+          "name": "Umunaya / Express",
+          "key": "umunaya-express"
+        },
+        {
+          "name": "Umunya Village",
+          "key": "umunya-village"
+        },
+        {
+          "name": "Umunze",
+          "key": "umunze"
+        },
+        {
+          "name": "Umuoba Otuocha",
+          "key": "umuoba-otuocha"
+        },
+        {
+          "name": "Unubi",
+          "key": "unubi"
+        },
+        {
+          "name": "Uruagu",
+          "key": "uruagu"
+        },
+        {
+          "name": "Utu",
+          "key": "utu"
+        }
+      ]
+    },
+    {
+      "name": "Adamawa",
+      "key": "adamawa",
+      "cities": [
+        {
+          "name": "Bele",
+          "key": "bele"
+        },
+        {
+          "name": "Boron",
+          "key": "boron"
+        },
+        {
+          "name": "Demsa",
+          "key": "demsa"
+        },
+        {
+          "name": "Fufore",
+          "key": "fufore"
+        },
+        {
+          "name": "Ganye",
+          "key": "ganye"
+        },
+        {
+          "name": "Garkida",
+          "key": "garkida"
+        },
+        {
+          "name": "Gawana",
+          "key": "gawana"
+        },
+        {
+          "name": "Girei",
+          "key": "girei"
+        },
+        {
+          "name": "Gombi",
+          "key": "gombi"
+        },
+        {
+          "name": "Guyuk",
+          "key": "guyuk"
+        },
+        {
+          "name": "Hong",
+          "key": "hong"
+        },
+        {
+          "name": "Jimeta",
+          "key": "jimeta"
+        },
+        {
+          "name": "Lamurde",
+          "key": "lamurde"
+        },
+        {
+          "name": "Madagali",
+          "key": "madagali"
+        },
+        {
+          "name": "Mayobeluwa",
+          "key": "mayobeluwa"
+        },
+        {
+          "name": "Michka",
+          "key": "michka"
+        },
+        {
+          "name": "Mubi North",
+          "key": "mubi-north"
+        },
+        {
+          "name": "Mubi South",
+          "key": "mubi-south"
+        },
+        {
+          "name": "N.n.p.c (depot)",
+          "key": "nnpc-depot"
+        },
+        {
+          "name": "Ngurore Afcott",
+          "key": "ngurore-afcott"
+        },
+        {
+          "name": "Numan",
+          "key": "numan"
+        },
+        {
+          "name": "Savanna",
+          "key": "savanna"
+        },
+        {
+          "name": "Shelleng",
+          "key": "shelleng"
+        },
+        {
+          "name": "Song",
+          "key": "song"
+        },
+        {
+          "name": "Tongo",
+          "key": "tongo"
+        }
+      ]
+    },
+    {
+      "name": "Akwa Ibom",
+      "key": "akwa-ibom",
+      "cities": [
+        {
+          "name": "Abak",
+          "key": "abak"
+        },
+        {
+          "name": "Afaha Nsit",
+          "key": "afaha-nsit"
+        },
+        {
+          "name": "Eastern Obolo",
+          "key": "eastern-obolo"
+        },
+        {
+          "name": "Ediene Abak",
+          "key": "ediene-abak"
+        },
+        {
+          "name": "Ekparakwa",
+          "key": "ekparakwa"
+        },
+        {
+          "name": "Enwang",
+          "key": "enwang"
+        },
+        {
+          "name": "Eriam Abak",
+          "key": "eriam-abak"
+        },
+        {
+          "name": "Esit Eket",
+          "key": "esit-eket"
+        },
+        {
+          "name": "Essien Udim",
+          "key": "essien-udim"
+        },
+        {
+          "name": "Etim Ekpo",
+          "key": "etim-ekpo"
+        },
+        {
+          "name": "Etinan",
+          "key": "etinan"
+        },
+        {
+          "name": "Ibeno",
+          "key": "ibeno"
+        },
+        {
+          "name": "Ibesikpo Asutan",
+          "key": "ibesikpo-asutan"
+        },
+        {
+          "name": "Ibiaku Ntokpo",
+          "key": "ibiaku-ntokpo"
+        },
+        {
+          "name": "Ika",
+          "key": "ika"
+        },
+        {
+          "name": "Ikono",
+          "key": "ikono"
+        },
+        {
+          "name": "Ikot Abasi",
+          "key": "ikot-abasi"
+        },
+        {
+          "name": "Ikot Abia",
+          "key": "ikot-abia"
+        },
+        {
+          "name": "Ikot Ebom",
+          "key": "ikot-ebom"
+        },
+        {
+          "name": "Ikot Ekpene",
+          "key": "ikot-ekpene"
+        },
+        {
+          "name": "Ikot Ekwere",
+          "key": "ikot-ekwere"
+        },
+        {
+          "name": "Ikot Osurua",
+          "key": "ikot-osurua"
+        },
+        {
+          "name": "Ikpe Ikot Nkon",
+          "key": "ikpe-ikot-nkon"
+        },
+        {
+          "name": "Ini",
+          "key": "ini"
+        },
+        {
+          "name": "Itam",
+          "key": "itam"
+        },
+        {
+          "name": "Itu",
+          "key": "itu"
+        },
+        {
+          "name": "Itu Mbo Uso",
+          "key": "itu-mbo-uso"
+        },
+        {
+          "name": "Mbo",
+          "key": "mbo"
+        },
+        {
+          "name": "Mkpatenin",
+          "key": "mkpatenin"
+        },
+        {
+          "name": "Ndon Ebom",
+          "key": "ndon-ebom"
+        },
+        {
+          "name": "Ndonudue",
+          "key": "ndonudue"
+        },
+        {
+          "name": "Nkan Ude",
+          "key": "nkan-ude"
+        },
+        {
+          "name": "Nsit Atai",
+          "key": "nsit-atai"
+        },
+        {
+          "name": "Nsit Ibom",
+          "key": "nsit-ibom"
+        },
+        {
+          "name": "Nsit Ubium",
+          "key": "nsit-ubium"
+        },
+        {
+          "name": "Ntung Ude",
+          "key": "ntung-ude"
+        },
+        {
+          "name": "Obot Akara",
+          "key": "obot-akara"
+        },
+        {
+          "name": "Obot Idem",
+          "key": "obot-idem"
+        },
+        {
+          "name": "Odot",
+          "key": "odot"
+        },
+        {
+          "name": "Okbo",
+          "key": "okbo"
+        },
+        {
+          "name": "Okobo",
+          "key": "okobo"
+        },
+        {
+          "name": "Okoitah",
+          "key": "okoitah"
+        },
+        {
+          "name": "Oku Iboku",
+          "key": "oku-iboku"
+        },
+        {
+          "name": "Onna",
+          "key": "onna"
+        },
+        {
+          "name": "Oron",
+          "key": "oron"
+        },
+        {
+          "name": "Oru Offong Uruko",
+          "key": "oru-offong-uruko"
+        },
+        {
+          "name": "Ukanafun",
+          "key": "ukanafun"
+        },
+        {
+          "name": "Ukpom Abak",
+          "key": "ukpom-abak"
+        },
+        {
+          "name": "Ure Uko",
+          "key": "ure-uko"
+        },
+        {
+          "name": "Uruan",
+          "key": "uruan"
+        },
+        {
+          "name": "Uyo",
+          "key": "uyo"
+        }
+      ]
+    },
+    {
+      "name": "Bauchi",
+      "key": "bauchi",
+      "cities": [
+        {
+          "name": "Akko",
+          "key": "akko"
+        },
+        {
+          "name": "Alkaleri",
+          "key": "alkaleri"
+        },
+        {
+          "name": "Azare",
+          "key": "azare"
+        },
+        {
+          "name": "Bauchi",
+          "key": "bauchi"
+        },
+        {
+          "name": "Bayara",
+          "key": "bayara"
+        },
+        {
+          "name": "Bogoro",
+          "key": "bogoro"
+        },
+        {
+          "name": "Dambam",
+          "key": "dambam"
+        },
+        {
+          "name": "Darazo",
+          "key": "darazo"
+        },
+        {
+          "name": "Dass",
+          "key": "dass"
+        },
+        {
+          "name": "Gamawa",
+          "key": "gamawa"
+        },
+        {
+          "name": "Ganjuwa",
+          "key": "ganjuwa"
+        },
+        {
+          "name": "Giade",
+          "key": "giade"
+        },
+        {
+          "name": "Has",
+          "key": "has"
+        },
+        {
+          "name": "Jamare",
+          "key": "jamare"
+        },
+        {
+          "name": "Kalajanga",
+          "key": "kalajanga"
+        },
+        {
+          "name": "Kangare",
+          "key": "kangare"
+        },
+        {
+          "name": "Kari",
+          "key": "kari"
+        },
+        {
+          "name": "Katagum",
+          "key": "katagum"
+        },
+        {
+          "name": "Kirfi",
+          "key": "kirfi"
+        },
+        {
+          "name": "Lanzai",
+          "key": "lanzai"
+        },
+        {
+          "name": "Misau",
+          "key": "misau"
+        },
+        {
+          "name": "Miya",
+          "key": "miya"
+        },
+        {
+          "name": "Nabordo",
+          "key": "nabordo"
+        },
+        {
+          "name": "Ningi",
+          "key": "ningi"
+        },
+        {
+          "name": "Shira/yana",
+          "key": "shirayana"
+        },
+        {
+          "name": "Soro",
+          "key": "soro"
+        },
+        {
+          "name": "Tafawa Balewa",
+          "key": "tafawa-balewa"
+        },
+        {
+          "name": "Toro",
+          "key": "toro"
+        },
+        {
+          "name": "Warji",
+          "key": "warji"
+        },
+        {
+          "name": "Yankari",
+          "key": "yankari"
+        },
+        {
+          "name": "Yelwa",
+          "key": "yelwa"
+        },
+        {
+          "name": "Zaki",
+          "key": "zaki"
+        }
+      ]
+    },
+    {
+      "name": "Bayelsa",
+      "key": "bayelsa",
+      "cities": [
+        {
+          "name": "Abavain",
+          "key": "abavain"
+        },
+        {
+          "name": "Adagbabiri",
+          "key": "adagbabiri"
+        },
+        {
+          "name": "Akasa",
+          "key": "akasa"
+        },
+        {
+          "name": "Alebene",
+          "key": "alebene"
+        },
+        {
+          "name": "Aleibiri",
+          "key": "aleibiri"
+        },
+        {
+          "name": "Amassoma",
+          "key": "amassoma"
+        },
+        {
+          "name": "Attissa Clan",
+          "key": "attissa-clan"
+        },
+        {
+          "name": "Ayama",
+          "key": "ayama"
+        },
+        {
+          "name": "Bomo Central",
+          "key": "bomo-central"
+        },
+        {
+          "name": "Bomo East",
+          "key": "bomo-east"
+        },
+        {
+          "name": "Brass",
+          "key": "brass"
+        },
+        {
+          "name": "Ekeremo",
+          "key": "ekeremo"
+        },
+        {
+          "name": "Elebele",
+          "key": "elebele"
+        },
+        {
+          "name": "Foroa-biseni",
+          "key": "foroa-biseni"
+        },
+        {
+          "name": "Igbugene",
+          "key": "igbugene"
+        },
+        {
+          "name": "Imiringi",
+          "key": "imiringi"
+        },
+        {
+          "name": "Kiama",
+          "key": "kiama"
+        },
+        {
+          "name": "Kolo Creek",
+          "key": "kolo-creek"
+        },
+        {
+          "name": "Mbiama",
+          "key": "mbiama"
+        },
+        {
+          "name": "Mein/oyiakiri",
+          "key": "meinoyiakiri"
+        },
+        {
+          "name": "Nembe West/east",
+          "key": "nembe-westeast"
+        },
+        {
+          "name": "Odi",
+          "key": "odi"
+        },
+        {
+          "name": "Ogbia Central/west",
+          "key": "ogbia-centralwest"
+        },
+        {
+          "name": "Ogboni South",
+          "key": "ogboni-south"
+        },
+        {
+          "name": "Ogboni/north Biseni",
+          "key": "ogboninorth-biseni"
+        },
+        {
+          "name": "Okodia/besent",
+          "key": "okodiabesent"
+        },
+        {
+          "name": "Okolobiri",
+          "key": "okolobiri"
+        },
+        {
+          "name": "Okoroma",
+          "key": "okoroma"
+        },
+        {
+          "name": "Olodiama",
+          "key": "olodiama"
+        },
+        {
+          "name": "Oloibiri",
+          "key": "oloibiri"
+        },
+        {
+          "name": "Opokuma",
+          "key": "opokuma"
+        },
+        {
+          "name": "Oporoma",
+          "key": "oporoma"
+        },
+        {
+          "name": "Opuokede",
+          "key": "opuokede"
+        },
+        {
+          "name": "Otuogidi",
+          "key": "otuogidi"
+        },
+        {
+          "name": "Polaku",
+          "key": "polaku"
+        },
+        {
+          "name": "Sabagrea",
+          "key": "sabagrea"
+        },
+        {
+          "name": "Sagbama",
+          "key": "sagbama"
+        },
+        {
+          "name": "Southern Ijaw",
+          "key": "southern-ijaw"
+        },
+        {
+          "name": "Tarakiri",
+          "key": "tarakiri"
+        },
+        {
+          "name": "Tombia",
+          "key": "tombia"
+        },
+        {
+          "name": "Yenagoa",
+          "key": "yenagoa"
+        },
+        {
+          "name": "Zarama",
+          "key": "zarama"
+        }
+      ]
+    },
+    {
+      "name": "Benue",
+      "key": "benue",
+      "cities": []
+    },
+    {
+      "name": "Borno",
+      "key": "borno",
+      "cities": [
+        {
+          "name": "Askira Uba",
+          "key": "askira-uba"
+        },
+        {
+          "name": "Baga",
+          "key": "baga"
+        },
+        {
+          "name": "Bama",
+          "key": "bama"
+        },
+        {
+          "name": "Banki",
+          "key": "banki"
+        },
+        {
+          "name": "Bayo",
+          "key": "bayo"
+        },
+        {
+          "name": "Biu",
+          "key": "biu"
+        },
+        {
+          "name": "Chibok",
+          "key": "chibok"
+        },
+        {
+          "name": "Damboa",
+          "key": "damboa"
+        },
+        {
+          "name": "Dapchi",
+          "key": "dapchi"
+        },
+        {
+          "name": "Dikwa",
+          "key": "dikwa"
+        },
+        {
+          "name": "Fika",
+          "key": "fika"
+        },
+        {
+          "name": "Gajigana",
+          "key": "gajigana"
+        },
+        {
+          "name": "Gamboru",
+          "key": "gamboru"
+        },
+        {
+          "name": "Geidam",
+          "key": "geidam"
+        },
+        {
+          "name": "Goniri",
+          "key": "goniri"
+        },
+        {
+          "name": "Gwoza",
+          "key": "gwoza"
+        },
+        {
+          "name": "Hawul",
+          "key": "hawul"
+        },
+        {
+          "name": "Jakusco",
+          "key": "jakusco"
+        },
+        {
+          "name": "Kadaka",
+          "key": "kadaka"
+        },
+        {
+          "name": "Khaddamari",
+          "key": "khaddamari"
+        },
+        {
+          "name": "Konduga",
+          "key": "konduga"
+        },
+        {
+          "name": "Kukawa",
+          "key": "kukawa"
+        },
+        {
+          "name": "Kwayakusa",
+          "key": "kwayakusa"
+        },
+        {
+          "name": "Mafa",
+          "key": "mafa"
+        },
+        {
+          "name": "Maiduguri",
+          "key": "maiduguri"
+        },
+        {
+          "name": "Malafatori",
+          "key": "malafatori"
+        },
+        {
+          "name": "Monguno",
+          "key": "monguno"
+        },
+        {
+          "name": "Ngala",
+          "key": "ngala"
+        },
+        {
+          "name": "Nguru",
+          "key": "nguru"
+        },
+        {
+          "name": "Shanni",
+          "key": "shanni"
+        },
+        {
+          "name": "Waka Biu",
+          "key": "waka-biu"
+        }
+      ]
+    },
+    {
+      "name": "Cross River",
+      "key": "cross-river",
+      "cities": [
+        {
+          "name": "Abi",
+          "key": "abi"
+        },
+        {
+          "name": "Akamkpa",
+          "key": "akamkpa"
+        },
+        {
+          "name": "Akpabuyo",
+          "key": "akpabuyo"
+        },
+        {
+          "name": "Bakassi",
+          "key": "bakassi"
+        },
+        {
+          "name": "Bakwarra",
+          "key": "bakwarra"
+        },
+        {
+          "name": "Biase",
+          "key": "biase"
+        },
+        {
+          "name": "Boje",
+          "key": "boje"
+        },
+        {
+          "name": "Bokyi Lga",
+          "key": "bokyi-lga"
+        },
+        {
+          "name": "Calabar",
+          "key": "calabar"
+        },
+        {
+          "name": "Calabar South",
+          "key": "calabar-south"
+        },
+        {
+          "name": "Creek Town",
+          "key": "creek-town"
+        },
+        {
+          "name": "Etung",
+          "key": "etung"
+        },
+        {
+          "name": "Igoli-ogoja",
+          "key": "igoli-ogoja"
+        },
+        {
+          "name": "Ikang",
+          "key": "ikang"
+        },
+        {
+          "name": "Ikom",
+          "key": "ikom"
+        },
+        {
+          "name": "Itigidi",
+          "key": "itigidi"
+        },
+        {
+          "name": "Iyahe",
+          "key": "iyahe"
+        },
+        {
+          "name": "Kwa Falls",
+          "key": "kwa-falls"
+        },
+        {
+          "name": "Manfe",
+          "key": "manfe"
+        },
+        {
+          "name": "Mkpani-ugep",
+          "key": "mkpani-ugep"
+        },
+        {
+          "name": "Nko-ugep",
+          "key": "nko-ugep"
+        },
+        {
+          "name": "Nkpani",
+          "key": "nkpani"
+        },
+        {
+          "name": "Oban",
+          "key": "oban"
+        },
+        {
+          "name": "Obanliku Lga",
+          "key": "obanliku-lga"
+        },
+        {
+          "name": "Obubura",
+          "key": "obubura"
+        },
+        {
+          "name": "Obudu, Ranch",
+          "key": "obudu-ranch"
+        },
+        {
+          "name": "Odukpani",
+          "key": "odukpani"
+        },
+        {
+          "name": "Ogoja",
+          "key": "ogoja"
+        },
+        {
+          "name": "Okpoma",
+          "key": "okpoma"
+        },
+        {
+          "name": "Ugep Lga",
+          "key": "ugep-lga"
+        },
+        {
+          "name": "Ugep-yakurr",
+          "key": "ugep-yakurr"
+        },
+        {
+          "name": "Uyanga",
+          "key": "uyanga"
+        },
+        {
+          "name": "Yahe",
+          "key": "yahe"
+        },
+        {
+          "name": "Yakurr Lga",
+          "key": "yakurr-lga"
+        },
+        {
+          "name": "Yala",
+          "key": "yala"
+        }
+      ]
+    },
+    {
+      "name": "Delta",
+      "key": "delta",
+      "cities": [
+        {
+          "name": "Abavo",
+          "key": "abavo"
+        },
+        {
+          "name": "Abbi",
+          "key": "abbi"
+        },
+        {
+          "name": "Abraka",
+          "key": "abraka"
+        },
+        {
+          "name": "Agbara Otor",
+          "key": "agbara-otor"
+        },
+        {
+          "name": "Agbarho",
+          "key": "agbarho"
+        },
+        {
+          "name": "Agbor",
+          "key": "agbor"
+        },
+        {
+          "name": "Aghalokpe",
+          "key": "aghalokpe"
+        },
+        {
+          "name": "Ajagbaodudu",
+          "key": "ajagbaodudu"
+        },
+        {
+          "name": "Akumazi",
+          "key": "akumazi"
+        },
+        {
+          "name": "Akwa-ukwu-igbo",
+          "key": "akwa-ukwu-igbo"
+        },
+        {
+          "name": "Akwu Oha",
+          "key": "akwu-oha"
+        },
+        {
+          "name": "Aladja",
+          "key": "aladja"
+        },
+        {
+          "name": "Anwai",
+          "key": "anwai"
+        },
+        {
+          "name": "Asaba",
+          "key": "asaba"
+        },
+        {
+          "name": "Bomadi",
+          "key": "bomadi"
+        },
+        {
+          "name": "Ebu",
+          "key": "ebu"
+        },
+        {
+          "name": "Effurun",
+          "key": "effurun"
+        },
+        {
+          "name": "Egbe-ogume",
+          "key": "egbe-ogume"
+        },
+        {
+          "name": "Ekakpamre",
+          "key": "ekakpamre"
+        },
+        {
+          "name": "Ekpan",
+          "key": "ekpan"
+        },
+        {
+          "name": "Eku",
+          "key": "eku"
+        },
+        {
+          "name": "Enerhen",
+          "key": "enerhen"
+        },
+        {
+          "name": "Evwreni",
+          "key": "evwreni"
+        },
+        {
+          "name": "Ewuru Estate Agbo",
+          "key": "ewuru-estate-agbo"
+        },
+        {
+          "name": "Ibada Elume",
+          "key": "ibada-elume"
+        },
+        {
+          "name": "Ibusa",
+          "key": "ibusa"
+        },
+        {
+          "name": "Idumuje",
+          "key": "idumuje"
+        },
+        {
+          "name": "Idumujeunor",
+          "key": "idumujeunor"
+        },
+        {
+          "name": "Isiele-uku",
+          "key": "isiele-uku"
+        },
+        {
+          "name": "Isiokolo",
+          "key": "isiokolo"
+        },
+        {
+          "name": "Jesse Town",
+          "key": "jesse-town"
+        },
+        {
+          "name": "Koko",
+          "key": "koko"
+        },
+        {
+          "name": "Kokori",
+          "key": "kokori"
+        },
+        {
+          "name": "Kwale",
+          "key": "kwale"
+        },
+        {
+          "name": "Kwale (agip Plant)",
+          "key": "kwale-agip-plant"
+        },
+        {
+          "name": "Mosogar",
+          "key": "mosogar"
+        },
+        {
+          "name": "Nsukwa",
+          "key": "nsukwa"
+        },
+        {
+          "name": "Obiaruku",
+          "key": "obiaruku"
+        },
+        {
+          "name": "Obiaruku Amai",
+          "key": "obiaruku-amai"
+        },
+        {
+          "name": "Obior",
+          "key": "obior"
+        },
+        {
+          "name": "Ofuagbe",
+          "key": "ofuagbe"
+        },
+        {
+          "name": "Oghara",
+          "key": "oghara"
+        },
+        {
+          "name": "Ogharafe",
+          "key": "ogharafe"
+        },
+        {
+          "name": "Oghareki",
+          "key": "oghareki"
+        },
+        {
+          "name": "Ogorode",
+          "key": "ogorode"
+        },
+        {
+          "name": "Okpanam",
+          "key": "okpanam"
+        },
+        {
+          "name": "Okpara Inland",
+          "key": "okpara-inland"
+        },
+        {
+          "name": "Okpara Waterside",
+          "key": "okpara-waterside"
+        },
+        {
+          "name": "Okwagbe",
+          "key": "okwagbe"
+        },
+        {
+          "name": "Okwe",
+          "key": "okwe"
+        },
+        {
+          "name": "Oleh",
+          "key": "oleh"
+        },
+        {
+          "name": "Onicha Olona",
+          "key": "onicha-olona"
+        },
+        {
+          "name": "Onicha Ugbo",
+          "key": "onicha-ugbo"
+        },
+        {
+          "name": "Onicsa Uku",
+          "key": "onicsa-uku"
+        },
+        {
+          "name": "Ore Rokpe",
+          "key": "ore-rokpe"
+        },
+        {
+          "name": "Orogun",
+          "key": "orogun"
+        },
+        {
+          "name": "Osubi",
+          "key": "osubi"
+        },
+        {
+          "name": "Otujeremi",
+          "key": "otujeremi"
+        },
+        {
+          "name": "Otujevwen",
+          "key": "otujevwen"
+        },
+        {
+          "name": "Owa Agbor",
+          "key": "owa-agbor"
+        },
+        {
+          "name": "Owa Oyibo",
+          "key": "owa-oyibo"
+        },
+        {
+          "name": "Owashi-nku",
+          "key": "owashi-nku"
+        },
+        {
+          "name": "Ozoro",
+          "key": "ozoro"
+        },
+        {
+          "name": "Patani",
+          "key": "patani"
+        },
+        {
+          "name": "Sapele",
+          "key": "sapele"
+        },
+        {
+          "name": "Ubeji",
+          "key": "ubeji"
+        },
+        {
+          "name": "Ubulu",
+          "key": "ubulu"
+        },
+        {
+          "name": "Ughelli",
+          "key": "ughelli"
+        },
+        {
+          "name": "Umunede",
+          "key": "umunede"
+        },
+        {
+          "name": "Warri",
+          "key": "warri"
+        },
+        {
+          "name": "Yesse",
+          "key": "yesse"
+        }
+      ]
+    },
+    {
+      "name": "Edo",
+      "key": "edo",
+      "cities": [
+        {
+          "name": "Abudu",
+          "key": "abudu"
+        },
+        {
+          "name": "Afuze",
+          "key": "afuze"
+        },
+        {
+          "name": "Agbede",
+          "key": "agbede"
+        },
+        {
+          "name": "Agenebode",
+          "key": "agenebode"
+        },
+        {
+          "name": "Auchi",
+          "key": "auchi"
+        },
+        {
+          "name": "Benin-city",
+          "key": "benin-city"
+        },
+        {
+          "name": "Ebelle",
+          "key": "ebelle"
+        },
+        {
+          "name": "Egba",
+          "key": "egba"
+        },
+        {
+          "name": "Ehor",
+          "key": "ehor"
+        },
+        {
+          "name": "Ekenwa",
+          "key": "ekenwa"
+        },
+        {
+          "name": "Ekiadolor",
+          "key": "ekiadolor"
+        },
+        {
+          "name": "Ekpoma",
+          "key": "ekpoma"
+        },
+        {
+          "name": "Ewatto",
+          "key": "ewatto"
+        },
+        {
+          "name": "Ewu",
+          "key": "ewu"
+        },
+        {
+          "name": "Fugar",
+          "key": "fugar"
+        },
+        {
+          "name": "Ibillo",
+          "key": "ibillo"
+        },
+        {
+          "name": "Idogbo",
+          "key": "idogbo"
+        },
+        {
+          "name": "Igarra",
+          "key": "igarra"
+        },
+        {
+          "name": "Igbanke",
+          "key": "igbanke"
+        },
+        {
+          "name": "Igieduma",
+          "key": "igieduma"
+        },
+        {
+          "name": "Igueben",
+          "key": "igueben"
+        },
+        {
+          "name": "Iguobasuwa",
+          "key": "iguobasuwa"
+        },
+        {
+          "name": "Irrua",
+          "key": "irrua"
+        },
+        {
+          "name": "Iruekpen",
+          "key": "iruekpen"
+        },
+        {
+          "name": "Isiohor",
+          "key": "isiohor"
+        },
+        {
+          "name": "Ivbiaro",
+          "key": "ivbiaro"
+        },
+        {
+          "name": "Iyanomo",
+          "key": "iyanomo"
+        },
+        {
+          "name": "Nifor",
+          "key": "nifor"
+        },
+        {
+          "name": "Obagie",
+          "key": "obagie"
+        },
+        {
+          "name": "Obaretin",
+          "key": "obaretin"
+        },
+        {
+          "name": "Obayantor",
+          "key": "obayantor"
+        },
+        {
+          "name": "Ogan",
+          "key": "ogan"
+        },
+        {
+          "name": "Ogbese",
+          "key": "ogbese"
+        },
+        {
+          "name": "Ogwa",
+          "key": "ogwa"
+        },
+        {
+          "name": "Okada",
+          "key": "okada"
+        },
+        {
+          "name": "Okomu",
+          "key": "okomu"
+        },
+        {
+          "name": "Okpe",
+          "key": "okpe"
+        },
+        {
+          "name": "Okpilla",
+          "key": "okpilla"
+        },
+        {
+          "name": "Okumodu",
+          "key": "okumodu"
+        },
+        {
+          "name": "Ologbo",
+          "key": "ologbo"
+        },
+        {
+          "name": "Oluku",
+          "key": "oluku"
+        },
+        {
+          "name": "Opoji",
+          "key": "opoji"
+        },
+        {
+          "name": "Ososo",
+          "key": "ososo"
+        },
+        {
+          "name": "Otuo",
+          "key": "otuo"
+        },
+        {
+          "name": "Sabongida Ora",
+          "key": "sabongida-ora"
+        },
+        {
+          "name": "Sobe",
+          "key": "sobe"
+        },
+        {
+          "name": "Ubiaja",
+          "key": "ubiaja"
+        },
+        {
+          "name": "Ugbegun",
+          "key": "ugbegun"
+        },
+        {
+          "name": "Uromi",
+          "key": "uromi"
+        },
+        {
+          "name": "Uselu",
+          "key": "uselu"
+        },
+        {
+          "name": "Usen",
+          "key": "usen"
+        },
+        {
+          "name": "Uvbe",
+          "key": "uvbe"
+        },
+        {
+          "name": "Uwalor",
+          "key": "uwalor"
+        },
+        {
+          "name": "Warrake",
+          "key": "warrake"
+        },
+        {
+          "name": "Wepa Wano",
+          "key": "wepa-wano"
+        }
+      ]
+    },
+    {
+      "name": "Ekiti",
+      "key": "ekiti",
+      "cities": []
+    },
+    {
+      "name": "Ebonyi",
+      "key": "ebonyi",
+      "cities": [
+        {
+          "name": "Abakaliki",
+          "key": "abakaliki"
+        },
+        {
+          "name": "Afikpo",
+          "key": "afikpo"
+        },
+        {
+          "name": "Ezamgboo",
+          "key": "ezamgboo"
+        },
+        {
+          "name": "Ezzillo",
+          "key": "ezzillo"
+        },
+        {
+          "name": "Iboko",
+          "key": "iboko"
+        },
+        {
+          "name": "Ikwo",
+          "key": "ikwo"
+        },
+        {
+          "name": "Ishiagu",
+          "key": "ishiagu"
+        },
+        {
+          "name": "Ishielu",
+          "key": "ishielu"
+        },
+        {
+          "name": "Isu",
+          "key": "isu"
+        },
+        {
+          "name": "Iyaba",
+          "key": "iyaba"
+        },
+        {
+          "name": "Ngbo East",
+          "key": "ngbo-east"
+        },
+        {
+          "name": "Nguzu Edda",
+          "key": "nguzu-edda"
+        },
+        {
+          "name": "Nkalagu",
+          "key": "nkalagu"
+        },
+        {
+          "name": "Nkwo Egu",
+          "key": "nkwo-egu"
+        },
+        {
+          "name": "Obiozara",
+          "key": "obiozara"
+        },
+        {
+          "name": "Onuebonyi",
+          "key": "onuebonyi"
+        },
+        {
+          "name": "Onueke",
+          "key": "onueke"
+        },
+        {
+          "name": "Onunweke",
+          "key": "onunweke"
+        },
+        {
+          "name": "Sharon, Nysc",
+          "key": "sharon-nysc"
+        },
+        {
+          "name": "Uwana (poly)",
+          "key": "uwana-poly"
+        },
+        {
+          "name": "Uwana-afikpo",
+          "key": "uwana-afikpo"
+        }
+      ]
+    },
+    {
+      "name": "Enugu",
+      "key": "enugu",
+      "cities": [
+        {
+          "name": "Abakpa Nike",
+          "key": "abakpa-nike"
+        },
+        {
+          "name": "Abor",
+          "key": "abor"
+        },
+        {
+          "name": "Achi",
+          "key": "achi"
+        },
+        {
+          "name": "Adani",
+          "key": "adani"
+        },
+        {
+          "name": "Affa",
+          "key": "affa"
+        },
+        {
+          "name": "Agbani Road",
+          "key": "agbani-road"
+        },
+        {
+          "name": "Agbani Town",
+          "key": "agbani-town"
+        },
+        {
+          "name": "Aji",
+          "key": "aji"
+        },
+        {
+          "name": "Akpakwume",
+          "key": "akpakwume"
+        },
+        {
+          "name": "Akpof",
+          "key": "akpof"
+        },
+        {
+          "name": "Akpoga Nike",
+          "key": "akpoga-nike"
+        },
+        {
+          "name": "Aku",
+          "key": "aku"
+        },
+        {
+          "name": "Alulu-nike",
+          "key": "alulu-nike"
+        },
+        {
+          "name": "Amakofia",
+          "key": "amakofia"
+        },
+        {
+          "name": "Amakwu",
+          "key": "amakwu"
+        },
+        {
+          "name": "Amara",
+          "key": "amara"
+        },
+        {
+          "name": "Amechi Awknanaw",
+          "key": "amechi-awknanaw"
+        },
+        {
+          "name": "Amma Gunze",
+          "key": "amma-gunze"
+        },
+        {
+          "name": "Ammachalla",
+          "key": "ammachalla"
+        },
+        {
+          "name": "Ammugwu",
+          "key": "ammugwu"
+        },
+        {
+          "name": "Amokpo-nike",
+          "key": "amokpo-nike"
+        },
+        {
+          "name": "Amufie",
+          "key": "amufie"
+        },
+        {
+          "name": "Aninri",
+          "key": "aninri"
+        },
+        {
+          "name": "Awgu",
+          "key": "awgu"
+        },
+        {
+          "name": "Egede",
+          "key": "egede"
+        },
+        {
+          "name": "Eha Amufu",
+          "key": "eha-amufu"
+        },
+        {
+          "name": "Eke",
+          "key": "eke"
+        },
+        {
+          "name": "Emene",
+          "key": "emene"
+        },
+        {
+          "name": "Enugu",
+          "key": "enugu"
+        },
+        {
+          "name": "Enugu Central",
+          "key": "enugu-central"
+        },
+        {
+          "name": "Enugu Ezike",
+          "key": "enugu-ezike"
+        },
+        {
+          "name": "Etteh",
+          "key": "etteh"
+        },
+        {
+          "name": "Ibagwa",
+          "key": "ibagwa"
+        },
+        {
+          "name": "Igboeze South",
+          "key": "igboeze-south"
+        },
+        {
+          "name": "Ihe",
+          "key": "ihe"
+        },
+        {
+          "name": "Iji-nike",
+          "key": "iji-nike"
+        },
+        {
+          "name": "Ikem",
+          "key": "ikem"
+        },
+        {
+          "name": "Ikpamodo",
+          "key": "ikpamodo"
+        },
+        {
+          "name": "Imiliki",
+          "key": "imiliki"
+        },
+        {
+          "name": "Inyi",
+          "key": "inyi"
+        },
+        {
+          "name": "Inyi Enugu Ezike",
+          "key": "inyi-enugu-ezike"
+        },
+        {
+          "name": "Isi Uzo Lga",
+          "key": "isi-uzo-lga"
+        },
+        {
+          "name": "Itchi",
+          "key": "itchi"
+        },
+        {
+          "name": "Ituku",
+          "key": "ituku"
+        },
+        {
+          "name": "Lejja",
+          "key": "lejja"
+        },
+        {
+          "name": "Mbu",
+          "key": "mbu"
+        },
+        {
+          "name": "Mgbowo",
+          "key": "mgbowo"
+        },
+        {
+          "name": "Mmaku",
+          "key": "mmaku"
+        },
+        {
+          "name": "Mpu",
+          "key": "mpu"
+        },
+        {
+          "name": "Nachi",
+          "key": "nachi"
+        },
+        {
+          "name": "Nanka-awka",
+          "key": "nanka-awka"
+        },
+        {
+          "name": "Nara Unateze",
+          "key": "nara-unateze"
+        },
+        {
+          "name": "Ngwo",
+          "key": "ngwo"
+        },
+        {
+          "name": "Nike",
+          "key": "nike"
+        },
+        {
+          "name": "Ninth Mile",
+          "key": "ninth-mile"
+        },
+        {
+          "name": "Njodo-nike",
+          "key": "njodo-nike"
+        },
+        {
+          "name": "Nkanu",
+          "key": "nkanu"
+        },
+        {
+          "name": "Nkpologwu",
+          "key": "nkpologwu"
+        },
+        {
+          "name": "Nnenwe",
+          "key": "nnenwe"
+        },
+        {
+          "name": "Nsukka",
+          "key": "nsukka"
+        },
+        {
+          "name": "Obe",
+          "key": "obe"
+        },
+        {
+          "name": "Obinagu",
+          "key": "obinagu"
+        },
+        {
+          "name": "Obollo-afor",
+          "key": "obollo-afor"
+        },
+        {
+          "name": "Ogboli",
+          "key": "ogboli"
+        },
+        {
+          "name": "Oghe",
+          "key": "oghe"
+        },
+        {
+          "name": "Oji River",
+          "key": "oji-river"
+        },
+        {
+          "name": "Okpo",
+          "key": "okpo"
+        },
+        {
+          "name": "Opanda",
+          "key": "opanda"
+        },
+        {
+          "name": "Opi",
+          "key": "opi"
+        },
+        {
+          "name": "Ozalla",
+          "key": "ozalla"
+        },
+        {
+          "name": "Udah",
+          "key": "udah"
+        },
+        {
+          "name": "Udi",
+          "key": "udi"
+        },
+        {
+          "name": "Udi-abia",
+          "key": "udi-abia"
+        },
+        {
+          "name": "Ugwawka",
+          "key": "ugwawka"
+        },
+        {
+          "name": "Ugwogo-nike",
+          "key": "ugwogo-nike"
+        },
+        {
+          "name": "Ugwu-oba",
+          "key": "ugwu-oba"
+        },
+        {
+          "name": "Ukehe",
+          "key": "ukehe"
+        },
+        {
+          "name": "Ummulumgbe",
+          "key": "ummulumgbe"
+        },
+        {
+          "name": "Umuabi",
+          "key": "umuabi"
+        },
+        {
+          "name": "Umueze-ejeh",
+          "key": "umueze-ejeh"
+        },
+        {
+          "name": "Umuida",
+          "key": "umuida"
+        },
+        {
+          "name": "Umuitodo",
+          "key": "umuitodo"
+        },
+        {
+          "name": "Umulokpa",
+          "key": "umulokpa"
+        },
+        {
+          "name": "Umunachi-nike",
+          "key": "umunachi-nike"
+        },
+        {
+          "name": "Unadu",
+          "key": "unadu"
+        },
+        {
+          "name": "Uzo Uwani Lga",
+          "key": "uzo-uwani-lga"
+        }
+      ]
+    },
+    {
+      "name": "Fct",
+      "key": "fct",
+      "cities": [
+        {
+          "name": "Abaji",
+          "key": "abaji"
+        },
+        {
+          "name": "Abugi",
+          "key": "abugi"
+        },
+        {
+          "name": "Abuja",
+          "key": "abuja"
+        },
+        {
+          "name": "Abumet/ Kado",
+          "key": "abumet-kado"
+        },
+        {
+          "name": "Aso Rock",
+          "key": "aso-rock"
+        },
+        {
+          "name": "Asokoro",
+          "key": "asokoro"
+        },
+        {
+          "name": "Bwari",
+          "key": "bwari"
+        },
+        {
+          "name": "Dangara",
+          "key": "dangara"
+        },
+        {
+          "name": "Dei-dei",
+          "key": "dei-dei"
+        },
+        {
+          "name": "Garki",
+          "key": "garki"
+        },
+        {
+          "name": "Giri",
+          "key": "giri"
+        },
+        {
+          "name": "Gwagwa",
+          "key": "gwagwa"
+        },
+        {
+          "name": "Gwagwalada",
+          "key": "gwagwalada"
+        },
+        {
+          "name": "Gwarimpa",
+          "key": "gwarimpa"
+        },
+        {
+          "name": "Idu",
+          "key": "idu"
+        },
+        {
+          "name": "Kado",
+          "key": "kado"
+        },
+        {
+          "name": "Kaduna Road",
+          "key": "kaduna-road"
+        },
+        {
+          "name": "Karmo",
+          "key": "karmo"
+        },
+        {
+          "name": "Karshi",
+          "key": "karshi"
+        },
+        {
+          "name": "Kubwa",
+          "key": "kubwa"
+        },
+        {
+          "name": "Kuje",
+          "key": "kuje"
+        },
+        {
+          "name": "Kwali",
+          "key": "kwali"
+        },
+        {
+          "name": "Lifecamp",
+          "key": "lifecamp"
+        },
+        {
+          "name": "Lower Usman Dam",
+          "key": "lower-usman-dam"
+        },
+        {
+          "name": "Lugbe",
+          "key": "lugbe"
+        },
+        {
+          "name": "Maitama",
+          "key": "maitama"
+        },
+        {
+          "name": "Mararba",
+          "key": "mararba"
+        },
+        {
+          "name": "Masaka",
+          "key": "masaka"
+        },
+        {
+          "name": "Nyanyan",
+          "key": "nyanyan"
+        },
+        {
+          "name": "Rubochi",
+          "key": "rubochi"
+        },
+        {
+          "name": "Sheda",
+          "key": "sheda"
+        },
+        {
+          "name": "Wuse",
+          "key": "wuse"
+        },
+        {
+          "name": "Yabaa",
+          "key": "yabaa"
+        },
+        {
+          "name": "Zuba",
+          "key": "zuba"
+        }
+      ]
+    },
+    {
+      "name": "Gombe",
+      "key": "gombe",
+      "cities": [
+        {
+          "name": "Ashaka",
+          "key": "ashaka"
+        },
+        {
+          "name": "Awak",
+          "key": "awak"
+        },
+        {
+          "name": "Ayaba",
+          "key": "ayaba"
+        },
+        {
+          "name": "Babam-bam",
+          "key": "babam-bam"
+        },
+        {
+          "name": "Baganje",
+          "key": "baganje"
+        },
+        {
+          "name": "Bajoga",
+          "key": "bajoga"
+        },
+        {
+          "name": "Balanga",
+          "key": "balanga"
+        },
+        {
+          "name": "Billiri",
+          "key": "billiri"
+        },
+        {
+          "name": "Boh",
+          "key": "boh"
+        },
+        {
+          "name": "Bojude",
+          "key": "bojude"
+        },
+        {
+          "name": "Buria",
+          "key": "buria"
+        },
+        {
+          "name": "Dadin Kowa",
+          "key": "dadin-kowa"
+        },
+        {
+          "name": "Dadiya",
+          "key": "dadiya"
+        },
+        {
+          "name": "Deba",
+          "key": "deba"
+        },
+        {
+          "name": "Difa",
+          "key": "difa"
+        },
+        {
+          "name": "Dukku",
+          "key": "dukku"
+        },
+        {
+          "name": "Gada Uku",
+          "key": "gada-uku"
+        },
+        {
+          "name": "Gadam",
+          "key": "gadam"
+        },
+        {
+          "name": "Gadawo",
+          "key": "gadawo"
+        },
+        {
+          "name": "Gelbunu",
+          "key": "gelbunu"
+        },
+        {
+          "name": "Gelengu",
+          "key": "gelengu"
+        },
+        {
+          "name": "Gombe",
+          "key": "gombe"
+        },
+        {
+          "name": "Gombe Abba",
+          "key": "gombe-abba"
+        },
+        {
+          "name": "Hashidu",
+          "key": "hashidu"
+        },
+        {
+          "name": "Kalmai",
+          "key": "kalmai"
+        },
+        {
+          "name": "Kaltungo",
+          "key": "kaltungo"
+        },
+        {
+          "name": "Kashere",
+          "key": "kashere"
+        },
+        {
+          "name": "Kembu",
+          "key": "kembu"
+        },
+        {
+          "name": "Kobuwa",
+          "key": "kobuwa"
+        },
+        {
+          "name": "Kumo",
+          "key": "kumo"
+        },
+        {
+          "name": "Kuri",
+          "key": "kuri"
+        },
+        {
+          "name": "Kwadan",
+          "key": "kwadan"
+        },
+        {
+          "name": "Kwami",
+          "key": "kwami"
+        },
+        {
+          "name": "Ladongo",
+          "key": "ladongo"
+        },
+        {
+          "name": "Maikafo",
+          "key": "maikafo"
+        },
+        {
+          "name": "Malam Sidi",
+          "key": "malam-sidi"
+        },
+        {
+          "name": "Natada",
+          "key": "natada"
+        },
+        {
+          "name": "Pindiga",
+          "key": "pindiga"
+        },
+        {
+          "name": "Shinga",
+          "key": "shinga"
+        },
+        {
+          "name": "Shonga",
+          "key": "shonga"
+        },
+        {
+          "name": "Tai",
+          "key": "tai"
+        },
+        {
+          "name": "Tallase",
+          "key": "tallase"
+        },
+        {
+          "name": "Tanglang",
+          "key": "tanglang"
+        },
+        {
+          "name": "Todi",
+          "key": "todi"
+        },
+        {
+          "name": "Tula",
+          "key": "tula"
+        },
+        {
+          "name": "Tumu",
+          "key": "tumu"
+        },
+        {
+          "name": "Ture",
+          "key": "ture"
+        },
+        {
+          "name": "Yideba",
+          "key": "yideba"
+        },
+        {
+          "name": "Zambuk",
+          "key": "zambuk"
+        }
+      ]
+    },
+    {
+      "name": "Imo",
+      "key": "imo",
+      "cities": [
+        {
+          "name": "Abo Mbaise",
+          "key": "abo-mbaise"
+        },
+        {
+          "name": "Agbala",
+          "key": "agbala"
+        },
+        {
+          "name": "Ahiazu Mbaise",
+          "key": "ahiazu-mbaise"
+        },
+        {
+          "name": "Akabo",
+          "key": "akabo"
+        },
+        {
+          "name": "Akata",
+          "key": "akata"
+        },
+        {
+          "name": "Akokwa",
+          "key": "akokwa"
+        },
+        {
+          "name": "Amaifeke",
+          "key": "amaifeke"
+        },
+        {
+          "name": "Amaigbo",
+          "key": "amaigbo"
+        },
+        {
+          "name": "Amaimo",
+          "key": "amaimo"
+        },
+        {
+          "name": "Amandugba",
+          "key": "amandugba"
+        },
+        {
+          "name": "Amaopara",
+          "key": "amaopara"
+        },
+        {
+          "name": "Amaraku",
+          "key": "amaraku"
+        },
+        {
+          "name": "Amike Orlu",
+          "key": "amike-orlu"
+        },
+        {
+          "name": "Amucha",
+          "key": "amucha"
+        },
+        {
+          "name": "Amuzari",
+          "key": "amuzari"
+        },
+        {
+          "name": "Arondizuogu",
+          "key": "arondizuogu"
+        },
+        {
+          "name": "Atta",
+          "key": "atta"
+        },
+        {
+          "name": "Avutu",
+          "key": "avutu"
+        },
+        {
+          "name": "Awo-idemili",
+          "key": "awo-idemili"
+        },
+        {
+          "name": "Awo-omama",
+          "key": "awo-omama"
+        },
+        {
+          "name": "Ebenato",
+          "key": "ebenato"
+        },
+        {
+          "name": "Egbeada",
+          "key": "egbeada"
+        },
+        {
+          "name": "Egbema",
+          "key": "egbema"
+        },
+        {
+          "name": "Egbu",
+          "key": "egbu"
+        },
+        {
+          "name": "Ehime Mbano",
+          "key": "ehime-mbano"
+        },
+        {
+          "name": "Emeabiam",
+          "key": "emeabiam"
+        },
+        {
+          "name": "Emekuku",
+          "key": "emekuku"
+        },
+        {
+          "name": "Enyiogugu/ Mbaise",
+          "key": "enyiogugu-mbaise"
+        },
+        {
+          "name": "Etiti",
+          "key": "etiti"
+        },
+        {
+          "name": "Eziama Obiato",
+          "key": "eziama-obiato"
+        },
+        {
+          "name": "Ezinachi Okigwe",
+          "key": "ezinachi-okigwe"
+        },
+        {
+          "name": "Ezinihitte Mbaise",
+          "key": "ezinihitte-mbaise"
+        },
+        {
+          "name": "Ezobodo",
+          "key": "ezobodo"
+        },
+        {
+          "name": "Ideato Noirth",
+          "key": "ideato-noirth"
+        },
+        {
+          "name": "Ideato South",
+          "key": "ideato-south"
+        },
+        {
+          "name": "Ihiagwa",
+          "key": "ihiagwa"
+        },
+        {
+          "name": "Ihioma",
+          "key": "ihioma"
+        },
+        {
+          "name": "Ihite Uboma",
+          "key": "ihite-uboma"
+        },
+        {
+          "name": "Ihitte Na Nsa",
+          "key": "ihitte-na-nsa"
+        },
+        {
+          "name": "Ikeduru Lg H/q",
+          "key": "ikeduru-lg-hq"
+        },
+        {
+          "name": "Ikenanzizi",
+          "key": "ikenanzizi"
+        },
+        {
+          "name": "Imerienwe",
+          "key": "imerienwe"
+        },
+        {
+          "name": "Inyishsi",
+          "key": "inyishsi"
+        },
+        {
+          "name": "Irete",
+          "key": "irete"
+        },
+        {
+          "name": "Isu Njaba",
+          "key": "isu-njaba"
+        },
+        {
+          "name": "Itu Ezinihite Mbaise",
+          "key": "itu-ezinihite-mbaise"
+        },
+        {
+          "name": "Izombe",
+          "key": "izombe"
+        },
+        {
+          "name": "Mbaise (others)",
+          "key": "mbaise-others"
+        },
+        {
+          "name": "Mbaitoli",
+          "key": "mbaitoli"
+        },
+        {
+          "name": "Mbano",
+          "key": "mbano"
+        },
+        {
+          "name": "Mbieri",
+          "key": "mbieri"
+        },
+        {
+          "name": "Mgbee",
+          "key": "mgbee"
+        },
+        {
+          "name": "Mgbidi",
+          "key": "mgbidi"
+        },
+        {
+          "name": "Naze",
+          "key": "naze"
+        },
+        {
+          "name": "Nekede",
+          "key": "nekede"
+        },
+        {
+          "name": "Ngor-okpala",
+          "key": "ngor-okpala"
+        },
+        {
+          "name": "Nguru Mbaise",
+          "key": "nguru-mbaise"
+        },
+        {
+          "name": "Nkwerre",
+          "key": "nkwerre"
+        },
+        {
+          "name": "Nwaorieubi",
+          "key": "nwaorieubi"
+        },
+        {
+          "name": "Obiangwu",
+          "key": "obiangwu"
+        },
+        {
+          "name": "Obibi-ezena",
+          "key": "obibi-ezena"
+        },
+        {
+          "name": "Obilubi",
+          "key": "obilubi"
+        },
+        {
+          "name": "Obinze",
+          "key": "obinze"
+        },
+        {
+          "name": "Obodoukwu Ideato",
+          "key": "obodoukwu-ideato"
+        },
+        {
+          "name": "Obowo",
+          "key": "obowo"
+        },
+        {
+          "name": "Ogbaku",
+          "key": "ogbaku"
+        },
+        {
+          "name": "Ogbueruru",
+          "key": "ogbueruru"
+        },
+        {
+          "name": "Oguta",
+          "key": "oguta"
+        },
+        {
+          "name": "Oguta Island",
+          "key": "oguta-island"
+        },
+        {
+          "name": "Ohai",
+          "key": "ohai"
+        },
+        {
+          "name": "Okigwe",
+          "key": "okigwe"
+        },
+        {
+          "name": "Okolochi",
+          "key": "okolochi"
+        },
+        {
+          "name": "Okporo",
+          "key": "okporo"
+        },
+        {
+          "name": "Okwelle",
+          "key": "okwelle"
+        },
+        {
+          "name": "Okwudor Orlu",
+          "key": "okwudor-orlu"
+        },
+        {
+          "name": "Olokwu",
+          "key": "olokwu"
+        },
+        {
+          "name": "Omuozu",
+          "key": "omuozu"
+        },
+        {
+          "name": "Oriagu Mbano Nsu",
+          "key": "oriagu-mbano-nsu"
+        },
+        {
+          "name": "Orlu",
+          "key": "orlu"
+        },
+        {
+          "name": "Orodo",
+          "key": "orodo"
+        },
+        {
+          "name": "Orogwe",
+          "key": "orogwe"
+        },
+        {
+          "name": "Osu Ihitte Ukwa",
+          "key": "osu-ihitte-ukwa"
+        },
+        {
+          "name": "Owerri",
+          "key": "owerri"
+        },
+        {
+          "name": "Owerri Ebiri",
+          "key": "owerri-ebiri"
+        },
+        {
+          "name": "Ulakwo",
+          "key": "ulakwo"
+        },
+        {
+          "name": "Umuagwo",
+          "key": "umuagwo"
+        },
+        {
+          "name": "Umuaka Njaba",
+          "key": "umuaka-njaba"
+        },
+        {
+          "name": "Umudioka Orlu",
+          "key": "umudioka-orlu"
+        },
+        {
+          "name": "Umueshi",
+          "key": "umueshi"
+        },
+        {
+          "name": "Umuguma",
+          "key": "umuguma"
+        },
+        {
+          "name": "Umuhuokabia Orlu",
+          "key": "umuhuokabia-orlu"
+        },
+        {
+          "name": "Umundugba Orlu",
+          "key": "umundugba-orlu"
+        },
+        {
+          "name": "Umuowa (ngor)",
+          "key": "umuowa-ngor"
+        },
+        {
+          "name": "Umuowa Orlu",
+          "key": "umuowa-orlu"
+        },
+        {
+          "name": "Umutanze Orlu",
+          "key": "umutanze-orlu"
+        },
+        {
+          "name": "Umuzike Orlu",
+          "key": "umuzike-orlu"
+        },
+        {
+          "name": "Uratta",
+          "key": "uratta"
+        },
+        {
+          "name": "Urualla",
+          "key": "urualla"
+        },
+        {
+          "name": "Uzoagba",
+          "key": "uzoagba"
+        }
+      ]
+    },
+    {
+      "name": "Kano",
+      "key": "kano",
+      "cities": [
+        {
+          "name": "Ajingi",
+          "key": "ajingi"
+        },
+        {
+          "name": "Albasu",
+          "key": "albasu"
+        },
+        {
+          "name": "Badume",
+          "key": "badume"
+        },
+        {
+          "name": "Bagauda",
+          "key": "bagauda"
+        },
+        {
+          "name": "Bichi",
+          "key": "bichi"
+        },
+        {
+          "name": "Brigade Quarters",
+          "key": "brigade-quarters"
+        },
+        {
+          "name": "Challawa Phase 1-3",
+          "key": "challawa-phase-1-3"
+        },
+        {
+          "name": "Corner Dangora",
+          "key": "corner-dangora"
+        },
+        {
+          "name": "Dambata",
+          "key": "dambata"
+        },
+        {
+          "name": "Danzabuwa",
+          "key": "danzabuwa"
+        },
+        {
+          "name": "Darki",
+          "key": "darki"
+        },
+        {
+          "name": "Dawakin Kudu",
+          "key": "dawakin-kudu"
+        },
+        {
+          "name": "Dawakin Tofa",
+          "key": "dawakin-tofa"
+        },
+        {
+          "name": "Dawanau",
+          "key": "dawanau"
+        },
+        {
+          "name": "Dogowa",
+          "key": "dogowa"
+        },
+        {
+          "name": "Fagge Takudu",
+          "key": "fagge-takudu"
+        },
+        {
+          "name": "Gandu Albasa",
+          "key": "gandu-albasa"
+        },
+        {
+          "name": "Gano",
+          "key": "gano"
+        },
+        {
+          "name": "Garko",
+          "key": "garko"
+        },
+        {
+          "name": "Gaya",
+          "key": "gaya"
+        },
+        {
+          "name": "Gezawa",
+          "key": "gezawa"
+        },
+        {
+          "name": "Goron Dutse",
+          "key": "goron-dutse"
+        },
+        {
+          "name": "Gwarzo",
+          "key": "gwarzo"
+        },
+        {
+          "name": "Gyadi-gyadi",
+          "key": "gyadi-gyadi"
+        },
+        {
+          "name": "Hausawa Quarters",
+          "key": "hausawa-quarters"
+        },
+        {
+          "name": "Hotoro",
+          "key": "hotoro"
+        },
+        {
+          "name": "Kabo Town",
+          "key": "kabo-town"
+        },
+        {
+          "name": "Kademi",
+          "key": "kademi"
+        },
+        {
+          "name": "Kano, Municipal",
+          "key": "kano-municipal"
+        },
+        {
+          "name": "Karaye",
+          "key": "karaye"
+        },
+        {
+          "name": "Kilometer 26",
+          "key": "kilometer-26"
+        },
+        {
+          "name": "Kirikasama",
+          "key": "kirikasama"
+        },
+        {
+          "name": "Kiru",
+          "key": "kiru"
+        },
+        {
+          "name": "Kura",
+          "key": "kura"
+        },
+        {
+          "name": "Kurna",
+          "key": "kurna"
+        },
+        {
+          "name": "Kwa",
+          "key": "kwa"
+        },
+        {
+          "name": "Kwana' Yau Daddawa",
+          "key": "kwana-yau-daddawa"
+        },
+        {
+          "name": "Lahadin Makali",
+          "key": "lahadin-makali"
+        },
+        {
+          "name": "Malamadori",
+          "key": "malamadori"
+        },
+        {
+          "name": "Minjibir",
+          "key": "minjibir"
+        },
+        {
+          "name": "Nasarawa",
+          "key": "nasarawa"
+        },
+        {
+          "name": "No Man's Land",
+          "key": "no-mans-land"
+        },
+        {
+          "name": "Old City",
+          "key": "old-city"
+        },
+        {
+          "name": "Rano",
+          "key": "rano"
+        },
+        {
+          "name": "Rogo",
+          "key": "rogo"
+        },
+        {
+          "name": "Sabongari",
+          "key": "sabongari"
+        },
+        {
+          "name": "Shanono",
+          "key": "shanono"
+        },
+        {
+          "name": "Sumaila",
+          "key": "sumaila"
+        },
+        {
+          "name": "Tamburawa",
+          "key": "tamburawa"
+        },
+        {
+          "name": "Tarauni",
+          "key": "tarauni"
+        },
+        {
+          "name": "Tiga",
+          "key": "tiga"
+        },
+        {
+          "name": "Tsanyawa",
+          "key": "tsanyawa"
+        },
+        {
+          "name": "Ungogo",
+          "key": "ungogo"
+        },
+        {
+          "name": "Wudil",
+          "key": "wudil"
+        },
+        {
+          "name": "Yabo",
+          "key": "yabo"
+        },
+        {
+          "name": "Yadankunya",
+          "key": "yadankunya"
+        },
+        {
+          "name": "Zakirai",
+          "key": "zakirai"
+        }
+      ]
+    },
+    {
+      "name": "Lagos",
+      "key": "lagos",
+      "cities": [
+        {
+          "name": "Abijo",
+          "key": "abijo"
+        },
+        {
+          "name": "Abule Egba",
+          "key": "abule-egba"
+        },
+        {
+          "name": "Adekunle",
+          "key": "adekunle"
+        },
+        {
+          "name": "Ado",
+          "key": "ado"
+        },
+        {
+          "name": "Adomojo",
+          "key": "adomojo"
+        },
+        {
+          "name": "Agbowa",
+          "key": "agbowa"
+        },
+        {
+          "name": "Agege",
+          "key": "agege"
+        },
+        {
+          "name": "Agodo",
+          "key": "agodo"
+        },
+        {
+          "name": "Aguda",
+          "key": "aguda"
+        },
+        {
+          "name": "Ajah",
+          "key": "ajah"
+        },
+        {
+          "name": "Ajegunle",
+          "key": "ajegunle"
+        },
+        {
+          "name": "Ajeromi",
+          "key": "ajeromi"
+        },
+        {
+          "name": "Ajiran",
+          "key": "ajiran"
+        },
+        {
+          "name": "Akodo",
+          "key": "akodo"
+        },
+        {
+          "name": "Akoka",
+          "key": "akoka"
+        },
+        {
+          "name": "Alaba",
+          "key": "alaba"
+        },
+        {
+          "name": "Alagba",
+          "key": "alagba"
+        },
+        {
+          "name": "Alaka",
+          "key": "alaka"
+        },
+        {
+          "name": "Alimosho",
+          "key": "alimosho"
+        },
+        {
+          "name": "Amukoko",
+          "key": "amukoko"
+        },
+        {
+          "name": "Amuwo",
+          "key": "amuwo"
+        },
+        {
+          "name": "Anthony",
+          "key": "anthony"
+        },
+        {
+          "name": "Apapa",
+          "key": "apapa"
+        },
+        {
+          "name": "Ascon",
+          "key": "ascon"
+        },
+        {
+          "name": "Atlas Cove",
+          "key": "atlas-cove"
+        },
+        {
+          "name": "Badagry Express",
+          "key": "badagry-express"
+        },
+        {
+          "name": "Badagry Town",
+          "key": "badagry-town"
+        },
+        {
+          "name": "Badore",
+          "key": "badore"
+        },
+        {
+          "name": "Balogun Market",
+          "key": "balogun-market"
+        },
+        {
+          "name": "Bariga",
+          "key": "bariga"
+        },
+        {
+          "name": "Chevron",
+          "key": "chevron"
+        },
+        {
+          "name": "Coker Village",
+          "key": "coker-village"
+        },
+        {
+          "name": "Crown Estate",
+          "key": "crown-estate"
+        },
+        {
+          "name": "Dopemu",
+          "key": "dopemu"
+        },
+        {
+          "name": "Ebute",
+          "key": "ebute"
+        },
+        {
+          "name": "Ebute Metta",
+          "key": "ebute-metta"
+        },
+        {
+          "name": "Egbeda",
+          "key": "egbeda"
+        },
+        {
+          "name": "Egbin",
+          "key": "egbin"
+        },
+        {
+          "name": "Ejigbo",
+          "key": "ejigbo"
+        },
+        {
+          "name": "Ejirin",
+          "key": "ejirin"
+        },
+        {
+          "name": "Eleko",
+          "key": "eleko"
+        },
+        {
+          "name": "Eletu",
+          "key": "eletu"
+        },
+        {
+          "name": "Epe",
+          "key": "epe"
+        },
+        {
+          "name": "Fadeyi",
+          "key": "fadeyi"
+        },
+        {
+          "name": "Festac",
+          "key": "festac"
+        },
+        {
+          "name": "Gbagada",
+          "key": "gbagada"
+        },
+        {
+          "name": "Hfc",
+          "key": "hfc"
+        },
+        {
+          "name": "Ibeju Lekki",
+          "key": "ibeju-lekki"
+        },
+        {
+          "name": "Ibowon",
+          "key": "ibowon"
+        },
+        {
+          "name": "Iddo",
+          "key": "iddo"
+        },
+        {
+          "name": "Idi-araba",
+          "key": "idi-araba"
+        },
+        {
+          "name": "Idimu",
+          "key": "idimu"
+        },
+        {
+          "name": "Idi-oro",
+          "key": "idi-oro"
+        },
+        {
+          "name": "Idumagbo",
+          "key": "idumagbo"
+        },
+        {
+          "name": "Idumota",
+          "key": "idumota"
+        },
+        {
+          "name": "Ifako",
+          "key": "ifako"
+        },
+        {
+          "name": "Iganmu",
+          "key": "iganmu"
+        },
+        {
+          "name": "Igbobi",
+          "key": "igbobi"
+        },
+        {
+          "name": "Igbogbo",
+          "key": "igbogbo"
+        },
+        {
+          "name": "Igbonla Epe",
+          "key": "igbonla-epe"
+        },
+        {
+          "name": "Igbooye",
+          "key": "igbooye"
+        },
+        {
+          "name": "Ijegun",
+          "key": "ijegun"
+        },
+        {
+          "name": "Ijesha",
+          "key": "ijesha"
+        },
+        {
+          "name": "Ijora",
+          "key": "ijora"
+        },
+        {
+          "name": "Ikate",
+          "key": "ikate"
+        },
+        {
+          "name": "Ikeja",
+          "key": "ikeja"
+        },
+        {
+          "name": "Ikorodu",
+          "key": "ikorodu"
+        },
+        {
+          "name": "Ikosi",
+          "key": "ikosi"
+        },
+        {
+          "name": "Ikota",
+          "key": "ikota"
+        },
+        {
+          "name": "Ikotun",
+          "key": "ikotun"
+        },
+        {
+          "name": "Ikoyi",
+          "key": "ikoyi"
+        },
+        {
+          "name": "Ila Oja",
+          "key": "ila-oja"
+        },
+        {
+          "name": "Ilasamaja",
+          "key": "ilasamaja"
+        },
+        {
+          "name": "Ilasan",
+          "key": "ilasan"
+        },
+        {
+          "name": "Ilupeju",
+          "key": "ilupeju"
+        },
+        {
+          "name": "Ipaja",
+          "key": "ipaja"
+        },
+        {
+          "name": "Isaga-tedo",
+          "key": "isaga-tedo"
+        },
+        {
+          "name": "Isheri",
+          "key": "isheri"
+        },
+        {
+          "name": "Isheri Oshun",
+          "key": "isheri-oshun"
+        },
+        {
+          "name": "Isolo",
+          "key": "isolo"
+        },
+        {
+          "name": "Itire",
+          "key": "itire"
+        },
+        {
+          "name": "Iwaya",
+          "key": "iwaya"
+        },
+        {
+          "name": "Ketu",
+          "key": "ketu"
+        },
+        {
+          "name": "Kirikiri",
+          "key": "kirikiri"
+        },
+        {
+          "name": "Lagos",
+          "key": "lagos"
+        },
+        {
+          "name": "Langbasa",
+          "key": "langbasa"
+        },
+        {
+          "name": "Lekki",
+          "key": "lekki"
+        },
+        {
+          "name": "Mafoluku",
+          "key": "mafoluku"
+        },
+        {
+          "name": "Magbon",
+          "key": "magbon"
+        },
+        {
+          "name": "Makoko",
+          "key": "makoko"
+        },
+        {
+          "name": "Marina",
+          "key": "marina"
+        },
+        {
+          "name": "Maryland",
+          "key": "maryland"
+        },
+        {
+          "name": "Mende",
+          "key": "mende"
+        },
+        {
+          "name": "Mushin",
+          "key": "mushin"
+        },
+        {
+          "name": "Naforija",
+          "key": "naforija"
+        },
+        {
+          "name": "Obalende",
+          "key": "obalende"
+        },
+        {
+          "name": "Obanikoro",
+          "key": "obanikoro"
+        },
+        {
+          "name": "Odomola",
+          "key": "odomola"
+        },
+        {
+          "name": "Ogba",
+          "key": "ogba"
+        },
+        {
+          "name": "Ogudu",
+          "key": "ogudu"
+        },
+        {
+          "name": "Ojo",
+          "key": "ojo"
+        },
+        {
+          "name": "Ojodu",
+          "key": "ojodu"
+        },
+        {
+          "name": "Ojota",
+          "key": "ojota"
+        },
+        {
+          "name": "Oke-ira",
+          "key": "oke-ira"
+        },
+        {
+          "name": "Okeiranla",
+          "key": "okeiranla"
+        },
+        {
+          "name": "Oke-odo",
+          "key": "oke-odo"
+        },
+        {
+          "name": "Olodi-apapa",
+          "key": "olodi-apapa"
+        },
+        {
+          "name": "Olowora",
+          "key": "olowora"
+        },
+        {
+          "name": "Olute",
+          "key": "olute"
+        },
+        {
+          "name": "Onikan",
+          "key": "onikan"
+        },
+        {
+          "name": "Onike",
+          "key": "onike"
+        },
+        {
+          "name": "Onipanu",
+          "key": "onipanu"
+        },
+        {
+          "name": "Oregun",
+          "key": "oregun"
+        },
+        {
+          "name": "Orile Iganmu",
+          "key": "orile-iganmu"
+        },
+        {
+          "name": "Oshodi",
+          "key": "oshodi"
+        },
+        {
+          "name": "Oto",
+          "key": "oto"
+        },
+        {
+          "name": "Oworonshoki",
+          "key": "oworonshoki"
+        },
+        {
+          "name": "Oyingbo",
+          "key": "oyingbo"
+        },
+        {
+          "name": "Palm Grove",
+          "key": "palm-grove"
+        },
+        {
+          "name": "Papa Ajao",
+          "key": "papa-ajao"
+        },
+        {
+          "name": "Papa Ashafa",
+          "key": "papa-ashafa"
+        },
+        {
+          "name": "Pedro",
+          "key": "pedro"
+        },
+        {
+          "name": "Poja",
+          "key": "poja"
+        },
+        {
+          "name": "Poka",
+          "key": "poka"
+        },
+        {
+          "name": "Sango Tedo",
+          "key": "sango-tedo"
+        },
+        {
+          "name": "Satellite Town",
+          "key": "satellite-town"
+        },
+        {
+          "name": "Seme Border",
+          "key": "seme-border"
+        },
+        {
+          "name": "Servtrust",
+          "key": "servtrust"
+        },
+        {
+          "name": "Shogunle",
+          "key": "shogunle"
+        },
+        {
+          "name": "Shomolu",
+          "key": "shomolu"
+        },
+        {
+          "name": "Soil Conservation",
+          "key": "soil-conservation"
+        },
+        {
+          "name": "Spg",
+          "key": "spg"
+        },
+        {
+          "name": "Surulere",
+          "key": "surulere"
+        },
+        {
+          "name": "Taqwa Bay",
+          "key": "taqwa-bay"
+        },
+        {
+          "name": "Temu Village",
+          "key": "temu-village"
+        },
+        {
+          "name": "Tincan Island",
+          "key": "tincan-island"
+        },
+        {
+          "name": "Topo",
+          "key": "topo"
+        },
+        {
+          "name": "Ubowo",
+          "key": "ubowo"
+        },
+        {
+          "name": "Victoria Garden",
+          "key": "victoria-garden"
+        },
+        {
+          "name": "Victoria Island",
+          "key": "victoria-island"
+        },
+        {
+          "name": "Yaba",
+          "key": "yaba"
+        },
+        {
+          "name": "Iriri",
+          "key": "iriri"
+        },
+        {
+          "name": "No City",
+          "key": "no-city"
+        }
+      ]
+    },
+    {
+      "name": "Nasarawa",
+      "key": "nasarawa",
+      "cities": [
+        {
+          "name": "Adogi",
+          "key": "adogi"
+        },
+        {
+          "name": "Adudu",
+          "key": "adudu"
+        },
+        {
+          "name": "Agwada",
+          "key": "agwada"
+        },
+        {
+          "name": "Agwashi",
+          "key": "agwashi"
+        },
+        {
+          "name": "Agwatashi",
+          "key": "agwatashi"
+        },
+        {
+          "name": "Agyaragu",
+          "key": "agyaragu"
+        },
+        {
+          "name": "Akwanga",
+          "key": "akwanga"
+        },
+        {
+          "name": "Amaku",
+          "key": "amaku"
+        },
+        {
+          "name": "Andaha",
+          "key": "andaha"
+        },
+        {
+          "name": "Angwan Zaria",
+          "key": "angwan-zaria"
+        },
+        {
+          "name": "Awe",
+          "key": "awe"
+        },
+        {
+          "name": "Basa",
+          "key": "basa"
+        },
+        {
+          "name": "Daddare",
+          "key": "daddare"
+        },
+        {
+          "name": "Doma",
+          "key": "doma"
+        },
+        {
+          "name": "Duduguru",
+          "key": "duduguru"
+        },
+        {
+          "name": "Farinruwa",
+          "key": "farinruwa"
+        },
+        {
+          "name": "Garaku/kokona",
+          "key": "garakukokona"
+        },
+        {
+          "name": "Giba",
+          "key": "giba"
+        },
+        {
+          "name": "Gudi",
+          "key": "gudi"
+        },
+        {
+          "name": "Karu (new)",
+          "key": "karu-new"
+        },
+        {
+          "name": "Karu(old)",
+          "key": "karuold"
+        },
+        {
+          "name": "Keana",
+          "key": "keana"
+        },
+        {
+          "name": "Keffi",
+          "key": "keffi"
+        },
+        {
+          "name": "Lafia",
+          "key": "lafia"
+        },
+        {
+          "name": "Mada Station",
+          "key": "mada-station"
+        },
+        {
+          "name": "Mararaba",
+          "key": "mararaba"
+        },
+        {
+          "name": "Moroa",
+          "key": "moroa"
+        },
+        {
+          "name": "Nasarawa Egon",
+          "key": "nasarawa-egon"
+        },
+        {
+          "name": "Nasarawa Toto",
+          "key": "nasarawa-toto"
+        },
+        {
+          "name": "Obi",
+          "key": "obi"
+        },
+        {
+          "name": "Tunga",
+          "key": "tunga"
+        },
+        {
+          "name": "Uke",
+          "key": "uke"
+        },
+        {
+          "name": "Wamba",
+          "key": "wamba"
+        }
+      ]
+    },
+    {
+      "name": "Jigawa",
+      "key": "jigawa",
+      "cities": [
+        {
+          "name": "Babura",
+          "key": "babura"
+        },
+        {
+          "name": "Birnin Kudu",
+          "key": "birnin-kudu"
+        },
+        {
+          "name": "Dutse",
+          "key": "dutse"
+        },
+        {
+          "name": "Gumel",
+          "key": "gumel"
+        },
+        {
+          "name": "Gwiwa",
+          "key": "gwiwa"
+        },
+        {
+          "name": "Hadejia",
+          "key": "hadejia"
+        },
+        {
+          "name": "Jahun",
+          "key": "jahun"
+        },
+        {
+          "name": "Kazaure",
+          "key": "kazaure"
+        },
+        {
+          "name": "Kiyawa",
+          "key": "kiyawa"
+        },
+        {
+          "name": "Maigatari",
+          "key": "maigatari"
+        },
+        {
+          "name": "Malam Maduri",
+          "key": "malam-maduri"
+        },
+        {
+          "name": "Ringim Town",
+          "key": "ringim-town"
+        },
+        {
+          "name": "Roni",
+          "key": "roni"
+        },
+        {
+          "name": "Yankwashi",
+          "key": "yankwashi"
+        }
+      ]
+    },
+    {
+      "name": "Kebbi",
+      "key": "kebbi",
+      "cities": []
+    },
+    {
+      "name": "Kaduna",
+      "key": "kaduna",
+      "cities": [
+        {
+          "name": "Abakpa",
+          "key": "abakpa"
+        },
+        {
+          "name": "Badiko",
+          "key": "badiko"
+        },
+        {
+          "name": "Bardawa",
+          "key": "bardawa"
+        },
+        {
+          "name": "Barnawa",
+          "key": "barnawa"
+        },
+        {
+          "name": "Basawa",
+          "key": "basawa"
+        },
+        {
+          "name": "Birni Gwari",
+          "key": "birni-gwari"
+        },
+        {
+          "name": "Buruku",
+          "key": "buruku"
+        },
+        {
+          "name": "Chukun",
+          "key": "chukun"
+        },
+        {
+          "name": "Da Kale",
+          "key": "da-kale"
+        },
+        {
+          "name": "Dakachi",
+          "key": "dakachi"
+        },
+        {
+          "name": "Doka Village",
+          "key": "doka-village"
+        },
+        {
+          "name": "Fadia",
+          "key": "fadia"
+        },
+        {
+          "name": "Giwa",
+          "key": "giwa"
+        },
+        {
+          "name": "Gwarabe",
+          "key": "gwarabe"
+        },
+        {
+          "name": "Hayin Bank",
+          "key": "hayin-bank"
+        },
+        {
+          "name": "Hunkuyi",
+          "key": "hunkuyi"
+        },
+        {
+          "name": "Idon",
+          "key": "idon"
+        },
+        {
+          "name": "Igabi",
+          "key": "igabi"
+        },
+        {
+          "name": "Ikara",
+          "key": "ikara"
+        },
+        {
+          "name": "Jaji",
+          "key": "jaji"
+        },
+        {
+          "name": "Jere",
+          "key": "jere"
+        },
+        {
+          "name": "Kabala East",
+          "key": "kabala-east"
+        },
+        {
+          "name": "Kabala West",
+          "key": "kabala-west"
+        },
+        {
+          "name": "Kachia",
+          "key": "kachia"
+        },
+        {
+          "name": "Kaduna",
+          "key": "kaduna"
+        },
+        {
+          "name": "Kaduna R.pet. Chem",
+          "key": "kaduna-rpet-chem"
+        },
+        {
+          "name": "Kafanchan",
+          "key": "kafanchan"
+        },
+        {
+          "name": "Kagarko",
+          "key": "kagarko"
+        },
+        {
+          "name": "Kagoro",
+          "key": "kagoro"
+        },
+        {
+          "name": "Kakuri",
+          "key": "kakuri"
+        },
+        {
+          "name": "Kasuwa Magani",
+          "key": "kasuwa-magani"
+        },
+        {
+          "name": "Kateri",
+          "key": "kateri"
+        },
+        {
+          "name": "Kaura",
+          "key": "kaura"
+        },
+        {
+          "name": "Kaura (zaria City)",
+          "key": "kaura-zaria-city"
+        },
+        {
+          "name": "Kauru",
+          "key": "kauru"
+        },
+        {
+          "name": "Kofan Gayan",
+          "key": "kofan-gayan"
+        },
+        {
+          "name": "Kubacha",
+          "key": "kubacha"
+        },
+        {
+          "name": "Kubau",
+          "key": "kubau"
+        },
+        {
+          "name": "Kudan",
+          "key": "kudan"
+        },
+        {
+          "name": "Kujama",
+          "key": "kujama"
+        },
+        {
+          "name": "Kurmi Gwaza",
+          "key": "kurmi-gwaza"
+        },
+        {
+          "name": "Kurmi Mashi",
+          "key": "kurmi-mashi"
+        },
+        {
+          "name": "Kwoi",
+          "key": "kwoi"
+        },
+        {
+          "name": "Maigama",
+          "key": "maigama"
+        },
+        {
+          "name": "Makarfi",
+          "key": "makarfi"
+        },
+        {
+          "name": "Makera",
+          "key": "makera"
+        },
+        {
+          "name": "Malali",
+          "key": "malali"
+        },
+        {
+          "name": "Malumfashi",
+          "key": "malumfashi"
+        },
+        {
+          "name": "Manchock",
+          "key": "manchock"
+        },
+        {
+          "name": "Mando",
+          "key": "mando"
+        },
+        {
+          "name": "Pambegua",
+          "key": "pambegua"
+        },
+        {
+          "name": "Rigachikun",
+          "key": "rigachikun"
+        },
+        {
+          "name": "Rigasa",
+          "key": "rigasa"
+        },
+        {
+          "name": "Sabon Gari",
+          "key": "sabon-gari"
+        },
+        {
+          "name": "Samari Kataf",
+          "key": "samari-kataf"
+        },
+        {
+          "name": "Samaru",
+          "key": "samaru"
+        },
+        {
+          "name": "Sarkin Pawa",
+          "key": "sarkin-pawa"
+        },
+        {
+          "name": "Saye Village",
+          "key": "saye-village"
+        },
+        {
+          "name": "Shika",
+          "key": "shika"
+        },
+        {
+          "name": "Tudun Nupawa",
+          "key": "tudun-nupawa"
+        },
+        {
+          "name": "Tudun Wada",
+          "key": "tudun-wada"
+        },
+        {
+          "name": "Udawa",
+          "key": "udawa"
+        },
+        {
+          "name": "Ungwar Dosa",
+          "key": "ungwar-dosa"
+        },
+        {
+          "name": "Ungwar Gwari",
+          "key": "ungwar-gwari"
+        },
+        {
+          "name": "Ungwar Kanawa",
+          "key": "ungwar-kanawa"
+        },
+        {
+          "name": "Ungwar Rimi",
+          "key": "ungwar-rimi"
+        },
+        {
+          "name": "Ungwar Shanu",
+          "key": "ungwar-shanu"
+        },
+        {
+          "name": "Ungwar Sunday",
+          "key": "ungwar-sunday"
+        },
+        {
+          "name": "Ungwar T.v.",
+          "key": "ungwar-tv"
+        },
+        {
+          "name": "Wusasa",
+          "key": "wusasa"
+        },
+        {
+          "name": "Zagon Kataf",
+          "key": "zagon-kataf"
+        },
+        {
+          "name": "Zaria",
+          "key": "zaria"
+        },
+        {
+          "name": "Zonkwa",
+          "key": "zonkwa"
+        }
+      ]
+    },
+    {
+      "name": "Kogi",
+      "key": "kogi",
+      "cities": [
+        {
+          "name": "Lokoja",
+          "key": "lokoja"
+        }
+      ]
+    },
+    {
+      "name": "Katsina",
+      "key": "katsina",
+      "cities": [
+        {
+          "name": "Ajiwa",
+          "key": "ajiwa"
+        },
+        {
+          "name": "Babaruga",
+          "key": "babaruga"
+        },
+        {
+          "name": "Bakori",
+          "key": "bakori"
+        },
+        {
+          "name": "Batagarawa",
+          "key": "batagarawa"
+        },
+        {
+          "name": "Batsari",
+          "key": "batsari"
+        },
+        {
+          "name": "Baure",
+          "key": "baure"
+        },
+        {
+          "name": "Bindawa",
+          "key": "bindawa"
+        },
+        {
+          "name": "Charanchi",
+          "key": "charanchi"
+        },
+        {
+          "name": "Dadara",
+          "key": "dadara"
+        },
+        {
+          "name": "Dammarna",
+          "key": "dammarna"
+        },
+        {
+          "name": "Dandagoro",
+          "key": "dandagoro"
+        },
+        {
+          "name": "Dandume",
+          "key": "dandume"
+        },
+        {
+          "name": "Danja",
+          "key": "danja"
+        },
+        {
+          "name": "Dankama",
+          "key": "dankama"
+        },
+        {
+          "name": "Danmusa",
+          "key": "danmusa"
+        },
+        {
+          "name": "Daura",
+          "key": "daura"
+        },
+        {
+          "name": "Didan Mutumdaya",
+          "key": "didan-mutumdaya"
+        },
+        {
+          "name": "Dutsen Safe",
+          "key": "dutsen-safe"
+        },
+        {
+          "name": "Dutsi",
+          "key": "dutsi"
+        },
+        {
+          "name": "Dutsima",
+          "key": "dutsima"
+        },
+        {
+          "name": "Faskari",
+          "key": "faskari"
+        },
+        {
+          "name": "Funtua",
+          "key": "funtua"
+        },
+        {
+          "name": "Garama",
+          "key": "garama"
+        },
+        {
+          "name": "Gidan Mutum Daya",
+          "key": "gidan-mutum-daya"
+        },
+        {
+          "name": "Ingawa",
+          "key": "ingawa"
+        },
+        {
+          "name": "Jibia",
+          "key": "jibia"
+        },
+        {
+          "name": "Jikamshi",
+          "key": "jikamshi"
+        },
+        {
+          "name": "Kafur",
+          "key": "kafur"
+        },
+        {
+          "name": "Kaita",
+          "key": "kaita"
+        },
+        {
+          "name": "Kankara",
+          "key": "kankara"
+        },
+        {
+          "name": "Kankia",
+          "key": "kankia"
+        },
+        {
+          "name": "Katsina",
+          "key": "katsina"
+        },
+        {
+          "name": "Kayauki",
+          "key": "kayauki"
+        },
+        {
+          "name": "Kurfi",
+          "key": "kurfi"
+        },
+        {
+          "name": "Kusada",
+          "key": "kusada"
+        },
+        {
+          "name": "Magama",
+          "key": "magama"
+        },
+        {
+          "name": "Maladowa",
+          "key": "maladowa"
+        },
+        {
+          "name": "Mani",
+          "key": "mani"
+        },
+        {
+          "name": "Mashi",
+          "key": "mashi"
+        },
+        {
+          "name": "Matazu",
+          "key": "matazu"
+        },
+        {
+          "name": "Musawa",
+          "key": "musawa"
+        },
+        {
+          "name": "Rimi",
+          "key": "rimi"
+        },
+        {
+          "name": "Sabuwa",
+          "key": "sabuwa"
+        },
+        {
+          "name": "Safana",
+          "key": "safana"
+        },
+        {
+          "name": "Sandamu",
+          "key": "sandamu"
+        },
+        {
+          "name": "Shargalle",
+          "key": "shargalle"
+        },
+        {
+          "name": "Zangodaura",
+          "key": "zangodaura"
+        }
+      ]
+    },
+    {
+      "name": "Kwara",
+      "key": "kwara",
+      "cities": [
+        {
+          "name": "Aiyetoro",
+          "key": "aiyetoro"
+        },
+        {
+          "name": "Ajase Ipo",
+          "key": "ajase-ipo"
+        },
+        {
+          "name": "Babalonma",
+          "key": "babalonma"
+        },
+        {
+          "name": "Bacita",
+          "key": "bacita"
+        },
+        {
+          "name": "Bode Sa'du",
+          "key": "bode-sadu"
+        },
+        {
+          "name": "Chikanda",
+          "key": "chikanda"
+        },
+        {
+          "name": "Edidi",
+          "key": "edidi"
+        },
+        {
+          "name": "Effon-amuro",
+          "key": "effon-amuro"
+        },
+        {
+          "name": "Egbe",
+          "key": "egbe"
+        },
+        {
+          "name": "Erin Ile",
+          "key": "erin-ile"
+        },
+        {
+          "name": "Eruku",
+          "key": "eruku"
+        },
+        {
+          "name": "Essie",
+          "key": "essie"
+        },
+        {
+          "name": "Idofian",
+          "key": "idofian"
+        },
+        {
+          "name": "Igbaja",
+          "key": "igbaja"
+        },
+        {
+          "name": "Igbeti",
+          "key": "igbeti"
+        },
+        {
+          "name": "Igosun",
+          "key": "igosun"
+        },
+        {
+          "name": "Ijagbo",
+          "key": "ijagbo"
+        },
+        {
+          "name": "Ilesa Ibaruba",
+          "key": "ilesa-ibaruba"
+        },
+        {
+          "name": "Ilorin",
+          "key": "ilorin"
+        },
+        {
+          "name": "Ipee",
+          "key": "ipee"
+        },
+        {
+          "name": "Isanlu",
+          "key": "isanlu"
+        },
+        {
+          "name": "Jattu",
+          "key": "jattu"
+        },
+        {
+          "name": "Jebba/ Dam",
+          "key": "jebba-dam"
+        },
+        {
+          "name": "Kaiama",
+          "key": "kaiama"
+        },
+        {
+          "name": "Kainji",
+          "key": "kainji"
+        },
+        {
+          "name": "Kosunbosun",
+          "key": "kosunbosun"
+        },
+        {
+          "name": "Mokwa",
+          "key": "mokwa"
+        },
+        {
+          "name": "Mopa",
+          "key": "mopa"
+        },
+        {
+          "name": "New Bussa",
+          "key": "new-bussa"
+        },
+        {
+          "name": "Nnpc/ppmc",
+          "key": "nnpcppmc"
+        },
+        {
+          "name": "Obbo Aiyegule",
+          "key": "obbo-aiyegule"
+        },
+        {
+          "name": "Odo-ere",
+          "key": "odo-ere"
+        },
+        {
+          "name": "Offa",
+          "key": "offa"
+        },
+        {
+          "name": "Oke Igosun",
+          "key": "oke-igosun"
+        },
+        {
+          "name": "Oke -oyi",
+          "key": "oke-oyi"
+        },
+        {
+          "name": "Oke-onigbin",
+          "key": "oke-onigbin"
+        },
+        {
+          "name": "Omu-aran",
+          "key": "omu-aran"
+        },
+        {
+          "name": "Omupo",
+          "key": "omupo"
+        },
+        {
+          "name": "Oro",
+          "key": "oro"
+        },
+        {
+          "name": "Otte",
+          "key": "otte"
+        },
+        {
+          "name": "Pategi",
+          "key": "pategi"
+        },
+        {
+          "name": "Shao",
+          "key": "shao"
+        },
+        {
+          "name": "Share",
+          "key": "share"
+        },
+        {
+          "name": "Songa",
+          "key": "songa"
+        },
+        {
+          "name": "Unilorin Main Campus",
+          "key": "unilorin-main-campus"
+        },
+        {
+          "name": "Yikpata",
+          "key": "yikpata"
+        }
+      ]
+    },
+    {
+      "name": "Niger",
+      "key": "niger",
+      "cities": [
+        {
+          "name": "Adunu",
+          "key": "adunu"
+        },
+        {
+          "name": "Agaie",
+          "key": "agaie"
+        },
+        {
+          "name": "Agawara",
+          "key": "agawara"
+        },
+        {
+          "name": "Badeggi, Ncri",
+          "key": "badeggi-ncri"
+        },
+        {
+          "name": "Beji",
+          "key": "beji"
+        },
+        {
+          "name": "Bida",
+          "key": "bida"
+        },
+        {
+          "name": "Biwater",
+          "key": "biwater"
+        },
+        {
+          "name": "Bosso",
+          "key": "bosso"
+        },
+        {
+          "name": "Chanchanga",
+          "key": "chanchanga"
+        },
+        {
+          "name": "Dikko",
+          "key": "dikko"
+        },
+        {
+          "name": "Doko",
+          "key": "doko"
+        },
+        {
+          "name": "Dutsen Kura",
+          "key": "dutsen-kura"
+        },
+        {
+          "name": "Edati",
+          "key": "edati"
+        },
+        {
+          "name": "Gawu Babangida",
+          "key": "gawu-babangida"
+        },
+        {
+          "name": "Gidankwano",
+          "key": "gidankwano"
+        },
+        {
+          "name": "Gulu",
+          "key": "gulu"
+        },
+        {
+          "name": "Gurara",
+          "key": "gurara"
+        },
+        {
+          "name": "Gussoro",
+          "key": "gussoro"
+        },
+        {
+          "name": "Gwada",
+          "key": "gwada"
+        },
+        {
+          "name": "Izom",
+          "key": "izom"
+        },
+        {
+          "name": "Kafinkoro",
+          "key": "kafinkoro"
+        },
+        {
+          "name": "Kagara",
+          "key": "kagara"
+        },
+        {
+          "name": "Kampala",
+          "key": "kampala"
+        },
+        {
+          "name": "Kata Eregi",
+          "key": "kata-eregi"
+        },
+        {
+          "name": "Katcha",
+          "key": "katcha"
+        },
+        {
+          "name": "Kontagora",
+          "key": "kontagora"
+        },
+        {
+          "name": "Kuta",
+          "key": "kuta"
+        },
+        {
+          "name": "Kutigi",
+          "key": "kutigi"
+        },
+        {
+          "name": "Lambata",
+          "key": "lambata"
+        },
+        {
+          "name": "Lapai, Ibb Univ.",
+          "key": "lapai-ibb-univ"
+        },
+        {
+          "name": "Mairiga",
+          "key": "mairiga"
+        },
+        {
+          "name": "Maitumbi",
+          "key": "maitumbi"
+        },
+        {
+          "name": "Maje",
+          "key": "maje"
+        },
+        {
+          "name": "Mashegu",
+          "key": "mashegu"
+        },
+        {
+          "name": "Minna",
+          "key": "minna"
+        },
+        {
+          "name": "Nasko",
+          "key": "nasko"
+        },
+        {
+          "name": "Paiko",
+          "key": "paiko"
+        },
+        {
+          "name": "Pandogari",
+          "key": "pandogari"
+        },
+        {
+          "name": "Pogo/nnpc Depot",
+          "key": "pogonnpc-depot"
+        },
+        {
+          "name": "Rijau",
+          "key": "rijau"
+        },
+        {
+          "name": "Sabondaga",
+          "key": "sabondaga"
+        },
+        {
+          "name": "Sarkinpawa",
+          "key": "sarkinpawa"
+        },
+        {
+          "name": "Shango",
+          "key": "shango"
+        },
+        {
+          "name": "Shiroro Dam",
+          "key": "shiroro-dam"
+        },
+        {
+          "name": "Suleja",
+          "key": "suleja"
+        },
+        {
+          "name": "Tegina",
+          "key": "tegina"
+        },
+        {
+          "name": "Tudun Fulani",
+          "key": "tudun-fulani"
+        },
+        {
+          "name": "Tunga Magajiya",
+          "key": "tunga-magajiya"
+        },
+        {
+          "name": "Wushishi",
+          "key": "wushishi"
+        },
+        {
+          "name": "Zuba Junction",
+          "key": "zuba-junction"
+        },
+        {
+          "name": "Zungeru",
+          "key": "zungeru"
+        }
+      ]
+    },
+    {
+      "name": "Ogun",
+      "key": "ogun",
+      "cities": [
+        {
+          "name": "Abeokuta",
+          "key": "abeokuta"
+        },
+        {
+          "name": "Ado-odo",
+          "key": "ado-odo"
+        },
+        {
+          "name": "Agbara",
+          "key": "agbara"
+        },
+        {
+          "name": "Ago-iwoye",
+          "key": "ago-iwoye"
+        },
+        {
+          "name": "Aiyeperemo",
+          "key": "aiyeperemo"
+        },
+        {
+          "name": "Ajilete",
+          "key": "ajilete"
+        },
+        {
+          "name": "Akaka Remo",
+          "key": "akaka-remo"
+        },
+        {
+          "name": "Akute",
+          "key": "akute"
+        },
+        {
+          "name": "Atan",
+          "key": "atan"
+        },
+        {
+          "name": "Ayetoro Egbado",
+          "key": "ayetoro-egbado"
+        },
+        {
+          "name": "Ewekoro",
+          "key": "ewekoro"
+        },
+        {
+          "name": "Ibafon",
+          "key": "ibafon"
+        },
+        {
+          "name": "Ibagwe",
+          "key": "ibagwe"
+        },
+        {
+          "name": "Ibese",
+          "key": "ibese"
+        },
+        {
+          "name": "Idi Iroko",
+          "key": "idi-iroko"
+        },
+        {
+          "name": "Ifo",
+          "key": "ifo"
+        },
+        {
+          "name": "Ifo Ibogun",
+          "key": "ifo-ibogun"
+        },
+        {
+          "name": "Igbesa",
+          "key": "igbesa"
+        },
+        {
+          "name": "Igbogila",
+          "key": "igbogila"
+        },
+        {
+          "name": "Ijagun",
+          "key": "ijagun"
+        },
+        {
+          "name": "Ijebu East",
+          "key": "ijebu-east"
+        },
+        {
+          "name": "Ijebu Ife",
+          "key": "ijebu-ife"
+        },
+        {
+          "name": "Ijebu Igbo",
+          "key": "ijebu-igbo"
+        },
+        {
+          "name": "Ijebu Mushin",
+          "key": "ijebu-mushin"
+        },
+        {
+          "name": "Ijebu Ode",
+          "key": "ijebu-ode"
+        },
+        {
+          "name": "Ijebu Ogbere",
+          "key": "ijebu-ogbere"
+        },
+        {
+          "name": "Ijebu Oru",
+          "key": "ijebu-oru"
+        },
+        {
+          "name": "Ijebu Waterside",
+          "key": "ijebu-waterside"
+        },
+        {
+          "name": "Ijebu-ala",
+          "key": "ijebu-ala"
+        },
+        {
+          "name": "Ijoko Ota",
+          "key": "ijoko-ota"
+        },
+        {
+          "name": "Ikangba",
+          "key": "ikangba"
+        },
+        {
+          "name": "Ikenne Remo",
+          "key": "ikenne-remo"
+        },
+        {
+          "name": "Ilaro",
+          "key": "ilaro"
+        },
+        {
+          "name": "Ilishan",
+          "key": "ilishan"
+        },
+        {
+          "name": "Imagbon",
+          "key": "imagbon"
+        },
+        {
+          "name": "Imeko",
+          "key": "imeko"
+        },
+        {
+          "name": "Iperu",
+          "key": "iperu"
+        },
+        {
+          "name": "Iperu Remo",
+          "key": "iperu-remo"
+        },
+        {
+          "name": "Ipokia",
+          "key": "ipokia"
+        },
+        {
+          "name": "Ishara Remo",
+          "key": "ishara-remo"
+        },
+        {
+          "name": "Isonyi",
+          "key": "isonyi"
+        },
+        {
+          "name": "Itori",
+          "key": "itori"
+        },
+        {
+          "name": "Iyamomo",
+          "key": "iyamomo"
+        },
+        {
+          "name": "J 4",
+          "key": "j-4"
+        },
+        {
+          "name": "Jobba",
+          "key": "jobba"
+        },
+        {
+          "name": "Mosimi",
+          "key": "mosimi"
+        },
+        {
+          "name": "Mowe",
+          "key": "mowe"
+        },
+        {
+          "name": "Obafe Owode",
+          "key": "obafe-owode"
+        },
+        {
+          "name": "Ode Remo",
+          "key": "ode-remo"
+        },
+        {
+          "name": "Odeda",
+          "key": "odeda"
+        },
+        {
+          "name": "Ogere",
+          "key": "ogere"
+        },
+        {
+          "name": "Ogere Remo",
+          "key": "ogere-remo"
+        },
+        {
+          "name": "Ogunmakin",
+          "key": "ogunmakin"
+        },
+        {
+          "name": "Oke Odan Road",
+          "key": "oke-odan-road"
+        },
+        {
+          "name": "Olodo Kila",
+          "key": "olodo-kila"
+        },
+        {
+          "name": "Oru",
+          "key": "oru"
+        },
+        {
+          "name": "Osiele",
+          "key": "osiele"
+        },
+        {
+          "name": "Otta",
+          "key": "otta"
+        },
+        {
+          "name": "Owode Egba",
+          "key": "owode-egba"
+        },
+        {
+          "name": "Owode Egbado",
+          "key": "owode-egbado"
+        },
+        {
+          "name": "Owode Ibese",
+          "key": "owode-ibese"
+        },
+        {
+          "name": "Owode Itori",
+          "key": "owode-itori"
+        },
+        {
+          "name": "Sagamu",
+          "key": "sagamu"
+        },
+        {
+          "name": "Sango Ota",
+          "key": "sango-ota"
+        }
+      ]
+    },
+    {
+      "name": "Ondo",
+      "key": "ondo",
+      "cities": [
+        {
+          "name": "Ado-ekiti",
+          "key": "ado-ekiti"
+        },
+        {
+          "name": "Agbado-ekiti",
+          "key": "agbado-ekiti"
+        },
+        {
+          "name": "Aisegba-ekiti",
+          "key": "aisegba-ekiti"
+        },
+        {
+          "name": "Akungba Akoko",
+          "key": "akungba-akoko"
+        },
+        {
+          "name": "Akure",
+          "key": "akure"
+        },
+        {
+          "name": "Aponmu",
+          "key": "aponmu"
+        },
+        {
+          "name": "Aramoko-ekiti",
+          "key": "aramoko-ekiti"
+        },
+        {
+          "name": "Araromi Obu",
+          "key": "araromi-obu"
+        },
+        {
+          "name": "Arigidi Akoko",
+          "key": "arigidi-akoko"
+        },
+        {
+          "name": "Bolorunduro",
+          "key": "bolorunduro"
+        },
+        {
+          "name": "Ede Gede Akoko",
+          "key": "ede-gede-akoko"
+        },
+        {
+          "name": "Efon Alaye",
+          "key": "efon-alaye"
+        },
+        {
+          "name": "Eruzu Akoko",
+          "key": "eruzu-akoko"
+        },
+        {
+          "name": "Ibaram",
+          "key": "ibaram"
+        },
+        {
+          "name": "Ibule",
+          "key": "ibule"
+        },
+        {
+          "name": "Idanre",
+          "key": "idanre"
+        },
+        {
+          "name": "Iddo Ekiti",
+          "key": "iddo-ekiti"
+        },
+        {
+          "name": "Idogun",
+          "key": "idogun"
+        },
+        {
+          "name": "Ifaki Ekiti",
+          "key": "ifaki-ekiti"
+        },
+        {
+          "name": "Ifon",
+          "key": "ifon"
+        },
+        {
+          "name": "Igbara Odo Ekiti",
+          "key": "igbara-odo-ekiti"
+        },
+        {
+          "name": "Igbara Oke",
+          "key": "igbara-oke"
+        },
+        {
+          "name": "Igbekebo",
+          "key": "igbekebo"
+        },
+        {
+          "name": "Igbokoda",
+          "key": "igbokoda"
+        },
+        {
+          "name": "Igede Ekiti",
+          "key": "igede-ekiti"
+        },
+        {
+          "name": "Ijan Ekiti",
+          "key": "ijan-ekiti"
+        },
+        {
+          "name": "Ijare",
+          "key": "ijare"
+        },
+        {
+          "name": "Ijero Ekiti",
+          "key": "ijero-ekiti"
+        },
+        {
+          "name": "Iju",
+          "key": "iju"
+        },
+        {
+          "name": "Ikaram",
+          "key": "ikaram"
+        },
+        {
+          "name": "Ikare Akoko",
+          "key": "ikare-akoko"
+        },
+        {
+          "name": "Ikere Ekiti",
+          "key": "ikere-ekiti"
+        },
+        {
+          "name": "Ikogosi",
+          "key": "ikogosi"
+        },
+        {
+          "name": "Ikole Ekiti",
+          "key": "ikole-ekiti"
+        },
+        {
+          "name": "Ikoro Ekiti",
+          "key": "ikoro-ekiti"
+        },
+        {
+          "name": "Ilara Mokin",
+          "key": "ilara-mokin"
+        },
+        {
+          "name": "Ile Oluji",
+          "key": "ile-oluji"
+        },
+        {
+          "name": "Ilodun Ekiti",
+          "key": "ilodun-ekiti"
+        },
+        {
+          "name": "Iloro Ekiti",
+          "key": "iloro-ekiti"
+        },
+        {
+          "name": "Ilupeju Ekiti",
+          "key": "ilupeju-ekiti"
+        },
+        {
+          "name": "Ipole Iloro",
+          "key": "ipole-iloro"
+        },
+        {
+          "name": "Ise Akoko",
+          "key": "ise-akoko"
+        },
+        {
+          "name": "Ise Ekiti",
+          "key": "ise-ekiti"
+        },
+        {
+          "name": "Isua Akoko",
+          "key": "isua-akoko"
+        },
+        {
+          "name": "Itaogbolu",
+          "key": "itaogbolu"
+        },
+        {
+          "name": "Iworoko",
+          "key": "iworoko"
+        },
+        {
+          "name": "Iyin Ekiti",
+          "key": "iyin-ekiti"
+        },
+        {
+          "name": "Lisagbede",
+          "key": "lisagbede"
+        },
+        {
+          "name": "Makinde",
+          "key": "makinde"
+        },
+        {
+          "name": "Ode-aye",
+          "key": "ode-aye"
+        },
+        {
+          "name": "Ode-irele",
+          "key": "ode-irele"
+        },
+        {
+          "name": "Ogbagi",
+          "key": "ogbagi"
+        },
+        {
+          "name": "Ogotun",
+          "key": "ogotun"
+        },
+        {
+          "name": "Oka Akoko",
+          "key": "oka-akoko"
+        },
+        {
+          "name": "Oke Agbe",
+          "key": "oke-agbe"
+        },
+        {
+          "name": "Okitipupa",
+          "key": "okitipupa"
+        },
+        {
+          "name": "Ondo Town",
+          "key": "ondo-town"
+        },
+        {
+          "name": "Ore",
+          "key": "ore"
+        },
+        {
+          "name": "Orin Ekiti",
+          "key": "orin-ekiti"
+        },
+        {
+          "name": "Otun Ekiti",
+          "key": "otun-ekiti"
+        },
+        {
+          "name": "Owena",
+          "key": "owena"
+        },
+        {
+          "name": "Owo",
+          "key": "owo"
+        },
+        {
+          "name": "Oye Ekiti",
+          "key": "oye-ekiti"
+        },
+        {
+          "name": "Usi Ekiti",
+          "key": "usi-ekiti"
+        }
+      ]
+    },
+    {
+      "name": "Osun",
+      "key": "osun",
+      "cities": [
+        {
+          "name": "Ada",
+          "key": "ada"
+        },
+        {
+          "name": "Akiriboto",
+          "key": "akiriboto"
+        },
+        {
+          "name": "Apomu",
+          "key": "apomu"
+        },
+        {
+          "name": "Bode",
+          "key": "bode"
+        },
+        {
+          "name": "Ede",
+          "key": "ede"
+        },
+        {
+          "name": "Edunabon",
+          "key": "edunabon"
+        },
+        {
+          "name": "Esa Oke",
+          "key": "esa-oke"
+        },
+        {
+          "name": "Gbongan",
+          "key": "gbongan"
+        },
+        {
+          "name": "Ibokun",
+          "key": "ibokun"
+        },
+        {
+          "name": "Idominasi",
+          "key": "idominasi"
+        },
+        {
+          "name": "Ife",
+          "key": "ife"
+        },
+        {
+          "name": "Ifetedo",
+          "key": "ifetedo"
+        },
+        {
+          "name": "Ifewara",
+          "key": "ifewara"
+        },
+        {
+          "name": "Igbajo",
+          "key": "igbajo"
+        },
+        {
+          "name": "Ijebu Ijesha",
+          "key": "ijebu-ijesha"
+        },
+        {
+          "name": "Ijeda",
+          "key": "ijeda"
+        },
+        {
+          "name": "Ikire",
+          "key": "ikire"
+        },
+        {
+          "name": "Ikirun",
+          "key": "ikirun"
+        },
+        {
+          "name": "Ila Oragun",
+          "key": "ila-oragun"
+        },
+        {
+          "name": "Ile Ogbo",
+          "key": "ile-ogbo"
+        },
+        {
+          "name": "Ilesha",
+          "key": "ilesha"
+        },
+        {
+          "name": "Ilobu",
+          "key": "ilobu"
+        },
+        {
+          "name": "Iloko Ijesha",
+          "key": "iloko-ijesha"
+        },
+        {
+          "name": "Imesi Ile",
+          "key": "imesi-ile"
+        },
+        {
+          "name": "Inisha",
+          "key": "inisha"
+        },
+        {
+          "name": "Ipetu Modu",
+          "key": "ipetu-modu"
+        },
+        {
+          "name": "Iragberi",
+          "key": "iragberi"
+        },
+        {
+          "name": "Iragbiji",
+          "key": "iragbiji"
+        },
+        {
+          "name": "Iree",
+          "key": "iree"
+        },
+        {
+          "name": "Iresi",
+          "key": "iresi"
+        },
+        {
+          "name": "Iwara",
+          "key": "iwara"
+        },
+        {
+          "name": "Iwaraja",
+          "key": "iwaraja"
+        },
+        {
+          "name": "Iwo",
+          "key": "iwo"
+        },
+        {
+          "name": "Iwopin",
+          "key": "iwopin"
+        },
+        {
+          "name": "Modakeke",
+          "key": "modakeke"
+        },
+        {
+          "name": "Okuku",
+          "key": "okuku"
+        },
+        {
+          "name": "Oshogbo",
+          "key": "oshogbo"
+        },
+        {
+          "name": "Osu",
+          "key": "osu"
+        },
+        {
+          "name": "Otan Ayegbanju",
+          "key": "otan-ayegbanju"
+        },
+        {
+          "name": "Oyan",
+          "key": "oyan"
+        },
+        {
+          "name": "Wasimi",
+          "key": "wasimi"
+        }
+      ]
+    },
+    {
+      "name": "Oyo",
+      "key": "oyo",
+      "cities": [
+        {
+          "name": "Ado Awaye",
+          "key": "ado-awaye"
+        },
+        {
+          "name": "Ago Amodu",
+          "key": "ago-amodu"
+        },
+        {
+          "name": "Ajawa",
+          "key": "ajawa"
+        },
+        {
+          "name": "Akanran",
+          "key": "akanran"
+        },
+        {
+          "name": "Asejire",
+          "key": "asejire"
+        },
+        {
+          "name": "Bodija",
+          "key": "bodija"
+        },
+        {
+          "name": "Dugbe",
+          "key": "dugbe"
+        },
+        {
+          "name": "Ejioku",
+          "key": "ejioku"
+        },
+        {
+          "name": "Eruwa",
+          "key": "eruwa"
+        },
+        {
+          "name": "Fiditi",
+          "key": "fiditi"
+        },
+        {
+          "name": "Ibadan",
+          "key": "ibadan"
+        },
+        {
+          "name": "Idi Ayunre",
+          "key": "idi-ayunre"
+        },
+        {
+          "name": "Ido",
+          "key": "ido"
+        },
+        {
+          "name": "Iganna",
+          "key": "iganna"
+        },
+        {
+          "name": "Igboho",
+          "key": "igboho"
+        },
+        {
+          "name": "Igboora",
+          "key": "igboora"
+        },
+        {
+          "name": "Ikose",
+          "key": "ikose"
+        },
+        {
+          "name": "Ilero",
+          "key": "ilero"
+        },
+        {
+          "name": "Ilora",
+          "key": "ilora"
+        },
+        {
+          "name": "Ilugun",
+          "key": "ilugun"
+        },
+        {
+          "name": "Iresa Du",
+          "key": "iresa-du"
+        },
+        {
+          "name": "Iseyin",
+          "key": "iseyin"
+        },
+        {
+          "name": "Jobele",
+          "key": "jobele"
+        },
+        {
+          "name": "Kishi",
+          "key": "kishi"
+        },
+        {
+          "name": "Kuta Ileogbo",
+          "key": "kuta-ileogbo"
+        },
+        {
+          "name": "Lanlate",
+          "key": "lanlate"
+        },
+        {
+          "name": "Mokola",
+          "key": "mokola"
+        },
+        {
+          "name": "Molete",
+          "key": "molete"
+        },
+        {
+          "name": "Moniya",
+          "key": "moniya"
+        },
+        {
+          "name": "Monya",
+          "key": "monya"
+        },
+        {
+          "name": "Ode Omu",
+          "key": "ode-omu"
+        },
+        {
+          "name": "Ogbomosho",
+          "key": "ogbomosho"
+        },
+        {
+          "name": "Oke Iho",
+          "key": "oke-iho"
+        },
+        {
+          "name": "Omi Adio",
+          "key": "omi-adio"
+        },
+        {
+          "name": "Out",
+          "key": "out"
+        },
+        {
+          "name": "Oyo Alaafin",
+          "key": "oyo-alaafin"
+        },
+        {
+          "name": "Oyo Town",
+          "key": "oyo-town"
+        },
+        {
+          "name": "Saki",
+          "key": "saki"
+        },
+        {
+          "name": "Sepeteri",
+          "key": "sepeteri"
+        }
+      ]
+    },
+    {
+      "name": "Plateau",
+      "key": "plateau",
+      "cities": [
+        {
+          "name": "Amper",
+          "key": "amper"
+        },
+        {
+          "name": "Anglo Jos",
+          "key": "anglo-jos"
+        },
+        {
+          "name": "Angware",
+          "key": "angware"
+        },
+        {
+          "name": "Barikin Ladi",
+          "key": "barikin-ladi"
+        },
+        {
+          "name": "Bassa",
+          "key": "bassa"
+        },
+        {
+          "name": "Binchi",
+          "key": "binchi"
+        },
+        {
+          "name": "Bokkos",
+          "key": "bokkos"
+        },
+        {
+          "name": "Bukuru",
+          "key": "bukuru"
+        },
+        {
+          "name": "Dengi",
+          "key": "dengi"
+        },
+        {
+          "name": "Duchi",
+          "key": "duchi"
+        },
+        {
+          "name": "Farin Gada",
+          "key": "farin-gada"
+        },
+        {
+          "name": "Ganaropp",
+          "key": "ganaropp"
+        },
+        {
+          "name": "Ganawuri",
+          "key": "ganawuri"
+        },
+        {
+          "name": "Gbajimba",
+          "key": "gbajimba"
+        },
+        {
+          "name": "Gengere",
+          "key": "gengere"
+        },
+        {
+          "name": "Gidan Waya",
+          "key": "gidan-waya"
+        },
+        {
+          "name": "Gindiri",
+          "key": "gindiri"
+        },
+        {
+          "name": "Gumau",
+          "key": "gumau"
+        },
+        {
+          "name": "Heipang",
+          "key": "heipang"
+        },
+        {
+          "name": "Jagindi",
+          "key": "jagindi"
+        },
+        {
+          "name": "Jengri",
+          "key": "jengri"
+        },
+        {
+          "name": "Jos",
+          "key": "jos"
+        },
+        {
+          "name": "Kadarko",
+          "key": "kadarko"
+        },
+        {
+          "name": "Kadarko (wuse)",
+          "key": "kadarko-wuse"
+        },
+        {
+          "name": "Kanan (dengi)",
+          "key": "kanan-dengi"
+        },
+        {
+          "name": "Kanke",
+          "key": "kanke"
+        },
+        {
+          "name": "Kerang",
+          "key": "kerang"
+        },
+        {
+          "name": "Kura Falls",
+          "key": "kura-falls"
+        },
+        {
+          "name": "Kurgwui",
+          "key": "kurgwui"
+        },
+        {
+          "name": "Kuru",
+          "key": "kuru"
+        },
+        {
+          "name": "Laminga",
+          "key": "laminga"
+        },
+        {
+          "name": "Langtang, North",
+          "key": "langtang-north"
+        },
+        {
+          "name": "Langtang, South",
+          "key": "langtang-south"
+        },
+        {
+          "name": "Laranto",
+          "key": "laranto"
+        },
+        {
+          "name": "Mabudi",
+          "key": "mabudi"
+        },
+        {
+          "name": "Mangu",
+          "key": "mangu"
+        },
+        {
+          "name": "Miango",
+          "key": "miango"
+        },
+        {
+          "name": "Mistali Village",
+          "key": "mistali-village"
+        },
+        {
+          "name": "Naraguta",
+          "key": "naraguta"
+        },
+        {
+          "name": "Nassu",
+          "key": "nassu"
+        },
+        {
+          "name": "Nnpc Depot",
+          "key": "nnpc-depot"
+        },
+        {
+          "name": "Pankshin",
+          "key": "pankshin"
+        },
+        {
+          "name": "Panyam",
+          "key": "panyam"
+        },
+        {
+          "name": "Quanpan",
+          "key": "quanpan"
+        },
+        {
+          "name": "Rayfield",
+          "key": "rayfield"
+        },
+        {
+          "name": "Riyom",
+          "key": "riyom"
+        },
+        {
+          "name": "Rockhaven",
+          "key": "rockhaven"
+        },
+        {
+          "name": "Rukuba",
+          "key": "rukuba"
+        },
+        {
+          "name": "Saminaka",
+          "key": "saminaka"
+        },
+        {
+          "name": "Shere Hills",
+          "key": "shere-hills"
+        },
+        {
+          "name": "Tenti",
+          "key": "tenti"
+        },
+        {
+          "name": "Vom",
+          "key": "vom"
+        },
+        {
+          "name": "Yewa Shendam",
+          "key": "yewa-shendam"
+        }
+      ]
+    },
+    {
+      "name": "Rivers",
+      "key": "rivers",
+      "cities": [
+        {
+          "name": "Abonema",
+          "key": "abonema"
+        },
+        {
+          "name": "Abua/odual",
+          "key": "abuaodual"
+        },
+        {
+          "name": "Afam",
+          "key": "afam"
+        },
+        {
+          "name": "Ahoada East",
+          "key": "ahoada-east"
+        },
+        {
+          "name": "Akenima Ahoada West",
+          "key": "akenima-ahoada-west"
+        },
+        {
+          "name": "Andoni",
+          "key": "andoni"
+        },
+        {
+          "name": "Apani",
+          "key": "apani"
+        },
+        {
+          "name": "Bodo",
+          "key": "bodo"
+        },
+        {
+          "name": "Bonny",
+          "key": "bonny"
+        },
+        {
+          "name": "Bori",
+          "key": "bori"
+        },
+        {
+          "name": "Borokiri",
+          "key": "borokiri"
+        },
+        {
+          "name": "Buguma",
+          "key": "buguma"
+        },
+        {
+          "name": "Choba",
+          "key": "choba"
+        },
+        {
+          "name": "Degema",
+          "key": "degema"
+        },
+        {
+          "name": "Diobu",
+          "key": "diobu"
+        },
+        {
+          "name": "Elele",
+          "key": "elele"
+        },
+        {
+          "name": "Elelenwo",
+          "key": "elelenwo"
+        },
+        {
+          "name": "Eleme",
+          "key": "eleme"
+        },
+        {
+          "name": "Emohua",
+          "key": "emohua"
+        },
+        {
+          "name": "Erema",
+          "key": "erema"
+        },
+        {
+          "name": "Etche",
+          "key": "etche"
+        },
+        {
+          "name": "Finima",
+          "key": "finima"
+        },
+        {
+          "name": "Gokana",
+          "key": "gokana"
+        },
+        {
+          "name": "Ibaa",
+          "key": "ibaa"
+        },
+        {
+          "name": "Igwuruta",
+          "key": "igwuruta"
+        },
+        {
+          "name": "Ipo",
+          "key": "ipo"
+        },
+        {
+          "name": "Isaka",
+          "key": "isaka"
+        },
+        {
+          "name": "Isiokpo",
+          "key": "isiokpo"
+        },
+        {
+          "name": "Khana",
+          "key": "khana"
+        },
+        {
+          "name": "Kono",
+          "key": "kono"
+        },
+        {
+          "name": "Nchia",
+          "key": "nchia"
+        },
+        {
+          "name": "Ndele",
+          "key": "ndele"
+        },
+        {
+          "name": "Ndoki",
+          "key": "ndoki"
+        },
+        {
+          "name": "Nonwa",
+          "key": "nonwa"
+        },
+        {
+          "name": "Obigbo",
+          "key": "obigbo"
+        },
+        {
+          "name": "Ogbakiri",
+          "key": "ogbakiri"
+        },
+        {
+          "name": "Ogbogoro",
+          "key": "ogbogoro"
+        },
+        {
+          "name": "Ogu/bolo",
+          "key": "ogubolo"
+        },
+        {
+          "name": "Okirika Town",
+          "key": "okirika-town"
+        },
+        {
+          "name": "Okogbe",
+          "key": "okogbe"
+        },
+        {
+          "name": "Omagwa",
+          "key": "omagwa"
+        },
+        {
+          "name": "Omoku",
+          "key": "omoku"
+        },
+        {
+          "name": "Omoku Ebocha",
+          "key": "omoku-ebocha"
+        },
+        {
+          "name": "Omuma",
+          "key": "omuma"
+        },
+        {
+          "name": "Onne",
+          "key": "onne"
+        },
+        {
+          "name": "Opobo",
+          "key": "opobo"
+        },
+        {
+          "name": "Oyigbo",
+          "key": "oyigbo"
+        },
+        {
+          "name": "Ozuoba",
+          "key": "ozuoba"
+        },
+        {
+          "name": "Portharcourt",
+          "key": "portharcourt"
+        },
+        {
+          "name": "Rumuji",
+          "key": "rumuji"
+        },
+        {
+          "name": "Rumuoluemeni",
+          "key": "rumuoluemeni"
+        },
+        {
+          "name": "Sakponwa",
+          "key": "sakponwa"
+        },
+        {
+          "name": "Tombia (rivers State)",
+          "key": "tombia-rivers-state"
+        },
+        {
+          "name": "Trans Amadi",
+          "key": "trans-amadi"
+        },
+        {
+          "name": "Ubima",
+          "key": "ubima"
+        }
+      ]
+    },
+    {
+      "name": "Sokoto",
+      "key": "sokoto",
+      "cities": [
+        {
+          "name": "Achida",
+          "key": "achida"
+        },
+        {
+          "name": "Alieru",
+          "key": "alieru"
+        },
+        {
+          "name": "Binji",
+          "key": "binji"
+        },
+        {
+          "name": "Bodinga",
+          "key": "bodinga"
+        },
+        {
+          "name": "Dange",
+          "key": "dange"
+        },
+        {
+          "name": "Dogon Daji",
+          "key": "dogon-daji"
+        },
+        {
+          "name": "Farfaru",
+          "key": "farfaru"
+        },
+        {
+          "name": "Gada",
+          "key": "gada"
+        },
+        {
+          "name": "Gidanmadi",
+          "key": "gidanmadi"
+        },
+        {
+          "name": "Goronyo",
+          "key": "goronyo"
+        },
+        {
+          "name": "Gudu",
+          "key": "gudu"
+        },
+        {
+          "name": "Gwadabawa",
+          "key": "gwadabawa"
+        },
+        {
+          "name": "Illela",
+          "key": "illela"
+        },
+        {
+          "name": "Isa",
+          "key": "isa"
+        },
+        {
+          "name": "Kebbe",
+          "key": "kebbe"
+        },
+        {
+          "name": "Kware",
+          "key": "kware"
+        },
+        {
+          "name": "Rabah",
+          "key": "rabah"
+        },
+        {
+          "name": "Sabo Birnin",
+          "key": "sabo-birnin"
+        },
+        {
+          "name": "Shagari",
+          "key": "shagari"
+        },
+        {
+          "name": "Shunni",
+          "key": "shunni"
+        },
+        {
+          "name": "Silame",
+          "key": "silame"
+        },
+        {
+          "name": "Sokoto North/south",
+          "key": "sokoto-northsouth"
+        },
+        {
+          "name": "Tamubawal",
+          "key": "tamubawal"
+        },
+        {
+          "name": "Tangaza",
+          "key": "tangaza"
+        },
+        {
+          "name": "Tyreta",
+          "key": "tyreta"
+        },
+        {
+          "name": "Wamako",
+          "key": "wamako"
+        },
+        {
+          "name": "Wurno",
+          "key": "wurno"
+        }
+      ]
+    },
+    {
+      "name": "Taraba",
+      "key": "taraba",
+      "cities": [
+        {
+          "name": "Jalingo",
+          "key": "jalingo"
+        }
+      ]
+    },
+    {
+      "name": "Yobe",
+      "key": "yobe",
+      "cities": [
+        {
+          "name": "Damaturu",
+          "key": "damaturu"
+        }
+      ]
+    },
+    {
+      "name": "Zamfara",
+      "key": "zamfara",
+      "cities": [
+        {
+          "name": "Anka",
+          "key": "anka"
+        },
+        {
+          "name": "Bakura",
+          "key": "bakura"
+        },
+        {
+          "name": "Birnin Magaji",
+          "key": "birnin-magaji"
+        },
+        {
+          "name": "Bukkuyu",
+          "key": "bukkuyu"
+        },
+        {
+          "name": "Bungudu",
+          "key": "bungudu"
+        },
+        {
+          "name": "Danchadi",
+          "key": "danchadi"
+        },
+        {
+          "name": "Gummi",
+          "key": "gummi"
+        },
+        {
+          "name": "Gusau",
+          "key": "gusau"
+        },
+        {
+          "name": "Kaura Namoda",
+          "key": "kaura-namoda"
+        },
+        {
+          "name": "Mafara",
+          "key": "mafara"
+        },
+        {
+          "name": "Maradun",
+          "key": "maradun"
+        },
+        {
+          "name": "Maru",
+          "key": "maru"
+        },
+        {
+          "name": "Miyenchi",
+          "key": "miyenchi"
+        },
+        {
+          "name": "Shinkafi",
+          "key": "shinkafi"
+        },
+        {
+          "name": "Talata Mafara",
+          "key": "talata-mafara"
+        },
+        {
+          "name": "Tsafe",
+          "key": "tsafe"
+        },
+        {
+          "name": "Zurmi",
+          "key": "zurmi"
+        }
+      ]
+    }
+  ]
+}

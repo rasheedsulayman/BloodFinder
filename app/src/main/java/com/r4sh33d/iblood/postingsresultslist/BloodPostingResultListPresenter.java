@@ -27,11 +27,8 @@ public class BloodPostingResultListPresenter implements BloodPostingResultListCo
         this.dataService = dataService;
     }
 
-
     @Override
-    public void start() {
-
-    }
+    public void start() {}
 
     @Override
     public void fetchMoreDetails(BloodPostingData bloodPostingData) {
