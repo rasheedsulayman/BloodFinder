@@ -57,7 +57,7 @@
                             android:lineSpacingExtra="4sp"
                             android:textColor="@android:color/black"
                             android:textStyle="normal"
-                            tools:text="Dear Ayobami, Emmanuel would like to receive blood donation from you. If you are okay with the request, Please acknowledge it by scheduling an appointment with them at one of the presented blood donation centers. After you accept the request, A message containing details of the schedule will be sent to them." />
+                            tools:text="Dear Ayobami, Emmanuel has accepted your blood donation request. They would like to meet you at  OAU THC Haematology unit  on Today at 5:30pm."/>
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
@@ -98,20 +98,20 @@
                                 tools:text="Rasheed Sulayman" />
 
                             <TextView
-                                android:visibility="gone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2dp"
-                                android:text="Location" />
+                                android:text="Location"
+                                android:visibility="gone" />
 
                             <TextView
-                                android:visibility="gone"
                                 android:id="@+id/location_textview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp"
+                                android:visibility="gone"
                                 tools:text="OAU Ife" />
 
                             <TextView
@@ -149,10 +149,10 @@
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
                         app:cardCornerRadius="4dp">
 
                         <LinearLayout
@@ -165,17 +165,17 @@
                                 android:id="@+id/view_route_text_view"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                tools:text="View route to OAU THC on the map"
                                 android:textColor="@color/almost_black"
-                                android:textSize="16sp" />
+                                android:textSize="16sp"
+                                tools:text="View route to OAU THC on the map" />
 
                             <Button
                                 android:id="@+id/view_selected_donation_center_button"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginRight="50dp"
                                 android:layout_marginLeft="50dp"
+                                android:layout_marginRight="50dp"
+                                android:layout_marginTop="8dp"
                                 android:background="@drawable/roundedbutton"
                                 android:text="Get Directions"
                                 android:textColor="@android:color/white" />
