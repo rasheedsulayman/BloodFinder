@@ -49,6 +49,7 @@
 
 
                         <TextView
+                            android:textSize="18sp"
                             android:id="@+id/header_info_textview"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

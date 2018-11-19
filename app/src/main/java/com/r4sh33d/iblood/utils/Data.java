@@ -22,7 +22,7 @@ public class Data {
     //Painful to write ☹️☹️☹️☹️
     public static HashMap<String, String[]> bloodTypeCompatibilityMapping = new HashMap<>();
     private static ArrayList<StateWrapper> statesWithCities = null;
-    public static ArrayList<BloodDonationCenter> bloodDonationCenters;
+    public static ArrayList<BloodDonationCenter> bloodDonationCenters = new ArrayList<>();
 
     static {
         bloodTypeCompatibilityMapping.put("AB+", new String[]{"O-", "O+", "B-", "B+", "A-", "A+", "AB-", "AB+"});
@@ -40,9 +40,13 @@ public class Data {
                 "OAUTHC Haematology Unit",
                 "OAUTHC Haematology Unit",
                 "Obafemi Awolowo University Teaching Hospitals Complex",
-                 new MiniLocation(7.508528999999999, 4.5669561)
+                new MiniLocation(7.508528999999999, 4.5669561)
 
         );
+
+        BloodDonationCenter hintBloodDonationCenter = new BloodDonationCenter();
+        hintBloodDonationCenter.name = "Select blood donation center";
+        bloodDonationCenters.add(0, hintBloodDonationCenter);
         bloodDonationCenters.add(bloodDonationCenter);
     }
 

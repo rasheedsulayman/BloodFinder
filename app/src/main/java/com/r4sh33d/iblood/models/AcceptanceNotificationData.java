@@ -36,6 +36,10 @@ public class AcceptanceNotificationData implements Parcelable {
     @Expose
     public String donorPreferredDonationCenterLong;
 
+    @SerializedName("donor_preferred_donation_center_google_map_name")
+    @Expose
+    public String donorPreferredDonationCenterGoogleMapName;
+
     @SerializedName("schedule_time_millis")
     @Expose
     public String scheduleTimeMillis; //milliseconds since epoch
@@ -49,15 +53,17 @@ public class AcceptanceNotificationData implements Parcelable {
         bloodDonorFbId = remoteNotificationDataMap.get("blood_donor_fb_id");
         bloodDonorName = remoteNotificationDataMap.get("blood_donor_name");
         bloodPostingId = remoteNotificationDataMap.get("blood_posting_id");
+        scheduleTimeMillis = remoteNotificationDataMap.get("schedule_time_millis");
         donorPreferredDonationCenterName = remoteNotificationDataMap.get("donor_preferred_donation_center_name");
         donorPreferredDonationCenterLat = remoteNotificationDataMap.get("donor_preferred_donation_center_lat");
         donorPreferredDonationCenterLong = remoteNotificationDataMap.get("donor_preferred_donation_center_long");
+        donorPreferredDonationCenterGoogleMapName = remoteNotificationDataMap.get("donor_preferred_donation_center_google_map_name");
     }
 
     public AcceptanceNotificationData(String type, String bloodDonorFbId, String bloodDonorName,
                                       String bloodPostingId, String donorPreferredDonationCenterName,
                                       String donorPreferredDonationCenterLat, String donorPreferredDonationCenterLong,
-                                      String scheduleTimeMillis) {
+                                      String donorPreferredDonationCenterGoogleMapName, String scheduleTimeMillis) {
         this.type = type;
         this.bloodDonorFbId = bloodDonorFbId;
         this.bloodDonorName = bloodDonorName;
@@ -65,6 +71,7 @@ public class AcceptanceNotificationData implements Parcelable {
         this.donorPreferredDonationCenterName = donorPreferredDonationCenterName;
         this.donorPreferredDonationCenterLat = donorPreferredDonationCenterLat;
         this.donorPreferredDonationCenterLong = donorPreferredDonationCenterLong;
+        this.donorPreferredDonationCenterGoogleMapName = donorPreferredDonationCenterGoogleMapName;
         this.scheduleTimeMillis = scheduleTimeMillis;
     }
 
@@ -91,6 +98,13 @@ public class AcceptanceNotificationData implements Parcelable {
         bloodDonorFbId = in.readString();
         bloodDonorName = in.readString();
         bloodPostingId = in.readString();
+        donorPreferredDonationCenterName = in.readString();
+        donorPreferredDonationCenterLat = in.readString();
+        donorPreferredDonationCenterLong = in.readString();
+        donorPreferredDonationCenterGoogleMapName = in.readString();
+        scheduleTimeMillis = in.readString();
+        timeArrived = in.readLong();
+        sentTime = in.readLong();
     }
 
     @Override
@@ -99,6 +113,13 @@ public class AcceptanceNotificationData implements Parcelable {
         dest.writeString(bloodDonorFbId);
         dest.writeString(bloodDonorName);
         dest.writeString(bloodPostingId);
+        dest.writeString(donorPreferredDonationCenterName);
+        dest.writeString(donorPreferredDonationCenterLat);
+        dest.writeString(donorPreferredDonationCenterLong);
+        dest.writeString(donorPreferredDonationCenterGoogleMapName);
+        dest.writeString(scheduleTimeMillis);
+        dest.writeLong(timeArrived);
+        dest.writeLong(sentTime);
     }
 
     @Override

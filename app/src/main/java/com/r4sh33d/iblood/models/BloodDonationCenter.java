@@ -6,10 +6,19 @@ public class BloodDonationCenter {
     public String googleMapName;
     public MiniLocation miniLocation;
 
+    public BloodDonationCenter(){
+
+    }
+
     public BloodDonationCenter(String name, String description, String googleMapName, MiniLocation miniLocation) {
         this.name = name;
         this.description = description;
         this.googleMapName = googleMapName;
         this.miniLocation = miniLocation;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

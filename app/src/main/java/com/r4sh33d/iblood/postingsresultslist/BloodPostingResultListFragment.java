@@ -91,7 +91,7 @@ public class BloodPostingResultListFragment extends BaseFragment implements
                 .negativeColor(getResources().getColor(R.color.blood_red))
                 .positiveText("Send")
                 .negativeText("Cancel")
-                .onPositive((dialog, which) -> {
+                .onPositive((dialog, which) ->  {
                     BloodRequestNotificationData notificationData =
                             new BloodRequestNotificationData(
                                     BLOOD_REQUEST_NOTIFICATION_TYPE,

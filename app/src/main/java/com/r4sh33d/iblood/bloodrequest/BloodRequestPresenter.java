@@ -109,7 +109,7 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
                         !bloodPostingData.status.equals(BloodPostingStatus.ACCEPTED)
                         ) {
                     if (!TextUtils.isEmpty(bloodSearchData.preferedRangeKm) &&
-                            (Double.parseDouble(bloodSearchData.preferedRangeKm) >
+                            ((Double.parseDouble(bloodSearchData.preferedRangeKm) * 1000 /*converting it to meters*/) >
                                     bloodPostingData.donorsLocation.distanceTo(bloodSearchData.seekersLocation))) {
                         resultsList.add(bloodPostingData);
                     } else if (TextUtils.isEmpty(bloodSearchData.preferedRangeKm)) {

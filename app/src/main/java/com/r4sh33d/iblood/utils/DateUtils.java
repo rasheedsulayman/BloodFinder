@@ -126,7 +126,7 @@ public class DateUtils {
         Date date = new Date(timeInMillis);
         String msg = "%s at %s";
 
-        String clockTime = formatDate(date, "HH:mm");
+        String clockTime = formatDate(date, "HH:mm a");
 
         switch (relativeTime) {
             case "Today":

@@ -24,6 +24,10 @@ import com.r4sh33d.iblood.utils.PrefsUtils;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -56,6 +60,9 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
 
     @BindView(R.id.view_route_text_view)
     TextView viewRouteTextView;
+
+    @BindView(R.id.donation_type_textview)
+    TextView donationTypeTextView;
 
     /* @BindView(R.id.phone_number_textview)
      TextView phoneNumberTextView;
@@ -119,23 +126,28 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
 
     @OnClick(R.id.view_selected_donation_center_button)
     public void onClickViewSelectedDonationCenterButton() {
-        Intent intent = Utils.getMapsIntent(notificationData.donorPreferredDonationCenterName);
+        Intent intent = Utils.getMapsIntent(notificationData.donorPreferredDonationCenterGoogleMapName);
         startActivity(intent);
     }
 
 
     @Override
     public void onDetailsSuccessfullyFetched(UserData bloodDonorData) {
+        SimpleDateFormat month_date = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.getDefault());
+        final Calendar c = Calendar.getInstance();
+        Utils.setCalenderDefault(c);
+        c.setTimeInMillis(Long.parseLong(notificationData.scheduleTimeMillis));
         String headerText = String.format("Dear %s, %s %s has accepted your blood donation request," +
-                        " They would like to meet you at <b>%s %s</b>. Please try to meet them at the stated time and venue.",
+                        " They would like to meet you at <b>%s on %s</b>. Please try to meet them at the stated time and venue.",
                 bloodSeekerData.firstName,
                 bloodDonorData.firstName,
                 bloodDonorData.lastName,
                 notificationData.donorPreferredDonationCenterName,
-                DateUtils.getRelativeSentFromMessageWithTime(Long.parseLong(notificationData.scheduleTimeMillis)));
+                month_date.format(c.getTime()));
 
         headerInfoTextView.setText(Utils.getHtmlFormattedText(headerText));
         fullNameTextView.setText(String.format("%s %s", bloodDonorData.firstName, bloodDonorData.lastName));
+        donationTypeTextView.setText("Paid"); //TODO come back and set this, Don't hardcode
         //locationTextView.setText(bloodDonorData.miniLocation.descriptiveAddress); //TODO come back and check this
         religionTextView.setText(bloodDonorData.religion); //TODO come back and hide this based on religion option
         viewRouteTextView.setText(String.format("View route to %s on the map", notificationData.donorPreferredDonationCenterName));

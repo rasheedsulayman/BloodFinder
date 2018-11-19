@@ -80,7 +80,6 @@
             <EditText
                 android:id="@+id/range_editText"
                 android:hint="km"
-                android:enabled="false"
                 android:gravity="center"
                 android:layout_width="100dp"
                 android:inputType="number"

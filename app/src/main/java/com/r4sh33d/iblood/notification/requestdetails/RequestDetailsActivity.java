@@ -44,6 +44,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import timber.log.Timber;
 
 import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.ACCEPTANCE_NOTIFICATION_TYPE;
 import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.NOTIFICATION_OBJECT_ARGS;
@@ -152,7 +153,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
         new MaterialDialog.Builder(this)
                 .title("Acceptance message sent")
                 .positiveColor(getResources().getColor(R.color.blood_red))
-                .content("Your donation schedule info has shared with " + bloodSeekerData.firstName + " "
+                .content("Your donation schedule info has been shared with " + bloodSeekerData.firstName + " "
                         + bloodSeekerData.lastName + ". Please try to keep the appointment")
                 .positiveText("Okay")
                 .cancelable(false)
@@ -163,9 +164,9 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
     }
 
     void prepareBloodDonationCentersSpinner() {
-        CustomSpinnerAdapter<BloodDonationCenter> listOfTitleAdapter = new CustomSpinnerAdapter<>(this,
+        CustomSpinnerAdapter<BloodDonationCenter> listOfBloodCenterAdapter = new CustomSpinnerAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, Data.bloodDonationCenters);
-        bloodBankSpinner.setAdapter(listOfTitleAdapter);
+        bloodBankSpinner.setAdapter(listOfBloodCenterAdapter);
     }
 
 
@@ -230,6 +231,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
                                     bloodPostingData.id, selectedDonationCenter.name,
                                     String.valueOf(selectedDonationCenter.miniLocation.latitude),
                                     String.valueOf(selectedDonationCenter.miniLocation.longitude),
+                                    selectedDonationCenter.googleMapName,
                                     String.valueOf(startingDateCalender.getTimeInMillis()));
                     NotificationPayload<AcceptanceNotificationData> notificationPayload
                             = new NotificationPayload<>(notificationData, bloodSeekerData.notificationToken);
@@ -250,7 +252,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
             return;
         }
         BloodDonationCenter selectedDonationCenter = (BloodDonationCenter) bloodBankSpinner.getSelectedItem();
-        startActivity(Utils.getMapsIntent(selectedDonationCenter.miniLocation));
+        startActivity(Utils.getMapsIntent(selectedDonationCenter.googleMapName));
     }
 
     @OnClick(R.id.date_linearlayout)
@@ -267,6 +269,7 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         SimpleDateFormat month_date = new SimpleDateFormat("MMMM d, yyyy", Locale.getDefault());
+        startingDateCalender.set(year, month, dayOfMonth);
         dateString = month_date.format(startingDateCalender.getTime());
         dateValueTextView.setText(dateString);
     }
