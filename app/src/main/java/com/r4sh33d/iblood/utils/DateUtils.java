@@ -120,7 +120,7 @@ public class DateUtils {
         return date.getTime();
     }
 
-    public static String getRelativeSentFromMessageWithTime(long timeInMillis) {
+    public static String getRelativeSentFromMessageWithTime (long timeInMillis) {
 
         String relativeTime = getRelativeTime(timeInMillis,false);
         Date date = new Date(timeInMillis);
@@ -129,7 +129,6 @@ public class DateUtils {
         String clockTime = formatDate(date, "HH:mm");
 
         switch (relativeTime) {
-
             case "Today":
                 return String.format(msg, "today", clockTime);
             case "Yesterday":

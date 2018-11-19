@@ -31,7 +31,7 @@ public class BloodPostingData implements Parcelable {
     public String donorsReligion;
     @SerializedName("donor_location")
     @Expose
-    public UserLocation donorsLocation;
+    public MiniLocation donorsLocation;
 
     @SerializedName("bloodPosting_id")
     @Expose
@@ -51,7 +51,7 @@ public class BloodPostingData implements Parcelable {
 
     public BloodPostingData(String donorsBloodType, String donationType, String donorsEmail,
                             String donorsName, String donorsPhoneNumber, String donorsFirebaseId,
-                            String donorsReligion, UserLocation donorsLocation , String id) {
+                            String donorsReligion, MiniLocation donorsLocation , String id) {
         creationTime = String.valueOf(System.currentTimeMillis());
         this.donorsBloodType = donorsBloodType;
         this.donationType = donationType;
@@ -66,7 +66,7 @@ public class BloodPostingData implements Parcelable {
 
     public BloodPostingData(String donorsBloodType, String donationType, String donorsEmail,
                             String donorsName, String donorsPhoneNumber, String donorsFirebaseId,
-                            String donorsReligion, UserLocation donorsLocation, String id, String status) {
+                            String donorsReligion, MiniLocation donorsLocation, String id, String status) {
         this(donorsBloodType, donationType, donorsEmail, donorsName, donorsPhoneNumber, donorsFirebaseId,
                 donorsReligion, donorsLocation, id);
         this.status = status;
@@ -80,7 +80,7 @@ public class BloodPostingData implements Parcelable {
         donorsPhoneNumber = in.readString();
         donorsFirebaseId = in.readString();
         donorsReligion = in.readString();
-        donorsLocation = in.readParcelable(UserLocation.class.getClassLoader());
+        donorsLocation = in.readParcelable(MiniLocation.class.getClassLoader());
         id = in.readString();
         status = in.readString();
         acceptedSeekerId = in.readString();

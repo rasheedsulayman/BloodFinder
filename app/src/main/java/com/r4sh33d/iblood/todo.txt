@@ -1,2 +1,21 @@
+New flow:
+
+- Send Notification to the blood donor
+
+- On Donors phone. Calculate the nearest blood bank (Taking in to consideration, Donor location and Seeker location and blood bank location)...
+
+- On Donors phone, set Time and date for the appointment, send it to the blood seeker.. View distance to the chosen blood bank too.
+
+- Schedule a reminder on the donors phone,  Alert them when it's almost time, show them the route
+
+- On Blood seekers phone, view direction to the location.
+
+- They still need to contact themselves
+
+
+Challenges
+ - Manual mapping of blood banks?
+
 What happens if blood seeker is already in an hospital.?
+why not go to blood bank directly to donate ?
 Would it involve telling the blood banks ahead?

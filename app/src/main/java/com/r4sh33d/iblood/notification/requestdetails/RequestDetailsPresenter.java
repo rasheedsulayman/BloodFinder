@@ -6,6 +6,7 @@ import com.r4sh33d.iblood.models.AcceptanceNotificationData;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.BloodSearchData;
+import com.r4sh33d.iblood.models.MiniLocation;
 import com.r4sh33d.iblood.models.NotificationPayload;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.DataService;
@@ -37,6 +38,11 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
     }
 
     @Override
+    public void fetchNearbyBloodDonationCenter(MiniLocation bloodSeekerLocation, MiniLocation bloodBankLocation) {
+
+    }
+
+    @Override
     public void fetchDetails(BloodRequestNotificationData notificationData) {
         view.showLoading("Fetching the requester details");
         dataService.getAdditionalUserDetails(notificationData.bloodSeekerFbId).enqueue(new Callback<JsonElement>() {
@@ -58,6 +64,9 @@ public class RequestDetailsPresenter implements RequestDetailsContract.Presenter
             }
         });
     }
+
+
+
 
     @Override
     public void sendNotification( UserData bloodSeekerData, NotificationPayload<AcceptanceNotificationData> notificationPayload) {

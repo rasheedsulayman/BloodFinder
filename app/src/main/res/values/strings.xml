@@ -13,6 +13,7 @@
     <string name="iblood_channel_name">IBlood Channel</string>
     <string name="iblood_channel_description">This channel is used to send notifications to blood donors and blood seekers</string>
     <string name="invalid_lat_long_used">Invalid Longitude and Latitude use</string>
-
+    <string name="touch_here_to_set_date">Touch here to set date</string>
+    <string name="touch_here_to_set_time">Touch here to set time</string>
 
 </resources>

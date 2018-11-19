@@ -35,7 +35,7 @@ public class UserData implements Parcelable {
 
     @SerializedName("location")
     @Expose
-    public UserLocation userLocation;
+    public MiniLocation miniLocation;
 
     @SerializedName("notification_token")
     @Expose
@@ -66,7 +66,7 @@ public class UserData implements Parcelable {
         address = in.readString();
         religion = in.readString();
         firebaseID = in.readString();
-        userLocation = in.readParcelable(UserLocation.class.getClassLoader());
+        miniLocation = in.readParcelable(MiniLocation.class.getClassLoader());
         notificationToken = in.readString();
     }
 
@@ -80,7 +80,7 @@ public class UserData implements Parcelable {
         dest.writeString(address);
         dest.writeString(religion);
         dest.writeString(firebaseID);
-        dest.writeParcelable(userLocation, flags);
+        dest.writeParcelable(miniLocation, flags);
         dest.writeString(notificationToken);
     }
 

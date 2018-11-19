@@ -14,9 +14,8 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.gson.JsonElement;
-import com.r4sh33d.iblood.models.User;
 import com.r4sh33d.iblood.models.UserData;
-import com.r4sh33d.iblood.models.UserLocation;
+import com.r4sh33d.iblood.models.MiniLocation;
 import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.utils.Constants;
@@ -78,12 +77,12 @@ public class LocationUpdateService extends Service {
                 .addOnSuccessListener(location -> {
                     //As a start, get the user's last Known location
                     if (location != null) {
-                        UserLocation userLocation = new UserLocation(location.getLatitude(), location.getLongitude());
+                        MiniLocation miniLocation = new MiniLocation(location.getLatitude(), location.getLongitude());
                         prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT,
-                                userLocation);
-                        LocationUtil.getAddressFromLatLongAsync(userLocation, LocationUpdateService.this, locationAdress -> {
-                            userLocation.descriptiveAddress = locationAdress;
-                            saveUserLocation(userLocation);
+                                miniLocation);
+                        LocationUtil.getAddressFromLatLongAsync(miniLocation, LocationUpdateService.this, locationAdress -> {
+                            miniLocation.descriptiveAddress = locationAdress;
+                            saveUserLocation(miniLocation);
                         });
                         Timber.d("Got last know location, long: %s, Lat: %s",
                                 location.getLongitude(), location.getLatitude());
@@ -118,11 +117,11 @@ public class LocationUpdateService extends Service {
         public void onLocationResult(LocationResult locationResult) {
             super.onLocationResult(locationResult);
             Location lastLocation = locationResult.getLastLocation();
-            UserLocation userLocation = new UserLocation(lastLocation.getLatitude(), lastLocation.getLongitude());
-            prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT, userLocation);
-            LocationUtil.getAddressFromLatLongAsync(userLocation, LocationUpdateService.this, locationAdress -> {
-                userLocation.descriptiveAddress = locationAdress;
-                saveUserLocation(userLocation);
+            MiniLocation miniLocation = new MiniLocation(lastLocation.getLatitude(), lastLocation.getLongitude());
+            prefsUtils.putObject(Constants.PREF_KEY_LOCATION_OBJECT, miniLocation);
+            LocationUtil.getAddressFromLatLongAsync(miniLocation, LocationUpdateService.this, locationAdress -> {
+                miniLocation.descriptiveAddress = locationAdress;
+                saveUserLocation(miniLocation);
             });
             Timber.d("Got a location result: %s", locationResult.getLastLocation());
         }
@@ -144,11 +143,11 @@ public class LocationUpdateService extends Service {
         mFusedLocationClient.removeLocationUpdates(mLocationCallback);
     }
 
-    public void saveUserLocation(UserLocation userLocation) {
+    public void saveUserLocation(MiniLocation miniLocation) {
         if (prefsUtils.doesContain(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS)) {
             UserData userData = prefsUtils.getPrefAsObject(Constants.PREF_KEY_ADDITIONAL_USER_DETAILS, UserData.class);
             DataService dataService = Provider.provideDataRetrofitService();
-            dataService.updateUserLocation(userData.firebaseID, userLocation).enqueue(new Callback<JsonElement>() {
+            dataService.updateUserLocation(userData.firebaseID, miniLocation).enqueue(new Callback<JsonElement>() {
                 @Override
                 public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                     JsendResponse jsendResponse = new JsendResponse(response.body(), response.errorBody());

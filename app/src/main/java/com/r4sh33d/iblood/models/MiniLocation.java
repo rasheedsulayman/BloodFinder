@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserLocation  implements Parcelable{
+public class MiniLocation implements Parcelable{
 
     @SerializedName("longitude")
     @Expose
@@ -21,13 +21,13 @@ public class UserLocation  implements Parcelable{
     public String descriptiveAddress;
 
 
-    public UserLocation(double latitude, double longitude) {
+    public MiniLocation(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
     //TODO get real directions with road with this https://stackoverflow.com/a/18312349/6484427
-    public  float distanceTo (UserLocation toLocation) {
+    public  float distanceTo (MiniLocation toLocation) {
         Location locationA = new Location("point A");
         locationA.setLatitude(latitude);
         locationA.setLongitude(longitude);
@@ -37,7 +37,7 @@ public class UserLocation  implements Parcelable{
         return locationA.distanceTo(locationB);
     }
 
-    protected UserLocation(Parcel in) {
+    protected MiniLocation(Parcel in) {
         longitude = in.readDouble();
         latitude = in.readDouble();
     }
@@ -53,15 +53,15 @@ public class UserLocation  implements Parcelable{
         return 0;
     }
 
-    public static final Creator<UserLocation> CREATOR = new Creator<UserLocation>() {
+    public static final Creator<MiniLocation> CREATOR = new Creator<MiniLocation>() {
         @Override
-        public UserLocation createFromParcel(Parcel in) {
-            return new UserLocation(in);
+        public MiniLocation createFromParcel(Parcel in) {
+            return new MiniLocation(in);
         }
 
         @Override
-        public UserLocation[] newArray(int size) {
-            return new UserLocation[size];
+        public MiniLocation[] newArray(int size) {
+            return new MiniLocation[size];
         }
     };
 

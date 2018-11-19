@@ -5,7 +5,7 @@ public class BloodSearchData {
     public String donationType;
     public boolean considerReligion;
     public String religion;
-    public UserLocation seekersLocation;
+    public MiniLocation seekersLocation;
     public String preferredDonorState;
     public String preferredDonorCity;
     public String preferedRangeKm;

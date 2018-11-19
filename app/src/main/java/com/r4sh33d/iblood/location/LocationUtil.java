@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.r4sh33d.iblood.R;
-import com.r4sh33d.iblood.models.UserLocation;
+import com.r4sh33d.iblood.models.MiniLocation;
 import com.r4sh33d.iblood.utils.Utils;
 
 import java.io.IOException;
@@ -47,7 +47,7 @@ public class LocationUtil {
         });
     }
 
-    public static void  getAddressFromLatLongAsync (UserLocation location, Context context ,
+    public static void  getAddressFromLatLongAsync (MiniLocation location, Context context ,
                                                     LocationAddressRetrievedListener listener){
         new AsyncTask<Void, Void , String>(){
 
@@ -66,7 +66,7 @@ public class LocationUtil {
     }
 
 
-    public static  String getAddressFromLatLong (UserLocation location, Context context) {
+    public static  String getAddressFromLatLong (MiniLocation location, Context context) {
         if (context == null){
             return "";
         }

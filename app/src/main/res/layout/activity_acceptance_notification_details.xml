@@ -39,111 +39,150 @@
                     android:layout_marginRight="16dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/header_info_textview"
+
+                    <android.support.v7.widget.CardView
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
                         android:layout_marginTop="12dp"
-                        android:fontFamily="sans-serif"
-                        android:lineSpacingExtra="4sp"
-                        android:textColor="@android:color/black"
-                        android:textStyle="normal"
-                        tools:text="Dear Ayobami, Emmanuel has accepted your blood donation request, Their contact information is presented below alongside other relevant information." />
+                        app:cardCornerRadius="4dp">
 
-                    <TextView
+
+                        <TextView
+                            android:id="@+id/header_info_textview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="4sp"
+                            android:textColor="@android:color/black"
+                            android:textStyle="normal"
+                            tools:text="Dear Ayobami, Emmanuel would like to receive blood donation from you. If you are okay with the request, Please acknowledge it by scheduling an appointment with them at one of the presented blood donation centers. After you accept the request, A message containing details of the schedule will be sent to them." />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Full name" />
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="4dp">
 
-                    <TextView
-                        android:id="@+id/full_name_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Blood donation info"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Full name" />
+
+                            <TextView
+                                android:id="@+id/full_name_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="16dp"
+                                tools:text="Rasheed Sulayman" />
+
+                            <TextView
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Location" />
+
+                            <TextView
+                                android:visibility="gone"
+                                android:id="@+id/location_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="16dp"
+                                tools:text="OAU Ife" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Donation type" />
+
+                            <TextView
+                                android:id="@+id/donation_type_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="16dp"
+                                tools:text="Paid" />
+
+                            <TextView
+                                android:id="@+id/religion_label"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Religion" />
+
+                            <TextView
+                                android:id="@+id/religion_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="16dp"
+                                tools:text="OAU Ife" />
+
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
                         android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="Rasheed Sulayman" />
-
-                    <TextView
+                        android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Location" />
+                        app:cardCornerRadius="4dp">
 
-                    <TextView
-                        android:id="@+id/location_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="OAU Ife" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="4dp"
+                            android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Donation type" />
+                            <TextView
+                                android:id="@+id/view_route_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="View route to OAU THC on the map"
+                                android:textColor="@color/almost_black"
+                                android:textSize="16sp" />
 
-                    <TextView
-                        android:id="@+id/donation_type_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="Paid" />
+                            <Button
+                                android:id="@+id/view_selected_donation_center_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="50dp"
+                                android:layout_marginLeft="50dp"
+                                android:background="@drawable/roundedbutton"
+                                android:text="Get Directions"
+                                android:textColor="@android:color/white" />
 
-                    <TextView
-                        android:id="@+id/religion_label"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Religion" />
+                        </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/religion_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="OAU Ife" />
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Phone number" />
-
-                    <TextView
-                        android:id="@+id/phone_number_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="08165574445" />
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Email" />
-
-                    <TextView
-                        android:id="@+id/email_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="sulaymanrasheed@gmail.com" />
-
+                    </android.support.v7.widget.CardView>
 
                 </LinearLayout>
             </ScrollView>
@@ -162,12 +201,12 @@
 
         </LinearLayout>
 
-          <include
-              android:visibility="gone"
-              layout="@layout/blocking_progress_indicator"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_marginTop="0dp"/>
+        <include
+            layout="@layout/blocking_progress_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:visibility="gone" />
 
     </FrameLayout>
 

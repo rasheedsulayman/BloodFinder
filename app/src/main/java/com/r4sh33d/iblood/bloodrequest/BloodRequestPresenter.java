@@ -10,7 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import com.r4sh33d.iblood.location.LocationUtil;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodSearchData;
-import com.r4sh33d.iblood.models.UserLocation;
+import com.r4sh33d.iblood.models.MiniLocation;
 import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.utils.Constants;
@@ -28,8 +28,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import timber.log.Timber;
-
-import static com.r4sh33d.iblood.utils.Constants.BloodPostingStatus.*;
 
 
 public class BloodRequestPresenter implements BloodRequestContract.Presenter {
@@ -58,7 +56,7 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
             LocationUtil.getLastKnownLocation(context, new LocationUtil.LocationRetrievedListener() {
                 @Override
                 public void onLocationRetrieved(Location location) {
-                    bloodSearchData.seekersLocation = new UserLocation(location.getLatitude(), location.getLongitude());
+                    bloodSearchData.seekersLocation = new MiniLocation(location.getLatitude(), location.getLongitude());
                 }
 
                 @Override
@@ -69,7 +67,7 @@ public class BloodRequestPresenter implements BloodRequestContract.Presenter {
             });
         } else {
             //We have the location info
-            bloodSearchData.seekersLocation = prefsUtils.getPrefAsObject(Constants.PREF_KEY_LOCATION_OBJECT, UserLocation.class);
+            bloodSearchData.seekersLocation = prefsUtils.getPrefAsObject(Constants.PREF_KEY_LOCATION_OBJECT, MiniLocation.class);
             searchForBloodDonors(bloodSearchData);
         }
     }

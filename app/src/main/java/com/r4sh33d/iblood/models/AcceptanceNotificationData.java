@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AcceptanceNotificationData  implements Parcelable{
+public class AcceptanceNotificationData implements Parcelable {
 
     @SerializedName("type")
     @Expose
@@ -24,16 +24,48 @@ public class AcceptanceNotificationData  implements Parcelable{
     @Expose
     public String bloodPostingId;
 
+    @SerializedName("donor_preferred_donation_center_name")
+    @Expose
+    public String donorPreferredDonationCenterName;
+
+    @SerializedName("donor_preferred_donation_center_lat")
+    @Expose
+    public String donorPreferredDonationCenterLat;
+
+    @SerializedName("donor_preferred_donation_center_long")
+    @Expose
+    public String donorPreferredDonationCenterLong;
+
+    @SerializedName("schedule_time_millis")
+    @Expose
+    public String scheduleTimeMillis; //milliseconds since epoch
+
     public long timeArrived; //milliseconds since epoch
     public long sentTime;
 
 
-
-    public AcceptanceNotificationData (Map<String, String> remoteNotificationDataMap) {
+    public AcceptanceNotificationData(Map<String, String> remoteNotificationDataMap) {
         type = remoteNotificationDataMap.get("type");
         bloodDonorFbId = remoteNotificationDataMap.get("blood_donor_fb_id");
         bloodDonorName = remoteNotificationDataMap.get("blood_donor_name");
         bloodPostingId = remoteNotificationDataMap.get("blood_posting_id");
+        donorPreferredDonationCenterName = remoteNotificationDataMap.get("donor_preferred_donation_center_name");
+        donorPreferredDonationCenterLat = remoteNotificationDataMap.get("donor_preferred_donation_center_lat");
+        donorPreferredDonationCenterLong = remoteNotificationDataMap.get("donor_preferred_donation_center_long");
+    }
+
+    public AcceptanceNotificationData(String type, String bloodDonorFbId, String bloodDonorName,
+                                      String bloodPostingId, String donorPreferredDonationCenterName,
+                                      String donorPreferredDonationCenterLat, String donorPreferredDonationCenterLong,
+                                      String scheduleTimeMillis) {
+        this.type = type;
+        this.bloodDonorFbId = bloodDonorFbId;
+        this.bloodDonorName = bloodDonorName;
+        this.bloodPostingId = bloodPostingId;
+        this.donorPreferredDonationCenterName = donorPreferredDonationCenterName;
+        this.donorPreferredDonationCenterLat = donorPreferredDonationCenterLat;
+        this.donorPreferredDonationCenterLong = donorPreferredDonationCenterLong;
+        this.scheduleTimeMillis = scheduleTimeMillis;
     }
 
     public AcceptanceNotificationData(String type, String bloodDonorFbId, String bloodDonorName,

@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -15,18 +16,18 @@ import android.widget.TextView;
 
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.models.AcceptanceNotificationData;
-import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
-import com.r4sh33d.iblood.notification.requestdetails.RequestDetailsContract;
-import com.r4sh33d.iblood.notification.requestdetails.RequestDetailsPresenter;
 import com.r4sh33d.iblood.utils.Constants;
+import com.r4sh33d.iblood.utils.DateUtils;
 import com.r4sh33d.iblood.utils.PrefsUtils;
+import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.internal.Util;
 
 import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.NOTIFICATION_OBJECT_ARGS;
 
@@ -53,18 +54,21 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
     @BindView(R.id.religion_textview)
     TextView religionTextView;
 
-    @BindView(R.id.phone_number_textview)
-    TextView phoneNumberTextView;
+    @BindView(R.id.view_route_text_view)
+    TextView viewRouteTextView;
 
-    @BindView(R.id.email_textview)
-    TextView emailTextView;
+    /* @BindView(R.id.phone_number_textview)
+     TextView phoneNumberTextView;
 
+     @BindView(R.id.email_textview)
+     TextView emailTextView;
+ */
     @BindView(R.id.finish_button)
     Button finishButton;
 
     PrefsUtils prefsUtils;
     UserData bloodSeekerData;
-
+    AcceptanceNotificationData notificationData;
     AcceptanceDetailsContract.Presenter presenter;
 
     @Override
@@ -74,7 +78,7 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-         actionBar.setTitle("Blood request Accepted");
+        actionBar.setTitle("Blood request Accepted");
 
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
@@ -92,7 +96,7 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
 
     private void handleNotificationIntent(Intent intent) {
         if (intent.hasExtra(NOTIFICATION_OBJECT_ARGS)) {
-            AcceptanceNotificationData notificationData = intent.getParcelableExtra(NOTIFICATION_OBJECT_ARGS);
+            notificationData = intent.getParcelableExtra(NOTIFICATION_OBJECT_ARGS);
             presenter.fetchDetails(notificationData);
         }
     }
@@ -109,8 +113,37 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
 
     @OnClick(R.id.finish_button)
     public void onFinishButtonClicked() {
-         finish();
+        finish();
     }
+
+
+    @OnClick(R.id.view_selected_donation_center_button)
+    public void onClickViewSelectedDonationCenterButton() {
+        Intent intent = Utils.getMapsIntent(notificationData.donorPreferredDonationCenterName);
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onDetailsSuccessfullyFetched(UserData bloodDonorData) {
+        String headerText = String.format("Dear %s, %s %s has accepted your blood donation request," +
+                        " They would like to meet you at <b>%s %s</b>. Please try to meet them at the stated time and venue.",
+                bloodSeekerData.firstName,
+                bloodDonorData.firstName,
+                bloodDonorData.lastName,
+                notificationData.donorPreferredDonationCenterName,
+                DateUtils.getRelativeSentFromMessageWithTime(Long.parseLong(notificationData.scheduleTimeMillis)));
+
+        headerInfoTextView.setText(Utils.getHtmlFormattedText(headerText));
+        fullNameTextView.setText(String.format("%s %s", bloodDonorData.firstName, bloodDonorData.lastName));
+        //locationTextView.setText(bloodDonorData.miniLocation.descriptiveAddress); //TODO come back and check this
+        religionTextView.setText(bloodDonorData.religion); //TODO come back and hide this based on religion option
+        viewRouteTextView.setText(String.format("View route to %s on the map", notificationData.donorPreferredDonationCenterName));
+
+       /* phoneNumberTextView.setText(bloodDonorData.phoneNumber);
+        emailTextView.setText(bloodDonorData.email);*/
+    }
+
 
     @Override
     public void showLoading(String message) {
@@ -137,15 +170,4 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
         dialog.show();
     }
 
-    @Override
-    public void onDetailsSuccessfullyFetched(UserData bloodDonorData) {
-        headerInfoTextView.setText(String.format("Dear %s, %s %s  has accepted your blood donation request, " +
-                "Their contact information is presented below alongside other relevant information", bloodSeekerData.firstName,
-                bloodDonorData.firstName , bloodDonorData.lastName));
-        fullNameTextView.setText(String.format("%s %s", bloodDonorData.firstName, bloodDonorData.lastName));
-        locationTextView.setText(bloodDonorData.userLocation.descriptiveAddress); //TODO come back and check this
-        religionTextView.setText(bloodDonorData.religion); //TODO come back and hide this based on religion option
-        phoneNumberTextView.setText(bloodDonorData.phoneNumber);
-        emailTextView.setText(bloodDonorData.email);
-    }
 }

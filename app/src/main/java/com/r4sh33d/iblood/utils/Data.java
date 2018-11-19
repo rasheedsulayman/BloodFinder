@@ -5,6 +5,8 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.r4sh33d.iblood.R;
+import com.r4sh33d.iblood.models.BloodDonationCenter;
+import com.r4sh33d.iblood.models.MiniLocation;
 import com.r4sh33d.iblood.models.states_cities.State;
 import com.r4sh33d.iblood.models.states_cities.StateWrapper;
 
@@ -20,6 +22,7 @@ public class Data {
     //Painful to write ☹️☹️☹️☹️
     public static HashMap<String, String[]> bloodTypeCompatibilityMapping = new HashMap<>();
     private static ArrayList<StateWrapper> statesWithCities = null;
+    public static ArrayList<BloodDonationCenter> bloodDonationCenters;
 
     static {
         bloodTypeCompatibilityMapping.put("AB+", new String[]{"O-", "O+", "B-", "B+", "A-", "A+", "AB-", "AB+"});
@@ -31,6 +34,18 @@ public class Data {
         bloodTypeCompatibilityMapping.put("O+", new String[]{"O-", "O+"});
         bloodTypeCompatibilityMapping.put("O-", new String[]{"O-"});
     }
+
+    static {
+        BloodDonationCenter bloodDonationCenter = new BloodDonationCenter(
+                "OAUTHC Haematology Unit",
+                "OAUTHC Haematology Unit",
+                "Obafemi Awolowo University Teaching Hospitals Complex",
+                 new MiniLocation(7.508528999999999, 4.5669561)
+
+        );
+        bloodDonationCenters.add(bloodDonationCenter);
+    }
+
 
     public static ArrayList<StateWrapper> getStatesWithCitiesList(Context context) {
         if (statesWithCities == null) {

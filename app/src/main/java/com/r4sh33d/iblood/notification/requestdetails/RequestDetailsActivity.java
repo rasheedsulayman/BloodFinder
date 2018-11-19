@@ -1,41 +1,56 @@
 package com.r4sh33d.iblood.notification.requestdetails;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.models.AcceptanceNotificationData;
+import com.r4sh33d.iblood.models.BloodDonationCenter;
 import com.r4sh33d.iblood.models.BloodPostingData;
 import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.NotificationPayload;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
+import com.r4sh33d.iblood.utils.CustomSpinnerAdapter;
+import com.r4sh33d.iblood.utils.Data;
+import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.ACCEPTANCE_NOTIFICATION_TYPE;
-import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.BLOOD_REQUEST_NOTIFICATION_TYPE;
 import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.NOTIFICATION_OBJECT_ARGS;
 
 
-public class RequestDetailsActivity extends AppCompatActivity implements RequestDetailsContract.View {
+public class RequestDetailsActivity extends AppCompatActivity implements RequestDetailsContract.View,
+        DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -66,9 +81,22 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
     @BindView(R.id.decline_button)
     Button declineButton;
 
+    @BindView(R.id.date_value)
+    TextView dateValueTextView;
+
+    @BindView(R.id.time_value)
+    TextView timeValueTextView;
+
+    @BindView(R.id.blood_bank_spinner)
+    Spinner bloodBankSpinner;
+
+    String dateString = "";
+    String timeString = "";
+
     RequestDetailsContract.Presenter presenter;
     private UserData bloodSeekerData;
     private BloodPostingData bloodPostingData;
+    private Calendar startingDateCalender;
 
 
     @Override
@@ -82,6 +110,10 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
         actionBar.setTitle("Blood Request");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
+        prepareBloodDonationCentersSpinner();
+        startingDateCalender = Calendar.getInstance();
+        Utils.setCalenderDefault(startingDateCalender);
+
         presenter = new RequestDetailsPresenter(this,
                 Provider.provideDataRetrofitService(), Provider.providePrefManager(this),
                 Provider.provideNotificationRetrofitService());
@@ -105,11 +137,12 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
         this.bloodSeekerData = bloodSeekerData;
         this.bloodPostingData = bloodPostingData;
         acceptButton.setEnabled(true);
-        headerInfoTextView.setText(String.format("Dear %s, %s %s would like to receive blood donation from you. If you are okay with the request, " +
-                "Please acknowledge it by clicking the acceptance button below. After you accept the request," +
-                " Your contact information will be shared with them. Their detailed information is presented below", bloodPostingData.donorsName, bloodSeekerData.firstName, bloodSeekerData.lastName));
+        headerInfoTextView.setText(String.format("Dear %s, %s %s would like to receive blood donation from you. If you are okay with the request," +
+                        " Please acknowledge it by scheduling an appointment with them at one of the presented blood donation centers." +
+                        " After you accept the request, A message containing details of the schedule will be sent to them.",
+                bloodPostingData.donorsName, bloodSeekerData.firstName, bloodSeekerData.lastName));
         fullNameTextView.setText(String.format("%s %s", bloodSeekerData.firstName, bloodSeekerData.lastName));
-        locationTextView.setText(bloodSeekerData.userLocation.descriptiveAddress); //TODO come back and check this
+        //  locationTextView.setText(bloodSeekerData.miniLocation.descriptiveAddress); //TODO come back and check this
         donationTypeTextView.setText(bloodPostingData.donationType);
         religionTextView.setText(bloodSeekerData.religion); //TODO come back and hide this based on religion option
     }
@@ -119,14 +152,26 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
         new MaterialDialog.Builder(this)
                 .title("Acceptance message sent")
                 .positiveColor(getResources().getColor(R.color.blood_red))
-                .content("Your contact details has been shared with " + bloodSeekerData.firstName + " "
-                        + bloodSeekerData.lastName + ". They will contact you soon.")
+                .content("Your donation schedule info has shared with " + bloodSeekerData.firstName + " "
+                        + bloodSeekerData.lastName + ". Please try to keep the appointment")
                 .positiveText("Okay")
                 .cancelable(false)
                 .onPositive((dialog, which) -> {
                     //We are done here
                     finish();
                 }).show();
+    }
+
+    void prepareBloodDonationCentersSpinner() {
+        CustomSpinnerAdapter<BloodDonationCenter> listOfTitleAdapter = new CustomSpinnerAdapter<>(this,
+                android.R.layout.simple_spinner_dropdown_item, Data.bloodDonationCenters);
+        bloodBankSpinner.setAdapter(listOfTitleAdapter);
+    }
+
+
+    @Override
+    public void onNearbyBloodBanksFetched(ArrayList<BloodDonationCenter> donationCenters) {
+
     }
 
 
@@ -142,11 +187,38 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
 
     @OnClick(R.id.accept_button)
     public void onAcceptButtonClicked() {
+        if (bloodBankSpinner.getSelectedItemPosition() < 1) {
+            showToast("Please select a blood donation center to proceed");
+            return;
+        }
+
+        if (TextUtils.isEmpty(dateString)) {
+            showToast("Please select a valid date to proceed");
+            return;
+        }
+
+        if (TextUtils.isEmpty(timeString)) {
+            showToast("Please select a valid time to proceed");
+            return;
+        }
+
+        showSendConfirmationDialog();
+    }
+
+
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+
+    void showSendConfirmationDialog() {
+        BloodDonationCenter selectedDonationCenter = (BloodDonationCenter) bloodBankSpinner.getSelectedItem();
         new MaterialDialog.Builder(this)
                 .title("Send Confirmation ?")
                 .positiveColor(getResources().getColor(R.color.blood_red))
                 .negativeColor(getResources().getColor(R.color.blood_red))
-                .content(String.format("A Confirmation message will be sent to %s %s", bloodSeekerData.firstName, bloodSeekerData.lastName))
+                .content(String.format("A Confirmation message and the schedule info will be sent to %s %s",
+                        bloodSeekerData.firstName, bloodSeekerData.lastName))
                 .positiveText("Send")
                 .negativeText("Cancel")
                 .onPositive((dialog, which) -> {
@@ -155,20 +227,63 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
                                     ACCEPTANCE_NOTIFICATION_TYPE,
                                     bloodPostingData.donorsFirebaseId,
                                     bloodPostingData.donorsName,
-                                    bloodPostingData.id);
+                                    bloodPostingData.id, selectedDonationCenter.name,
+                                    String.valueOf(selectedDonationCenter.miniLocation.latitude),
+                                    String.valueOf(selectedDonationCenter.miniLocation.longitude),
+                                    String.valueOf(startingDateCalender.getTimeInMillis()));
                     NotificationPayload<AcceptanceNotificationData> notificationPayload
                             = new NotificationPayload<>(notificationData, bloodSeekerData.notificationToken);
                     presenter.sendNotification(bloodSeekerData, notificationPayload);
                 })
                 .onNegative((dialog, which) -> {
+
                     //noOp
                 })
                 .show();
     }
 
+
+    @OnClick(R.id.view_selected_donation_center_button)
+    void onClickViewSelectedDonationCenter() {
+        if (bloodBankSpinner.getSelectedItemPosition() < 1) {
+            showToast("Please select a blood donation center to proceed");
+            return;
+        }
+        BloodDonationCenter selectedDonationCenter = (BloodDonationCenter) bloodBankSpinner.getSelectedItem();
+        startActivity(Utils.getMapsIntent(selectedDonationCenter.miniLocation));
+    }
+
+    @OnClick(R.id.date_linearlayout)
+    void onClickStartingDate() {
+        showDatePicker();
+    }
+
+
+    @OnClick(R.id.time_linearlayout)
+    void onClickStartingTimeValue() {
+        showTimePickerDialog();
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        SimpleDateFormat month_date = new SimpleDateFormat("MMMM d, yyyy", Locale.getDefault());
+        dateString = month_date.format(startingDateCalender.getTime());
+        dateValueTextView.setText(dateString);
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        startingDateCalender.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        startingDateCalender.set(Calendar.MINUTE, minute);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+        timeString = dateFormat.format(startingDateCalender.getTime());
+        timeValueTextView.setText(timeString);
+    }
+
+
     @OnClick(R.id.decline_button)
     public void onDeclineButtonClicked() {
-          finish();
+        finish();
     }
 
     @Override
@@ -194,5 +309,27 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
+    }
+
+    void showDatePicker() {
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        // Create a new instance of DatePickerDialog and return it
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, this, year, month, day);
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+        datePickerDialog.show();
+    }
+
+    void showTimePickerDialog() {
+        // Use the current time as the default values for the picker
+        final Calendar c = Calendar.getInstance();
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int minute = c.get(Calendar.MINUTE);
+        // Create a new instance of TimePickerDialog and return it
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, this, hour, minute,
+                DateFormat.is24HourFormat(this));
+        timePickerDialog.show();
     }
 }

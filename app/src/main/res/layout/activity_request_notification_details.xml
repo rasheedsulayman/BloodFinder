@@ -39,78 +39,269 @@
                     android:layout_marginRight="16dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/header_info_textview"
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:cardCornerRadius="4dp">
+
+
+                        <TextView
+                            android:id="@+id/header_info_textview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:fontFamily="sans-serif"
+                            android:lineSpacingExtra="4sp"
+                            android:textColor="@android:color/black"
+                            android:textStyle="normal"
+                            tools:text="Dear Ayobami, Emmanuel would like to receive blood donation from you. If you are okay with the request, Please acknowledge it by scheduling an appointment with them at one of the presented blood donation centers. After you accept the request, A message containing details of the schedule will be sent to them." />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Blood donation info"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Full name" />
+
+                            <TextView
+                                android:id="@+id/full_name_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="16dp"
+                                tools:text="Rasheed Sulayman" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Location"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/location_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="16dp"
+                                android:visibility="gone"
+                                tools:text="OAU Ife" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Donation type" />
+
+                            <TextView
+                                android:id="@+id/donation_type_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="16dp"
+                                tools:text="Paid" />
+
+                            <TextView
+                                android:id="@+id/religion_label"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Religion" />
+
+                            <TextView
+                                android:id="@+id/religion_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/black"
+                                android:textSize="16dp"
+                                tools:text="Islam" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+
+                    <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="sans-serif"
-                        android:lineSpacingExtra="4sp"
-                        android:textColor="@android:color/black"
-                        android:textStyle="normal"
-                        tools:text="Dear Ayobami, Emmanuel would like to receive blood donation from you. If you are okay with the request, Please acknowledge it by clicking the acceptance button below. After you accept the request, Your contact information will be shared with them. Their detailed information is presented below" />
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="4dp">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Full name" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/full_name_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="Rasheed Sulayman" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="Schedule info"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Location" />
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                app:cardCornerRadius="2dp">
 
-                    <TextView
-                        android:id="@+id/location_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="OAU Ife" />
+                                <LinearLayout
+                                    android:id="@+id/select_blood_bank_linearlayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="4dp"
+                                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Donation type" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Select blood donation center"
+                                        android:textColor="@color/almost_black"
+                                        android:textSize="16sp" />
 
-                    <TextView
-                        android:id="@+id/donation_type_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="Rasheed Sulayman" />
+                                    <Spinner
+                                        android:id="@+id/blood_bank_spinner"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="45dp"
+                                        android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/spinner_resource" />
 
-                    <TextView
-                        android:id="@+id/religion_label"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:text="Religion" />
+                                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/religion_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp"
-                        tools:text="OAU Ife" />
+                            </android.support.v7.widget.CardView>
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                app:cardCornerRadius="2dp">
+
+                                <LinearLayout
+                                    android:id="@+id/date_linearlayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="4dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date"
+                                        android:textColor="@color/almost_black"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/date_value"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:text="@string/touch_here_to_set_date" />
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                app:cardCornerRadius="2dp">
+
+                                <LinearLayout
+                                    android:id="@+id/time_linearlayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="4dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time"
+                                        android:textColor="@color/almost_black"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/time_value"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:text="@string/touch_here_to_set_time" />
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:layout_margin="4dp"
+                                app:cardCornerRadius="2dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="4dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="View route to the selected donation center on the map"
+                                        android:textColor="@color/almost_black"
+                                        android:textSize="16sp" />
+
+                                    <Button
+                                        android:id="@+id/view_selected_donation_center_button"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="50dp"
+                                        android:layout_marginRight="50dp"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/roundedbutton"
+                                        android:text="Get Directions"
+                                        android:textColor="@android:color/white" />
+
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
                 </LinearLayout>
+
             </ScrollView>
 
             <LinearLayout
@@ -146,7 +337,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="0dp"
-            tools:visibility="visible" />
+            android:visibility="gone" />
+
     </FrameLayout>
 
 </LinearLayout>

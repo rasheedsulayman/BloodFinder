@@ -4,11 +4,10 @@ import android.content.Context;
 import android.location.Location;
 import android.text.TextUtils;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.r4sh33d.iblood.location.LocationUtil;
 import com.r4sh33d.iblood.models.BloodPostingData;
-import com.r4sh33d.iblood.models.UserLocation;
+import com.r4sh33d.iblood.models.MiniLocation;
 import com.r4sh33d.iblood.network.DataService;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.JsendResponse;
@@ -51,10 +50,10 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
                     // so location can still be null here, in case of a new phone or factory reset
                     // and other rare cases
                     if (location != null) {
-                        UserLocation userLocation = new UserLocation(location.getLatitude(),
+                        MiniLocation miniLocation = new MiniLocation(location.getLatitude(),
                                 location.getLongitude());
-                        bloodPostingData.donorsLocation = userLocation;
-                        getLocationAddress(userLocation, bloodPostingData);
+                        bloodPostingData.donorsLocation = miniLocation;
+                        getLocationAddress(miniLocation, bloodPostingData);
                     }
                 }
 
@@ -66,13 +65,13 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
             });
         } else {
             //We have the location info
-            UserLocation location =  prefsUtils.getPrefAsObject(Constants.PREF_KEY_LOCATION_OBJECT, UserLocation.class);
+            MiniLocation location =  prefsUtils.getPrefAsObject(Constants.PREF_KEY_LOCATION_OBJECT, MiniLocation.class);
             bloodPostingData.donorsLocation = location;
             getLocationAddress(location , bloodPostingData);
         }
     }
 
-    public void getLocationAddress (UserLocation location , BloodPostingData bloodPostingData){
+    public void getLocationAddress (MiniLocation location , BloodPostingData bloodPostingData){
         Timber.d("Trying to get descriptive Location address: ");
         LocationUtil.getAddressFromLatLongAsync(location,  context , locationAdress -> {
             Timber.d("Location address gotten: " + locationAdress);

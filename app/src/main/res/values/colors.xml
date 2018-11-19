@@ -5,4 +5,5 @@
     <color name="colorPrimaryDark">#FF4081</color>
     <color name="blood_red">#d32f2f</color>
     <color name="yellow">#ffc400</color>
+    <color name="almost_black">#464646</color>
 </resources>
