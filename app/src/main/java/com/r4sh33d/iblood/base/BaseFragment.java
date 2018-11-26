@@ -104,6 +104,7 @@ public abstract class BaseFragment extends Fragment implements BaseContract.view
 
     @Override
     public void showLoading(String message) {
+        hideKeyboard();
         baseActivity.showLoading(message);
     }
 
@@ -152,11 +153,13 @@ public abstract class BaseFragment extends Fragment implements BaseContract.view
 
     @Override
     public void showLoading() {
+        hideKeyboard();
         baseActivity.showLoading();
     }
 
     @Override
     public void showLoading(int resId) {
+        hideKeyboard();
         baseActivity.showLoading(resId);
     }
 }

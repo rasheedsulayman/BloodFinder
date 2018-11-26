@@ -105,7 +105,6 @@ public class UploadBloodAvailabilityFragment extends BaseFragment implements Upl
         emailEditText.setText(userData.email);
         firstNameEditText.setText(userData.firstName);
         lastNameEditText.setText(userData.lastName);
-        //religionSpinner.setText(userData.religion);
     }
 
     void prepareBloodGroupSpinner() {

@@ -104,7 +104,6 @@ public class BloodRequestFragment extends BaseFragment implements BloodRequestCo
         if (userData.isBloodBank) {
             ViewUtils.hide(considerReligionRadioGroup, considerDonorReligionLabel, religionLabel, religionSpinner);
         }
-
     }
 
     void prepareRadioGroup() {

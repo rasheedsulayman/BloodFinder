@@ -61,6 +61,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
                 Provider.provideDataRetrofitService(), Provider.provideAuthRetrofitService(),
                 Provider.providePrefManager(getContext()));
         prepopulateData();
+        hideKeyboard();
     }
 
     void prepopulateData(){

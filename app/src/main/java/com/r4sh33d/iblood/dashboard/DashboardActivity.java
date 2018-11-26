@@ -22,6 +22,7 @@ import com.r4sh33d.iblood.DonationHistory.DonationHistoryFragment;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.base.BaseActivity;
 import com.r4sh33d.iblood.location.LocationUpdateService;
+import com.r4sh33d.iblood.login.LoginActivity;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.requesthisotry.RequestHistoryFragment;
@@ -31,6 +32,7 @@ import com.r4sh33d.iblood.utils.ViewUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 public class DashboardActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -76,7 +78,7 @@ public class DashboardActivity extends BaseActivity
         drawerToggle.setToolbarNavigationClickListener(v -> onBackPressed());
     }
 
-    void startLocationService(){
+    void startLocationService() {
         Intent intent = new Intent(this, LocationUpdateService.class);
         intent.setAction(LocationUpdateService.GET_LAST_KNOWN_LOCATION);
         startService(intent);
@@ -111,18 +113,8 @@ public class DashboardActivity extends BaseActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(TAG, "Item button pressed");
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_search) {
-//            startActivity(new Intent(this, SearchableActivity.class));
-//            return true;
-//        }
         if (id == android.R.id.home) {
-            Log.d(TAG, "Android home clicked");
             getSupportFragmentManager().popBackStack();
             return true;
         }
@@ -154,7 +146,6 @@ public class DashboardActivity extends BaseActivity
         unlockDrawer();
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
@@ -168,6 +159,11 @@ public class DashboardActivity extends BaseActivity
             case R.id.nav_request_history:
                 replaceFragment(new RequestHistoryFragment(), false);
                 break;
+            case R.id.nav_logout:
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
+                break;
+            //TODO add notification/messages fragment for users to come back and perform actions they perform when they have active notifications
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -176,7 +172,6 @@ public class DashboardActivity extends BaseActivity
 
     @Override
     public void showLoading(String message) {
-        Log.d(TAG, "ShowLoading Called");
         drawerLayout.setFitsSystemWindows(false);
         navigationView.setFitsSystemWindows(false);
         ViewUtils.show(progressBarRoot, progressBar, progressMessage);
@@ -187,7 +182,6 @@ public class DashboardActivity extends BaseActivity
 
     @Override
     public void dismissLoading() {
-        Log.d(TAG, "DismisLoading called" );
         drawerLayout.setFitsSystemWindows(true);
         navigationView.setFitsSystemWindows(true);
         ViewUtils.hide(progressBarRoot);
@@ -200,12 +194,16 @@ public class DashboardActivity extends BaseActivity
     }
 
     @Override
-    public void showLoading(int resId) {}
+    public void showLoading(int resId) {
+        showLoading(getResources().getString(resId));
+    }
 
     @Override
-    public void showToolbar() {}
+    public void showToolbar() {
+    }
 
     @Override
-    public void hideToolbar() {}
+    public void hideToolbar() {
+    }
 
 }

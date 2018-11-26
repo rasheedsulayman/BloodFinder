@@ -2,8 +2,8 @@ package com.r4sh33d.iblood.network;
 
 import com.google.gson.JsonElement;
 import com.r4sh33d.iblood.models.BloodPostingData;
-import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.models.MiniLocation;
+import com.r4sh33d.iblood.models.UserData;
 
 import java.util.HashMap;
 
@@ -14,9 +14,11 @@ import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 
 public interface DataService {
+
 
     @PUT("/users/{userId}.json")
     Call<JsonElement> saveAdditionalUserDetail(@Body UserData userData,
@@ -47,9 +49,13 @@ public interface DataService {
     Call<String> uploadBloodPostingId(@Path("bloodPostingId") String bloodPostingId, @Body String bloodPostingIdBody);
 
     @PUT("/blood_request_history/{userId}/{bloodPostingId}.json")
-    Call<JsonElement> updateUserRequestHistory(@Path("bloodPostingId") String bloodPostingId, @Path("userId") String userID ,
-                                      @Body BloodPostingData bloodPostingData);
+    Call<JsonElement> updateUserRequestHistory(@Path("bloodPostingId") String bloodPostingId, @Path("userId") String userID,
+                                               @Body BloodPostingData bloodPostingData);
 
     @GET("/blood_request_history/{userId}.json")
-    Call<JsonElement> getBloodRequestHistory (@Path("userId") String userID);
+    Call<JsonElement> getBloodRequestHistory(@Path("userId") String userID);
+
+    @GET("/blood_availability.json")
+    Call<JsonElement> getBloodDonationHistory(@Query("orderBy") String filteringKey,
+                                              @Query("equalTo") String filteringValue);
 }

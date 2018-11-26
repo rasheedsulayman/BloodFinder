@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:windowSoftInputMode="stateHidden"
             android:name=".login.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>

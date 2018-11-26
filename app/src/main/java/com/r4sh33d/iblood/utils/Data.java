@@ -36,9 +36,25 @@ public class Data {
     }
 
     static {
-        BloodDonationCenter bloodDonationCenter = new BloodDonationCenter(
+        BloodDonationCenter oauTHC = new BloodDonationCenter(
                 "OAUTHC Haematology Unit",
                 "OAUTHC Haematology Unit",
+                "Obafemi Awolowo University Teaching Hospitals Complex",
+                new MiniLocation(7.508528999999999, 4.5669561)
+
+        );
+
+        BloodDonationCenter TestA = new BloodDonationCenter(
+                "Blood Donation Center Test A",
+                "Blood Donation Center Test A",
+                "Obafemi Awolowo University Teaching Hospitals Complex",
+                new MiniLocation(7.508528999999999, 4.5669561)
+
+        );
+
+        BloodDonationCenter TestB = new BloodDonationCenter(
+                "Blood Donation Center Test B",
+                "Blood Donation Center Test B",
                 "Obafemi Awolowo University Teaching Hospitals Complex",
                 new MiniLocation(7.508528999999999, 4.5669561)
 
@@ -47,7 +63,10 @@ public class Data {
         BloodDonationCenter hintBloodDonationCenter = new BloodDonationCenter();
         hintBloodDonationCenter.name = "Select blood donation center";
         bloodDonationCenters.add(0, hintBloodDonationCenter);
-        bloodDonationCenters.add(bloodDonationCenter);
+        bloodDonationCenters.add(oauTHC);
+        bloodDonationCenters.add(TestA);
+        bloodDonationCenters.add(TestB);
+
     }
 
 
