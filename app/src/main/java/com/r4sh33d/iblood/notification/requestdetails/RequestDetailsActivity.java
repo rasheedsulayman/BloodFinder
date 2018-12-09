@@ -175,7 +175,6 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
 
     }
 
-
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
@@ -192,25 +191,20 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
             showToast("Please select a blood donation center to proceed");
             return;
         }
-
         if (TextUtils.isEmpty(dateString)) {
             showToast("Please select a valid date to proceed");
             return;
         }
-
         if (TextUtils.isEmpty(timeString)) {
             showToast("Please select a valid time to proceed");
             return;
         }
-
         showSendConfirmationDialog();
     }
-
 
     public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-
 
     void showSendConfirmationDialog() {
         BloodDonationCenter selectedDonationCenter = (BloodDonationCenter) bloodBankSpinner.getSelectedItem();

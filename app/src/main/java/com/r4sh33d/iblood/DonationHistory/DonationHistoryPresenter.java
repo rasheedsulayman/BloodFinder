@@ -34,7 +34,8 @@ public class DonationHistoryPresenter implements DonationHistoryContract.Present
     @Override
     public void fetchUserDonationHistory(UserData userData) {
         view.showLoading("Loading your donation history, Please wait. . .");
-        dataService.getBloodDonationHistory("\"donor_firebase_id\"", String.format("\"%s\"", userData.firebaseID)).enqueue(new Callback<JsonElement>() {
+        dataService.getBloodDonationHistory("\"donor_firebase_id\"", String.format("\"%s\"", userData.firebaseID))
+                .enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 view.dismissLoading();
