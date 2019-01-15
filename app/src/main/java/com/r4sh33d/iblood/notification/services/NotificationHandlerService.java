@@ -159,7 +159,7 @@ public class NotificationHandlerService extends FirebaseMessagingService {
                 NotificationManager.IMPORTANCE_HIGH);
         channel.setDescription(description);
         channel.enableLights(true);
-        channel.setLightColor(Color.BLUE);
+        channel.setLightColor(Color.RED);
         channel.enableVibration(true);
         channel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
         notificationManager.createNotificationChannel(channel);

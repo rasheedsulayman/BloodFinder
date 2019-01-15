@@ -51,7 +51,8 @@ public class DonationHistoryAdapter extends RecyclerView.Adapter<DonationHistory
                 break;
             case BloodPostingStatus.PENDING:
                 postingsHolder.statusTextView.setText("Pending");
-                postingsHolder.statusTextView.setTextColor(Color.YELLOW);
+                postingsHolder.statusTextView.setTextColor(postingsHolder.itemView.getContext().
+                        getResources().getColor(R.color.yellow));
                 break;
         }
     }

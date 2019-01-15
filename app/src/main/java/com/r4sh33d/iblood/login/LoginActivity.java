@@ -50,7 +50,7 @@ public class LoginActivity extends BaseActivity {
             replaceFragment(new LoginFragment(), false);
         } else {
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 0);
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
         }
     }
 
@@ -72,6 +72,8 @@ public class LoginActivity extends BaseActivity {
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
 
+
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -80,7 +82,7 @@ public class LoginActivity extends BaseActivity {
             //We've been granted the required permission
             replaceFragment(new LoginFragment(), false);
         }else {
-            showDialog("We need the Location permission to get your location information. The matching " +
+            showDialog("We need the Location permission the to get your location information. The matching " +
                             "process is based on the location information retrieved from your device"
                     , (dialog, which) -> finish());
         }
@@ -97,6 +99,8 @@ public class LoginActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     @Override
     public void dismissLoading() {
         ViewUtils.hide(progressBarRoot);
@@ -110,7 +114,6 @@ public class LoginActivity extends BaseActivity {
     public void showToolbar() {
         getSupportActionBar().show();
     }
-
 
 }
 
