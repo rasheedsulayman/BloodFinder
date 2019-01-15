@@ -1,31 +1,37 @@
 package com.r4sh33d.iblood.login;
 
 import android.Manifest;
-import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.gms.common.api.ResolvableApiException;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.location.SettingsClient;
+import com.google.android.gms.tasks.Task;
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.base.BaseActivity;
-import com.r4sh33d.iblood.login.LoginFragment;
 import com.r4sh33d.iblood.utils.ViewUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends BaseActivity {
+
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -55,33 +61,13 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    public void showLoading() {
-        showLoading("Please wait");
-    }
-
-    @Override
-    public void showLoading(int resId) {
-        showLoading(getString(resId));
-    }
-
-    @Override
-    public void showLoading(String message) {
-        ViewUtils.show(progressBarRoot, progressBar, progressMessage);
-        progressMessage.setText(message);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-    }
-
-
-
-    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         if (grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             //We've been granted the required permission
             replaceFragment(new LoginFragment(), false);
-        }else {
+        } else {
             showDialog("We need the Location permission the to get your location information. The matching " +
                             "process is based on the location information retrieved from your device"
                     , (dialog, which) -> finish());
@@ -99,7 +85,23 @@ public class LoginActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void showLoading() {
+        showLoading("Please wait");
+    }
 
+    @Override
+    public void showLoading(int resId) {
+        showLoading(getString(resId));
+    }
+
+    @Override
+    public void showLoading(String message) {
+        ViewUtils.show(progressBarRoot, progressBar, progressMessage);
+        progressMessage.setText(message);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
 
     @Override
     public void dismissLoading() {

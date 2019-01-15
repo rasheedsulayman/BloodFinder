@@ -62,7 +62,6 @@ public class LocationUtil {
                 listener.onLocationAddressRetried(result);
             }
         }.execute();
-
     }
 
 
@@ -117,6 +116,7 @@ public class LocationUtil {
             resultAddress = TextUtils.join(System.getProperty("line.separator"), addressFragments);
             //deliverResultToReceiver(Constants.SUCCESS_RESULT,
         }
+
         return resultAddress;
     }
 
