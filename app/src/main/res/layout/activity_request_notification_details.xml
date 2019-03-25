@@ -129,6 +129,7 @@
                                 tools:text="Paid" />
 
                             <TextView
+                                android:visibility="gone"
                                 android:id="@+id/religion_label"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -136,6 +137,7 @@
                                 android:text="Religion" />
 
                             <TextView
+                                android:visibility="gone"
                                 android:id="@+id/religion_textview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

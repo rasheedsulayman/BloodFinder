@@ -23,7 +23,7 @@ import com.r4sh33d.iblood.models.BloodRequestNotificationData;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.notification.acceptancedetails.NotificationAcceptanceDetailsActivity;
-import com.r4sh33d.iblood.notification.requestdetails.RequestDetailsActivity;
+import com.r4sh33d.iblood.notification.requestdetails.NotificationRequestDetailsActivity;
 import com.r4sh33d.iblood.utils.Constants;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 
@@ -94,7 +94,7 @@ public class NotificationHandlerService extends FirebaseMessagingService {
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         String notificationBody = String.format(" Hello %s, %s would like to receive blood donation from you",
                 donorsName, bloodRequestNotificationData.bloodSeekerName);
-        PendingIntent pendingIntent = getPendingIntent(RequestDetailsActivity.class, bloodRequestNotificationData);
+        PendingIntent pendingIntent = getPendingIntent(NotificationRequestDetailsActivity.class, bloodRequestNotificationData);
         return new NotificationCompat.Builder(this, NOTIFICATION_CHANEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Blood donation request")

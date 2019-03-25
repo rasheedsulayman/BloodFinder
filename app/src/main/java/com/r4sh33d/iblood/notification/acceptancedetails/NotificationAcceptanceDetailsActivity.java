@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.gwidget.TextView;
 
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.models.AcceptanceNotificationData;
@@ -39,7 +39,7 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.progress_bar_root)
+    @BindView(R.id.progress_bar_root)g
     ConstraintLayout progressBarRoot;
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
@@ -95,7 +95,7 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
         if (getIntent() != null) {
             handleNotificationIntent(getIntent());
         } else {
-            // We miss road.
+            //We miss road.
             finish();
         }
     }
@@ -147,7 +147,7 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
 
         headerInfoTextView.setText(Utils.getHtmlFormattedText(headerText));
         fullNameTextView.setText(String.format("%s %s", bloodDonorData.firstName, bloodDonorData.lastName));
-        donationTypeTextView.setText("Paid"); //TODO come back and set this, Don't hardcode
+        donationTypeTextView.setText("Free"); //TODO come back and set this, Don't hardcode
         //locationTextView.setText(bloodDonorData.miniLocation.descriptiveAddress); //TODO come back and check this
         religionTextView.setText(bloodDonorData.religion); //TODO come back and hide this based on religion option
         viewRouteTextView.setText(String.format("View route to %s on the map", notificationData.donorPreferredDonationCenterName));

@@ -1,4 +1,4 @@
-package com.r4sh33d.iblood.DonationHistory;
+package com.r4sh33d.iblood.donationHistory;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;

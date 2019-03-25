@@ -1,4 +1,4 @@
-package com.r4sh33d.iblood.DonationHistory;
+package com.r4sh33d.iblood.donationHistory;
 
 import com.r4sh33d.iblood.base.BaseContract;
 import com.r4sh33d.iblood.models.BloodPostingData;

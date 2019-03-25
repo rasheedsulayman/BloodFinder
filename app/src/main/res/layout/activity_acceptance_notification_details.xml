@@ -131,6 +131,7 @@
                                 tools:text="Paid" />
 
                             <TextView
+                                android:visibility="gone"
                                 android:id="@+id/religion_label"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -138,13 +139,14 @@
                                 android:text="Religion" />
 
                             <TextView
+                                android:visibility="gone"
                                 android:id="@+id/religion_textview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp"
-                                tools:text="OAU Ife" />
+                                tools:text="Islam" />
 
                         </LinearLayout>
                     </android.support.v7.widget.CardView>

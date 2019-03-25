@@ -50,7 +50,7 @@ import static com.r4sh33d.iblood.notification.services.NotificationHandlerServic
 import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.NOTIFICATION_OBJECT_ARGS;
 
 
-public class RequestDetailsActivity extends AppCompatActivity implements RequestDetailsContract.View,
+public class NotificationRequestDetailsActivity extends AppCompatActivity implements RequestDetailsContract.View,
         DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     @BindView(R.id.toolbar)
@@ -140,8 +140,9 @@ public class RequestDetailsActivity extends AppCompatActivity implements Request
         acceptButton.setEnabled(true);
         headerInfoTextView.setText(String.format("Dear %s, %s %s would like to receive blood donation from you. If you are okay with the request," +
                         " Please acknowledge it by scheduling an appointment with them at one of the presented blood donation centers." +
-                        " After you accept the request, A message containing details of the schedule will be sent to them.",
-                bloodPostingData.donorsName, bloodSeekerData.firstName, bloodSeekerData.lastName));
+                        " After you accept the request, A message containing details of the schedule will be sent to both %s and the" +
+                        " chosen blood donation center",
+                bloodPostingData.donorsName, bloodSeekerData.firstName, bloodSeekerData.lastName , bloodSeekerData.firstName));
         fullNameTextView.setText(String.format("%s %s", bloodSeekerData.firstName, bloodSeekerData.lastName));
         //  locationTextView.setText(bloodSeekerData.miniLocation.descriptiveAddress); //TODO come back and check this
         donationTypeTextView.setText(bloodPostingData.donationType);

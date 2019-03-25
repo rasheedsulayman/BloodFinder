@@ -73,9 +73,9 @@ public class UploadBloodAvailabilityPresenter implements UploadBloodAvailability
 
     public void getLocationAddress (MiniLocation location , BloodPostingData bloodPostingData){
         Timber.d("Trying to get descriptive Location address: ");
-        LocationUtil.getAddressFromLatLongAsync(location,  context , locationAdress -> {
-            Timber.d("Location address gotten: " + locationAdress);
-            bloodPostingData.donorsLocation.descriptiveAddress = locationAdress;
+        LocationUtil.getAddressFromLatLongAsync(location,  context , locationAddress -> {
+            Timber.d("Location address gotten: " + locationAddress);
+            bloodPostingData.donorsLocation.descriptiveAddress = locationAddress;
             uploadBloodAvailability(bloodPostingData);
         });
     }
