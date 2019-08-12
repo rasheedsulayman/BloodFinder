@@ -1,25 +1,23 @@
 package com.r4sh33d.iblood.notification.acceptancedetails;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.gwidget.TextView;
+import android.widget.TextView;
 
 import com.r4sh33d.iblood.R;
 import com.r4sh33d.iblood.models.AcceptanceNotificationData;
 import com.r4sh33d.iblood.models.UserData;
 import com.r4sh33d.iblood.network.Provider;
 import com.r4sh33d.iblood.utils.Constants;
-import com.r4sh33d.iblood.utils.DateUtils;
 import com.r4sh33d.iblood.utils.PrefsUtils;
 import com.r4sh33d.iblood.utils.Utils;
 import com.r4sh33d.iblood.utils.ViewUtils;
@@ -31,7 +29,6 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.internal.Util;
 
 import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.NOTIFICATION_OBJECT_ARGS;
 
@@ -39,7 +36,7 @@ public class NotificationAcceptanceDetailsActivity extends AppCompatActivity imp
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.progress_bar_root)g
+    @BindView(R.id.progress_bar_root)
     ConstraintLayout progressBarRoot;
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;

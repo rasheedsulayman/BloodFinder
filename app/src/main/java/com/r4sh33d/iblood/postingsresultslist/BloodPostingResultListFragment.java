@@ -30,9 +30,6 @@ import butterknife.ButterKnife;
 
 import static com.r4sh33d.iblood.notification.services.NotificationHandlerService.BLOOD_REQUEST_NOTIFICATION_TYPE;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 
 public class BloodPostingResultListFragment extends BaseFragment implements
         PostingsListAdapter.OnBloodPostingItemClickListener, BloodPostingResultListContract.View {

@@ -1,16 +1,23 @@
 package com.r4sh33d.iblood.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.r4sh33d.iblood.R;
 
 
 public final class ViewUtils {
@@ -80,6 +87,23 @@ public final class ViewUtils {
             }
         }
         return true;
+    }
+
+    public static void setLightStatusBar(Activity activity){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            View view = activity.getWindow().getDecorView();
+            int flags = view.getSystemUiVisibility();
+            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            view.setSystemUiVisibility(flags);
+            activity.getWindow().setStatusBarColor(Color.WHITE);
+        }
+    }
+
+    public static void clearLightStatusBar(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Window window = activity.getWindow();
+            window.setStatusBarColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark));
+        }
     }
 
     public static boolean validateRadioGroup(RadioGroup radioGroup, String message, Context context) {
