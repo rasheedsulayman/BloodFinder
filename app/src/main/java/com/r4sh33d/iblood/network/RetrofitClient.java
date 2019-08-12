@@ -17,11 +17,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
     boolean isDebug = BuildConfig.DEBUG;
 
-    public static final String API_KEY = "AIzaSyAvC5cvSGIvrxmqN0qIKvj-M6IqV6VkXcQ";
-    private static final String AUTH_BASE_URL = "https://www.googleapis.com/";
-    private static final String DATABASE_BASE_URL = "https://iblood-7253a.firebaseio.com/";
-    private static final String NOTIFICATION_BASE_URL = "https://fcm.googleapis.com/";
-    private static final  String NOTIFICATION_AUTHORIZATION_TOKEN = "key=AIzaSyBQ7858Scfs-dFhI1r6k83KfM7rYGTHYR8";
+    public static final String API_KEY = "Replace with your creds";
+    private static final String AUTH_BASE_URL = "Replace with your creds";
+    private static final String DATABASE_BASE_URL = "Replace with your creds";
+    private static final String NOTIFICATION_BASE_URL = "Replace with your creds";
+    private static final  String NOTIFICATION_AUTHORIZATION_TOKEN = "Replace with your creds";
 
 
     public static Retrofit buildAuthRetrofit() {

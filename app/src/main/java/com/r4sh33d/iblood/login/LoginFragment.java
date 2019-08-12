@@ -88,8 +88,6 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         }
     }
 
-
-
     protected void createLocationRequest() {
         LocationRequest mLocationRequest = LocationRequest.create();
         mLocationRequest.setInterval(10000);
@@ -131,7 +129,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Timber.d("onActivity result: " + data);
+        Timber.d("onActivity result: %s", data);
         if (requestCode == REQUEST_CHECK_SETTINGS) {
             isLocationServiceEnabled = resultCode == RESULT_OK;
         }
