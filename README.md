@@ -10,6 +10,8 @@ Iblood is an application that connects blood seekers with nearby blood donors an
 
 <br/>
 
+To learn more about the project, see the [publication article](http://purkh.com/index.php/tocomp/article/download/429/375).
+
 ## License
 
 (c) 2019 Rasheed Sulayman
